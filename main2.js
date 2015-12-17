@@ -388,92 +388,6 @@ function cBh_(ajx_url) {
 		setManagerDisable: function(){
 			managerEnable = false;
 		},
-		msg: function (resp) {
-			var _this = this;
-			var respContent = '';
-			var cnt = 0;
-			var cntMy = 0;
-			if(resp) {
-				cl.each(resp, function (index, val) {
-					var LastId = _this.msgList.length;
-					var noUID = -1;
-					if(LastId > 0)
-						cl.each(_this.msgList, function (id, content) {
-							if(content.uid == val.id) noUID = id;
-						});
-					if(noUID < 0) {
-						cBh.msgList[LastId] = {};
-						cBh.msgList[LastId].uid = val.id;
-						cBh.msgList[LastId].who = val.who;
-						cBh.msgList[LastId].text = val.text;
-						if(val.who == "0") {
-							cntMy++;
-							if(val.now == "1") {
-								if(cBh.c.find('#cBh' + val.id).text().length == 0) {
-									respContent += '<dl class="cMil_p" id="cBh' + val.id + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + val.text.split('[nr]').join("\n") + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>';
-								}
-								/*cBh.c.find('#cMil_content').append();*/
-							}
-						} else if(val.who == "1") {
-							if(_this.c.find('#cBh' + val.id).text().length == 0)
-								respContent += '<dl class="cMil_u" id="cBh' + val.id + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + val.text.split('[nr]').join("\n") + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>';
-						}
-						cnt++;
-					} else {
-						_this.msgList[noUID].who = val.who;
-						_this.msgList[noUID].text = val.text;
-					}
-				});
-			}
-			_this.lastScrollTop = 0;
-			if(cnt > 0 && managerEnable) {
-				if(!cl('#cBh_frame').is(':visible') && cntMy === 0) {
-					_this.ONfadeIn(1);
-					if(cBh.c.find('#cMil_action').is(':visible')) cBh.c.find('#cMil_action').hide();
-				}
-				if(!_this.FormOn_TextArea) {
-					_this.FormOn_TextArea = true;
-					_this.c.find('#cMil_FormOn_TextArea textarea').attr('placeholder', '');
-				}
-				_this.c.find('#cMil_content').fadeTo(0.2);
-				_this.c.find('#cMil_content').append(respContent);
-				_this.c.find('#cMil_scroll').animate({
-					scrollTop: _this.c.find('#cMil_content').height()
-				}, 'fast');
-				_this.c.find('#cMil_content').fadeIn();
-				if(cl('#cBh_frame').is(':visible')) {
-					_this.title();
-					_this.echo();
-				}
-			}
-			_this.save();
-			var text = _this.c.find('#cMil_content').html();
-			console.log(text);
-			//cl('#cMil_ping span').fadeOut();
-			//cBh.getStop(1);
-		},
-		reMessage: function () {
-			console.log('reMessage');
-			if(cBh.msgList.length > 0) {
-				cBh.c.find('#cMil_content').html('');
-				cl.each(cBh.msgList, function (id, content) {
-						if(content.who == '0') cBh.c.find('#cMil_content').append('<dl class="cMil_p" id="cBh' + content.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + content.text.split('[nr]').join("\n") + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>');
-						else cBh.c.find('#cMil_content').append('<dl class="cMil_u" id="cBh' + content.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + content.text.split('[nr]').join("\n") + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>');
-				});
-				cBh.lastScrollTop = 0;
-				if(!cl('#cBh_frame').is(':visible')) {
-					cBh.ONfadeIn(1);
-					if(cl('#cMil_action').is(':visible')) cl('#cMil_action').hide();
-				}
-				if(!cBh.FormOn_TextArea) {
-					cBh.FormOn_TextArea = true;
-					cBh.c.find('#cMil_FormOn_TextArea textarea').attr('placeholder', '');
-				}
-				cBh.c.find('#cMil_scroll').animate({
-					scrollTop: cBh.c.find('#cMil_content').height()
-				}, 2);
-			}
-		},
 		add: function () {
 			cBh.lastScrollTop = 0;
 			cBh.StopTextMsg = 1;
@@ -525,37 +439,6 @@ function cBh_(ajx_url) {
 					}, 20000);
 				}
 				cBh.save();
-			}
-		},
-		off: function () {
-			var cMilName = cBh.c.find('#cMil_FNname').val();
-			var cMilPhone = cBh.c.find('#cMil_FNphone').val();
-			var cMilText = cBh.c.find('#cMil_FNtext').val();
-			if(cMilName == cBh.FN.offName) cMilName = '';
-			if(cMilPhone == cBh.FN.offContact) cMilPhone = '';
-			if(cMilText == cBh.FN.offText) cMilText = '';
-			if(cMilName.length == 0) cBh.c.find('#cMil_FNname').val(cBh.FN.offName).css({
-				'color': '#ff0000'
-			});
-			else cBh.c.find('#cMil_FNname').css({
-				'color': '#7D7F82'
-			});
-			if(cMilPhone.length == 0) cBh.c.find('#cMil_FNphone').val(cBh.FN.offContact).css({
-				'color': '#ff0000'
-			});
-			else cBh.c.find('#cMil_FNphone').css({
-				'color': '#7D7F82'
-			});
-			if(cMilText.length == 0) cBh.c.find('#cMil_FNtext').val(cBh.FN.offText).css({
-				'color': '#ff0000'
-			});
-			else cBh.c.find('#cMil_FNtext').val('').css({
-				'color': '#7D7F82'
-			});
-			if(cMilName.length > 0 && cMilPhone.length > 0 && cMilText.length > 0) {
-				cBh.offMsg();
-				cBh.uInfo(cMilName,cMilPhone);
-				this._get(ajx_url + '?' + 'offline[text]=' + Base64.encode(this.code(cMilText)) + '&offline[name]=' + Base64.encode(this.code(cMilName)) + '&offline[phone]=' + Base64.encode(cMilPhone) + '&offline[session]=' + this.session + '&offline[client]=' + this.client + '&offline[activator]=' + cBh.activator);
 			}
 		},
 		uInfo: function (respName, respPhone) {
@@ -714,10 +597,6 @@ function cBh_(ajx_url) {
 			}
 		},
 
-		fadeIn: function (status) {
-			if(managerEnable) cBh.ONfadeIn(status);
-			else cBh.OFfadeIn(status);
-		},
 		insertCssFrame: function(code){
 			var style = document.createElement('style');
 			style.type = 'text/css'; 

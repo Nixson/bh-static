@@ -41,6 +41,7 @@ bHelp = (function(){
 	var info = {
 		Mcie: Mcie,
 		Storage:Storage,
+		online: false,
 		client: 0,
 		uid: 0,
 		get: {},
@@ -77,6 +78,8 @@ bHelp = (function(){
 		Scroll:0,
 		origHeight: 16,
 		LastTextMsg:"",
+		lastScrollTop:0,
+		activator: 0,
 		updateSize: function () {
 			var _this = this;
 			_this.origHeight = 16;
@@ -84,12 +87,12 @@ bHelp = (function(){
 			$('#cMil_FormOn_SubTextArea textarea').scrollTop(100000);
 			var scrollTop = $('#cMil_FormOn_SubTextArea textarea').scrollTop();
 			$('#cMil_FormOn_SubTextArea textarea').val($('#cMil_FormOn_SubTextArea textarea').val());
-			if(scrollTop !== cBh.lastScrollTop) {
-				if(cBh.lastScrollTop == 0) {
+			if(scrollTop !== _this.lastScrollTop) {
+				if(_this.lastScrollTop == 0) {
 					$('#cMil_FormOn span').hide();
 					$('#cMil_FormOn_TextArea textarea, #cMil_FormOn_SubTextArea textarea').css('margin-left', '5px').width(195);
 				}
-				cBh.lastScrollTop = scrollTop;
+				_this.lastScrollTop = scrollTop;
 				if(scrollTop <= 70) {
 					$('#cMil_FormOn_TextArea textarea').css('overflow', 'hidden');
 					$('#cMil_FormOn_TextArea textarea').height(18 + scrollTop);
@@ -133,6 +136,134 @@ bHelp = (function(){
 			}
 		},
 		signal: function(msg){},
+		msgList: {},
+		FormOn_TextArea: false,
+
+
+
+
+
+
+
+		msg: function (resp) {
+			var _this = this;
+			var respContent = '';
+			var cnt = 0;
+			var cntMy = 0;
+			if(resp) {
+				$.each(resp, function (index, val) {
+					var LastId = _this.msgList.length;
+					var noUID = -1;
+					if(LastId > 0)
+						$.each(_this.msgList, function (id, content) {
+							if(content.uid == val.id) noUID = id;
+						});
+					if(noUID < 0) {
+						_this.msgList[LastId] = {};
+						_this.msgList[LastId].uid = val.id;
+						_this.msgList[LastId].who = val.who;
+						_this.msgList[LastId].text = val.text;
+						if(val.who == "0") {
+							cntMy++;
+							if(val.now == "1") {
+								if($('#cBh' + val.id).text().length == 0) {
+									respContent += '<dl class="cMil_p" id="cBh' + val.id + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + val.text.split('[nr]').join("\n") + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>';
+								}
+								/*cBh.c.find('#cMil_content').append();*/
+							}
+						} else if(val.who == "1") {
+							if($('#cBh' + val.id).text().length == 0)
+								respContent += '<dl class="cMil_u" id="cBh' + val.id + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + val.text.split('[nr]').join("\n") + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>';
+						}
+						cnt++;
+					} else {
+						_this.msgList[noUID].who = val.who;
+						_this.msgList[noUID].text = val.text;
+					}
+				});
+			}
+			_this.lastScrollTop = 0;
+			if(cnt > 0 && managerEnable) {
+				if(!$('#cBh_frame').is(':visible') && cntMy === 0) {
+					_this.ONfadeIn(1);
+					if(cBh.c.find('#cMil_action').is(':visible')) cBh.c.find('#cMil_action').hide();
+				}
+				if(!_this.FormOn_TextArea) {
+					_this.FormOn_TextArea = true;
+					$('#cMil_FormOn_TextArea textarea').attr('placeholder', '');
+				}
+				$('#cMil_content').fadeTo(0.2);
+				$('#cMil_content').append(respContent);
+				$('#cMil_scroll').animate({
+					scrollTop: $('#cMil_content').height()
+				}, 'fast');
+				$('#cMil_content').fadeIn();
+				if($('#cBh_frame').is(':visible')) {
+					_this.title();
+					_this.echo();
+				}
+			}
+			_this.save();
+			var text = $('#cMil_content').html();
+		},
+		reMessage: function () {
+			var _this = this;
+			if(_this.msgList.length > 0) {
+				$('#cMil_content').html('');
+				$.each(_this.msgList, function (id, content) {
+						if(content.who == '0') $('#cMil_content').append('<dl class="cMil_p" id="cBh' + content.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + content.text.split('[nr]').join("\n") + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>');
+						else $('#cMil_content').append('<dl class="cMil_u" id="cBh' + content.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + content.text.split('[nr]').join("\n") + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>');
+				});
+				_this.lastScrollTop = 0;
+				if(!$('#cBh_frame').is(':visible')) {
+					_this.ONfadeIn(1);
+					if($('#cMil_action').is(':visible')) $('#cMil_action').hide();
+				}
+				if(!_this.FormOn_TextArea) {
+					_this.FormOn_TextArea = true;
+					$('#cMil_FormOn_TextArea textarea').attr('placeholder', '');
+				}
+				$('#cMil_scroll').animate({
+					scrollTop: $('#cMil_content').height()
+				}, 2);
+			}
+		},
+		off: function () {	// оффлайн сообещение
+			var _this = this;
+			var cMilName = $('#cMil_FNname').val();
+			var cMilPhone = $('#cMil_FNphone').val();
+			var cMilText = $('#cMil_FNtext').val();
+			if(cMilName == _this.blank.offName) cMilName = '';
+			if(cMilPhone == _this.blank.offContact) cMilPhone = '';
+			if(cMilText == _this.blank.offText) cMilText = '';
+			if(cMilName.length == 0) $('#cMil_FNname').val(_this.blank.offName).css({
+				'color': '#ff0000'
+			});
+			else $('#cMil_FNname').css({
+				'color': '#7D7F82'
+			});
+			if(cMilPhone.length == 0) $('#cMil_FNphone').val(_this.blank.offContact).css({
+				'color': '#ff0000'
+			});
+			else $('#cMil_FNphone').css({
+				'color': '#7D7F82'
+			});
+			if(cMilText.length == 0) $('#cMil_FNtext').val(_this.blank.offText).css({
+				'color': '#ff0000'
+			});
+			else $('#cMil_FNtext').val('').css({
+				'color': '#7D7F82'
+			});
+			if(cMilName.length > 0 && cMilPhone.length > 0 && cMilText.length > 0) {
+				_this.offMsg();
+				_this.uInfo(cMilName,cMilPhone);
+				_this.signal({offlineText:cMilText,offlineName:cMilName,offlinePhone:cMilPhone,offlineClient:_this.client,offlineActivator:_this.activator});
+			}
+		},
+		fadeIn: function (status) {
+			if(_this.online) _this.ONfadeIn(status);
+			else _this.OFfadeIn(status);
+		},
 		initLine: function(){//инициализация кнопки вызова и блока для drag
 			var _this = this; _this.insertLine(_this.get.lineStyle+mainStyle);var cBhBlock = document.createElement('img');cBhBlock.id = 'cMil_Line';cBhBlock.setAttribute('src','data:image/png;base64,'+_this.get.lineImg);window.parent.document.body.appendChild(cBhBlock);$( '#cMil_Line', window.parent.document ).show("drop",300);$('#cMil_Line', window.parent.document).on('click',function(){_this.fadeIn();});var div = document.createElement('div');div.id = 'cMil_body';div.style.visibility='hidden'; div.style.display='none'; div.innerHTML = '<div id="cMil_FrameCover" style="position: fixed; top: 0; left: 0; display: block;"><div id="cMil_FrameClose"></div><div id="cMil_FrameSound"></div></div>'; window.parent.document.body.appendChild(div); $('#cMil_body',window.parent.document).width($(window.parent).width() - 20).height(window.parent.innerHeight - 282).show();$(window.parent).resize(function () {$('#cMil_body',window.parent.document).width($(window.parent).width() - 20).height(window.parent.innerHeight - 282);});
 			$('#cMil_FrameCover',window.parent.document).draggable({containment: '#cMil_body',
