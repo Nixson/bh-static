@@ -26,24 +26,43 @@ bHelp = function(){}
 
 
 bHelp = (function(){
-	bhelpLoad(bhelpInfoAddress+"/info.js?get="+bhelpSrvId,"bhelp_get",function(info){
-		var jinfo = JSON.parse(info);
-		iframeContent = iframeContent.replace("{%BG%}",jinfo.bg)
-									 .replace("{%DID%}",bhelpSrvId)
-									 .replace("{%OFF_INFO%}",jinfo.off_info)
-									 .replace("{%ACTIVINFO%}",jinfo.activeinfo)
-									 .replace("{%ACTIVEOFF%}",jinfo.activeoff);
-		$('body').html(iframeContent);
-	});
-	return {
+	var info = {
+		get: {},
+		init: function(){
+			var _this = this;
+			_this.initLine();
+		},
+		initLine: function(){
+			var _this = this;
+			_this.insertLine(_this.get.lineStyle);
+			var cBhBlock = document.createElement('img');
+			cBhBlock.id = 'cMil_Line';
+			cBhBlock.setAttribute('src','data:image/png;base64,'+cBhImg);
+			window.parent.document.body.appendChild(cBhBlock);
+			$('#cMil_Line', window.parent.document).on('click',function(){
+				_this.fadeIn();
+			});
+		},
+		fadeIn: function(){
+			console.log("fadeIn");
+		},
+		insertLine: function(code) {var style = document.createElement('style');style.type = 'text/css'; if(style.styleSheet) {style.styleSheet.cssText = code;} else style.innerHTML = code; window.parent.document.getElementsByTagName('head')[0].appendChild( style );
+		}
 
+	};
+	bhelpLoad(bhelpInfoAddress+"/info.js?get="+bhelpSrvId,"bhelp_get",function(linfo){
+		info.get = JSON.parse(linfo);
+		iframeContent = iframeContent.replace("{%BG%}",info.get.bg)
+									 .replace("{%DID%}",bhelpSrvId)
+									 .replace("{%OFF_INFO%}",info.get.off_info)
+									 .replace("{%ACTIVINFO%}",info.get.activeinfo)
+									 .replace("{%ACTIVEOFF%}",info.get.activeoff);
+		$('body').html(iframeContent);
+		info.init();
+	});
+	return info;
 	}
 }());
-
-
-	$js =  "\nfunction insertCss(code) {var style = document.createElement('style');style.type = 'text/css'; if(style.styleSheet) {style.styleSheet.cssText = code;} else style.innerHTML = code; document.getElementsByTagName('head')[0].appendChild( style );}";
-	return $js."insertCss(cMilCssbutton);\nvar cBhBlock = document.createElement('img');\ncBhBlock.id = 'cMil_Line';\nif (cBhBlock.addEventListener) cBhBlock.addEventListener('click', function(){cBh.fadeIn();}, false);else if (cBhBlock.attachEvent)cBhBlock.attachEvent('onclick', function(){cBh.fadeIn();});\ncBhBlock.setAttribute('src','data:image/png;base64,'+cBhImg);\ndocument.body.appendChild(cBhBlock);";
-
 
 
 
