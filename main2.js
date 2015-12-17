@@ -365,55 +365,6 @@ function cBh_(ajx_url) {
 		TimeTextMsg: 0,
 		StopTextMsg: 0,
 		TimeoutTextMsg: null,
-		updateSize: function () {
-			this.origHeight = 16;
-			cBh.c.find('#cMil_FormOn_SubTextArea textarea').val(cBh.c.find('#cMil_FormOn_TextArea textarea').val());
-			cBh.c.find('#cMil_FormOn_SubTextArea textarea').scrollTop(10000);
-			var scrollTop = cBh.c.find('#cMil_FormOn_SubTextArea textarea').scrollTop();
-			cBh.c.find('#cMil_FormOn_SubTextArea textarea').val(cBh.c.find('#cMil_FormOn_SubTextArea textarea').val());
-			if(scrollTop !== cBh.lastScrollTop) {
-				if(cBh.lastScrollTop == 0) {
-					cBh.c.find('#cMil_FormOn span').hide();
-					cBh.c.find('#cMil_FormOn_TextArea textarea, #cMil_FormOn_SubTextArea textarea').css('margin-left', '5px').width(195);
-				}
-				cBh.lastScrollTop = scrollTop;
-				if(scrollTop <= 70) {
-					cBh.c.find('#cMil_FormOn_TextArea textarea').css('overflow', 'hidden');
-					cBh.c.find('#cMil_FormOn_TextArea textarea').height(18 + scrollTop);
-					cBh.c.find('#cMil_FormOn').css('top', (270 - 6 - scrollTop) + 'px');
-					cBh.c.find('#cMil_Online_cbbg').height(212 - 6 - scrollTop);
-					cBh.c.find('#cMil_scroll').height(191 - scrollTop);
-					cBh.c.find('#cMil_FOsubmit').height(3 + scrollTop).parent().height(3 + scrollTop);
-				} else {
-					cBh.c.find('#cMil_FormOn_TextArea textarea').css('overflow-y', 'auto');
-				}
-				cBh.c.find('#cMil_FormOn_SubTextArea textarea').scrollTop(1);
-			}
-			if(cBh.LastTextMsg!=cBh.c.find('#cMil_FormOn_SubTextArea textarea').val()){
-				cBh.LastTextMsg = cBh.c.find('#cMil_FormOn_SubTextArea textarea').val();
-				cBh.TimeTextMsg = parseInt(Number(new Date())/1000)+5;
-				cBh.startTimeTextMsg(1);
-			}
-		},
-		startTimeTextMsg: function(first){
-			if(cBh.StopTextMsg==1){
-				clearTimeout(cBh.TimeoutTextMsg);
-				cBh.LoadTextMsg = 0;
-				setTimeout(function(){cBh.StopTextMsg=0;},1000);
-				return false;
-			}
-			if(first==1) cBh.signal(['startMessage:'+cBh.LastTextMsg]);
-			var time = parseInt(Number(new Date())/1000);
-			if(time < cBh.TimeTextMsg && cBh.LoadTextMsg == 0) {
-				cBh.LoadTextMsg = 1;
-				cBh.TimeoutTextMsg = setTimeout(function(){
-					cBh.LoadTextMsg = 0;
-					cBh.startTimeTextMsg(0);
-				},5000);
-			}else if (time >= cBh.TimeTextMsg){
-				cBh.signal(['endMessage']);
-			}
-		},
 		save: function () {
 			var _this = this;
 			var cJSON = cl.toJSON(_this.msgList);
@@ -994,11 +945,6 @@ if(managerEnable) {
 
 
 
-if(!managerEnable){
-	cl('#cMil_Offline_Rel').appendTo(cBh.c.find('body'));
-}
-else cl('#cMil_Online_Rel').appendTo(cBh.c.find('body'));
-
 
 if(cBh.client === 0) {
 	cBh._get(cBh.ajx_url + '?newUser=1');
@@ -1006,23 +952,10 @@ if(cBh.client === 0) {
 	cBh._get(cBh.ajx_url + '?newUser=' + cBh.client);
 }
 
-cBh.c.find('#cMil_FormOn_TextArea textarea').on('keyup', cBh.updateSize).on('keydown', cBh.updateSize).on('change', cBh.updateSize);
-
-if(cBh.Mcie) {
-	cl('#cMil_action').appendTo('body').hide();
-	cl('#cMil_stat').appendTo('body').hide();
-} else {
-	cl('#cMil_action').css('opacity', 0).appendTo('body').css('visibility', 'visible').hide();
-	cl('#cMil_stat').css('opacity', 0).appendTo('body').css('visibility', 'visible').hide();
-}
 
 
 
-cBh.TextArea = cBh.c.find('#cMil_FormOn_TextArea textarea').height();
-//cBh.FormOn = parseInt(cl('#cMil_FormOn').css('top').split('px').join(''));
-cBh.Cbbg = cBh.c.find('#cMil_Online_cbbg').height();
-cBh.Scroll = cBh.c.find('#cMil_scroll').height();
-cBh.origHeight = cBh.c.find('#cMil_FormOn_TextArea textarea').height();
+
 
 if(cBh.Mcie) {
 	cJLoad('static/html5.js');

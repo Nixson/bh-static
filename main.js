@@ -63,9 +63,76 @@ bHelp = (function(){
 			if(_this.Storage.getItem('cBh_offName') != null) $('#cMil_FNname').val(_this.Storage.getItem('cBh_offName'));
 			if(_this.Storage.getItem('cBh_offContact') != null) $('#cMil_FNphone').val(_this.Storage.getItem('cBh_offContact'));
 			if(_this.Storage.getItem('cBh_session') != null) _this.session = _this.Storage.getItem('cBh_session');
+			$('#cMil_FormOn_TextArea textarea').on('keyup', _this.updateSize).on('keydown', _this.updateSize).on('change', _this.updateSize);
+			_this.TextArea = $('#cMil_FormOn_TextArea textarea').height();
+			_this.Cbbg = $('#cMil_Online_cbbg').height();
+			_this.Scroll = $('#cMil_scroll').height();
+			_this.origHeight = $('#cMil_FormOn_TextArea textarea').height();
+
 
 
 		},
+		TextArea:0,
+		Cbbg:0,
+		Scroll:0,
+		origHeight: 16,
+		LastTextMsg:"",
+		updateSize: function () {
+			var _this = this;
+			_this.origHeight = 16;
+			$('#cMil_FormOn_SubTextArea textarea').val($('#cMil_FormOn_TextArea textarea').val());
+			$('#cMil_FormOn_SubTextArea textarea').scrollTop(100000);
+			var scrollTop = $('#cMil_FormOn_SubTextArea textarea').scrollTop();
+			$('#cMil_FormOn_SubTextArea textarea').val($('#cMil_FormOn_SubTextArea textarea').val());
+			if(scrollTop !== cBh.lastScrollTop) {
+				if(cBh.lastScrollTop == 0) {
+					$('#cMil_FormOn span').hide();
+					$('#cMil_FormOn_TextArea textarea, #cMil_FormOn_SubTextArea textarea').css('margin-left', '5px').width(195);
+				}
+				cBh.lastScrollTop = scrollTop;
+				if(scrollTop <= 70) {
+					$('#cMil_FormOn_TextArea textarea').css('overflow', 'hidden');
+					$('#cMil_FormOn_TextArea textarea').height(18 + scrollTop);
+					$('#cMil_FormOn').css('top', (270 - 6 - scrollTop) + 'px');
+					$('#cMil_Online_cbbg').height(212 - 6 - scrollTop);
+					$('#cMil_scroll').height(191 - scrollTop);
+					$('#cMil_FOsubmit').height(3 + scrollTop).parent().height(3 + scrollTop);
+				} else {
+					$('#cMil_FormOn_TextArea textarea').css('overflow-y', 'auto');
+				}
+				$('#cMil_FormOn_SubTextArea textarea').scrollTop(1);
+			}
+			if(_this.LastTextMsg!=$('#cMil_FormOn_SubTextArea textarea').val()){
+				_this.LastTextMsg = $('#cMil_FormOn_SubTextArea textarea').val();
+				_this.TimeTextMsg = parseInt(Number(new Date())/1000)+5;
+				_this.startTimeTextMsg(1);
+			}
+		},
+		TimeoutTextMsg: null,
+		LoadTextMsg: 0,
+		StopTextMsg: 0,
+		TimeTextMsg: 0,
+		startTimeTextMsg: function(first){
+			var _this = this;
+			if(_this.StopTextMsg==1){
+				clearTimeout(_this.TimeoutTextMsg);
+				_this.LoadTextMsg = 0;
+				setTimeout(function(){_this.StopTextMsg=0;},1000);
+				return false;
+			}
+			if(first==1) _this.signal(['startMessage:'+_this.LastTextMsg]);
+			var time = parseInt(Number(new Date())/1000);
+			if(time < _this.TimeTextMsg && _this.LoadTextMsg == 0) {
+				_this.LoadTextMsg = 1;
+				_this.TimeoutTextMsg = setTimeout(function(){
+					_this.LoadTextMsg = 0;
+					_this.startTimeTextMsg(0);
+				},5000);
+			}else if (time >= _this.TimeTextMsg){
+				_this.signal(['endMessage']);
+			}
+		},
+		signal: function(msg){},
 		initLine: function(){//инициализация кнопки вызова и блока для drag
 			var _this = this; _this.insertLine(_this.get.lineStyle+mainStyle);var cBhBlock = document.createElement('img');cBhBlock.id = 'cMil_Line';cBhBlock.setAttribute('src','data:image/png;base64,'+_this.get.lineImg);window.parent.document.body.appendChild(cBhBlock);$( '#cMil_Line', window.parent.document ).show("drop",300);$('#cMil_Line', window.parent.document).on('click',function(){_this.fadeIn();});var div = document.createElement('div');div.id = 'cMil_body';div.style.visibility='hidden'; div.style.display='none'; div.innerHTML = '<div id="cMil_FrameCover" style="position: fixed; top: 0; left: 0; display: block;"><div id="cMil_FrameClose"></div><div id="cMil_FrameSound"></div></div>'; window.parent.document.body.appendChild(div); $('#cMil_body',window.parent.document).width($(window.parent).width() - 20).height(window.parent.innerHeight - 282).show();$(window.parent).resize(function () {$('#cMil_body',window.parent.document).width($(window.parent).width() - 20).height(window.parent.innerHeight - 282);});
 			$('#cMil_FrameCover',window.parent.document).draggable({containment: '#cMil_body',
