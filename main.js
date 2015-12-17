@@ -24,7 +24,13 @@ iframeContent+='<div id="cMil_Online"><div id="cMil_Online_Rel"><div id="cMil_On
 */
 $(function(){
 	bhelpLoad(bhelpInfoAddress+"/info.js?get="+bhelpSrvId,"bhelp_get",function(info){
-		console.log(info);
+		var jinfo = JSON.parse(info);
+		iframeContent = iframeContent.replace("{%BG%}",jinfo.bg)
+									 .replace("{%DID%}",bhelpSrvId)
+									 .replace("{%OFF_INFO%}",jinfo.off_info)
+									 .replace("{%ACTIVINFO%}",jinfo.activeinfo)
+									 .replace("{%ACTIVEOFF%}",jinfo.activeoff);
+		$('body').html(iframeContent);
 	});
 
 
