@@ -1,4 +1,4 @@
-bHelp = (function(){
+(function(){
 	var _iframe=document.createElement("iframe");
 	_iframe.setAttribute("id","cBh_frame");
 	_iframe.setAttribute("frameBorder","0");
