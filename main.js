@@ -65,7 +65,7 @@ bHelp = (function(){
 		},
 		insertLine: function(code) {var style = document.createElement('style');style.type = 'text/css'; if(style.styleSheet) {style.styleSheet.cssText = code;} else style.innerHTML = code; window.parent.document.getElementsByTagName('head')[0].appendChild( style );
 		},
-		textPlaceholder = function () {
+		textPlaceholder: function () {
 			return this.each(function(){ var that = this; if (that.placeholder && 'placeholder' in document.createElement(that.tagName)) return; var placeholder = that.getAttribute('placeholder'); var input = cl(that); if (that.value === '' || that.value == placeholder) {input.addClass('text-placeholder');that.value = placeholder;}input.focus(function(){if (input.hasClass('text-placeholder')) {this.value = ''; input.removeClass('text-placeholder')}}); input.blur(function(){if (this.value === '') {input.addClass('text-placeholder');this.value = placeholder;} else {input.removeClass('text-placeholder');}});that.form && cl(that.form).submit(function(){if (input.hasClass('text-placeholder')) {that.value = '';}});});
 		},
 		jmp3: function(_this){var playerpath = bhelpSrvAddress; var options = {"filepath": "/static/","backcolor": "ffffff","forecolor": "ffffff","width": "1","repeat": "no","volume": "100","autoplay": "true","showdownload": "false","showfilename": "true"};
