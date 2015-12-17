@@ -32,7 +32,7 @@ $(function(){
 									 .replace("{%ACTIVINFO%}",jinfo.activeinfo)
 									 .replace("{%ACTIVEOFF%}",jinfo.activeoff);
 		$('body').html(iframeContent);
-		//$('#cMil_Offline_cbg, #cMil_Online_cbg, #cMil_action_cbg, #cMil_stat_cbg').css("background","url(data:image/jpeg;base64,"+jinfo.bg+") no-repeat center center;");
+		$('#cMil_Offline_cbg, #cMil_Online_cbg, #cMil_action_cbg, #cMil_stat_cbg').css("background","url(data:image/jpeg;base64,"+jinfo.bg+") no-repeat center center;");
 	});
 
 
