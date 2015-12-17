@@ -41,6 +41,8 @@ bHelp = (function(){
 }());
 
 
+	$js =  "\nfunction insertCss(code) {var style = document.createElement('style');style.type = 'text/css'; if(style.styleSheet) {style.styleSheet.cssText = code;} else style.innerHTML = code; document.getElementsByTagName('head')[0].appendChild( style );}";
+	return $js."insertCss(cMilCssbutton);\nvar cBhBlock = document.createElement('img');\ncBhBlock.id = 'cMil_Line';\nif (cBhBlock.addEventListener) cBhBlock.addEventListener('click', function(){cBh.fadeIn();}, false);else if (cBhBlock.attachEvent)cBhBlock.attachEvent('onclick', function(){cBh.fadeIn();});\ncBhBlock.setAttribute('src','data:image/png;base64,'+cBhImg);\ndocument.body.appendChild(cBhBlock);";
 
 
 
