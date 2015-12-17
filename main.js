@@ -26,7 +26,11 @@ bHelp = function(){}
 
 
 bHelp = (function(){
+	Mcie = false;
+	if($.support.style) Mcie = true;
+
 	var info = {
+		Mcie: Mcie,
 		get: {},
 		init: function(){
 			var _this = this;
@@ -44,10 +48,29 @@ bHelp = (function(){
 				_this.fadeIn();
 			});
 		},
+		lineHide: function(){
+			$( '#cMil_Line:visible', window.parent.document ).hide("drop",300);
+		},
+		lineShow: function(){
+			$( '#cMil_Line:visible', window.parent.document ).show("drop",300);
+		},
 		fadeIn: function(){
 			console.log("fadeIn");
 		},
 		insertLine: function(code) {var style = document.createElement('style');style.type = 'text/css'; if(style.styleSheet) {style.styleSheet.cssText = code;} else style.innerHTML = code; window.parent.document.getElementsByTagName('head')[0].appendChild( style );
+		},
+		textPlaceholder = function () {
+			return this.each(function(){ var that = this; if (that.placeholder && 'placeholder' in document.createElement(that.tagName)) return; var placeholder = that.getAttribute('placeholder'); var input = cl(that); if (that.value === '' || that.value == placeholder) {input.addClass('text-placeholder');that.value = placeholder;}input.focus(function(){if (input.hasClass('text-placeholder')) {this.value = ''; input.removeClass('text-placeholder')}}); input.blur(function(){if (this.value === '') {input.addClass('text-placeholder');this.value = placeholder;} else {input.removeClass('text-placeholder');}});that.form && cl(that.form).submit(function(){if (input.hasClass('text-placeholder')) {that.value = '';}});});
+		},
+		jmp3: function(_this){var playerpath = bhelpSrvAddress; var options = {"filepath": "/static/","backcolor": "ffffff","forecolor": "ffffff","width": "1","repeat": "no","volume": "100","autoplay": "true","showdownload": "false","showfilename": "true"};
+			return _this.each(function(){var filename = bhelpSrvAddress+'/sng';var mp3html = '<audio autoplay="true"><source src="' + filename + '.ogg" type="audio/ogg" ><source src="' + filename + '.mp3" type="audio/mpeg" ><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="' + options.width + '" height="1" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab"><param name="movie" value="' + playerpath + 'singlemp3player.swf?showDownload=' + options.showdownload + '&file=' + filename + '.mp3&autoStart=' + options.autoplay;
+				mp3html += '&backColor=' + options.backcolor + '&frontColor=' + options.forecolor;
+				mp3html += '&repeatPlay=' + options.repeat + '&songVolume=' + options.volume + '" /><param name="wmode" value="transparent" /><embed wmode="transparent" width="' + options.width + '" height="1" src="' + playerpath + 'singlemp3player.swf?showDownload=' + options.showdownload + '&file=' + filename + '.mp3&autoStart=' + options.autoplay;
+				mp3html += '&backColor=' + options.backcolor + '&frontColor=' + options.forecolor;
+				mp3html += '&repeatPlay=' + options.repeat + '&songVolume=' + options.volume + '" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" /></object></audio>';
+				cl(_this).prepend(mp3html+"&nbsp;");
+				if(cBh.Mcie){ _this.outerHTML = _this.outerHTML; }
+			});
 		}
 
 	};
