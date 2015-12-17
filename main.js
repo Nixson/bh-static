@@ -39,6 +39,7 @@ bHelp = (function(){
 			cBhBlock.id = 'cMil_Line';
 			cBhBlock.setAttribute('src','data:image/png;base64,'+_this.get.lineImg);
 			window.parent.document.body.appendChild(cBhBlock);
+			$( '#cMil_Line', window.parent.document ).show("Drop");
 			$('#cMil_Line', window.parent.document).on('click',function(){
 				_this.fadeIn();
 			});
