@@ -53,9 +53,9 @@ bHelp = (function(){
 			div.style.display='none';
 			div.innerHTML = '<div id="cMil_FrameCover" style="position: fixed; top: 0; left: 0; display: block;"><div id="cMil_FrameClose"></div><div id="cMil_FrameSound"></div></div>';
 			window.parent.document.body.appendChild(div);
-			$('#cMil_body',window.parent).width($(window.parent).width() - 20).height(window.parent.innerHeight - 282).show();
+			$('#cMil_body',window.parent.document).width($(window.parent).width() - 20).height(window.parent.innerHeight - 282).show();
 			$(window.parent).resize(function () {
-				$('#cMil_body',window.parent).width($(window.parent).width() - 20).height(window.parent.innerHeight - 282);
+				$('#cMil_body',window.parent.document).width($(window.parent).width() - 20).height(window.parent.innerHeight - 282);
 			});
 
 		},
