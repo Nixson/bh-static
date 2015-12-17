@@ -20,7 +20,9 @@ iframeContent+='<div id="cMil_Online"><div id="cMil_Online_Rel"><div id="cMil_On
 {%ACTIVEOFF%}
 */
 $(function(){
-	var bg = bhelpLoad(bhelpInfoAddress+"/info.js?get="+bhelpSrvId,"bhelp_get");
+	bhelpLoad(bhelpInfoAddress+"/info.js?get="+bhelpSrvId,"bhelp_get",function(info){
+		console.log(info);
+	});
 
 
 //	$('body').html(iframeContent);
