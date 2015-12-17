@@ -961,42 +961,12 @@ function cBh_(ajx_url) {
 	}
 }
 
-var _iframe=document.createElement("iframe");
-_iframe.setAttribute("id","cBh_frame");
-_iframe.setAttribute("frameBorder","0");
-_iframe.setAttribute("scrolling","no");
-_iframe.allowTransparency=true;
-_iframe.style.backgroundColor="transparent";
-window.document.body.appendChild(_iframe);
-var idocument = _iframe.contentDocument;
-idocument.open();
-idocument.write("<!DOCTYPE html><html><head></head><body></body></html>");
-idocument.close();
-
 
 //Запускаем основной процес
 var cBh = cBh_(document.location.protocol + '//' + milSname + '/' + milDomain + '_.js');
-if(!cl.support.style) cBh.Mcie = true;
 if(!cBh.Mcie) cJLoad('/static/pscreen.js');
-cBh.c = cl('#cBh_frame').contents();
-cBh.c.find('body').css('margin','0');
-cBh.insertCssFrame(cMilCsskernel);
-if(clStorage.getItem('cBh_client') != null) {
-	cBh.client = clStorage.getItem('cBh_client');
-	milUid = clStorage.getItem('cBh_client');
-}
 
-if(clStorage.getItem('cBh_triggers')) cBh.tr = clStorage.getItem('cBh_triggers'); // востанавливаем отработанные триггеры
 
-cBh.FN.offText = cl('#cMil_FNtext').val();
-cBh.FN.offContact = cl('#cMil_FNphone').val();
-cBh.FN.offName = cl('#cMil_FNname').val();
-cBh.FN.onText = cl('#cMil_FormOn_TextArea textarea').val();
-
-// Востанавливаем данные о пользователе
-if(clStorage.getItem('cBh_offName') != null) cl('#cMil_FNname').val(clStorage.getItem('cBh_offName'));
-if(clStorage.getItem('cBh_offContact') != null) cl('#cMil_FNphone').val(clStorage.getItem('cBh_offContact'));
-if(clStorage.getItem('cBh_session') != null) cBh.session = clStorage.getItem('cBh_session');
 
 cl('#cMil_Offline_Ok').hide();
 if(managerEnable) {
@@ -1021,17 +991,6 @@ if(managerEnable) {
 	}
 }
 
-
-
-
-if(cBh.Mcie) {
-	cl('#cMil_Online').appendTo('body').hide();
-} else {
-	cl('#cMil_Online').css('opacity', 0).appendTo('body').hide();
-}
-if(cBh.Mcie) {
-	cl('#cMil_Offline').appendTo('body').hide();
-} else cl('#cMil_Offline').css('opacity', 0).appendTo('body').hide();
 
 
 
