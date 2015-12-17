@@ -37,7 +37,7 @@ bHelp = (function(){
 			_this.insertLine(_this.get.lineStyle);
 			var cBhBlock = document.createElement('img');
 			cBhBlock.id = 'cMil_Line';
-			cBhBlock.setAttribute('src','data:image/png;base64,'+cBhImg);
+			cBhBlock.setAttribute('src','data:image/png;base64,'+_this.get.lineImg);
 			window.parent.document.body.appendChild(cBhBlock);
 			$('#cMil_Line', window.parent.document).on('click',function(){
 				_this.fadeIn();
