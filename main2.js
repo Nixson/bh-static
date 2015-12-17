@@ -1070,10 +1070,6 @@ if(cBh.Mcie) {
 	cBh.c.find('#cMil_FormOn_TextArea textarea').textPlaceholder();
 }
 
-cl('#cMil_body').width(cl(window).width() - 20).height(window.innerHeight - 282).show();
-cl(window).resize(function () {
-	cl('#cMil_body').width(cl(window).width() - 20).height(window.innerHeight - 282);
-});
 
 if(cBh.Mcie && managerEnable) {
 	cBh.c.find('#cMil_FormOn_TextArea').css('top', '48px');
@@ -1091,54 +1087,9 @@ if(cBh.Mcie && managerEnable) {
 }
 
 
-/*
-cl('#cMil_Online').draggable({
-	handle: "#cMil_Online_header",
-	containment: '#cMil_body',
-	stop: function (event, ui) {
-		var eTop = ui.helper.offset().top;
-		var eLeft = ui.helper.offset().left;
-		var wTop = cl(window).scrollTop();
-		var top = eTop - wTop;
-		if(!cBh.Mcie) {
-			ui.helper.css('position', 'fixed');
-			ui.helper.css('top', top + "px");
-		}
-		clStorage.setItem('cBh_StrLinePtop', top);
-		clStorage.setItem('cBh_StrLinePleft', eLeft);
-	},
-	scroll: false
-});
-*/
 
-cl('#cMil_FrameCover').draggable({
-	containment: '#cMil_body',
-	drag: function (event, ui) {
-		cl('#cBh_frame').css({
-			'position': 'fixed',
-			'top': (ui.helper.offset().top-cl(window).scrollTop())+'px',
-			'left': cl(this).css('left')
-			});
-	},
-	stop: function (event, ui) {
-		var eTop = ui.helper.offset().top;
-		var eLeft = ui.helper.offset().left;
-		var wTop = cl(window).scrollTop();
-		var top = eTop - wTop;
-		if(!cBh.Mcie) {
-			ui.helper.css('position', 'fixed');
-			ui.helper.css('top', top + "px");
-		}
-		cl('#cBh_frame').css({
-			'position': 'fixed',
-			'top': top+'px',
-			'left': cl(this).css('left')
-			});
-		clStorage.setItem('cBh_StrLinePtop', top);
-		clStorage.setItem('cBh_StrLinePleft', eLeft);
-	},
-	scroll: false
-});
+
+
 
 cBh.c.find('.cMil_FormOn_submit').on('click', function () {
 	cBh.add();

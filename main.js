@@ -36,28 +36,20 @@ bHelp = (function(){
 			var _this = this;
 			_this.initLine();
 		},
-		initLine: function(){
-			var _this = this;
-			_this.insertLine(_this.get.lineStyle+mainStyle);
-			var cBhBlock = document.createElement('img');
-			cBhBlock.id = 'cMil_Line';
-			cBhBlock.setAttribute('src','data:image/png;base64,'+_this.get.lineImg);
-			window.parent.document.body.appendChild(cBhBlock);
-			$( '#cMil_Line', window.parent.document ).show("drop",300);
-			$('#cMil_Line', window.parent.document).on('click',function(){
-				_this.fadeIn();
-			});
-			var div = document.createElement('div');
-			div.id = 'cMil_body';
-			div.style.visibility='hidden';
-			div.style.display='none';
-			div.innerHTML = '<div id="cMil_FrameCover" style="position: fixed; top: 0; left: 0; display: block;"><div id="cMil_FrameClose"></div><div id="cMil_FrameSound"></div></div>';
-			window.parent.document.body.appendChild(div);
-			$('#cMil_body',window.parent.document).width($(window.parent).width() - 20).height(window.parent.innerHeight - 282).show();
-			$(window.parent).resize(function () {
-				$('#cMil_body',window.parent.document).width($(window.parent).width() - 20).height(window.parent.innerHeight - 282);
-			});
-
+		initLine: function(){//инициализация кнопки вызова и блока для drag
+			var _this = this; _this.insertLine(_this.get.lineStyle+mainStyle);var cBhBlock = document.createElement('img');cBhBlock.id = 'cMil_Line';cBhBlock.setAttribute('src','data:image/png;base64,'+_this.get.lineImg);window.parent.document.body.appendChild(cBhBlock);$( '#cMil_Line', window.parent.document ).show("drop",300);$('#cMil_Line', window.parent.document).on('click',function(){_this.fadeIn();});var div = document.createElement('div');div.id = 'cMil_body';div.style.visibility='hidden'; div.style.display='none'; div.innerHTML = '<div id="cMil_FrameCover" style="position: fixed; top: 0; left: 0; display: block;"><div id="cMil_FrameClose"></div><div id="cMil_FrameSound"></div></div>'; window.parent.document.body.appendChild(div); $('#cMil_body',window.parent.document).width($(window.parent).width() - 20).height(window.parent.innerHeight - 282).show();$(window.parent).resize(function () {$('#cMil_body',window.parent.document).width($(window.parent).width() - 20).height(window.parent.innerHeight - 282);});
+			$('#cMil_FrameCover',window.parent.document).draggable({containment: '#cMil_body',
+				drag: function (event, ui) {
+					$('#cBh_frame',window.parent.document).css({'position': 'fixed','top': (ui.helper.offset().top-$(window.parent).scrollTop())+'px','left': $(this).css('left')});
+				},
+				stop: function (event, ui) {var eTop = ui.helper.offset().top;var eLeft = ui.helper.offset().left;var wTop = $(window.parent).scrollTop();
+					var top = eTop - wTop;
+					if(!_this.Mcie) {ui.helper.css('position', 'fixed');ui.helper.css('top', top + "px");
+					}
+					$('#cBh_frame',window.parent.document).css({'position': 'fixed','top': top+'px','left': $(this).css('left')});
+					_this.Storage.setItem('cBh_StrLinePtop', top);
+					_this.Storage.setItem('cBh_StrLinePleft', eLeft);
+				},scroll: false});
 		},
 		lineHide: function(){
 			$( '#cMil_Line:visible', window.parent.document ).hide("drop",300);
