@@ -61,7 +61,6 @@ bHelp = (function(){
 		info.init();
 	});
 	return info;
-	}
 }());
 
 
