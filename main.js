@@ -73,7 +73,7 @@ bHelp = (function(){
 				bhelpLoad(bhelpSrvAddress+'/html5.js',"bhelp_html5",1,function(resp){eval(resp);});
 				_this.textPlaceholder('#cMil_FormOn_TextArea textarea');
 			}
-			console.log(parent[bhelpSrvId]);
+			console.log(window.parent[bhelpSrvId]);
 //			$.post(bhelpInfoAddress+"/"+parent[bhelpSrvId]+_this.client+)
 
 //			_this.load(bhelpInfoAddress+"/")
