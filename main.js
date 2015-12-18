@@ -74,6 +74,7 @@ bHelp = (function(){
 				_this.textPlaceholder('#cMil_FormOn_TextArea textarea');
 			}
 			console.log(window.parent["bhelpSrvId"]);
+			console.log(_this.Mcie);
 //			$.post(bhelpInfoAddress+"/"+parent[bhelpSrvId]+_this.client+)
 
 //			_this.load(bhelpInfoAddress+"/")
