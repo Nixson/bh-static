@@ -39,11 +39,14 @@ bHelp = (function(){
 		client: 0,
 		sid: 0,
 		uid: 0,
+		mid: 0,
 		get: {},
 		tr: {},
 		blank: {offText:"",offContact:"",offName:"",onText:""},
 		session: 0,
 		loadUrl:"",
+		firstTime: 0,
+		managerList: {},
 		init: function(){
 			var _this = this;
 			_this.sid = window.parent["bhelpSrvId"];
@@ -54,7 +57,7 @@ bHelp = (function(){
 			if(_this.mid==null)_this.mid = 0;
 			_this.firstTime = _this.Storage.getItem('bhelp_firstTimes');
 			if(_this.firstTime==null)_this.firstTime = 0;
-			_this.managerList = _this.Storage.getItem('bhelp_firstTimes');
+			_this.managerList = _this.Storage.getItem('bhelp_managerList');
 			if(_this.managerList==null) _this.managerList = {};
 
 			_this.uid = _this.client;
@@ -86,6 +89,18 @@ bHelp = (function(){
 				var rsp = JSON.parse(resp);
 				_this.client = resp.uid;
 				_this.online = resp.onlien;
+				_this.mid = resp.manager.id;
+				_this.managerList[_this.mid] = {
+					img: {
+						version: resp.manager.version_img,
+						content: resp.manager.img
+					}
+					block: {
+						version: resp.manager.version_block,
+						content: resp.manager.block_img
+					}
+				};
+				_this.Storage.setItem('bhelp_managerList',JSON.stringify(_this.managerList));
 
 				console.log(resp);
 			});
