@@ -21,26 +21,20 @@ iframeContent+='<div id="cMil_Online_Rel"><div id="cMil_Online_header"><img id="
 var mainStyle='#cMil_body {display: block;position: fixed;top: 10px;left: 10px;margin: 0;padding: 0;width: 1px;height: 1px;z-index: -1;text-indent: 0;/*position: absolute;top: expression((document.getElementsByTagName( "body" )[0].scrollTop + 10) + "px");*/}#cBh_frame {margin: 0;padding: 0;border: 0;outline: 0;vertical-align: baseline;background: transparent;font-size: 100%;font-family: inherit;font-weight: inherit;font-style: inherit; }#cMil_FrameCover,#cBh_frame {zoom: 1;display: none;position: fixed;z-index: 999999999;width: 264px;height: 351px;margin: 0;padding: 0;left: 0;top: 0;text-indent: 0;}#cMil_FrameCover {background: rgba(255,255,255,0.01);height: 95px;cursor: move;}#cMil_FrameClose {display: block;position: absolute;z-index: 999999999;top: 10px;right: 14px;width: 20px;height: 20px;background: rgba(255,255,255,0.001);cursor: pointer;}#cMil_FrameSound {display: block;position: absolute;z-index: 999999999;top: 10px;right: 35px;width: 20px;height: 20px;background: rgba(255,255,255,0.001);cursor: pointer;}#cBh_frame {z-index: 999999998;}#cBh_frame p {text-indent: 0;}';
 
 
-bHelp = function(){}
+/*		Storage = {
+			getItem: function(name){ var matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)")); return matches ? decodeURIComponent(matches[1]) : undefined;},
+			setItem: function(name,value){options = {path:"/",expires:31536000};var expires = options.expires; if (typeof expires == "number" && expires) { var d = new Date(); d.setTime(d.getTime() + expires * 1000);expires = options.expires = d;} if (expires && expires.toUTCString) {options.expires = expires.toUTCString();} value = encodeURIComponent(value); var updatedCookie = name + "=" + value; for (var propName in options) {updatedCookie += "; " + propName; var propValue = options[propName]; if (propValue !== true) {updatedCookie += "=" + propValue;}} document.cookie = updatedCookie;}
+		}
+*/
 
-
-console.log($.browser);
 bHelp = (function(){
 	Mcie = false;
 	var Storage;
 	if($.browser.msie) Mcie = true;
-	if(Mcie){
-		Storage = {
-			getItem: function(name){ var matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)")); return matches ? decodeURIComponent(matches[1]) : undefined;},
-			setItem: function(name,value){options = {path:"/",expires:31536000};var expires = options.expires; if (typeof expires == "number" && expires) { var d = new Date(); d.setTime(d.getTime() + expires * 1000);expires = options.expires = d;} if (expires && expires.toUTCString) {options.expires = expires.toUTCString();} value = encodeURIComponent(value); var updatedCookie = name + "=" + value; for (var propName in options) {updatedCookie += "; " + propName; var propValue = options[propName]; if (propValue !== true) {updatedCookie += "=" + propValue;}} document.cookie = updatedCookie;}
-		}
-	}
-	else
-		Storage = localStorage;
 
 	var info = {
 		Mcie: Mcie,
-		Storage:Storage,
+		Storage:localStorage,
 		online: false,
 		client: 0,
 		sid: 0,
@@ -77,6 +71,7 @@ bHelp = (function(){
 				bhelpLoad(bhelpSrvAddress+'/html5.js',"bhelp_html5",1,function(resp){eval(resp);});
 				_this.textPlaceholder('#cMil_FormOn_TextArea textarea');
 			}
+			cBh.c.find('.cMil_FormOn_submit').on('click', function () {_this.add();return false;});
 			console.log(_this.Mcie);
 //			$.post(bhelpInfoAddress+"/"+parent[bhelpSrvId]+_this.client+)
 
