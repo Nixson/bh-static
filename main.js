@@ -67,11 +67,11 @@ bHelp = (function(){
 			_this.Cbbg = $('#cMil_Online_cbbg').height();
 			_this.Scroll = $('#cMil_scroll').height();
 			_this.origHeight = $('#cMil_FormOn_TextArea textarea').height();
-			if(!Mcie)
+			if(!_this.Mcie)
 				bhelpLoad(bhelpSrvAddress+"/pscreen.js","bhelp_pscreen",1,function(resp){eval(resp);});
 			else {
 				bhelpLoad(bhelpSrvAddress+'/html5.js',"bhelp_html5",1,function(resp){eval(resp);});
-				$('#cMil_FormOn_TextArea textarea').textPlaceholder();
+				_this.textPlaceholder('#cMil_FormOn_TextArea textarea');
 			}
 			console.log(parent[bhelpSrvId]);
 //			$.post(bhelpInfoAddress+"/"+parent[bhelpSrvId]+_this.client+)
@@ -299,8 +299,8 @@ bHelp = (function(){
 		},
 		insertLine: function(code) {var style = document.createElement('style');style.type = 'text/css'; if(style.styleSheet) {style.styleSheet.cssText = code;} else style.innerHTML = code; window.parent.document.getElementsByTagName('head')[0].appendChild( style );
 		},
-		textPlaceholder: function () {
-			return this.each(function(){ var that = this; if (that.placeholder && 'placeholder' in document.createElement(that.tagName)) return; var placeholder = that.getAttribute('placeholder'); var input = cl(that); if (that.value === '' || that.value == placeholder) {input.addClass('text-placeholder');that.value = placeholder;}input.focus(function(){if (input.hasClass('text-placeholder')) {this.value = ''; input.removeClass('text-placeholder')}}); input.blur(function(){if (this.value === '') {input.addClass('text-placeholder');this.value = placeholder;} else {input.removeClass('text-placeholder');}});that.form && cl(that.form).submit(function(){if (input.hasClass('text-placeholder')) {that.value = '';}});});
+		textPlaceholder: function (_this) {
+			return _this.each(function(){ var that = this; if (that.placeholder && 'placeholder' in document.createElement(that.tagName)) return; var placeholder = that.getAttribute('placeholder'); var input = cl(that); if (that.value === '' || that.value == placeholder) {input.addClass('text-placeholder');that.value = placeholder;}input.focus(function(){if (input.hasClass('text-placeholder')) {this.value = ''; input.removeClass('text-placeholder')}}); input.blur(function(){if (this.value === '') {input.addClass('text-placeholder');this.value = placeholder;} else {input.removeClass('text-placeholder');}});that.form && cl(that.form).submit(function(){if (input.hasClass('text-placeholder')) {that.value = '';}});});
 		},
 		jmp3: function(_this){var playerpath = bhelpSrvAddress; var options = {"filepath": "/static/","backcolor": "ffffff","forecolor": "ffffff","width": "1","repeat": "no","volume": "100","autoplay": "true","showdownload": "false","showfilename": "true"};
 			return _this.each(function(){var filename = bhelpSrvAddress+'/sng';var mp3html = '<audio autoplay="true"><source src="' + filename + '.ogg" type="audio/ogg" ><source src="' + filename + '.mp3" type="audio/mpeg" ><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="' + options.width + '" height="1" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab"><param name="movie" value="' + playerpath + 'singlemp3player.swf?showDownload=' + options.showdownload + '&file=' + filename + '.mp3&autoStart=' + options.autoplay;
