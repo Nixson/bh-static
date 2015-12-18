@@ -794,7 +794,6 @@ function cBh_(ajx_url) {
 
 //Запускаем основной процес
 var cBh = cBh_(document.location.protocol + '//' + milSname + '/' + milDomain + '_.js');
-if(!cBh.Mcie) cJLoad('/static/pscreen.js');
 
 
 
@@ -834,12 +833,6 @@ if(cBh.client === 0) {
 
 
 
-
-
-if(cBh.Mcie) {
-	cJLoad('static/html5.js');
-	cBh.c.find('#cMil_FormOn_TextArea textarea').textPlaceholder();
-}
 
 
 if(cBh.Mcie && managerEnable) {
