@@ -8,7 +8,9 @@
 	_iframe.allowTransparency=true;
 	_iframe.style.backgroundColor="transparent";
 	window.document.body.appendChild(_iframe);
-	var idocument = (_iframe.contentWindow || _iframe.contentDocument);
+	var idocument;
+	if(!mv || mv >8 ) idocument = _iframe.contentDocument;
+	else idocument = _iframe.contentWindow;
 	idocument.open();
 	idocument.write("<!DOCTYPE html><html><head></head><body></body></html>");
 	idocument.close();
