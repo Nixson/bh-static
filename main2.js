@@ -855,13 +855,6 @@ if(cBh.Mcie && managerEnable) {
 
 
 
-cBh.c.find('.cMil_FormOn_submit').on('click', function () {
-	cBh.add();
-	return false;
-});
-//cl('body').on('click','#cMil_Line',function(){cBh.fadeIn(); });
-
-
 
 if(activ_type == 1 && managerEnable) {
 	if(!clStorage.getItem('cBh_ActiveOn')) {

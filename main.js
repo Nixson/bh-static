@@ -43,12 +43,15 @@ bHelp = (function(){
 		tr: {},
 		blank: {offText:"",offContact:"",offName:"",onText:""},
 		session: 0,
+		loadUrl:"",
 		init: function(){
 			var _this = this;
 			_this.sid = window.parent["bhelpSrvId"];
 			_this.initLine();
 			_this.client = _this.Storage.getItem('cBh_client');
 			if(_this.client==null)_this.client = 0;
+			_this.mid = _this.Storage.getItem('bhelp_mid');
+			_this.firstTime = _this.Storage.getItem('bhelp_firstTimes');
 			_this.uid = _this.client;
 			if(_this.Storage.getItem('cBh_triggers')) _this.tr = _this.Storage.getItem('cBh_triggers'); // востанавливаем отработанные триггеры
 
@@ -71,8 +74,11 @@ bHelp = (function(){
 				bhelpLoad(bhelpSrvAddress+'/html5.js',"bhelp_html5",1,function(resp){eval(resp);});
 				_this.textPlaceholder('#cMil_FormOn_TextArea textarea');
 			}
-			cBh.c.find('.cMil_FormOn_submit').on('click', function () {_this.add();return false;});
-			console.log(_this.Mcie);
+			$('.cMil_FormOn_submit').on('click', function () {_this.add();return false;});
+			if(_this.client > 0) _this.loadUrl = bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname;
+			$.post(bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{agent:navigator.userAgent,url:window.parent.document.location.pathname,title:window.parent.document.title,os:navigator.platform,ref:window.parent.document.referrer,mid:_this.mid,time:_this.firstTime},function(resp){
+				console.log(resp);
+			});
 //			$.post(bhelpInfoAddress+"/"+parent[bhelpSrvId]+_this.client+)
 
 //			_this.load(bhelpInfoAddress+"/")
