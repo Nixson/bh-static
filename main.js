@@ -51,7 +51,12 @@ bHelp = (function(){
 			_this.client = _this.Storage.getItem('cBh_client');
 			if(_this.client==null)_this.client = 0;
 			_this.mid = _this.Storage.getItem('bhelp_mid');
+			if(_this.mid==null)_this.mid = 0;
 			_this.firstTime = _this.Storage.getItem('bhelp_firstTimes');
+			if(_this.firstTime==null)_this.firstTime = 0;
+			_this.managerList = _this.Storage.getItem('bhelp_firstTimes');
+			if(_this.managerList==null) _this.managerList = {};
+
 			_this.uid = _this.client;
 			if(_this.Storage.getItem('cBh_triggers')) _this.tr = _this.Storage.getItem('cBh_triggers'); // востанавливаем отработанные триггеры
 
@@ -76,7 +81,12 @@ bHelp = (function(){
 			}
 			$('.cMil_FormOn_submit').on('click', function () {_this.add();return false;});
 			if(_this.client > 0) _this.loadUrl = bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname;
-			$.post(bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{agent:navigator.userAgent,url:window.parent.document.location.pathname,title:window.parent.document.title,os:navigator.platform,ref:window.parent.document.referrer,mid:_this.mid,time:_this.firstTime},function(resp){
+
+			$.post(bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{agent:navigator.userAgent,url:window.parent.document.location.pathname,title:window.parent.document.title,os:navigator.platform,ref:window.parent.document.referrer,mid:_this.mid,time:_this.firstTime,managers:_this.managerList},function(resp){
+				var rsp = JSON.parse(resp);
+				_this.client = resp.uid;
+				_this.online = resp.onlien;
+
 				console.log(resp);
 			});
 //			$.post(bhelpInfoAddress+"/"+parent[bhelpSrvId]+_this.client+)
