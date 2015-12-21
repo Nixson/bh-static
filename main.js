@@ -88,7 +88,7 @@ bHelp = (function(){
 			var manList = {};
 			$.each(_this.managerList,function(i,v){
 				console.log(i,v);
-				manList[i] = {img:v.img.version_img,block:v.block.version_block};
+				manList[i] = {img:v.img.version,block:v.block.version};
 			});
 			console.log(manList);
 
