@@ -88,6 +88,7 @@ bHelp = (function(){
 			$.each(_this.managerList,function(i,v){
 				manList[i] = {img:v.img.version_img,block:v.block.version_block};
 			});
+			console.log(manList);
 			$.post(bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{agent:navigator.userAgent,url:window.parent.document.location.pathname,title:window.parent.document.title,os:navigator.platform,ref:window.parent.document.referrer,mid:_this.mid,time:_this.firstTime,managers:JSON.stringify(manList)},function(resp){
 				var rsp = JSON.parse(resp);
 				_this.client = resp.uid;
