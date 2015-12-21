@@ -98,7 +98,7 @@ bHelp = (function(){
 					img: {
 						version: resp.manager.version_img,
 						content: resp.manager.img
-					}
+					},
 					block: {
 						version: resp.manager.version_block,
 						content: resp.manager.block_img
