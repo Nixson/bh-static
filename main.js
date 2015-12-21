@@ -90,26 +90,32 @@ bHelp = (function(){
 				console.log(i,v);
 				manList[i] = {img:v.img.version,block:v.block.version};
 			});
-			console.log("manlist",manList);
-
 			$.post(bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{agent:navigator.userAgent,url:window.parent.document.location.pathname,title:window.parent.document.title,os:navigator.platform,ref:window.parent.document.referrer,mid:_this.mid,time:_this.firstTime,managers:JSON.stringify(manList)},function(rsp){
 				_this.client = rsp.uid;
 				_this.online = rsp.onlien;
 				_this.mid = rsp.manager.id;
-				_this.managerList[_this.mid] = {
-					img: {
+				var img = {};
+				if(typeof _this.managerList[_this.mid]!='undefined' && rsp.manager.version_img==_this.managerList[_this.mid].img.version){
+					img = _this.managerList[_this.mid].img;
+				}else {
+					img = {
 						version: rsp.manager.version_img,
 						content: rsp.manager.img
-					},
-					block: {
+					};
+				}
+				var block = {};
+				if(typeof _this.managerList[_this.mid]!='undefined' && rsp.manager.block_img==_this.managerList[_this.mid].block.version){
+					block = _this.managerList[_this.mid].block;
+				}else {
+					block = {
 						version: rsp.manager.version_block,
 						content: rsp.manager.block_img
-					}
-				};
-				console.log(_this.managerList);
+					};
+				}
+				if(typeof _this.managerList[_this.mid]=='undefined') _this.managerList[_this.mid] = {img:{},block:{}};
+				_this.managerList[_this.mid].img = img;
+				_this.managerList[_this.mid].block = block;
 				_this.Storage.setItem('bhelp_managerList',JSON.stringify(_this.managerList));
-
-				console.log(rsp);
 			},'json');
 //			$.post(bhelpInfoAddress+"/"+parent[bhelpSrvId]+_this.client+)
 
