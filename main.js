@@ -87,7 +87,6 @@ bHelp = (function(){
 			if(_this.client > 0) _this.loadUrl = bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname;
 			var manList = {};
 			$.each(_this.managerList,function(i,v){
-				console.log(i,v);
 				manList[i] = {img:v.img.version,block:v.block.version};
 			});
 			$.post(bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{agent:navigator.userAgent,url:window.parent.document.location.pathname,title:window.parent.document.title,os:navigator.platform,ref:window.parent.document.referrer,mid:_this.mid,time:_this.firstTime,managers:JSON.stringify(manList)},function(rsp){
