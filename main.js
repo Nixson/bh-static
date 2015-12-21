@@ -84,8 +84,11 @@ bHelp = (function(){
 			}
 			$('.cMil_FormOn_submit').on('click', function () {_this.add();return false;});
 			if(_this.client > 0) _this.loadUrl = bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname;
-
-			$.post(bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{agent:navigator.userAgent,url:window.parent.document.location.pathname,title:window.parent.document.title,os:navigator.platform,ref:window.parent.document.referrer,mid:_this.mid,time:_this.firstTime,managers:_this.managerList},function(resp){
+			var manList = {};
+			$.each(_this.managerList,function(i,v){
+				manList[i] = {img:v.img.version_img,block:v.block.version_block};
+			});
+			$.post(bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{agent:navigator.userAgent,url:window.parent.document.location.pathname,title:window.parent.document.title,os:navigator.platform,ref:window.parent.document.referrer,mid:_this.mid,time:_this.firstTime,managers:JSON.stringify(manList)},function(resp){
 				var rsp = JSON.parse(resp);
 				_this.client = resp.uid;
 				_this.online = resp.onlien;
