@@ -87,6 +87,7 @@ bHelp = (function(){
 			if(_this.client > 0) _this.loadUrl = bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname;
 			var manList = {};
 			$.each(_this.managerList,function(i,v){
+				console.log(i,v);
 				manList[i] = {img:v.img.version_img,block:v.block.version_block};
 			});
 			console.log(manList);
