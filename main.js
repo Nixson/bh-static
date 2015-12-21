@@ -91,22 +91,22 @@ bHelp = (function(){
 			console.log(manList);
 			$.post(bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{agent:navigator.userAgent,url:window.parent.document.location.pathname,title:window.parent.document.title,os:navigator.platform,ref:window.parent.document.referrer,mid:_this.mid,time:_this.firstTime,managers:JSON.stringify(manList)},function(resp){
 				var rsp = JSON.parse(resp);
-				_this.client = resp.uid;
-				_this.online = resp.onlien;
-				_this.mid = resp.manager.id;
+				_this.client = rsp.uid;
+				_this.online = rsp.onlien;
+				_this.mid = rsp.manager.id;
 				_this.managerList[_this.mid] = {
 					img: {
-						version: resp.manager.version_img,
-						content: resp.manager.img
+						version: rsp.manager.version_img,
+						content: rsp.manager.img
 					},
 					block: {
-						version: resp.manager.version_block,
-						content: resp.manager.block_img
+						version: rsp.manager.version_block,
+						content: rsp.manager.block_img
 					}
 				};
 				_this.Storage.setItem('bhelp_managerList',JSON.stringify(_this.managerList));
 
-				console.log(resp);
+				console.log(rsp);
 			});
 //			$.post(bhelpInfoAddress+"/"+parent[bhelpSrvId]+_this.client+)
 
