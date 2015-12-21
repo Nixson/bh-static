@@ -89,9 +89,8 @@ bHelp = (function(){
 				manList[i] = {img:v.img.version_img,block:v.block.version_block};
 			});
 			console.log(manList);
+
 			$.post(bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{agent:navigator.userAgent,url:window.parent.document.location.pathname,title:window.parent.document.title,os:navigator.platform,ref:window.parent.document.referrer,mid:_this.mid,time:_this.firstTime,managers:JSON.stringify(manList)},function(rsp){
-//				var rsp = JSON.parse(resp);
-				console.log(rsp);
 				_this.client = rsp.uid;
 				_this.online = rsp.onlien;
 				_this.mid = rsp.manager.id;
@@ -105,6 +104,7 @@ bHelp = (function(){
 						content: rsp.manager.block_img
 					}
 				};
+				console.log(_this.managerList);
 				_this.Storage.setItem('bhelp_managerList',JSON.stringify(_this.managerList));
 
 				console.log(rsp);
