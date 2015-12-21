@@ -59,6 +59,7 @@ bHelp = (function(){
 			if(_this.firstTime==null)_this.firstTime = 0;
 			_this.managerList = _this.Storage.getItem('bhelp_managerList');
 			if(_this.managerList==null) _this.managerList = {};
+			else _this.managerList = JSON.parse(_this.managerList);
 
 			_this.uid = _this.client;
 			if(_this.Storage.getItem('cBh_triggers')) _this.tr = _this.Storage.getItem('cBh_triggers'); // востанавливаем отработанные триггеры
