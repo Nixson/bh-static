@@ -364,6 +364,7 @@ bHelp = (function(){
 					_this.LineLock = false;
 				});
 			}
+			console.log("done");
 			//_this.parent("#cMil_FrameCover").show();
 			//_this.frame(centerH,centerV);
 			/*
