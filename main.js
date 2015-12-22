@@ -519,35 +519,31 @@ bHelp = (function(){
 					if(uiOf.top < oPos.top || uiOf.top > oPos.top+ob.height()){
 						top = oPos.top-$(window.parent).scrollTop();
 					}
-					if(uiOf.left < oPos.left){
-						chG = false;
-						$(this).css('left',oPos.left);
-						fr.css('left',oPos.left);
+					else top = uiOf.top;
+					if(uiOf.left < oPos.left || uiOf.left > (oPos.left+ob.width())){
+						left = oPos.left;
 					}
-					if(uiOf.left > (oPos.left+ob.width())){
-						chG = false;
-						$(this).css('left',oPos.left+ob.width());
-						fr.css('left',oPos.left+ob.width());
-					}
-					if(chG){
-						fr.css('left',uiOf.left);
-					}
-					if(chH){
-						fr.css('top',uiOf.top-$(window.parent).scrollTop());
-					}
-
-//					$('#cBh_frame',window.parent.document).css({'top': (ui.helper.offset().top-$(window.parent).scrollTop())+'px','left': $(this).css('left')});
+					else left = uiOf.left;
+					_this.frame(top,left);
 				},
 				stop: function (event, ui) {
-					var eTop = ui.helper.offset().top;
-					var eLeft = ui.helper.offset().left;
-					var wTop = $(window.parent).scrollTop();
-					var top = eTop - wTop;
-					ui.helper.css('position', 'fixed');
-					ui.helper.css('top', top + "px");
-					$('#cBh_frame',window.parent.document).css({'top': top+'px','left': eLeft});
+					var ob = $('#cMil_body',window.parent.document);
+					var fr = $('#cBh_frame',window.parent.document);
+					var oPos = ob.offset();
+					var uiOf = ui.helper.offset();
+					var left,top;
+					var chH = true, chG = true;
+					if(uiOf.top < oPos.top || uiOf.top > oPos.top+ob.height()){
+						top = oPos.top-$(window.parent).scrollTop();
+					}
+					else top = uiOf.top;
+					if(uiOf.left < oPos.left || uiOf.left > (oPos.left+ob.width())){
+						left = oPos.left;
+					}
+					else left = uiOf.left;
+					_this.frame(top,left);
 					_this.Storage.setItem('cBh_StrLinePtop', top);
-					_this.Storage.setItem('cBh_StrLinePleft', eLeft);
+					_this.Storage.setItem('cBh_StrLinePleft', left);
 				},scroll: false});
 		},
 		frame: function(left,top){
