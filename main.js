@@ -47,6 +47,7 @@ bHelp = (function(){
 		loadUrl:"",
 		firstTime: 0,
 		managerList: {},
+		lineStatus: false,
 		init: function(){
 			var _this = this;
 			_this.sid = window.parent["bhelpSrvId"];
@@ -116,6 +117,7 @@ bHelp = (function(){
 				_this.managerList[_this.mid].img = img;
 				_this.managerList[_this.mid].block = block;
 				_this.Storage.setItem('bhelp_managerList',JSON.stringify(_this.managerList));
+				_this.reLine();
 			},'json');
 //			$.post(bhelpInfoAddress+"/"+parent[bhelpSrvId]+_this.client+)
 
@@ -316,15 +318,30 @@ bHelp = (function(){
 			if(_this.online) _this.ONfadeIn(status);
 			else _this.OFfadeIn(status);
 		},
+		reLine: function(){
+			var _this = this;
+			if(_this.online==_this.lineStatus)
+				return;
+			if(_this.online){
+				var lineImg;
+				if(_this.mid==0){$.each(_this.managerList,function(i,v){lineImg=v.block.content;});}
+				else lineImg = _this.managerList[mid];
+				$( '#cMil_Line', window.parent.document ).attr('src','data:image/png;base64,'+lineImg).show("drop",300);
+			}else {
+				$( '#cMil_Line', window.parent.document ).attr('src','data:image/png;base64,'+_this.get.lineImg).show("drop",300);
+			}
+		},
 		initLine: function(){//инициализация кнопки вызова и блока для drag
 			var _this = this; _this.insertLine(_this.get.lineStyle+mainStyle);
 			var cBhBlock = document.createElement('img');cBhBlock.id = 'cMil_Line';
 			if(!_this.online || $.isEmptyObject(_this.managerList)){
 				cBhBlock.setAttribute('src','data:image/png;base64,'+_this.get.lineImg);
+				_this.lineStatus = false;
 			} else{
 				var lineImg;
 				$.each(_this.managerList,function(i,v){lineImg=v.block.content;});
 				cBhBlock.setAttribute('src','data:image/png;base64,'+lineImg);
+				_this.lineStatus = true;
 			}
 			window.parent.document.body.appendChild(cBhBlock);$( '#cMil_Line', window.parent.document ).show("drop",300);$('#cMil_Line', window.parent.document).on('click',function(){_this.fadeIn();});var div = document.createElement('div');div.id = 'cMil_body';div.style.visibility='hidden'; div.style.display='none'; div.innerHTML = '<div id="cMil_FrameCover" style="position: fixed; top: 0; left: 0; display: block;"><div id="cMil_FrameClose"></div><div id="cMil_FrameSound"></div></div>'; window.parent.document.body.appendChild(div); $('#cMil_body',window.parent.document).width($(window.parent).width() - 20).height(window.parent.innerHeight - 282).show();$(window.parent).resize(function () {$('#cMil_body',window.parent.document).width($(window.parent).width() - 20).height(window.parent.innerHeight - 282);});
 			$('#cMil_FrameCover',window.parent.document).draggable({containment: '#cMil_body',
