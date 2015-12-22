@@ -479,8 +479,8 @@ bHelp = (function(){
 			}
 		},
 		fadeIn: function (status) {
-			if(_this.online) _this.ONfadeIn(status);
-			else _this.OFfadeIn(status);
+			if(this.online) this.ONfadeIn(status);
+			else this.OFfadeIn(status);
 		},
 		reLine: function(){
 			var _this = this;
