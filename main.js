@@ -382,8 +382,8 @@ bHelp = (function(){
 				});*/
 			}
 			console.log("done");
-			//_this.parent("#cMil_FrameCover").show();
-			//_this.frame(centerH,centerV);
+			_this.parent("#cMil_FrameCover").show();
+			_this.frame(centerH,centerV);
 			/*
 			console.log(_this.vpd);
 			var body = $('body',_this.vpd);
