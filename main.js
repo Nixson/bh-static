@@ -125,11 +125,11 @@ bHelp = (function(){
 			},'json');
 
 			$('#cMil_SbuttonOk').on('click', function () { _this.activator = true; _this.Storage.setItem('cBh_ActiveOff', '1');
-				$('#cMil_stat').hide("drop",{direction:"down",300},function(){_this.fadeIn();});
+				$('#cMil_stat').hide("drop",{direction:"down"},300,function(){_this.fadeIn();});
 			});
 			$('#cMil_SbuttonNo').on('click', function () {
 				_this.activator = false; _this.Storage.setItem('cBh_ActiveOff', '1');
-				$('#cMil_stat').hide("drop",{direction:"down",300},function(){$( '#cMil_Line', window.parent.document ).show("drop",300);});
+				$('#cMil_stat').hide("drop",{direction:"down"},300,function(){$( '#cMil_Line', window.parent.document ).show("drop",300);});
 			});
 
 
