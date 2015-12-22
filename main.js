@@ -360,9 +360,9 @@ bHelp = (function(){
 				_this.parent("#cBh_frame").show(function(){_this.LineLock = false;});
 			}
 			else {
-				_this.parent("#cBh_frame").show("drop",dr,500,function(){
+/*				_this.parent("#cBh_frame").show("drop",dr,500,function(){
 					_this.LineLock = false;
-				});
+				});*/
 			}
 			console.log("done");
 			//_this.parent("#cMil_FrameCover").show();
