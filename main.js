@@ -366,7 +366,7 @@ bHelp = (function(){
 			console.log(body);
 			$('#cMil_FrameCover',_this.vpd).appendTo(body);
 			_this.frame(centerH,centerV);
-			$('#cMil_FrameCover',window.parent.document).show();
+			$('#cMil_FrameCover',_this.vpd).show();
 		},
 
 
@@ -560,8 +560,8 @@ bHelp = (function(){
 				},scroll: false});
 		},
 		frame: function(left,top){
-			var fr = $('#cBh_frame',window.parent.document);
-			var cov = $('#cMil_FrameCover',window.parent.document);
+			var fr = $('#cBh_frame',_this.vpd);
+			var cov = $('#cMil_FrameCover',_this.vpd);
 			fr.css({left:left,top:top});
 			cov.css({position:"fixed",left:left,top:top});
 		},
