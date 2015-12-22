@@ -148,9 +148,9 @@ bHelp = (function(){
 						left = true;
 					$('#cMil_Line',window.parent.document).hide('drop',300,function(){
 						if(left)
-							$("#cBh_frame",window.parent.document).css({width:264,height:132,bottom:10,left:10}).show();
+							$("#cBh_frame",window.parent.document).css({width:264,height:132,bottom:10,left:10,top:"auto"}).show();
 						else
-							$("#cBh_frame",window.parent.document).css({width:264,height:132,bottom:10,right:10}).show();
+							$("#cBh_frame",window.parent.document).css({width:264,height:132,bottom:10,right:10,top:"auto"}).show();
 						$('#cMil_stat').show('drop',500,function(){_this.actionAnimate('cMil_stat');});
 					});
 				}
