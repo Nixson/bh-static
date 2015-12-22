@@ -366,6 +366,7 @@ bHelp = (function(){
 				});
 			}
 			_this.parent("#cMil_FrameCover").show();
+			_this.frame(centerH,centerV);
 			/*
 			console.log(_this.vpd);
 			var body = $('body',_this.vpd);
