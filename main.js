@@ -140,6 +140,7 @@ bHelp = (function(){
 			if(this.online) return;
 			if(this.get.activ_type_off!=1) return;
 			var _this = this;
+			console.log(_this.get.active_time_t2);
 
 			setTimeout(function () {
 				if($('#cMil_Line', window.parent.document).is(':visible') && !_this.LineLock && !_this.Storage.getItem('cBh_noAction')) {
