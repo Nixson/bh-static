@@ -367,11 +367,10 @@ bHelp = (function(){
 				_this.parent("#cBh_frame").show(function(){_this.LineLock = false;});
 			}
 			else {
-				this.parent("#cBh_frame").animate({
+				this.parent("#cBh_frame").css({
 						'top': centerV,
 						'left': centerH});
 
-				});
 				$('#cMil_Offline_Rel').show("drop",dr,300,function(){
 								_this.parent("#cBh_frame").animate({
 						'top': centerV,
