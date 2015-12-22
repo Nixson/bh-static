@@ -375,9 +375,9 @@ bHelp = (function(){
 				var lineImg;
 				if(_this.mid==0){$.each(_this.managerList,function(i,v){lineImg=v.block.content;});}
 				else lineImg = _this.managerList[mid];
-				$( '#cMil_Line', window.parent.document ).attr('src','data:image/png;base64,'+lineImg).show("drop",300,{direction:"down"});
+				$( '#cMil_Line', window.parent.document ).attr('src','data:image/png;base64,'+lineImg).show("drop",{direction:"down"},300);
 			}else {
-				$( '#cMil_Line', window.parent.document ).attr('src','data:image/png;base64,'+_this.get.lineImg).show("drop",300,{direction:"down"});
+				$( '#cMil_Line', window.parent.document ).attr('src','data:image/png;base64,'+_this.get.lineImg).show("drop",{direction:"down"},300);
 			}
 		},
 		initLine: function(){//инициализация кнопки вызова и блока для drag
