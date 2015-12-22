@@ -365,8 +365,8 @@ bHelp = (function(){
 					_this.reMessage();
 				});
 			}
-			_this.parent("#cMil_FrameCover").show();
-			_this.frame(centerH,centerV);
+			//_this.parent("#cMil_FrameCover").show();
+			//_this.frame(centerH,centerV);
 			/*
 			console.log(_this.vpd);
 			var body = $('body',_this.vpd);
