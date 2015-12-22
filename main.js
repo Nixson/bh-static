@@ -138,7 +138,7 @@ bHelp = (function(){
 		},
 		activeOffline: function(){
 			if(this.online) return;
-			if(this.info.get.activ_type_off!=1) return;
+			if(this.get.activ_type_off!=1) return;
 			var _this = this;
 
 			setTimeout(function () {
@@ -152,7 +152,7 @@ bHelp = (function(){
 							$('#cMil_stat').show('drop',500,function(){_this.actionAnimate('cMil_stat');});
 						});
 				}
-			}, _this.info.get.active_time_t2 * 1000);
+			}, _this.get.active_time_t2 * 1000);
 
 
 		},
