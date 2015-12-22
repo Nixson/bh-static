@@ -142,11 +142,11 @@ bHelp = (function(){
 			var _this = this;
 
 			setTimeout(function () {
-				if(cl('#cMil_Line', window.parent.document).is(':visible') && !_this.LineLock && !_this.Storage.getItem('cBh_noAction')) {
+				if($('#cMil_Line', window.parent.document).is(':visible') && !_this.LineLock && !_this.Storage.getItem('cBh_noAction')) {
 					$('#cMil_Line',window.parent.document).hide('drop',300,function(){
 
 					});
-						cl('#cMil_Line',window.parent.document).hide({
+						$('#cMil_Line',window.parent.document).hide({
 							opacity: 0
 						}, 300, function () {
 							$('#cMil_stat').show('drop',500,function(){_this.actionAnimate('cMil_stat');});
@@ -158,7 +158,7 @@ bHelp = (function(){
 		},
 		actionAnimate: function (id) {
 			var _this = this;
-			if(cl('#'+id).is(':visible')) {
+			if($('#'+id).is(':visible')) {
 				setTimeout(function () {
 					$('#'+id).animate({
 						'opacity': 0.5
