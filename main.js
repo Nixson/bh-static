@@ -50,6 +50,7 @@ bHelp = (function(){
 		lineStatus: false,
 		LineLock: false,
 		activator: false,
+		vpd: window.parent.document,
 		init: function(){
 			var _this = this;
 			_this.sid = window.parent["bhelpSrvId"];
@@ -360,10 +361,10 @@ bHelp = (function(){
 					_this.reMessage();
 				});
 			}
-			console.log(window.parent.document);
-			var body = $('body',window.parent.document);
+			console.log(vpd);
+			var body = $('body',vpd);
 			console.log(body);
-			$('#cMil_FrameCover',window.parent.document).appendTo(body);
+			$('#cMil_FrameCover',vpd).appendTo(body);
 			_this.frame(centerH,centerV);
 			$('#cMil_FrameCover',window.parent.document).show();
 		},
