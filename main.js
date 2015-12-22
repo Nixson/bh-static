@@ -367,7 +367,7 @@ bHelp = (function(){
 				_this.parent("#cBh_frame").show(function(){_this.LineLock = false;});
 			}
 			else {
-				$('#cMil_Offline_Rel').show("drop",dr,300;
+				$('#cMil_Offline_Rel').show("drop",dr,300);
 				_this.parent("#cBh_frame").animate({'top': centerV,'left': centerH},300);
 /*				_this.parent("#cBh_frame").show("drop",dr,500,function(){
 					_this.LineLock = false;
