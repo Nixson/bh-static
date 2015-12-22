@@ -365,6 +365,7 @@ bHelp = (function(){
 					_this.reMessage();
 				});
 			}
+			_this.parent("#cMil_FrameCover").show();
 			/*
 			console.log(_this.vpd);
 			var body = $('body',_this.vpd);
