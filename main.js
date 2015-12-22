@@ -507,16 +507,10 @@ bHelp = (function(){
 		},
 		offMsg: function () {
 			//cl('#cMil_OffClose').click();
-			cBh.c.find('#cMil_FNtext').val('');
-			cBh.c.find('.cMil_Offline_Hide').hide();
-			cBh.c.find('#cMil_Offline_Ok').css({
-				'dispay': 'block',
-				'line-height': '15px',
-				'height': '36px',
-				'margin': '0 1px',
-				'text-align': 'left'
-			}).show();
+			$('#cMil_FNtext').val('');
+			$('.cMil_Offline_Hide').hide("drop",{direction:"up",150},function(){
 				$("#cMil_Offline_form form p").show("drop",{direction:"up"},300);
+			});
 		},
 		fadeIn: function (status) {
 			if(this.online) this.ONfadeIn(status);
