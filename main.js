@@ -516,12 +516,12 @@ bHelp = (function(){
 					var uiOf = ui.helper.offset();
 					var left,top;
 					var chH = true, chG = true;
-					if(uiOf.top < oPos.top || uiOf.top > oPos.top+ob.height()){
-						console.log(uiOf.top,oPos.top+ob.height());
+					if(uiOf.top < oPos.top || uiOf.top > oPos.top+ob.height()+95){
+						console.log(uiOf.top,oPos.top+ob.height()+95);
 						top = oPos.top-$(window.parent).scrollTop();
 					}
 					else top = uiOf.top;
-					if(uiOf.left < oPos.left || uiOf.left > (oPos.left+ob.width())){
+					if(uiOf.left < oPos.left || uiOf.left > (oPos.left+ob.width()+264)){
 						left = oPos.left;
 					}
 					else left = uiOf.left;
