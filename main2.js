@@ -888,27 +888,7 @@ if(activ_type == 2 && managerEnable) {
 	}, active_time_t1 * 1000);
 }
 if(activ_type_off == 1 && !managerEnable && !clStorage.getItem('cBh_ActiveOff')) {
-	setTimeout(function () {
-		if(cl('#cMil_Line').is(':visible') && cBh.LineLock === 0 && !clStorage.getItem('cBh_noAction')) {
-			if(cBh.Mcie) {
-				cl('#cMil_Line').hide();
-				cl('#cMil_stat').show();
-				if(cl('#cMil_stat').css('opacity') < 1) cl('#cMil_stat').css('opacity', 1);
-				cBh.actionAnimate();
-			} else {
-				cl('#cMil_Line').animate({
-					opacity: 0
-				}, 300, function () {
-					cl(this).hide();
-					cl('#cMil_stat').show().animate({
-						'opacity': 1
-					}, function () {
-						cBh.actionAnimate();
-					});
-				});
-			}
-		}
-	}, active_time_t2 * 1000);
+
 }
 cl('#cMil_FrameClose').on('click', function () {
 	clStorage.setItem('cBh_StrLine', null);

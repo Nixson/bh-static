@@ -48,6 +48,7 @@ bHelp = (function(){
 		firstTime: 0,
 		managerList: {},
 		lineStatus: false,
+		LineLock: false,
 		init: function(){
 			var _this = this;
 			_this.sid = window.parent["bhelpSrvId"];
@@ -117,7 +118,7 @@ bHelp = (function(){
 				_this.managerList[_this.mid].img = img;
 				_this.managerList[_this.mid].block = block;
 				_this.Storage.setItem('bhelp_managerList',JSON.stringify(_this.managerList));
-				_this.reLine();
+				_this.reonline();
 			},'json');
 //			$.post(bhelpInfoAddress+"/"+parent[bhelpSrvId]+_this.client+)
 
@@ -125,6 +126,52 @@ bHelp = (function(){
 
 
 
+		},
+		reonline: function(){
+				this.reLine();
+				this.activeOnline();
+				this.activeOffline();
+		},
+		activeOnline: function(){
+			if(!this.online) return;
+			var _this = this;
+		},
+		activeOffline: function(){
+			if(this.online) return;
+			if(this.info.get.activ_type_off!=1) return;
+			var _this = this;
+
+			setTimeout(function () {
+				if(cl('#cMil_Line', window.parent.document).is(':visible') && !_this.LineLock && !_this.Storage.getItem('cBh_noAction')) {
+					$('#cMil_Line',window.parent.document).hide('drop',300,function(){
+
+					});
+						cl('#cMil_Line',window.parent.document).hide({
+							opacity: 0
+						}, 300, function () {
+							$('#cMil_stat').show('drop',500,function(){_this.actionAnimate('cMil_stat');});
+						});
+				}
+			}, _this.info.get.active_time_t2 * 1000);
+
+
+		},
+		actionAnimate: function (id) {
+			var _this = this;
+			if(cl('#'+id).is(':visible')) {
+				setTimeout(function () {
+					$('#'+id).animate({
+						'opacity': 0.5
+					}, function () {
+						$('#'+id).animate({
+							'opacity': 1
+						}, function () {
+							_this.actionAnimate();
+						});
+					});
+				}, 30000);
+			}
+			//alert()
 		},
 		TextArea:0,
 		Cbbg:0,
