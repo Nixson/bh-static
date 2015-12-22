@@ -382,8 +382,9 @@ bHelp = (function(){
 				});*/
 			}
 			console.log("done");
-			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body")).show();
-			_this.frame(centerH,centerV);
+			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body")).css({
+						'top': centerV,
+						'left': centerH}).show();
 			/*
 			console.log(_this.vpd);
 			var body = $('body',_this.vpd);
