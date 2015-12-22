@@ -514,7 +514,7 @@ bHelp = (function(){
 		offMsg: function () {
 			//cl('#cMil_OffClose').click();
 			$('#cMil_FNtext').val('');
-			$('.cMil_Offline_Hide').hide("drop",{direction:"up",150},function(){
+			$('.cMil_Offline_Hide').hide("drop",{direction:"up"},150,function(){
 				$("#cMil_Offline_form form p").show("drop",{direction:"up"},300);
 			});
 		},
