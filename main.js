@@ -524,7 +524,7 @@ bHelp = (function(){
 						left = oPos.left;
 					}
 					else left = uiOf.left;
-					_this.frame(top,left);
+					_this.frame(left,top);
 				},
 				stop: function (event, ui) {
 					var ob = $('#cMil_body',window.parent.document);
@@ -541,7 +541,7 @@ bHelp = (function(){
 						left = oPos.left;
 					}
 					else left = uiOf.left;
-					_this.frame(top,left);
+					_this.frame(left,top);
 					_this.Storage.setItem('cBh_StrLinePtop', top);
 					_this.Storage.setItem('cBh_StrLinePleft', left);
 				},scroll: false});
