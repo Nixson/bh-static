@@ -151,7 +151,7 @@ bHelp = (function(){
 							$("#cBh_frame",window.parent.document).css({width:264,height:132,bottom:10,left:10,top:"auto"}).show();
 						else
 							$("#cBh_frame",window.parent.document).css({width:264,height:132,bottom:10,right:10,top:"auto"}).show();
-						$('#cMil_stat').show('drop',500,function(){_this.actionAnimate('cMil_stat');});
+						$('#cMil_stat').show('drop',{direction: "down"},500,function(){_this.actionAnimate('cMil_stat');});
 					});
 				}
 			}, _this.get.active_time_off * 1000);
@@ -375,9 +375,9 @@ bHelp = (function(){
 				var lineImg;
 				if(_this.mid==0){$.each(_this.managerList,function(i,v){lineImg=v.block.content;});}
 				else lineImg = _this.managerList[mid];
-				$( '#cMil_Line', window.parent.document ).attr('src','data:image/png;base64,'+lineImg).show("drop",{direction:"down"},300);
+				$( '#cMil_Line', window.parent.document ).attr('src','data:image/png;base64,'+lineImg).show("drop",300);
 			}else {
-				$( '#cMil_Line', window.parent.document ).attr('src','data:image/png;base64,'+_this.get.lineImg).show("drop",{direction:"down"},300);
+				$( '#cMil_Line', window.parent.document ).attr('src','data:image/png;base64,'+_this.get.lineImg).show("drop",300);
 			}
 		},
 		initLine: function(){//инициализация кнопки вызова и блока для drag
