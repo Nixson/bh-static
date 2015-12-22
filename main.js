@@ -140,20 +140,16 @@ bHelp = (function(){
 			if(this.online) return;
 			if(this.get.activ_type_off!=1) return;
 			var _this = this;
-			console.log(_this.get);
-
 			setTimeout(function () {
 				if($('#cMil_Line', window.parent.document).is(':visible') && !_this.LineLock && !_this.Storage.getItem('cBh_noAction')) {
+					var pos = $('#cMil_Line',window.parent.document).position();
+					console.log(pos,$('#cMil_Line',window.parent.document).offset());
 					$('#cMil_Line',window.parent.document).hide('drop',300,function(){
-
+						$('#')
+						$('#cMil_stat').show('drop',500,function(){_this.actionAnimate('cMil_stat');});
 					});
-						$('#cMil_Line',window.parent.document).hide({
-							opacity: 0
-						}, 300, function () {
-							$('#cMil_stat').show('drop',500,function(){_this.actionAnimate('cMil_stat');});
-						});
 				}
-			}, _this.get.active_time_t2 * 1000);
+			}, _this.get.active_time_off * 1000);
 
 
 		},
