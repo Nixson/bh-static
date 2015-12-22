@@ -330,8 +330,7 @@ bHelp = (function(){
 			localStorage.setItem('cBh_StrLineOff', 1);
 			localStorage.setItem('cBh_noAction', 1);
 			_this.LineLock = true;
-			_this.parent("#cBh_frame").css({height:351,top: "auto",left: "auto",bottom: "auto",right: "auto"}).hide();
-			$('#cMil_Offline_Rel').show();
+			_this.parent("#cBh_frame").css({height:351,top: "auto",left: "auto",bottom: "auto",right: "auto"}).show();
 			var winWidth = window.parent.innerWidth || window.parent.document.body.clientWidth;
 			var winHeight = window.parent.innerHeight || window.parent.document.body.clientHeight;
 			var dr = {direction: "left"};
@@ -352,14 +351,21 @@ bHelp = (function(){
 				_this.trOpen = true;
 				_this.signal(['triggerOpen']);
 			}
-			_this.parent("#cBh_frame").css({
-						'top': centerV,
-						'left': centerH
-			});
 			if(fast==1){
+				_this.parent("#cBh_frame").css({
+							'top': centerV,
+							'left': centerH
+				});
+				_this.parent("#cBh_frame").show();
 				_this.parent("#cBh_frame").show(function(){_this.LineLock = false;});
 			}
 			else {
+				$('#cMil_Offline_Rel').show("drop",dr,300,function(){
+								_this.parent("#cBh_frame").animate({
+						'top': centerV,
+						'left': centerH});
+
+				});
 /*				_this.parent("#cBh_frame").show("drop",dr,500,function(){
 					_this.LineLock = false;
 				});*/
