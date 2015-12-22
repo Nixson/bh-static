@@ -328,10 +328,10 @@ bHelp = (function(){
 			}
 			localStorage.setItem('cBh_StrLineOff', 1);
 			localStorage.setItem('cBh_noAction', 1);
-			/*
 			_this.LineLock = true;
 			_this.parent("#cBh_frame").css({height:351,top: "auto",left: "auto",bottom: "auto",right: "auto"}).hide();
 			$('#cMil_Offline_Rel').show();
+			/*
 			var winWidth = window.parent.innerWidth || window.parent.document.body.clientWidth;
 			var winHeight = window.parent.innerHeight || window.parent.document.body.clientHeight;
 			var dr = {direction: "left"};
