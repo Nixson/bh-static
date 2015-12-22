@@ -371,7 +371,7 @@ bHelp = (function(){
 				$('#cMil_Offline_Rel').show("drop",dr,300,function(){
 								_this.parent("#cBh_frame").animate({
 						'top': centerV,
-						'left': centerH},2000);
+						'left': centerH},200);
 
 				});
 /*				_this.parent("#cBh_frame").show("drop",dr,500,function(){
