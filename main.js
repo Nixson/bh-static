@@ -324,7 +324,8 @@ bHelp = (function(){
 			_this.Storage.setItem('cBh_StrLineOff', 1);
 			_this.Storage.setItem('cBh_noAction', 1);
 			_this.LineLock = true;
-			$('#cBh_frame',window.parent.document).css({height:351,top: "auto",left: "auto",bottom: "auto",right: "auto"}).show();
+			$('#cBh_frame',window.parent.document).css({height:351,top: "auto",left: "auto",bottom: "auto",right: "auto"}).hide();
+			$('#cMil_Offline_Rel').show();
 			var winWidth = window.parent.innerWidth || window.parent.document.body.clientWidth;
 			var winHeight = window.parent.innerHeight || window.parent.document.body.clientHeight;
 			var dr = {direction: "left"};
@@ -346,20 +347,22 @@ bHelp = (function(){
 				_this.tr = 1;
 				_this.signal(['triggerOpen']);
 			}
-			$('#cBh_frame',window.parent.document).show().css({
+			$('#cBh_frame',window.parent.document).css({
 						'top': centerV,
 						'left': centerH
 			});
 			if(fast==1){
-				$('#cMil_Offline_Rel').show(function(){_this.LineLock = false;_this.reMessage();});
+				$('#cBh_frame',window.parent.document).show(function(){_this.LineLock = false;_this.reMessage();});
 			}
 			else {
-				$('#cMil_Offline_Rel').show("drop",dr,500,function(){
+				$('#cBh_frame',window.parent.document).show("drop",dr,500,function(){
 					_this.LineLock = false;
 					_this.reMessage();
 				});
 			}
-			$('#cMil_FrameCover',window.parent.document).appendTo($('body',window.parent.document)).css({'position': 'fixed','top':centerV,'left': centerH}).show();
+			$('#cMil_FrameCover',window.parent.document).appendTo($('body',window.parent.document));
+			_this.frame(centerH,centerV);
+			$('#cMil_FrameCover',window.parent.document).show();
 		},
 
 
