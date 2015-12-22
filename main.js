@@ -508,7 +508,7 @@ bHelp = (function(){
 				_this.lineStatus = true;
 			}
 			window.parent.document.body.appendChild(cBhBlock);$( '#cMil_Line', window.parent.document ).show("drop",300);$('#cMil_Line', window.parent.document).on('click',function(){_this.fadeIn();});var div = document.createElement('div');div.id = 'cMil_body';div.style.visibility='hidden'; div.style.display='none'; div.innerHTML = '<div id="cMil_FrameCover" style="position: fixed; top: 0; left: 0; display: block;"><div id="cMil_FrameClose"></div><div id="cMil_FrameSound"></div></div>'; window.parent.document.body.appendChild(div);$('#cMil_body',window.parent.document).width($(window.parent).width() - 20).height(window.parent.innerHeight - 282).show();$(window.parent).resize(function () {$('#cMil_body',window.parent.document).width($(window.parent).width() - 20).height(window.parent.innerHeight - 282);});
-			$('#cMil_FrameCover',window.parent.document).draggable({containment: '#cMil_body',
+			$('#cMil_FrameCover',window.parent.document).draggable({containment: $('#cMil_body',window.parent.document),
 				drag: function (event, ui) {
 					$('#cBh_frame',window.parent.document).css({'position': 'fixed','top': (ui.helper.offset().top-$(window.parent).scrollTop())+'px','left': $(this).css('left')});
 				},
