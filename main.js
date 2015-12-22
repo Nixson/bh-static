@@ -322,6 +322,7 @@ bHelp = (function(){
 
 		OFfadeIn: function (fast) {
 			var _this = this;
+			/*
 			if($('#cMil_Offline_Rel').is(':visible')) return;
 			if(_this.parent("#cMil_Line").is(':visible')){
 				_this.parent("#cMil_Line").hide("drop",300);
@@ -370,7 +371,7 @@ bHelp = (function(){
 			console.log(body);
 			$('#cMil_FrameCover',_this.vpd).appendTo(body);
 			_this.frame(centerH,centerV);
-			$('#cMil_FrameCover',_this.vpd).show();
+			$('#cMil_FrameCover',_this.vpd).show();*/
 		},
 
 
