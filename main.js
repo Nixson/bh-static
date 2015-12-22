@@ -334,10 +334,17 @@ bHelp = (function(){
 			var winWidth = window.parent.innerWidth || window.parent.document.body.clientWidth;
 			var winHeight = window.parent.innerHeight || window.parent.document.body.clientHeight;
 			var dr = {direction: "left"};
+			switch(_this.get.ps){
+				case 1: dr = {direction: "down"}; _this.parent("#cBh_frame").css({right:0,bottom:0}); break;
+				case 2: dr = {direction: "down"}; _this.parent("#cBh_frame").css({left:0,bottom:0}); break;
+				case 3: dr = {direction: "left"}; _this.parent("#cBh_frame").css({left:0,top:"50%"}); break;
+				case 4: dr = {direction: "up"}; _this.parent("#cBh_frame").css({left:0,top:0}); break;
+				case 5: dr = {direction: "up"}; _this.parent("#cBh_frame").css({right:0,top:0}); break;
+				case 6: dr = {direction: "right"}; _this.parent("#cBh_frame").css({right:0,top:"50%"}); break;
+			}
 			if(_this.get.ps == 2 || _this.get.ps == 3 || _this.get.ps == 4) {
 				var centerH = 10;
 			} else{
-				dr = {direction: "right"};
 				var centerH = Math.round(winWidth -_this.parent("#cBh_frame").width()) - 10;
 			}
 			var centerV = Math.round(winHeight - _this.parent("#cBh_frame").height()) - 10;
@@ -360,6 +367,11 @@ bHelp = (function(){
 				_this.parent("#cBh_frame").show(function(){_this.LineLock = false;});
 			}
 			else {
+				this.parent("#cBh_frame").animate({
+						'top': centerV,
+						'left': centerH});
+
+				});
 				$('#cMil_Offline_Rel').show("drop",dr,300,function(){
 								_this.parent("#cBh_frame").animate({
 						'top': centerV,
