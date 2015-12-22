@@ -324,9 +324,11 @@ bHelp = (function(){
 			var _this = this;
 			if($('#cMil_Offline_Rel').is(':visible')) return;
 			if(_this.parent("#cMil_Line").is(':visible')){
-				_this.parent("#cMil_Line").hide("drop",300);
+				_this.parent("#cMil_Line").hide("drop",300,function(){
+								console.log(_this.parent("#cMil_Line").is(':visible'));
+
+				});
 			}
-			console.log(_this.parent("#cMil_Line").is(':visible'));
 			_this.Storage.setItem('cBh_StrLineOff', 1);
 			_this.Storage.setItem('cBh_noAction', 1);
 			_this.LineLock = true;
