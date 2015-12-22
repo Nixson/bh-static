@@ -50,9 +50,11 @@ bHelp = (function(){
 		lineStatus: false,
 		LineLock: false,
 		activator: false,
+		cBh_frame: null,
 		vpd: window.parent.document,
 		init: function(){
 			var _this = this;
+			_this.cBh_frame = $("#cBh_frame",window.parent.document);
 			_this.sid = window.parent["bhelpSrvId"];
 			_this.online = window.parent["bhelpOnline"];
 			_this.client = _this.Storage.getItem('cBh_client');
@@ -154,9 +156,9 @@ bHelp = (function(){
 						left = true;
 					$('#cMil_Line',window.parent.document).hide('drop',300,function(){
 						if(left)
-							$("#cBh_frame",window.parent.document).css({height:132,bottom:10,left:10,top:"auto"}).show();
+							_this.cBh_frame.css({height:132,bottom:10,left:10,top:"auto"}).show();
 						else
-							$("#cBh_frame",window.parent.document).css({height:132,bottom:10,right:10,top:"auto"}).show();
+							_this.cBh_frame.css({height:132,bottom:10,right:10,top:"auto"}).show();
 						$('#cMil_stat').show('drop',{direction: "down"},500,function(){_this.actionAnimate('cMil_stat');});
 					});
 				}
@@ -258,7 +260,7 @@ bHelp = (function(){
 			}
 			_this.Storage.setItem('cBh_StrLine', 1);
 			_this.Storage.setItem('cBh_noAction', 1);
-			$('#cBh_frame',window.parent.document).css({height:351,top: "auto",left: "auto",bottom: "auto",right: "auto"}).show();
+			_this.cBh_frame.css({height:351,top: "auto",left: "auto",bottom: "auto",right: "auto"}).show();
 			_this.LineLock = true;
 			var winWidth = window.parent.innerWidth || window.parent.document.body.clientWidth;
 			var winHeight = window.parent.innerHeight || window.parent.document.body.clientHeight;
@@ -267,9 +269,9 @@ bHelp = (function(){
 				var centerH = 10;
 			} else{
 				dr = {direction: "right"};
-				var centerH = Math.round(winWidth - $('#cBh_frame',window.parent.document).width()) - 10;
+				var centerH = Math.round(winWidth - _this.cBh_frame.width()) - 10;
 			}
-			var centerV = Math.round(winHeight - $('#cBh_frame',window.parent.document).height()) - 10;
+			var centerV = Math.round(winHeight - _this.cBh_frame.height()) - 10;
 			if(_this.Storage.getItem('cBh_StrLinePtop') != null) {
 				if(_this.Storage.getItem('cBh_StrLinePtop') < winHeight) centerV = _this.Storage.getItem('cBh_StrLinePtop');
 			} else _this.Storage.setItem('cBh_StrLinePtop', centerV);
@@ -285,7 +287,7 @@ bHelp = (function(){
 				$('#cMil_Online_headerManager').attr('src','data:image/png;base64,'+managerImg);
 				$('#cMil_Online_header p span').text(managerText);
 				$('#cMil_content').text('');
-				$('#cBh_frame',window.parent.document).show().css({
+				_this.cBh_frame.show().css({
 						'top': centerV,
 						'left': centerH
 				});
@@ -319,13 +321,13 @@ bHelp = (function(){
 		OFfadeIn: function (fast) {
 			var _this = this;
 			if($('#cMil_Online_Rel').is(':visible')) return;
-			if($('#cMil_Line', window.parent.document).is(':visible')){
-				$('#cMil_Line', window.parent.document).hide("drop",300);
+			if(_this.cMil_Line.is(':visible')){
+				_this.cMil_Line.hide("drop",300);
 			}
 			_this.Storage.setItem('cBh_StrLineOff', 1);
 			_this.Storage.setItem('cBh_noAction', 1);
 			_this.LineLock = true;
-			$('#cBh_frame',window.parent.document).css({height:351,top: "auto",left: "auto",bottom: "auto",right: "auto"}).hide();
+			_this.cBh_frame.css({height:351,top: "auto",left: "auto",bottom: "auto",right: "auto"}).hide();
 			$('#cMil_Offline_Rel').show();
 			var winWidth = window.parent.innerWidth || window.parent.document.body.clientWidth;
 			var winHeight = window.parent.innerHeight || window.parent.document.body.clientHeight;
@@ -334,9 +336,9 @@ bHelp = (function(){
 				var centerH = 10;
 			} else{
 				dr = {direction: "right"};
-				var centerH = Math.round(winWidth - $('#cBh_frame',window.parent.document).width()) - 10;
+				var centerH = Math.round(winWidth -_this.cBh_frame.width()) - 10;
 			}
-			var centerV = Math.round(winHeight - $('#cBh_frame',window.parent.document).height()) - 10;
+			var centerV = Math.round(winHeight - _this.cBh_frame.height()) - 10;
 			if(_this.Storage.getItem('cBh_StrLinePtop') != null) {
 				if(_this.Storage.getItem('cBh_StrLinePtop') < winHeight) centerV = _this.Storage.getItem('cBh_StrLinePtop');
 			} else _this.Storage.setItem('cBh_StrLinePtop', centerV);
@@ -348,15 +350,15 @@ bHelp = (function(){
 				_this.tr = 1;
 				_this.signal(['triggerOpen']);
 			}
-			$('#cBh_frame',window.parent.document).css({
+			_this.cBh_frame.css({
 						'top': centerV,
 						'left': centerH
 			});
 			if(fast==1){
-				$('#cBh_frame',window.parent.document).show(function(){_this.LineLock = false;_this.reMessage();});
+				_this.cBh_frame.show(function(){_this.LineLock = false;_this.reMessage();});
 			}
 			else {
-				$('#cBh_frame',window.parent.document).show("drop",dr,500,function(){
+				_this.cBh_frame.show("drop",dr,500,function(){
 					_this.LineLock = false;
 					_this.reMessage();
 				});
@@ -409,7 +411,7 @@ bHelp = (function(){
 			}
 			_this.lastScrollTop = 0;
 			if(cnt > 0 && managerEnable) {
-				if(!$('#cBh_frame').is(':visible') && cntMy === 0) {
+				if(!_this.cBh_frame.is(':visible') && cntMy === 0) {
 					_this.ONfadeIn(1);
 					if(cBh.c.find('#cMil_action').is(':visible')) cBh.c.find('#cMil_action').hide();
 				}
@@ -423,7 +425,7 @@ bHelp = (function(){
 					scrollTop: $('#cMil_content').height()
 				}, 'fast');
 				$('#cMil_content').fadeIn();
-				if($('#cBh_frame').is(':visible')) {
+				if(_this.cBh_frame.is(':visible')) {
 					_this.title();
 					_this.echo();
 				}
@@ -440,7 +442,7 @@ bHelp = (function(){
 						else $('#cMil_content').append('<dl class="cMil_u" id="cBh' + content.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + content.text.split('[nr]').join("\n") + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>');
 				});
 				_this.lastScrollTop = 0;
-				if(!$('#cBh_frame').is(':visible')) {
+				if(!_this.cBh_frame.is(':visible')) {
 					_this.ONfadeIn(1);
 					if($('#cMil_action').is(':visible')) $('#cMil_action').hide();
 				}
@@ -497,11 +499,12 @@ bHelp = (function(){
 				var lineImg;
 				if(_this.mid==0){$.each(_this.managerList,function(i,v){lineImg=v.block.content;});}
 				else lineImg = _this.managerList[mid];
-				$( '#cMil_Line', window.parent.document ).attr('src','data:image/png;base64,'+lineImg).show("drop",300);
+				_this.cMil_Line.attr('src','data:image/png;base64,'+lineImg).show("drop",300);
 			}else {
-				$( '#cMil_Line', window.parent.document ).attr('src','data:image/png;base64,'+_this.get.lineImg).show("drop",300);
+				_this.cMil_Line.attr('src','data:image/png;base64,'+_this.get.lineImg).show("drop",300);
 			}
 		},
+		cMil_Line: null,
 		initLine: function(){//инициализация кнопки вызова и блока для drag
 			var _this = this; _this.insertLine(_this.get.lineStyle+mainStyle);
 			var cBhBlock = document.createElement('img');cBhBlock.id = 'cMil_Line';
@@ -514,11 +517,13 @@ bHelp = (function(){
 				cBhBlock.setAttribute('src','data:image/png;base64,'+lineImg);
 				_this.lineStatus = true;
 			}
-			window.parent.document.body.appendChild(cBhBlock);$( '#cMil_Line', window.parent.document ).show("drop",300);$('#cMil_Line', window.parent.document).on('click',function(){_this.fadeIn();});var div = document.createElement('div');div.id = 'cMil_body';div.style.visibility='hidden'; div.style.display='none'; div.innerHTML = '<div id="cMil_FrameCover" style="position: fixed; top: 0; left: 0; display: block;"><div id="cMil_FrameClose"></div><div id="cMil_FrameSound"></div></div>'; window.parent.document.body.appendChild(div);$('#cMil_body',window.parent.document).width($(window.parent).width() - 20).height(window.parent.innerHeight - 282).show();$(window.parent).resize(function () {$('#cMil_body',window.parent.document).width($(window.parent).width() - 20).height(window.parent.innerHeight - 282);});
+			window.parent.document.body.appendChild(cBhBlock);
+			_this.cMil_Line = $( '#cMil_Line', window.parent.document );
+			_this.cMil_Line.show("drop",300);_this.cMil_Line.on('click',function(){_this.fadeIn();});var div = document.createElement('div');div.id = 'cMil_body';div.style.visibility='hidden'; div.style.display='none'; div.innerHTML = '<div id="cMil_FrameCover" style="position: fixed; top: 0; left: 0; display: block;"><div id="cMil_FrameClose"></div><div id="cMil_FrameSound"></div></div>'; window.parent.document.body.appendChild(div);$('#cMil_body',window.parent.document).width($(window.parent).width() - 20).height(window.parent.innerHeight - 282).show();$(window.parent).resize(function () {$('#cMil_body',window.parent.document).width($(window.parent).width() - 20).height(window.parent.innerHeight - 282);});
 			$('#cMil_FrameCover',window.parent.document).draggable({
 				drag: function (event, ui) {
 					var ob = $('#cMil_body',window.parent.document);
-					var fr = $('#cBh_frame',window.parent.document);
+					var fr = _this.cBh_frame;
 					var oPos = ob.offset();
 					var uiOf = ui.helper.offset();
 					var left,top;
@@ -541,7 +546,7 @@ bHelp = (function(){
 				},
 				stop: function (event, ui) {
 					var ob = $('#cMil_body',window.parent.document);
-					var fr = $('#cBh_frame',window.parent.document);
+					var fr = _this.cBh_frame;
 					var oPos = ob.offset();
 					var uiOf = ui.helper.offset();
 					var left,top;
@@ -560,7 +565,7 @@ bHelp = (function(){
 				},scroll: false});
 		},
 		frame: function(left,top){
-			var fr = $('#cBh_frame',this.vpd);
+			var fr = _this.cBh_frame;
 			var cov = $('#cMil_FrameCover',this.vpd);
 			fr.css({left:left,top:top});
 			cov.css({position:"fixed",left:left,top:top});
