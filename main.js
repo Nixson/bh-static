@@ -508,9 +508,12 @@ bHelp = (function(){
 				_this.lineStatus = true;
 			}
 			window.parent.document.body.appendChild(cBhBlock);$( '#cMil_Line', window.parent.document ).show("drop",300);$('#cMil_Line', window.parent.document).on('click',function(){_this.fadeIn();});var div = document.createElement('div');div.id = 'cMil_body';div.style.visibility='hidden'; div.style.display='none'; div.innerHTML = '<div id="cMil_FrameCover" style="position: fixed; top: 0; left: 0; display: block;"><div id="cMil_FrameClose"></div><div id="cMil_FrameSound"></div></div>'; window.parent.document.body.appendChild(div);$('#cMil_body',window.parent.document).width($(window.parent).width() - 20).height(window.parent.innerHeight - 282).show();$(window.parent).resize(function () {$('#cMil_body',window.parent.document).width($(window.parent).width() - 20).height(window.parent.innerHeight - 282);});
-			$('#cMil_FrameCover',window.parent.document).draggable({containment: $('#cMil_body',window.parent.document),
+			$('#cMil_FrameCover',window.parent.document).draggable(
 				drag: function (event, ui) {
-					$('#cBh_frame',window.parent.document).css({'position': 'fixed','top': (ui.helper.offset().top-$(window.parent).scrollTop())+'px','left': $(this).css('left')});
+					console.log($(this).css('top'),ui.helper.offset().top);
+					var top = ui.helper.offset().top-$(window.parent).scrollTop();
+					var left = $(this).css('left');
+					$('#cBh_frame',window.parent.document).css({'top': (ui.helper.offset().top-$(window.parent).scrollTop())+'px','left': $(this).css('left')});
 				},
 				stop: function (event, ui) {var eTop = ui.helper.offset().top;var eLeft = ui.helper.offset().left;var wTop = $(window.parent).scrollTop();
 					var top = eTop - wTop;
