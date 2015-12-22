@@ -319,6 +319,7 @@ bHelp = (function(){
 		initLine: function(){//инициализация кнопки вызова и блока для drag
 			var _this = this; _this.insertLine(_this.get.lineStyle+mainStyle);
 			var cBhBlock = document.createElement('img');cBhBlock.id = 'cMil_Line';
+			console.log(!$.isEmptyObject(_this.managerList),_this.managerList);
 			if(_this.online && !$.isEmptyObject(_this.managerList)){
 				var lineImg;
 				$.each(_this.managerList,function(i,v){lineImg=v.block.content; break;});
