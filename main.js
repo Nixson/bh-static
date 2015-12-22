@@ -517,6 +517,7 @@ bHelp = (function(){
 					var left,top;
 					var chH = true, chG = true;
 					if(uiOf.top < oPos.top || uiOf.top > oPos.top+ob.height()){
+						console.log(uiOf.top,oPos.top+ob.height());
 						top = oPos.top-$(window.parent).scrollTop();
 					}
 					else top = uiOf.top;
