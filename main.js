@@ -356,7 +356,6 @@ bHelp = (function(){
 						'top': centerV,
 						'left': centerH
 			});
-			/*
 			if(fast==1){
 				_this.parent("#cBh_frame").show(function(){_this.LineLock = false;_this.reMessage();});
 			}
@@ -366,6 +365,7 @@ bHelp = (function(){
 					_this.reMessage();
 				});
 			}
+			/*
 			console.log(_this.vpd);
 			var body = $('body',_this.vpd);
 			console.log(body);
