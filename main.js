@@ -319,6 +319,7 @@ bHelp = (function(){
 			$('#cMil_FrameCover',window.parent.document).appendTo($('body',window.parent.document)).css({'position': 'fixed','top':centerV,'left': centerH}).show();
 		},
 		sCanvas: 0,
+		trOpen: false,
 
 		OFfadeIn: function (fast) {
 			var _this = this;
@@ -347,9 +348,8 @@ bHelp = (function(){
 			if(_this.Storage.getItem('cBh_StrLinePleft') != null) {
 				if(_this.Storage.getItem('cBh_StrLinePleft') < winWidth) centerH = _this.Storage.getItem('cBh_StrLinePleft');
 			} else _this.Storage.setItem('cBh_StrLinePleft', centerH);
-			/*
-			if(_this.tr == 0) {
-				_this.tr = 1;
+			if(!_this.trOpen) {
+				_this.trOpen = true;
 				_this.signal(['triggerOpen']);
 			}
 			_this.parent("#cBh_frame").css({
@@ -363,7 +363,7 @@ bHelp = (function(){
 				_this.parent("#cBh_frame").show("drop",dr,500,function(){
 					_this.LineLock = false;
 				});
-			}*/
+			}
 			console.log("done");
 			//_this.parent("#cMil_FrameCover").show();
 			//_this.frame(centerH,centerV);
