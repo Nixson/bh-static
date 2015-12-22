@@ -382,7 +382,8 @@ bHelp = (function(){
 				});*/
 			}
 			console.log("done");
-			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body")).css({
+			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body"));
+			_this.parent("#cMil_FrameCover").css({
 						'top': centerV,
 						'left': centerH}).show();
 			/*
