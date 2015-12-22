@@ -361,10 +361,10 @@ bHelp = (function(){
 					_this.reMessage();
 				});
 			}
-			console.log(vpd);
-			var body = $('body',vpd);
+			console.log(_this.vpd);
+			var body = $('body',_this.vpd);
 			console.log(body);
-			$('#cMil_FrameCover',vpd).appendTo(body);
+			$('#cMil_FrameCover',_this.vpd).appendTo(body);
 			_this.frame(centerH,centerV);
 			$('#cMil_FrameCover',window.parent.document).show();
 		},
