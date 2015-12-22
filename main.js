@@ -357,12 +357,11 @@ bHelp = (function(){
 						'left': centerH
 			});
 			if(fast==1){
-				_this.parent("#cBh_frame").show(function(){_this.LineLock = false;_this.reMessage();});
+				_this.parent("#cBh_frame").show(function(){_this.LineLock = false;});
 			}
 			else {
 				_this.parent("#cBh_frame").show("drop",dr,500,function(){
 					_this.LineLock = false;
-					_this.reMessage();
 				});
 			}
 			//_this.parent("#cMil_FrameCover").show();
