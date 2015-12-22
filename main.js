@@ -311,7 +311,7 @@ bHelp = (function(){
 						}
 					}, 500);
 				}
-			$('#cMil_FrameCover',window.parent.document).appendTo('body').css({'position': 'fixed','top':centerV,'left': centerH}).show();
+			$('#cMil_FrameCover',window.parent.document).appendTo($('body',window.parent.document)).css({'position': 'fixed','top':centerV,'left': centerH}).show();
 		},
 		sCanvas: 0,
 
@@ -359,7 +359,7 @@ bHelp = (function(){
 					_this.reMessage();
 				});
 			}
-			$('#cMil_FrameCover',window.parent.document).appendTo('body').css({'position': 'fixed','top':centerV,'left': centerH}).show();
+			$('#cMil_FrameCover',window.parent.document).appendTo($('body',window.parent.document)).css({'position': 'fixed','top':centerV,'left': centerH}).show();
 		},
 
 
