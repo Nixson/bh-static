@@ -508,8 +508,8 @@ bHelp = (function(){
 		uInfo: function (respName, respPhone) {
 			$('#cMil_FNname').val(respName);
 			$('#cMil_FNphone').val(respPhone);
-			if(respName != '') _this.Storage.setItem('cBh_offName', respName);
-			if(respPhone != '') _this.Storage.setItem('cBh_offContact', respPhone);
+			if(respName != '') this.Storage.setItem('cBh_offName', respName);
+			if(respPhone != '') this.Storage.setItem('cBh_offContact', respPhone);
 		},
 		offMsg: function () {
 			//cl('#cMil_OffClose').click();
