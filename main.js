@@ -382,13 +382,13 @@ bHelp = (function(){
 				});*/
 			}
 			console.log("done");
-			_this.parent("#cMil_FrameCover").show();
+			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body")).show();
 			_this.frame(centerH,centerV);
 			/*
 			console.log(_this.vpd);
 			var body = $('body',_this.vpd);
 			console.log(body);
-			$('#cMil_FrameCover',_this.vpd).appendTo(body);
+			$('#cMil_FrameCover',_this.vpd);
 			_this.frame(centerH,centerV);
 			$('#cMil_FrameCover',_this.vpd).show();*/
 		},
