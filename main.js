@@ -368,10 +368,10 @@ bHelp = (function(){
 			}
 			else {
 
-				$('#cMil_Offline_Rel').show("drop",dr,300,function(){
+				$('#cMil_Offline_Rel').show("drop",dr,150,function(){
 								_this.parent("#cBh_frame").animate({
 						'top': centerV,
-						'left': centerH},200);
+						'left': centerH},150);
 
 				});
 /*				_this.parent("#cBh_frame").show("drop",dr,500,function(){
