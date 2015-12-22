@@ -331,7 +331,6 @@ bHelp = (function(){
 			_this.LineLock = true;
 			_this.parent("#cBh_frame").css({height:351,top: "auto",left: "auto",bottom: "auto",right: "auto"}).hide();
 			$('#cMil_Offline_Rel').show();
-			/*
 			var winWidth = window.parent.innerWidth || window.parent.document.body.clientWidth;
 			var winHeight = window.parent.innerHeight || window.parent.document.body.clientHeight;
 			var dr = {direction: "left"};
@@ -357,6 +356,7 @@ bHelp = (function(){
 						'top': centerV,
 						'left': centerH
 			});
+			/*
 			if(fast==1){
 				_this.parent("#cBh_frame").show(function(){_this.LineLock = false;_this.reMessage();});
 			}
