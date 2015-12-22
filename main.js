@@ -140,10 +140,10 @@ bHelp = (function(){
 			if(this.online) return;
 			if(this.get.activ_type_off!=1) return;
 			var _this = this;
-			setTimeout(function () {
-				if($('#cMil_Line', window.parent.document).is(':visible') && !_this.LineLock && !_this.Storage.getItem('cBh_noAction')) {
 					var pos = $('#cMil_Line',window.parent.document).position();
 					console.log(pos,$('#cMil_Line',window.parent.document).offset());
+			setTimeout(function () {
+				if($('#cMil_Line', window.parent.document).is(':visible') && !_this.LineLock && !_this.Storage.getItem('cBh_noAction')) {
 					$('#cMil_Line',window.parent.document).hide('drop',300,function(){
 						$('#')
 						$('#cMil_stat').show('drop',500,function(){_this.actionAnimate('cMil_stat');});
