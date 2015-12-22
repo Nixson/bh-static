@@ -323,7 +323,7 @@ bHelp = (function(){
 		OFfadeIn: function (fast) {
 			var _this = this;
 			if($('#cMil_Offline_Rel').is(':visible')) return;
-			console.log(_this.parent("#cMil_Line"));
+			console.log(_this.parent("#cMil_Line").is(':visible'));
 			if(_this.parent("#cMil_Line").is(':visible')){
 				_this.parent("#cMil_Line").hide("drop",300);
 			}
