@@ -527,9 +527,6 @@ bHelp = (function(){
 		lineShow: function(){
 			$( '#cMil_Line:visible', window.parent.document ).show("drop",300);
 		},
-		fadeIn: function(){
-			console.log("fadeIn");
-		},
 		insertLine: function(code) {var style = document.createElement('style');style.type = 'text/css'; if(style.styleSheet) {style.styleSheet.cssText = code;} else style.innerHTML = code; window.parent.document.getElementsByTagName('head')[0].appendChild( style );
 		},
 		textPlaceholder: function (_this) {
