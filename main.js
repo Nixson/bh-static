@@ -514,17 +514,10 @@ bHelp = (function(){
 					var fr = $('#cBh_frame',window.parent.document);
 					var oPos = ob.offset();
 					var uiOf = ui.helper.offset();
+					var left,top;
 					var chH = true, chG = true;
-					if(uiOf.top < oPos.top){
-						chH = false;
-						$(this).css('top',oPos.top);
-						fr.css('top',oPos.top-$(window.parent).scrollTop());
-					}
-					if(uiOf.top > (oPos.top+ob.height())){
-						console.log(uiOf.top,oPos.top,ob.height(),$(window.parent).scrollTop());
-						chH = false;
-						$(this).css('top',oPos.top+ob.height());
-						fr.css('top',oPos.top+ob.height()-$(window.parent).scrollTop());
+					if(uiOf.top < oPos.top || uiOf.top > oPos.top+ob.height()){
+						top = oPos.top-$(window.parent).scrollTop();
 					}
 					if(uiOf.left < oPos.left){
 						chG = false;
@@ -545,14 +538,23 @@ bHelp = (function(){
 
 //					$('#cBh_frame',window.parent.document).css({'top': (ui.helper.offset().top-$(window.parent).scrollTop())+'px','left': $(this).css('left')});
 				},
-				stop: function (event, ui) {var eTop = ui.helper.offset().top;var eLeft = ui.helper.offset().left;var wTop = $(window.parent).scrollTop();
+				stop: function (event, ui) {
+					var eTop = ui.helper.offset().top;
+					var eLeft = ui.helper.offset().left;
+					var wTop = $(window.parent).scrollTop();
 					var top = eTop - wTop;
-					if(!_this.Mcie) {ui.helper.css('position', 'fixed');ui.helper.css('top', top + "px");
-					}
-					$('#cBh_frame',window.parent.document).css({'position': 'fixed','top': top+'px','left': $(this).css('left')});
+					ui.helper.css('position', 'fixed');
+					ui.helper.css('top', top + "px");
+					$('#cBh_frame',window.parent.document).css({'top': top+'px','left': eLeft});
 					_this.Storage.setItem('cBh_StrLinePtop', top);
 					_this.Storage.setItem('cBh_StrLinePleft', eLeft);
 				},scroll: false});
+		},
+		frame: function(left,top){
+			var fr = $('#cBh_frame',window.parent.document);
+			var cov = $('#cMil_FrameCover',window.parent.document);
+			fr.css({left:left,top:top});
+			cov.css({position:"fixed",left:left,top:top});
 		},
 		lineHide: function(){
 			$( '#cMil_Line:visible', window.parent.document ).hide("drop",300);
