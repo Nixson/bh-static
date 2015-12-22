@@ -560,8 +560,8 @@ bHelp = (function(){
 				},scroll: false});
 		},
 		frame: function(left,top){
-			var fr = $('#cBh_frame',_this.vpd);
-			var cov = $('#cMil_FrameCover',_this.vpd);
+			var fr = $('#cBh_frame',this.vpd);
+			var cov = $('#cMil_FrameCover',this.vpd);
 			fr.css({left:left,top:top});
 			cov.css({position:"fixed",left:left,top:top});
 		},
