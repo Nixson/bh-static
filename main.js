@@ -322,13 +322,13 @@ bHelp = (function(){
 
 		OFfadeIn: function (fast) {
 			var _this = this;
-			/*
 			if($('#cMil_Offline_Rel').is(':visible')) return;
 			if(_this.parent("#cMil_Line").is(':visible')){
 				_this.parent("#cMil_Line").hide("drop",300);
 			}
 			localStorage.setItem('cBh_StrLineOff', 1);
 			localStorage.setItem('cBh_noAction', 1);
+			/*
 			_this.LineLock = true;
 			_this.parent("#cBh_frame").css({height:351,top: "auto",left: "auto",bottom: "auto",right: "auto"}).hide();
 			$('#cMil_Offline_Rel').show();
