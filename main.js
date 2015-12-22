@@ -320,8 +320,7 @@ bHelp = (function(){
 
 		OFfadeIn: function (fast) {
 			var _this = this;
-			console.log(_this.cMil_Line);
-			if($('#cMil_Online_Rel').is(':visible')) return;
+			if($('#cMil_Offline_Rel').is(':visible')) return;
 			if(_this.cMil_Line.is(':visible')){
 				_this.cMil_Line.hide("drop",300);
 			}
