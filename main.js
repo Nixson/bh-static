@@ -568,7 +568,7 @@ bHelp = (function(){
 				},scroll: false});
 		},
 		frame: function(left,top){
-			var fr = this.cBh_frame;
+			var fr = this.parent("#cBh_frame");
 			var cov = $('#cMil_FrameCover',this.vpd);
 			fr.css({left:left,top:top});
 			cov.css({position:"fixed",left:left,top:top});
