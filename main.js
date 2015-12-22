@@ -384,7 +384,7 @@ bHelp = (function(){
 			console.log(centerV,centerH);
 			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body")).show();
 			setTimeout(function(){
-				_this.parent("#cMil_FrameCover").css({
+				_this.parent("#cMil_FrameCover").animate({
 							'top': centerV,
 							'left': centerH});
 			},100);
