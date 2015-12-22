@@ -504,6 +504,7 @@ bHelp = (function(){
 				_this.uInfo(cMilName,cMilPhone);
 				_this.signal({offlineText:cMilText,offlineName:cMilName,offlinePhone:cMilPhone,offlineClient:_this.client,offlineActivator:_this.activator});
 			}
+			return false;
 		},
 		uInfo: function (respName, respPhone) {
 			$('#cMil_FNname').val(respName);
