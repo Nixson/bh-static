@@ -521,6 +521,7 @@ bHelp = (function(){
 						fr.css('top',oPos.top-$(window.parent).scrollTop());
 					}
 					if(uiOf.top > (oPos.top+ob.height())){
+						console.log(uiOf.top,oPos.top,ob.height());
 						chH = false;
 						$(this).css('top',oPos.top+ob.height());
 						fr.css('top',oPos.top+ob.height()-$(window.parent).scrollTop());
