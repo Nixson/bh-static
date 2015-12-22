@@ -505,6 +505,12 @@ bHelp = (function(){
 				_this.signal({offlineText:cMilText,offlineName:cMilName,offlinePhone:cMilPhone,offlineClient:_this.client,offlineActivator:_this.activator});
 			}
 		},
+		uInfo: function (respName, respPhone) {
+			$('#cMil_FNname').val(respName);
+			$('#cMil_FNphone').val(respPhone);
+			if(respName != '') _this.Storage.setItem('cBh_offName', respName);
+			if(respPhone != '') _this.Storage.setItem('cBh_offContact', respPhone);
+		},
 		offMsg: function () {
 			//cl('#cMil_OffClose').click();
 			$('#cMil_FNtext').val('');
