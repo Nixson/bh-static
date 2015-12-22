@@ -382,10 +382,12 @@ bHelp = (function(){
 				});*/
 			}
 			console.log(centerV,centerH);
-			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body"));
-			_this.parent("#cMil_FrameCover").css({
-						'top': centerV,
-						'left': centerH}).show();
+			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body")).show();
+			setTimeout(function(){
+				_this.parent("#cMil_FrameCover").css({
+							'top': centerV,
+							'left': centerH});
+			},100);
 			/*
 			console.log(_this.vpd);
 			var body = $('body',_this.vpd);
