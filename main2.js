@@ -300,18 +300,6 @@ function cBh_(ajx_url) {
 				}
 			}
 		},
-		offMsg: function () {
-			//cl('#cMil_OffClose').click();
-			cBh.c.find('#cMil_FNtext').val('');
-			cBh.c.find('.cMil_Offline_Hide').hide();
-			cBh.c.find('#cMil_Offline_Ok').css({
-				'dispay': 'block',
-				'line-height': '15px',
-				'height': '36px',
-				'margin': '0 1px',
-				'text-align': 'left'
-			}).show();
-		},
 		actionAnimate: function () {
 			if(cl('#cMil_action').is(':visible')) {
 				setTimeout(function () {
@@ -440,12 +428,6 @@ function cBh_(ajx_url) {
 				}
 				cBh.save();
 			}
-		},
-		uInfo: function (respName, respPhone) {
-			cBh.c.find('#cMil_FNname').val(respName);
-			cBh.c.find('#cMil_FNphone').val(respPhone);
-			if(respName != '') clStorage.setItem('cBh_offName', respName);
-			if(respPhone != '') clStorage.setItem('cBh_offContact', respPhone);
 		},
 		onFocus: function () {
 			cBh.focus = 1;
