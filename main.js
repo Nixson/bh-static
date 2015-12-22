@@ -360,7 +360,8 @@ bHelp = (function(){
 					_this.reMessage();
 				});
 			}
-			$('#cMil_FrameCover',window.parent.document).appendTo($('body',window.parent.document));
+			var body = $('body',window.parent.document);
+			$('#cMil_FrameCover',window.parent.document).appendTo(body);
 			_this.frame(centerH,centerV);
 			$('#cMil_FrameCover',window.parent.document).show();
 		},
