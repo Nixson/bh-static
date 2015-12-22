@@ -137,6 +137,9 @@ bHelp = (function(){
 				_this.activator = false; _this.Storage.setItem('cBh_ActiveOff', '1'); _this.Storage.setItem('cBh_noAction', '1');
 				$('#cMil_stat').hide("drop",{direction:"down"},300,function(){$( '#cMil_Line', window.parent.document ).show("drop",300);});
 			});
+			$('#cMil_FNsubmit').on('click', function () {
+				_this.off();
+			});
 
 
 		},

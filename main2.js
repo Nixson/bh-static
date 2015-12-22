@@ -972,9 +972,6 @@ cBh.c.find('#cMil_FormOn_TextArea textarea').on('focus', function () {
 		if(!cBh.FN.onText)
 			if(cBh.c.find('#cMil_FormOn_TextArea textarea').val() == '' || cBh.c.find('#cMil_FormOn_TextArea textarea').val() == ' ') cBh.c.find('#cMil_FormOn_TextArea textarea').val(cBh.FN.onText).css('color', '#a0a0a0');
 	});
-cBh.c.find('#cMil_FNsubmit').on('click', function () {
-	cBh.off();
-});
 cl('#cMil_AbuttonOk').on('click', function () {
 	cBh.activator = 1;
 	clStorage.setItem('cBh_ActiveOn', '1');
