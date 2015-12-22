@@ -49,6 +49,7 @@ bHelp = (function(){
 		managerList: {},
 		lineStatus: false,
 		LineLock: false,
+		activator: false,
 		init: function(){
 			var _this = this;
 			_this.sid = window.parent["bhelpSrvId"];
@@ -119,18 +120,19 @@ bHelp = (function(){
 				_this.managerList[_this.mid].block = block;
 				_this.Storage.setItem('bhelp_managerList',JSON.stringify(_this.managerList));
 				_this.reonline();
+				_this.activeOnline();
+				_this.activeOffline();
 			},'json');
-//			$.post(bhelpInfoAddress+"/"+parent[bhelpSrvId]+_this.client+)
 
-//			_this.load(bhelpInfoAddress+"/")
-
+			$('#cMil_SbuttonOk').on('click', function () { _this.activator = true; _this.Storage.setItem('cBh_ActiveOff', '1'); $('#cMil_stat').hide("drop",{direction:"down",300},function(){_this.fadeIn();});});
+			$('#cMil_SbuttonNo').on('click', function () {
+				_this.activator = false; _this.Storage.setItem('cBh_ActiveOff', '1');
+				$('#cMil_stat').hide("drop",{direction:"down",300},function(){$( '#cMil_Line', window.parent.document ).show("drop",300)});});
 
 
 		},
 		reonline: function(){
 				this.reLine();
-				this.activeOnline();
-				this.activeOffline();
 		},
 		activeOnline: function(){
 			if(!this.online) return;

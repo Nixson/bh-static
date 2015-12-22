@@ -1025,37 +1025,7 @@ cl('#cMil_AbuttonNo').on('click', function () {
 	}
 });
 
-cl('#cMil_SbuttonOk').on('click', function () {
-	cBh.activator = 1;
-	clStorage.setItem('cBh_ActiveOff', '1');
-	if(cBh.Mcie) {
-		cl('#cMil_Line').show();
-		cl('#cMil_stat').hide();
-	} else {
-		cl('#cMil_stat').animate({
-			'opacity': 0
-		}, function () {
-			cl('#cMil_stat').hide();
-			cBh.fadeIn(); /*console.log('fadeIn 726');*/
-		});
-	}
-});
 
-cl('#cMil_SbuttonNo').on('click', function () {
-	clStorage.setItem('cBh_ActiveOff', '1');
-	if(cBh.Mcie) {
-		cl('#cMil_Line').show();
-		cl('#cMil_stat').hide();
-	} else {
-		cl('#cMil_Line').show().animate({
-			opacity: 1
-		}, 300, function () {
-			cl('#cMil_stat').animate({
-				opacity: 0
-			}).hide();
-		});
-	}
-});
 
 
 
