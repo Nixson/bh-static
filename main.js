@@ -519,7 +519,7 @@ bHelp = (function(){
 			//cl('#cMil_OffClose').click();
 			$('#cMil_FNtext').val('');
 			$('.cMil_Offline_Hide').hide("drop",{direction:"up"},150,function(){
-				$("#cMil_Offline_form form strong").show("drop",{direction:"up"},300);
+				$("#cMil_Offline_Ok").show("drop",{direction:"up"},300);
 			});
 		},
 		fadeIn: function (status) {
