@@ -315,7 +315,7 @@ bHelp = (function(){
 				}
 				if(_this.wOpenBlock){
 					_this.wOpenBlock = false;
-					_this.signal(['triggerOpen']);//wOpen (window open event)
+					_this.signal({trigger:'Open'});//wOpen (window open event)
 					setTimeout(function () {
 						_this.wOpenBlock = 0;
 						if(_this.sCanvas==0){
