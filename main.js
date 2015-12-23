@@ -253,7 +253,8 @@ bHelp = (function(){
 			}
 		},
 		signal: function(msg){
-			$.post(bhelpSignalAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname)
+			var _this = this;
+			$.post(_this.signalAddr+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{client:JSON.stringify(msg)});
 			console.log("signal",msg);
 		},
 		msgList: {},
