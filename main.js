@@ -584,12 +584,18 @@ bHelp = (function(){
 					var uiOf = ui.helper.offset();
 					var left,top;
 					var chH = true, chG = true;
-					if(uiOf.top < oPos.top || uiOf.top > oPos.top+ob.height()){
+					if(uiOf.top < oPos.top)
 						top = oPos.top-$(window.parent).scrollTop();
+					else if(uiOf.top > oPos.top+ob.height()-95){
+						top = oPos.top+ob.height()-95-$(window.parent).scrollTop();
 					}
 					else top = uiOf.top;
-					if(uiOf.left < oPos.left || uiOf.left > (oPos.left+ob.width())){
+					var maxWidth = oPos.left+ob.width()-264;
+					if(uiOf.left < oPos.left){
 						left = oPos.left;
+					}
+					else if(uiOf.left > maxWidth){
+						left = maxWidth;
 					}
 					else left = uiOf.left;
 					_this.frame(left,top);
