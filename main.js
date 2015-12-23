@@ -630,7 +630,7 @@ bHelp = (function(){
 		info.get = JSON.parse(linfo);
 		iframeContent = iframeContent.replace("{%BG%}",info.get.bg)
 									 .replace("{%DID%}",bhelpSrvId)
-									 .replace("{%OFF_INFO%}",info.get.off_info)
+									 .replace("{%OFF_INFO%}",info.get.off_info.replace("\n","<br />"))
 									 .replace("{%ACTIVINFO%}",info.get.activeinfo)
 									 .replace("{%ACTIVEOFF%}",info.get.activeoff);
 		$('body').html(iframeContent);
