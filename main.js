@@ -365,7 +365,7 @@ bHelp = (function(){
 			} else _this.Storage.setItem('cBh_StrLinePleft', centerH);
 			if(!_this.trOpen) {
 				_this.trOpen = true;
-				_this.signal(['triggerOpen']);
+				_this.signal({trigger:'Open'});
 			}
 			if(fast==1){
 				_this.parent("#cBh_frame").css({
