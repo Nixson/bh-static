@@ -250,7 +250,9 @@ bHelp = (function(){
 				_this.signal(['endMessage']);
 			}
 		},
-		signal: function(msg){},
+		signal: function(msg){
+			console.log("signal",msg);
+		},
 		msgList: {},
 		FormOn_TextArea: false,
 		wOpenBlock: true,
