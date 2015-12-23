@@ -628,7 +628,6 @@ bHelp = (function(){
 	};
 	bhelpLoad(bhelpInfoAddress+"/info.js?get="+bhelpSrvId,"bhelp_get",bhelpSrvVersion,function(linfo){
 		info.get = JSON.parse(linfo);
-		console.log(info.get);
 		iframeContent = iframeContent.replace("{%BG%}",info.get.bg)
 									 .replace("{%DID%}",bhelpSrvId)
 									 .replace("{%OFF_INFO%}",info.get.off_info.replace("\\n","<br />"))
