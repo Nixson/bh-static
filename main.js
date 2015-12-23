@@ -52,6 +52,7 @@ bHelp = (function(){
 		activator: false,
 		cBh_frame: null,
 		vpd: window.parent.document,
+		signalAddr: "127.0.0.1",
 		parent: function(uid){
 			return $(uid,this.vpd);
 		},
@@ -59,6 +60,7 @@ bHelp = (function(){
 			var _this = this;
 			_this.sid = window.parent["bhelpSrvId"];
 			_this.online = window.parent["bhelpOnline"];
+			_this.signalAddr = window.parent["bhelpSignalAddress"];
 			_this.client = _this.Storage.getItem('cBh_client');
 			if(_this.client==null)_this.client = 0;
 			_this.mid = _this.Storage.getItem('bhelp_mid');
@@ -251,6 +253,7 @@ bHelp = (function(){
 			}
 		},
 		signal: function(msg){
+			$.post(bhelpSignalAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname)
 			console.log("signal",msg);
 		},
 		msgList: {},
@@ -378,20 +381,12 @@ bHelp = (function(){
 					_this.LineLock = false;
 				});*/
 			}
-			console.log(centerV,centerH);
 			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body")).show();
 			setTimeout(function(){
 				_this.parent("#cMil_FrameCover").animate({
 							'top': centerV,
 							'left': centerH});
 			},100);
-			/*
-			console.log(_this.vpd);
-			var body = $('body',_this.vpd);
-			console.log(body);
-			$('#cMil_FrameCover',_this.vpd);
-			_this.frame(centerH,centerV);
-			$('#cMil_FrameCover',_this.vpd).show();*/
 		},
 
 
