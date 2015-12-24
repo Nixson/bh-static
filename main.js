@@ -162,11 +162,8 @@ bHelp = (function(){
 			_this.loadPid = true;
 			url = "wss://ws.bhelp.com";
 			_this.ajax = new WebSocket(_this.loadUrl);
-			_this.ajax.onopen = function() {
-				console.log("Connected to WebSocket tracker server");
-			};
 			_this.ajax.onmessage = function(e) {
-				console.log("Updated location from " + e.data);
+				_this.req(JSON.parse(e.data));
 			};
 			_this.ajax.onclose = function(event) {
 				_this.loadPid = false;
