@@ -162,10 +162,16 @@ bHelp = (function(){
 			_this.ajax = new WebSocket(_this.loadUrl);
 			_this.ajax.onopen = function() {
 				console.log("Connected to WebSocket tracker server");
-			}
+			};
 			_this.ajax.onmessage = function(e) {
 				console.log("Updated location from " + e.data);
-			}
+			};
+			_this.ajax.onclose = function(event) {
+				console.log('onclose');
+			};
+			_this.ajax.onerror = function(event) {
+				console.log('onerror');
+			};
 		},
 		feilCnt:0,
 		listenComet: function(){
