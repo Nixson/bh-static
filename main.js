@@ -102,6 +102,7 @@ bHelp = (function(){
 			});
 			$.post(bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{agent:navigator.userAgent,url:window.parent.document.location.pathname,title:window.parent.document.title,os:navigator.platform,ref:window.parent.document.referrer,mid:_this.mid,time:_this.firstTime,managers:JSON.stringify(manList)},function(rsp){
 				_this.client = rsp.uid;
+				_this.loadUrl = bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname;
 				_this.online = rsp.online;
 				_this.mid = rsp.manager.id;
 				var img = {};
@@ -130,6 +131,7 @@ bHelp = (function(){
 				_this.reonline();
 				_this.activeOnline();
 				_this.activeOffline();
+				_this.listen();
 			},'json');
 
 			$('#cMil_SbuttonOk').on('click', function () { _this.activator = true; _this.Storage.setItem('cBh_ActiveOff', '1'); _this.Storage.setItem('cBh_noAction', '1');
@@ -144,6 +146,49 @@ bHelp = (function(){
 			});
 
 
+		},
+		listen: function(){
+			if (window.WebSocket){
+				this.loadUrl = window.parent["bhelpWsAddress"]+"/"+this.sid+"/"+this.client+"/"+window.parent.document.location.hostname;
+				this.listenWs();
+			}
+			else this.listenComet();
+		},
+		ajax: null,
+		loadPid: false,
+		listenWs: function(){
+			var _this = this;
+			url = "wss://ws.bhelp.com";
+			_this.ajax = new WebSocket(_this.loadUrl);
+			_this.ajax.onopen = function() {
+				console.log("Connected to WebSocket tracker server");
+			}
+			_this.ajax.onmessage = function(e) {
+				console.log("Updated location from " + e.data);
+			}
+		},
+		feilCnt:0,
+		listenComet: function(){
+			var _this = this;
+			if(_this.loadPid) return;
+			_this.loadPid = true;
+			_this.ajax = $.ajax({
+					url: _this.loadUrl,
+					type: 'GET',
+					dataType: 'json',
+					cache: false,
+					async: true,
+					complete: function (jqXHR) {
+						_this.loadPid = false;
+						if(!_this.Mcie) _this.listenComet();
+					},
+					success: function (data) {
+						_this.req(data);
+						if(_this.Mcie) _this.listenComet();
+					}});
+		},
+		req: function(info){
+			console.log(info);
 		},
 		reonline: function(){
 				this.reLine();
