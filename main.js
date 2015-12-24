@@ -158,6 +158,8 @@ bHelp = (function(){
 		loadPid: false,
 		listenWs: function(){
 			var _this = this;
+			if(_this.loadPid) return;
+			_this.loadPid = true;
 			url = "wss://ws.bhelp.com";
 			_this.ajax = new WebSocket(_this.loadUrl);
 			_this.ajax.onopen = function() {
@@ -167,10 +169,14 @@ bHelp = (function(){
 				console.log("Updated location from " + e.data);
 			};
 			_this.ajax.onclose = function(event) {
-				console.log('onclose');
+				_this.loadPid = false;
+				setTimeout(function(){_this.listenWs();},100);
+				console.log('onclose WebSocket');
 			};
 			_this.ajax.onerror = function(event) {
-				console.log('onerror');
+				_this.loadPid = false;
+				setTimeout(function(){_this.listenWs();},200);
+				console.log('onerror WebSocket');
 			};
 		},
 		feilCnt:0,
