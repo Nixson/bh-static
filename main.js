@@ -279,6 +279,7 @@ bHelp = (function(){
 					}});
 		},
 		req: function(info){
+			var _this = this;
 			$.each(info, function (index, v) {
 					switch(index) {
 					case 'msg':
@@ -323,6 +324,7 @@ bHelp = (function(){
 			console.log(info);
 		},
 		trigger: function(info){
+			var _this = this;
 			console.log("trigger",info);
 		},
 		reonline: function(){
@@ -333,7 +335,7 @@ bHelp = (function(){
 			var _this = this;
 		},
 		activeOffline: function(){
-			if(this.online) return;
+			if(this.online) return;	
 			if(this.get.activ_type_off!=1) return;
 			var _this = this;
 			setTimeout(function () {
