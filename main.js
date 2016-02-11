@@ -118,7 +118,7 @@ bHelp = (function(){
 			$.each(_this.managerList,function(i,v){
 				manList[i] = {img:v.img.version,block:v.block.version};
 			});
-			$.post(bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{agent:navigator.userAgent,url:window.parent.document.location.pathname,title:window.parent.document.title,os:navigator.platform,ref:window.parent.document.referrer,mid:_this.mid,time:_this.firstTime,managers:JSON.stringify(manList)},function(rsp){
+			$.post(bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{agent:navigator.userAgent,url:window.parent.document.location.pathname,title:window.parent.document.title,os:navigator.platform,ref:window.parent.document.referrer,locale:navigator.language,mid:_this.mid,time:_this.firstTime,managers:JSON.stringify(manList)},function(rsp){
 				_this.client = rsp.uid;
 				_this.loadUrl = bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname;
 				_this.online = rsp.online;
