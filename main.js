@@ -224,7 +224,7 @@ bHelp = (function(){
 		},
 		listen: function(){
 			var _this = this;
-			window.WebSocket = false;
+			window.WebSocket = false;																									//!!!!!!!!!!!!!!!!
 			if (window.WebSocket){
 				this.loadUrl = window.parent["bhelpWsAddress"]+"/"+this.sid+"/"+this.client+"/"+window.parent.document.location.hostname;
 				this.listenWs();
