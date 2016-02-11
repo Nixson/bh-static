@@ -564,7 +564,7 @@ bHelp = (function(){
 			var cntMy = 0;
 			if(resp) {
 				$.each(resp, function (index, val) {
-					vat muid = index;
+					var muid = index;
 					if(muid.substr(0,1)!=='c' && muid.substr(0,1)!=='m')
 						muid = val.id;
 					if(typeof _this.msgList[muid] == 'undefined'){
