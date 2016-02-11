@@ -224,7 +224,9 @@ bHelp = (function(){
 		},
 		listen: function(){
 			var _this = this;
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			window.WebSocket = false;																									//!!!!!!!!!!!!!!!!
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			if (window.WebSocket){
 				this.loadUrl = window.parent["bhelpWsAddress"]+"/"+this.sid+"/"+this.client+"/"+window.parent.document.location.hostname;
 				this.listenWs();
@@ -313,9 +315,15 @@ bHelp = (function(){
 					case 'ex':
 						eval(v);
 						break;
+					case 'trigger':
+						_this.trigger(v);
+						break;
 					}
 			});
 			console.log(info);
+		},
+		trigger: function(info){
+			console.log("trigger",info);
 		},
 		reonline: function(){
 				this.reLine();
