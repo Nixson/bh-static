@@ -41,7 +41,7 @@ bHelp = (function(){
 		uid: 0,
 		mid: 0,
 		get: {},
-		tr: {},
+		tr: [],
 		blank: {offText:"",offContact:"",offName:"",onText:""},
 		session: 0,
 		loadUrl:"",
@@ -118,7 +118,17 @@ bHelp = (function(){
 			$.each(_this.managerList,function(i,v){
 				manList[i] = {img:v.img.version,block:v.block.version};
 			});
-			$.post(bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{agent:navigator.userAgent,url:window.parent.document.location.pathname,title:window.parent.document.title,os:navigator.platform,ref:window.parent.document.referrer,locale:navigator.language,mid:_this.mid,time:_this.firstTime,managers:JSON.stringify(manList)},function(rsp){
+			$.post(bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{
+				agent:navigator.userAgent,
+				url:window.parent.document.location.pathname,
+				title:window.parent.document.title,
+				os:navigator.platform,
+				ref:window.parent.document.referrer,
+				locale:navigator.language,
+				mid:_this.mid,time:_this.firstTime,
+				managers:JSON.stringify(manList),
+				triggers: JSON.stringify(_this.tr)
+			},function(rsp){
 				_this.client = rsp.uid;
 				_this.Storage.setItem('cBh_client',_this.client);
 				_this.loadUrl = bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname;
@@ -325,6 +335,12 @@ bHelp = (function(){
 		},
 		trigger: function(info){
 			var _this = this;
+			for( num in info){
+				var uid = info[num].uid;
+				if(_this.tr.indexOf(uid) && val.safe==1)
+					continue;
+
+			}
 			console.log("trigger",info);
 		},
 		reonline: function(){
