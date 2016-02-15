@@ -525,6 +525,7 @@ bHelp = (function(){
 			$('#cMil_FrameCover',window.parent.document).appendTo($('body',window.parent.document)).css({'position': 'fixed','top':centerV,'left': centerH}).show();
 		},
 		getScreen: function (size) {
+			var _this = this;
 			if(typeof window['html2canvas'] != 'function') return;
 			var scroolTo = $(window.parent).scrollTop();
 			var clWidth = $( window.parent ).width();
@@ -536,8 +537,8 @@ bHelp = (function(){
 				useCORS: false,*/
 				onrendered: function (canvas) {
 					$(window.parent).scrollTop(scroolTo);
-					cBh.canvas = canvas;
-					if(size=='full') $.post(ajx_url,{canvas: {uid: cBh.client, data: cBh.canvas.toDataURL('image/jpeg')}});
+					_this.canvas = canvas;
+					if(size=='full') $.post(ajx_url,{canvas: {uid: _this.client, data: _this.canvas.toDataURL('image/jpeg')}});
 					else if(size=='mini') {
 						var miniW = 300;
 						var miniH = miniW*clHeight/clWidth;
@@ -545,11 +546,11 @@ bHelp = (function(){
 						cMin.width = miniW;
 						cMin.height = miniH;
 						var ctxMin = cMin.getContext("2d");
-						ctxMin.drawImage(cBh.canvas,0,scroolTo, clWidth, clHeight,0,0,miniW,miniH);
-						var dtData = cBh.getBase64Image(cMin,0.95);
-						if(cBh.jCanvas != dtData) {
-							cBh.jCanvas = dtData;
-							$.post(ajx_url,{canvas: {uid: cBh.client, data: dtData}});
+						ctxMin.drawImage(_this.canvas,0,scroolTo, clWidth, clHeight,0,0,miniW,miniH);
+						var dtData = _this.getBase64Image(cMin,0.95);
+						if(_this.jCanvas != dtData) {
+							_this.jCanvas = dtData;
+							$.post(ajx_url,{canvas: {uid: _this.client, data: dtData}});
 						}
 					}
 					else {
@@ -557,11 +558,11 @@ bHelp = (function(){
 						cMin.width = clWidth;
 						cMin.height = clHeight;
 						var ctxMin = cMin.getContext("2d");
-						ctxMin.drawImage(cBh.canvas,0,scroolTo, clWidth, clHeight,0,0,clWidth,clHeight);
+						ctxMin.drawImage(_this.canvas,0,scroolTo, clWidth, clHeight,0,0,clWidth,clHeight);
 						var dtData = cMin.toDataURL('image/jpeg');
-						if(cBh.jCanvas != dtData) {
-							cBh.jCanvas = dtData;
-							$.post(ajx_url,{canvas: {uid: cBh.client, data: dtData}});
+						if(_this.jCanvas != dtData) {
+							_this.jCanvas = dtData;
+							$.post(ajx_url,{canvas: {uid: _this.client, data: dtData}});
 						}
 						//window.open(cMin.toDataURL('image/jpeg'));
 					}
@@ -571,6 +572,8 @@ bHelp = (function(){
 				}
 			});
 		},
+		canvas: false,
+		jCanvas: null,
 		sCanvas: 0,
 		trOpen: false,
 
