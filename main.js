@@ -192,16 +192,18 @@ bHelp = (function(){
 				};
 				var msgUid = ++_this.lastCmsg;
 
-				_this.msgList[msgUid] = mBlock;
+				_this.msgList["c"+msgUid] = mBlock;
 				_this.LastText = msg;
 				$('#cMil_content').fadeTo(0.2);
-				$('#cMil_content').append('<dl class="cMil_p" id="cBh' + msgUid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + msg + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>');
+				$('#cMil_content').append('<dl class="cMil_p" id="cBhc' + msgUid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + msg + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>');
 				$('#cMil_scroll').animate({
 					scrollTop: $('#cMil_content').height()
 				}, 'fast');
 				$('#cMil_FormOn_TextArea textarea').val('');
-				_this.blockSend = true;
-				_this.signal({msg: {uid: msgUid, value: mBlock}});
+				setTimeout(function () {
+					_this.blockSend = true;
+				},500);
+				_this.signal({msg: {uid: "c"+msgUid, value: mBlock}});
 				_this.signal({trigger:'Send'});
 				if(msgUid == 1) {
 					setTimeout(function () {
@@ -521,6 +523,53 @@ bHelp = (function(){
 					}, 500);
 				}
 			$('#cMil_FrameCover',window.parent.document).appendTo($('body',window.parent.document)).css({'position': 'fixed','top':centerV,'left': centerH}).show();
+		},
+		getScreen: function (size) {
+			if(typeof window['html2canvas'] != 'function') return;
+			var scroolTo = $(window.parent).scrollTop();
+			var clWidth = $( window.parent ).width();
+			var clHeight = $( window.parent ).height();
+			html2canvas(document.body, {
+/*				allowTaint: true,
+				taintTest: false,
+				logging: false,
+				useCORS: false,*/
+				onrendered: function (canvas) {
+					$(window.parent).scrollTop(scroolTo);
+					cBh.canvas = canvas;
+					if(size=='full') $.post(ajx_url,{canvas: {uid: cBh.client, data: cBh.canvas.toDataURL('image/jpeg')}});
+					else if(size=='mini') {
+						var miniW = 300;
+						var miniH = miniW*clHeight/clWidth;
+						var cMin = document.createElement('canvas');
+						cMin.width = miniW;
+						cMin.height = miniH;
+						var ctxMin = cMin.getContext("2d");
+						ctxMin.drawImage(cBh.canvas,0,scroolTo, clWidth, clHeight,0,0,miniW,miniH);
+						var dtData = cBh.getBase64Image(cMin,0.95);
+						if(cBh.jCanvas != dtData) {
+							cBh.jCanvas = dtData;
+							$.post(ajx_url,{canvas: {uid: cBh.client, data: dtData}});
+						}
+					}
+					else {
+						var cMin = document.createElement('canvas');
+						cMin.width = clWidth;
+						cMin.height = clHeight;
+						var ctxMin = cMin.getContext("2d");
+						ctxMin.drawImage(cBh.canvas,0,scroolTo, clWidth, clHeight,0,0,clWidth,clHeight);
+						var dtData = cMin.toDataURL('image/jpeg');
+						if(cBh.jCanvas != dtData) {
+							cBh.jCanvas = dtData;
+							$.post(ajx_url,{canvas: {uid: cBh.client, data: dtData}});
+						}
+						//window.open(cMin.toDataURL('image/jpeg'));
+					}
+					//cl.post(ajx_url,{canvas: {uid: cBh.client, data: resp}});
+					//document.body.appendChild(canvas);
+					//document.body.appendChild(canvas.toDataURL('image/png'));
+				}
+			});
 		},
 		sCanvas: 0,
 		trOpen: false,
