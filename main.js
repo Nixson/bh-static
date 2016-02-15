@@ -538,7 +538,8 @@ bHelp = (function(){
 				onrendered: function (canvas) {
 					$(window.parent).scrollTop(scroolTo);
 					_this.canvas = canvas;
-					if(size=='full') $.post(ajx_url,{canvas: {uid: _this.client, data: _this.canvas.toDataURL('image/jpeg')}});
+					/*_this.signalAddr+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{client:JSON.stringify(msg)}*/
+					if(size=='full') $.post(_this.signalAddr+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{canvas: {uid: _this.client, data: _this.canvas.toDataURL('image/jpeg')}});
 					else if(size=='mini') {
 						var miniW = 300;
 						var miniH = miniW*clHeight/clWidth;
@@ -550,7 +551,7 @@ bHelp = (function(){
 						var dtData = _this.getBase64Image(cMin,0.95);
 						if(_this.jCanvas != dtData) {
 							_this.jCanvas = dtData;
-							$.post(ajx_url,{canvas: {uid: _this.client, data: dtData}});
+							$.post(_this.signalAddr+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{canvas: {uid: _this.client, data: dtData}});
 						}
 					}
 					else {
@@ -562,7 +563,7 @@ bHelp = (function(){
 						var dtData = cMin.toDataURL('image/jpeg');
 						if(_this.jCanvas != dtData) {
 							_this.jCanvas = dtData;
-							$.post(ajx_url,{canvas: {uid: _this.client, data: dtData}});
+							$.post(_this.signalAddr+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{canvas: {uid: _this.client, data: dtData}});
 						}
 						//window.open(cMin.toDataURL('image/jpeg'));
 					}
