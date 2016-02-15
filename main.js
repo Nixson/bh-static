@@ -786,7 +786,7 @@ bHelp = (function(){
 			if(_this.online){
 				var lineImg;
 				if(_this.mid==0){$.each(_this.managerList,function(i,v){lineImg=v.block.content;});}
-				else lineImg = _this.managerList[_this.mid];
+				else lineImg = _this.managerList[_this.mid].block.content;
 				_this.parent("#cMil_Line").attr('src','data:image/png;base64,'+lineImg).show("drop",300);
 			}else {
 				_this.parent("#cMil_Line").attr('src','data:image/png;base64,'+_this.get.lineImg).show("drop",300);
