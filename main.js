@@ -822,6 +822,10 @@ bHelp = (function(){
 		initLine: function(){//инициализация кнопки вызова и блока для drag
 			var _this = this; _this.insertLine(_this.get.lineStyle+mainStyle);
 			var cBhBlock = document.createElement('img');cBhBlock.id = 'cMil_Line';
+			if(_this.online){
+				console.log("online");
+			}
+			console.log(_this.managerList);
 			if(!_this.online || $.isEmptyObject(_this.managerList)){
 				cBhBlock.setAttribute('src','data:image/png;base64,'+_this.get.lineImg);
 				_this.lineStatus = false;
