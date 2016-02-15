@@ -572,6 +572,29 @@ bHelp = (function(){
 				}
 			});
 		},
+		getBase64Image: function(img, quality) {
+		    var canvas = document.createElement("canvas");
+		    canvas.width = img.width;
+		    canvas.height = img.height;
+		    var ctx = canvas.getContext("2d");
+
+		    //----- origin draw ---
+		    ctx.drawImage(img, 0, 0, img.width, img.height);
+
+		    //------ reduced draw ---
+		    var canvas2 = document.createElement("canvas");
+		    canvas2.width = img.width * quality;
+		    canvas2.height = img.height * quality;
+		    var ctx2 = canvas2.getContext("2d");
+		    ctx2.drawImage(canvas, 0, 0, img.width * quality, img.height * quality);
+
+		    // -- back from reduced draw ---
+		    ctx.drawImage(canvas2, 0, 0, img.width, img.height);
+
+		    var dataURL = canvas.toDataURL("image/jpeg");
+		    return dataURL;
+		    // return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+		},
 		canvas: false,
 		jCanvas: null,
 		sCanvas: 0,
