@@ -391,8 +391,6 @@ bHelp = (function(){
 			//alert()
 		},
 		startTimeMsg: function(first){
-			console.log(startTimeMsg,first);
-			/*
 			var _this = this;
 			if(_this.StopTextMsg==1){
 				clearTimeout(_this.TimeoutTextMsg);
@@ -410,7 +408,7 @@ bHelp = (function(){
 				},5000);
 			}else if (time >= _this.TimeTextMsg){
 				_this.signal({end:'Message'});
-			}*/
+			}
 		},
 		TextArea:0,
 		Cbbg:0,
@@ -445,10 +443,9 @@ bHelp = (function(){
 				$('#cMil_FormOn_SubTextArea textarea').scrollTop(1);
 			}
 			if(_this.LastTextMsg!=$('#cMil_FormOn_SubTextArea textarea').val()){
-				console.log( typeof _this.startTimeMsg, _this);
-				_this.startTimeMsg(1);
 				_this.LastTextMsg = $('#cMil_FormOn_SubTextArea textarea').val();
 				_this.TimeTextMsg = parseInt(Number(new Date())/1000)+5;
+				_this.startTimeMsg(1);
 			}
 		},
 		TimeoutTextMsg: null,
