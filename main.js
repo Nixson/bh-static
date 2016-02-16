@@ -391,6 +391,8 @@ bHelp = (function(){
 			//alert()
 		},
 		startTimeMsg: function(first){
+			console.log(startTimeMsg,first);
+			/*
 			var _this = this;
 			if(_this.StopTextMsg==1){
 				clearTimeout(_this.TimeoutTextMsg);
@@ -408,7 +410,7 @@ bHelp = (function(){
 				},5000);
 			}else if (time >= _this.TimeTextMsg){
 				_this.signal({end:'Message'});
-			}
+			}*/
 		},
 		TextArea:0,
 		Cbbg:0,
