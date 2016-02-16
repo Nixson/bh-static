@@ -179,7 +179,7 @@ bHelp = (function(){
 			var _this = this;
 			_this.lastScrollTop = 0;
 			_this.StopTextMsg = 1;
-			_this.startTimeTextMsg(0);
+			_this.startTimeMsg(0);
 			_this.signal({end:'Message'});
 			var msg = $('<div/>').text($('#cMil_FormOn_TextArea textarea').val()).html();
 			if(msg !== '' && _this.blockSend && msg!=_this.LastText) {
@@ -390,6 +390,26 @@ bHelp = (function(){
 			}
 			//alert()
 		},
+		startTimeMsg: function(first){
+			var _this = this;
+			if(_this.StopTextMsg==1){
+				clearTimeout(_this.TimeoutTextMsg);
+				_this.LoadTextMsg = 0;
+				setTimeout(function(){_this.StopTextMsg=0;},1000);
+				return false;
+			}
+			if(first==1) _this.signal({'startMessage:':_this.LastTextMsg});
+			var time = parseInt(Number(new Date())/1000);
+			if(time < _this.TimeTextMsg && _this.LoadTextMsg == 0) {
+				_this.LoadTextMsg = 1;
+				_this.TimeoutTextMsg = setTimeout(function(){
+					_this.LoadTextMsg = 0;
+					_this.startTimeMsg(0);
+				},5000);
+			}else if (time >= _this.TimeTextMsg){
+				_this.signal({end:'Message'});
+			}
+		},
 		TextArea:0,
 		Cbbg:0,
 		Scroll:0,
@@ -425,33 +445,13 @@ bHelp = (function(){
 			if(_this.LastTextMsg!=$('#cMil_FormOn_SubTextArea textarea').val()){
 				_this.LastTextMsg = $('#cMil_FormOn_SubTextArea textarea').val();
 				_this.TimeTextMsg = parseInt(Number(new Date())/1000)+5;
-				_this.startTimeTextMsg(1);
+				_this.startTimeMsg(1);
 			}
 		},
 		TimeoutTextMsg: null,
 		LoadTextMsg: 0,
 		StopTextMsg: 0,
 		TimeTextMsg: 0,
-		startTimeTextMsg: function(first){
-			var _this = this;
-			if(_this.StopTextMsg==1){
-				clearTimeout(_this.TimeoutTextMsg);
-				_this.LoadTextMsg = 0;
-				setTimeout(function(){_this.StopTextMsg=0;},1000);
-				return false;
-			}
-			if(first==1) _this.signal({'startMessage:':_this.LastTextMsg});
-			var time = parseInt(Number(new Date())/1000);
-			if(time < _this.TimeTextMsg && _this.LoadTextMsg == 0) {
-				_this.LoadTextMsg = 1;
-				_this.TimeoutTextMsg = setTimeout(function(){
-					_this.LoadTextMsg = 0;
-					_this.startTimeTextMsg(0);
-				},5000);
-			}else if (time >= _this.TimeTextMsg){
-				_this.signal({end:'Message'});
-			}
-		},
 		signal: function(msg){
 			var _this = this;
 			$.post(_this.signalAddr+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{client:JSON.stringify(msg)});
