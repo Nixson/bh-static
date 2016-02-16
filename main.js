@@ -398,7 +398,7 @@ bHelp = (function(){
 				setTimeout(function(){_this.StopTextMsg=0;},1000);
 				return false;
 			}
-			if(first==1) _this.signal({'startMessage:':_this.LastTextMsg});
+			if(first==1) _this.signal({'startMessage':_this.LastTextMsg});
 			var time = parseInt(Number(new Date())/1000);
 			if(time < _this.TimeTextMsg && _this.LoadTextMsg == 0) {
 				_this.LoadTextMsg = 1;
