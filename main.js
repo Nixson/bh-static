@@ -101,7 +101,7 @@ bHelp = (function(){
 			if(_this.Storage.getItem('cBh_offName') != null) $('#cMil_FNname').val(_this.Storage.getItem('cBh_offName'));
 			if(_this.Storage.getItem('cBh_offContact') != null) $('#cMil_FNphone').val(_this.Storage.getItem('cBh_offContact'));
 			if(_this.Storage.getItem('cBh_session') != null) _this.session = _this.Storage.getItem('cBh_session');
-			$('#cMil_FormOn_TextArea textarea').on('keyup', _this.updateSize).on('keydown', _this.updateSize).on('change', _this.updateSize);
+			$('#cMil_FormOn_TextArea textarea').on('keyup', function(){_this.updateSize();}).on('keydown', function(){_this.updateSize();}).on('change', function(){_this.updateSize();});
 			_this.TextArea = $('#cMil_FormOn_TextArea textarea').height();
 			_this.Cbbg = $('#cMil_Online_cbbg').height();
 			_this.Scroll = $('#cMil_scroll').height();
@@ -445,7 +445,7 @@ bHelp = (function(){
 				$('#cMil_FormOn_SubTextArea textarea').scrollTop(1);
 			}
 			if(_this.LastTextMsg!=$('#cMil_FormOn_SubTextArea textarea').val()){
-				console.log( typeof _this.startTimeMsg);
+				console.log( typeof _this.startTimeMsg, _this);
 				_this.startTimeMsg(1);
 				_this.LastTextMsg = $('#cMil_FormOn_SubTextArea textarea').val();
 				_this.TimeTextMsg = parseInt(Number(new Date())/1000)+5;
