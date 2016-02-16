@@ -492,7 +492,6 @@ bHelp = (function(){
 				managerText = _this.managerList[_this.mid].text;
 				managerImg = _this.managerList[_this.mid].img.content;
 			}
-			console.log("managerImg",managerImg);
 				$('#cMil_Online_headerManager').attr('src','data:image/png;base64,'+managerImg);
 				$('#cMil_Online_header p span').text(managerText);
 				$('#cMil_content').text('');
