@@ -445,9 +445,9 @@ bHelp = (function(){
 				$('#cMil_FormOn_SubTextArea textarea').scrollTop(1);
 			}
 			if(_this.LastTextMsg!=$('#cMil_FormOn_SubTextArea textarea').val()){
+				_this.startTimeMsg(1);
 				_this.LastTextMsg = $('#cMil_FormOn_SubTextArea textarea').val();
 				_this.TimeTextMsg = parseInt(Number(new Date())/1000)+5;
-				_this.startTimeMsg(1);
 			}
 		},
 		TimeoutTextMsg: null,
