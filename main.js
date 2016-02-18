@@ -146,7 +146,7 @@ bHelp = (function(){
 					};
 				}
 				var block = {};
-				if(typeof _this.managerList[_this.mid]!='undefined' && rsp.manager.block_img==_this.managerList[_this.mid].block.version){
+				if(typeof _this.managerList[_this.mid]!='undefined' && rsp.manager.version_block==_this.managerList[_this.mid].block.version){
 					block = _this.managerList[_this.mid].block;
 				}else {
 					block = {
