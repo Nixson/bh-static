@@ -155,7 +155,7 @@ bHelp = (function(){
 					};
 				}
 				console.log("img",img);
-				console.log("block",block);
+				console.log("block",block,rsp.manager);
 				_this.managerInfo({id:rsp.manager.id,img:img,block:block,text:rsp.manager.text});
 				_this.reonline();
 				_this.activeOnline();
