@@ -671,7 +671,7 @@ bHelp = (function(){
 				$.each(resp, function (index, val) {
 					var muid = index;
 					if(muid.substr(0,1)!=='c' && muid.substr(0,1)!=='m')
-						muid = val.id;
+						muid = val.uid;
 					if(typeof _this.msgList[muid] == 'undefined'){
 						_this.msgList[muid] = {
 							text: val.text,
@@ -688,24 +688,24 @@ bHelp = (function(){
 					var noUID = -1;
 					if(LastId > 0)
 						$.each(_this.msgList, function (id, content) {
-							if(content.uid == val.id) noUID = id;
+							if(content.uid == val.uid) noUID = id;
 						});
 					if(noUID < 0) {
 						_this.msgList[LastId] = {};
-						_this.msgList[LastId].uid = val.id;
+						_this.msgList[LastId].uid = val.uid;
 						_this.msgList[LastId].who = val.who;
 						_this.msgList[LastId].text = val.text;
 						if(val.who == "0") {
 							cntMy++;
 							if(val.now == "1") {
-								if($('#cBh' + val.id).text().length == 0) {
-									respContent += '<dl class="cMil_p" id="cBh' + val.id + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + val.text.split('[nr]').join("\n") + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>';
+								if($('#cBh' + val.uid).text().length == 0) {
+									respContent += '<dl class="cMil_p" id="cBh' + val.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + val.text.split('[nr]').join("\n") + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>';
 								}
 								/*$('#cMil_content').append();*/
 							}
 						} else if(val.who == "1") {
-							if($('#cBh' + val.id).text().length == 0)
-								respContent += '<dl class="cMil_u" id="cBh' + val.id + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + val.text.split('[nr]').join("\n") + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>';
+							if($('#cBh' + val.uid).text().length == 0)
+								respContent += '<dl class="cMil_u" id="cBh' + val.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + val.text.split('[nr]').join("\n") + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>';
 						}
 						cnt++;
 					} else {
@@ -831,6 +831,7 @@ bHelp = (function(){
 				_this.lineStatus = false;
 			} else{
 				var lineImg;
+				console.log(_this.managerList);
 				$.each(_this.managerList,function(i,v){lineImg=v.block.content;});
 				cBhBlock.setAttribute('src','data:image/png;base64,'+lineImg);
 				_this.lineStatus = true;
