@@ -88,7 +88,6 @@ bHelp = (function(){
 			_this.managerList = _this.Storage.getItem('bhelp_managerList');
 			if(_this.managerList==null) _this.managerList = {};
 			else _this.managerList = JSON.parse(_this.managerList);
-			console.log("managerList",_this.managerList);
 			_this.initLine();
 
 			_this.uid = _this.client;
@@ -117,7 +116,6 @@ bHelp = (function(){
 			if(_this.client > 0) _this.loadUrl = bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname;
 			var manList = {};
 			$.each(_this.managerList,function(i,v){
-				console.log("120 v",v);
 				manList[i] = {img:v.img.version,block:v.block.version};
 			});
 			$.post(bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{
@@ -154,8 +152,6 @@ bHelp = (function(){
 						content: rsp.manager.block_img
 					};
 				}
-				console.log("img",img);
-				console.log("block",block,rsp.manager);
 				_this.managerInfo({id:rsp.manager.id,img:img,block:block,text:rsp.manager.text});
 				_this.reonline();
 				_this.activeOnline();
@@ -266,12 +262,10 @@ bHelp = (function(){
 			_this.ajax.onclose = function(event) {
 				_this.loadPid = false;
 				setTimeout(function(){_this.listenWs();},100);
-				console.log('onclose WebSocket');
 			};
 			_this.ajax.onerror = function(event) {
 				_this.loadPid = false;
 				setTimeout(function(){_this.listenWs();},200);
-				console.log('onerror WebSocket');
 			};
 		},
 		feilCnt:0,
@@ -337,7 +331,6 @@ bHelp = (function(){
 						break;
 					}
 			});
-			console.log(info);
 		},
 		trigger: function(info){
 			var _this = this;
@@ -347,7 +340,6 @@ bHelp = (function(){
 					continue;
 
 			}
-			console.log("trigger",info);
 		},
 		reonline: function(){
 				this.reLine();
@@ -826,16 +818,11 @@ bHelp = (function(){
 		initLine: function(){//инициализация кнопки вызова и блока для drag
 			var _this = this; _this.insertLine(_this.get.lineStyle+mainStyle);
 			var cBhBlock = document.createElement('img');cBhBlock.id = 'cMil_Line';
-			if(_this.online){
-				console.log("online");
-			}
-			console.log(_this.managerList);
 			if(!_this.online || $.isEmptyObject(_this.managerList)){
 				cBhBlock.setAttribute('src','data:image/png;base64,'+_this.get.lineImg);
 				_this.lineStatus = false;
 			} else{
 				var lineImg;
-				console.log(_this.managerList);
 				$.each(_this.managerList,function(i,v){lineImg=v.block.content;});
 				cBhBlock.setAttribute('src','data:image/png;base64,'+lineImg);
 				_this.lineStatus = true;
