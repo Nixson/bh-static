@@ -88,6 +88,7 @@ bHelp = (function(){
 			_this.managerList = _this.Storage.getItem('bhelp_managerList');
 			if(_this.managerList==null) _this.managerList = {};
 			else _this.managerList = JSON.parse(_this.managerList);
+			console.log("managerList",_this.managerList);
 			_this.initLine();
 
 			_this.uid = _this.client;
@@ -116,6 +117,7 @@ bHelp = (function(){
 			if(_this.client > 0) _this.loadUrl = bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname;
 			var manList = {};
 			$.each(_this.managerList,function(i,v){
+				console.log("120 v",v);
 				manList[i] = {img:v.img.version,block:v.block.version};
 			});
 			$.post(bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{
