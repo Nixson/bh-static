@@ -125,6 +125,7 @@ bHelp = (function(){
 				os:navigator.platform,
 				ref:window.parent.document.referrer,
 				locale:navigator.language,
+				protocol:window.parent.document.location.protocol,
 				mid:_this.mid,time:_this.firstTime,
 				managers:JSON.stringify(manList),
 				triggers: JSON.stringify(_this.tr)
