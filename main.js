@@ -154,6 +154,8 @@ bHelp = (function(){
 						content: rsp.manager.block_img
 					};
 				}
+				console.log("img",img);
+				console.log("block",block);
 				_this.managerInfo({id:rsp.manager.id,img:img,block:block,text:rsp.manager.text});
 				_this.reonline();
 				_this.activeOnline();
