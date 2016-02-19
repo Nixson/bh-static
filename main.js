@@ -332,12 +332,22 @@ bHelp = (function(){
 					case 'trigger':
 						_this.trigger(v);
 						break;
+					case 'strigger':
+						_this.strigger(v);
+						break;
 					case 'pull':
 						for( var line in v)
 							_this.req(v[line]);
 						break;
 					}
 			});
+		},
+		strigger: function(info){
+			var _this = this;
+			for(var num in info){
+				_this.tr.push(info[num]);
+			}
+			_this.Storage.setItem('cBh_triggers',JSON.stringify(_this.tr));
 		},
 		trigger: function(info){
 			var _this = this;
