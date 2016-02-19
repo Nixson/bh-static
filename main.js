@@ -550,7 +550,7 @@ bHelp = (function(){
 					$(window.parent).scrollTop(scroolTo);
 					_this.canvas = canvas;
 					/*_this.signalAddr+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{client:JSON.stringify(msg)}*/
-					if(size=='full') $.post(_this.signalAddr+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{canvas: JSON.stringify({uid: _this.client, data: _this.canvas.toDataURL('image/jpeg')})});
+					if(size=='full') $.post(_this.signalAddr+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{canvas: _this.canvas.toDataURL('image/jpeg')});
 					else if(size=='mini') {
 						var miniW = 300;
 						var miniH = miniW*clHeight/clWidth;
@@ -562,7 +562,7 @@ bHelp = (function(){
 						var dtData = _this.getBase64Image(cMin,0.95);
 						if(_this.jCanvas != dtData) {
 							_this.jCanvas = dtData;
-							$.post(_this.signalAddr+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{canvas: JSON.stringify({uid: _this.client, data: dtData})});
+							$.post(_this.signalAddr+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{canvas: dtData});
 						}
 					}
 					else {
@@ -574,7 +574,7 @@ bHelp = (function(){
 						var dtData = cMin.toDataURL('image/jpeg');
 						if(_this.jCanvas != dtData) {
 							_this.jCanvas = dtData;
-							$.post(_this.signalAddr+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{canvas: JSON.stringify({uid: _this.client, data: dtData})});
+							$.post(_this.signalAddr+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{canvas: dtData});
 						}
 						//window.open(cMin.toDataURL('image/jpeg'));
 					}
