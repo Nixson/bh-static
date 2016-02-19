@@ -333,7 +333,8 @@ bHelp = (function(){
 						_this.trigger(v);
 						break;
 					case 'pull':
-						_this.req(v);
+						for( var line in v)
+							_this.req(v[line]);
 						break;
 					}
 			});
