@@ -330,6 +330,9 @@ bHelp = (function(){
 					case 'trigger':
 						_this.trigger(v);
 						break;
+					case 'poll':
+						_this.req(v);
+						break;
 					}
 			});
 		},
