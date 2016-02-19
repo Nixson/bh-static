@@ -293,6 +293,7 @@ bHelp = (function(){
 			var _this = this;
 			console.log("req",info);
 			$.each(info, function (index, v) {
+					console.log("index", index);
 					switch(index) {
 					case 'msg':
 						_this.msg(v);
