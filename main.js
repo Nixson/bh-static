@@ -294,7 +294,7 @@ bHelp = (function(){
 			$.each(info, function (index, v) {
 					switch(index) {
 					case 'msg':
-						_this.msg(v);
+						_this.msg([v]);
 						break;
 					case 'manager':
 						_this.mid = v.id;
