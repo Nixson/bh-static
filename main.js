@@ -712,7 +712,7 @@ bHelp = (function(){
 				});
 			}
 			_this.lastScrollTop = 0;
-			if(cnt > 0 && managerEnable) {
+			if(cnt > 0 && _this.online) {
 				if(!_this.parent("#cBh_frame").is(':visible') && cntMy === 0) {
 					_this.ONfadeIn(1);
 					if($('#cMil_action').is(':visible')) $('#cMil_action').hide();
