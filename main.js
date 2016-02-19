@@ -681,22 +681,10 @@ bHelp = (function(){
 			if(resp) {
 				$.each(resp, function (index, val) {
 					console.log("msg",index,val);
-					var muid = index;
-					if(muid.substr(0,1)!=='c' && muid.substr(0,1)!=='m')
-						muid = val.uid;
+					var muid = val.uid;
 					if(typeof _this.msgList[muid] == 'undefined'){
-						_this.msgList[muid] = {
-							text: val.text,
-							data: val.data,
-							who: val.who
-						};
-					}else {
-						_this.msgList[muid].text = val.text;
-						_this.msgList[muid].data = val.data;
-						_this.msgList[muid].who = val.who;
+						_this.msgList[muid] = val;
 					}
-					console.log("msg info",muid,_this.msgList);
-					//msgVisibility
 					var LastId = _this.msgList.length;
 					var noUID = -1;
 					if(LastId > 0)
