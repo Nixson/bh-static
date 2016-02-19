@@ -731,6 +731,28 @@ bHelp = (function(){
 			_this.save();
 			var text = $('#cMil_content').html();
 		},
+		Title: window.parent.document.title,
+		notitle: 0,
+		title: function () {
+			var _this = this;
+			if(_this.notitle === 0) {
+				_this.notitle = 1;
+				if(_this.focus !== 1) {
+					window.parent.document.title = '******Вам сообщение******';
+					setTimeout(function () {
+						window.parent.document.title = cBh.Title;
+						setTimeout(function () {
+							_this.notitle = 0;
+							_this.title();
+						}, 500);
+					}, 500);
+
+				} else {
+					window.parent.document.title = _this.Title;
+					_this.notitle = 0;
+				}
+			}
+		},
 		reMessage: function () {
 			var _this = this;
 			if(_this.msgList.length > 0) {
