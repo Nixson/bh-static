@@ -737,6 +737,20 @@ bHelp = (function(){
 			_this.save();
 			var text = $('#cMil_content').html();
 		},
+		echo: function () {
+			var _this = this;
+			if(_this.nosound) {
+				$("#cBh_Sound").jmp3({
+					backcolor: "ffffff",
+					forecolor: "ffffff",
+					width: 1,
+					showdownload: "false"
+				});
+			}
+			setTimeout(function () {
+				$("#cBh_Sound").text('');
+			}, 1000);
+		},
 		Title: window.parent.document.title,
 		notitle: 0,
 		title: function () {
@@ -746,7 +760,7 @@ bHelp = (function(){
 				if(_this.focus !== 1) {
 					window.parent.document.title = '******Вам сообщение******';
 					setTimeout(function () {
-						window.parent.document.title = cBh.Title;
+						window.parent.document.title = _this.Title;
 						setTimeout(function () {
 							_this.notitle = 0;
 							_this.title();
@@ -821,7 +835,6 @@ bHelp = (function(){
 			if(respPhone != '') this.Storage.setItem('cBh_offContact', respPhone);
 		},
 		offMsg: function () {
-			//cl('#cMil_OffClose').click();
 			$('#cMil_FNtext').val('');
 			$('.cMil_Offline_Hide').hide("drop",{direction:"up"},150,function(){
 				$("#cMil_Offline_Ok").show("drop",{direction:"up"},300);
