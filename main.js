@@ -333,6 +333,7 @@ bHelp = (function(){
 						_this.trigger(v);
 						break;
 					case 'poll':
+						console.log("poll",v);
 						_this.req(v);
 						break;
 					}
