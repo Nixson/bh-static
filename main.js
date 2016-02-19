@@ -680,6 +680,7 @@ bHelp = (function(){
 			var cntMy = 0;
 			if(resp) {
 				$.each(resp, function (index, val) {
+					console.log("msg",index,val);
 					var muid = index;
 					if(muid.substr(0,1)!=='c' && muid.substr(0,1)!=='m')
 						muid = val.uid;
@@ -694,6 +695,7 @@ bHelp = (function(){
 						_this.msgList[muid].data = val.data;
 						_this.msgList[muid].who = val.who;
 					}
+					console.log("msg info",muid,_this.msgList);
 					//msgVisibility
 					var LastId = _this.msgList.length;
 					var noUID = -1;
