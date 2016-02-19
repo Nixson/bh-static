@@ -291,6 +291,7 @@ bHelp = (function(){
 		},
 		req: function(info){
 			var _this = this;
+			console.log("req",info);
 			$.each(info, function (index, v) {
 					switch(index) {
 					case 'msg':
