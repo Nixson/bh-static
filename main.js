@@ -103,7 +103,6 @@ bHelp = (function(){
 				}
 			}
 			_this.initLine();
-
 			_this.uid = _this.client;
 			if(_this.Storage.getItem('cBh_triggers')) _this.tr = _this.Storage.getItem('cBh_triggers'); // востанавливаем отработанные триггеры
 
@@ -705,7 +704,6 @@ bHelp = (function(){
 			var cntMy = 0;
 			if(resp) {
 				$.each(resp, function (index, val) {
-					console.log("msg",index,val);
 					var muid = val.uid;
 					if(typeof _this.msgList[muid] == 'undefined'){
 						_this.msgList[muid] = val;
@@ -898,7 +896,6 @@ bHelp = (function(){
 			setTimeout(function(){
 				$('#cMil_FrameClose',window.parent.document).on('click',function(){
 					_this.lineShow();
-					console.log("close Frame");
 				});
 				$('#cMil_FrameSound',window.parent.document).on('click',function(){
 					if(_this.sound){
