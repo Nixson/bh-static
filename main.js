@@ -184,6 +184,7 @@ bHelp = (function(){
 			_this.signal({end:'Message'});
 			var msg = $('<div/>').text($('#cMil_FormOn_TextArea textarea').val()).html();
 			if(msg !== '' && _this.blockSend && msg!=_this.LastText) {
+				msg = msg.replace(/<[^>]+>/gi,'');
 				_this.blockSend = false;
 				_this.stop = 0;
 				var mBlock = {
@@ -192,8 +193,8 @@ bHelp = (function(){
 					who: 0
 				};
 				var msgUid = ++_this.lastCmsg;
-
 				_this.msgList["c"+msgUid] = mBlock;
+				msg = msg.split("\n").join("<br />");
 				_this.LastText = msg;
 				$('#cMil_content').fadeTo(0.2);
 				$('#cMil_content').append('<dl class="cMil_p" id="cBhc' + msgUid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + msg + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>');
