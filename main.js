@@ -786,7 +786,7 @@ bHelp = (function(){
 		},
 		reMessage: function () {
 			var _this = this;
-			console.log("reMessage");
+			console.log("reMessage",_this.msgList.length);
 			if(_this.msgList.length > 0) {
 				$('#cMil_content').html('');
 				$.each(_this.msgList, function (id, content) {
