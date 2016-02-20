@@ -429,8 +429,11 @@ bHelp = (function(){
 		lastScrollTop:0,
 		activator: 0,
 		updateSize: function (event) {
-			console.log(event);
 			var _this = this;
+			if(event.type=="keyup" && event.ctrlKey && ((event.keyCode == 0xA)||(event.keyCode == 0xD))) {
+				_this.add();
+				return;
+			}
 			_this.origHeight = 16;
 			$('#cMil_FormOn_SubTextArea textarea').val($('#cMil_FormOn_TextArea textarea').val());
 			$('#cMil_FormOn_SubTextArea textarea').scrollTop(100000);
