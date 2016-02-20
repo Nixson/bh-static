@@ -172,6 +172,8 @@ bHelp = (function(){
 			$('#cMil_FNsubmit').on('click', function () {
 				_this.off();
 			});
+			$(window.parent).on("focusin focus mouseenter",function(){_this.onFocus();});
+			$(window.parent).on("focusout blur mouseleave",function(){_this.onBlur();});
 
 
 		},
@@ -225,9 +227,11 @@ bHelp = (function(){
 
 		},
 		onFocus: function () {
+			console.log("onFocus");
 			_this.focus = 1;
 		},
 		onBlur: function () {
+			console.log("onBlur");
 			_this.focus = 0;
 		},
 
