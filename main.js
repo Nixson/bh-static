@@ -223,8 +223,6 @@ bHelp = (function(){
 		save: function(){
 			var _this = this;
 			_this.Storage.setItem('bhelp_msgList',JSON.stringify(_this.msgList));
-			console.log("save",_this.Storage.getItem('bhelp_msgList'));
-
 		},
 		onFocus: function () {
 			console.log("onFocus");
