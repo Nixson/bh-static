@@ -225,11 +225,9 @@ bHelp = (function(){
 			_this.Storage.setItem('bhelp_msgList',JSON.stringify(_this.msgList));
 		},
 		onFocus: function () {
-			console.log("onFocus");
 			this.focus = 1;
 		},
 		onBlur: function () {
-			console.log("onBlur");
 			this.focus = 0;
 		},
 
