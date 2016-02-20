@@ -70,6 +70,8 @@ bHelp = (function(){
 			else {
 				_this.msgList = JSON.parse(msgList);
 				$.each(_this.msgList,function(i,v){
+					if( typeof v.uid=='undefined')
+						_this.msgList[i].uid = i;
 					if(i.substr(0,1)=='c') {
 						if(_this.lastCmsg < parseInt(i.substr(1)))
 							_this.lastCmsg = parseInt(i.substr(1));
@@ -187,12 +189,13 @@ bHelp = (function(){
 				msg = msg.replace(/<[^>]+>/gi,'');
 				_this.blockSend = false;
 				_this.stop = 0;
+				var msgUid = ++_this.lastCmsg;
 				var mBlock = {
+					uid: "c"+msgUid,
 					text: msg,
 					data: parseInt(Number(new Date())/1000),
 					who: 0
 				};
-				var msgUid = ++_this.lastCmsg;
 				_this.msgList["c"+msgUid] = mBlock;
 				msg = msg.split("\n").join("<br />");
 				_this.LastText = msg;
@@ -783,6 +786,7 @@ bHelp = (function(){
 		},
 		reMessage: function () {
 			var _this = this;
+			console.log("reMessage");
 			if(_this.msgList.length > 0) {
 				$('#cMil_content').html('');
 				$.each(_this.msgList, function (id, content) {
