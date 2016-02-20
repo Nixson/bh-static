@@ -786,8 +786,7 @@ bHelp = (function(){
 		},
 		reMessage: function () {
 			var _this = this;
-			console.log("reMessage",_this.msgList.length);
-			if(_this.msgList.length > 0) {
+			if(Object.keys(_this.msgList).length > 0) {
 				$('#cMil_content').html('');
 				$.each(_this.msgList, function (id, content) {
 						if(content.who == '0') $('#cMil_content').append('<dl class="cMil_p" id="cBh' + content.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + content.text.split('[nr]').join("\n") + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>');
