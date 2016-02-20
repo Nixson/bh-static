@@ -226,11 +226,11 @@ bHelp = (function(){
 		},
 		onFocus: function () {
 			console.log("onFocus");
-			_this.focus = 1;
+			this.focus = 1;
 		},
 		onBlur: function () {
 			console.log("onBlur");
-			_this.focus = 0;
+			this.focus = 0;
 		},
 
 		managerInfo: function(info){
