@@ -955,8 +955,31 @@ bHelp = (function(){
 			$( '#cMil_Line:visible', window.parent.document ).hide("drop",300);
 		},
 		lineShow: function(){
+			var _this = this;
+			var dr = {direction: "left"};
+			var isRight = false;
+			var isLeft = false;
+			var isTop = false;
+			var isBottom = false;
+			var top = 0;
+			var animate = {};
+			switch(_this.get.ps){
+				case 1: dr = {direction: "down"}; animate = {right:0, bottom:0}; break;
+				case 2: dr = {direction: "down"}; animate = {left:0, bottom:0}; break;
+				case 3: dr = {direction: "left"}; animate = {left:0, top:_this.parent("#cMil_Line").offset().top}; break;
+				case 4: dr = {direction: "up"}; animate = {left:0, top:0}; break;
+				case 5: dr = {direction: "up"}; animate = {right:0, top:0}; break;
+				case 6: dr = {direction: "right"}; animate = {right:0, top:_this.parent("#cMil_Line").offset().top}; break;
+			}
+			var idH = "#cMil_Offline_Rel";
+			if(_this.online)
+				idH = "#cMil_Online_Rel";
+			var frame = this.parent("#cBh_frame").css('display');
+			if(frame=='block'){
+				$(idH).hide("drop",dr,300);
+				_this.parent("#cBh_frame").animate(animate,300);
+			}
 			$( '#cMil_Line:hidden', window.parent.document ).show("drop",300);
-			console.log(this.parent("#cBh_frame").css('display'));
 		},
 		insertLine: function(code) {var style = document.createElement('style');style.type = 'text/css'; if(style.styleSheet) {style.styleSheet.cssText = code;} else style.innerHTML = code; window.parent.document.getElementsByTagName('head')[0].appendChild( style );
 		},
