@@ -58,7 +58,7 @@ bHelp = (function(){
 		lastCmsg: 0,
 		lastMmsg: 0,
 		parent: function(uid){
-			return $(uid,this.vpd);
+			return $(uid,window.parent.document);
 		},
 		init: function(){
 			var _this = this;
@@ -534,7 +534,8 @@ bHelp = (function(){
 					}, 500);
 				}
 				//cBh_frame
-			$('#cMil_FrameCover',window.parent.document).appendTo($('body',window.parent.document)).css({'position': 'fixed','top':centerV,'left': centerH}).show();
+			console.log("ONfadeIn",centerV,centerH);
+			_this.parent('#cMil_FrameCover').appendTo(_this.parent('body')).css({'position': 'fixed','top':centerV,'left': centerH}).show();
 		},
 		getScreen: function (size) {
 			var _this = this;
@@ -665,6 +666,7 @@ bHelp = (function(){
 					_this.LineLock = false;
 				});*/
 			}
+			console.log("OFfadeIn",centerV,centerH);
 			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body")).show(function(){
 				_this.parent("#cMil_FrameCover").css({
 							'top': centerV,
@@ -927,7 +929,7 @@ bHelp = (function(){
 		},
 		frame: function(left,top){
 			var fr = this.parent("#cBh_frame");
-			var cov = this.parent('#cMil_FrameCover',this.vpd);
+			var cov = this.parent('#cMil_FrameCover');
 			fr.css({left:left,top:top});
 			cov.css({position:"fixed",left:left,top:top});
 		},
