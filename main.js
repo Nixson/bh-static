@@ -539,10 +539,9 @@ bHelp = (function(){
 			console.log("ONfadeIn",centerV,centerH);
 			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body")).show();
 			setTimeout(function(){
-				_this.parent("#cMil_FrameCover").css({
+				_this.parent("#cMil_FrameCover").animate({
 							'top': centerV,
-							'left': centerH
-				});
+							'left': centerH});
 			},100);
 		},
 		getScreen: function (size) {
@@ -672,17 +671,12 @@ bHelp = (function(){
 				_this.parent("#cBh_frame").animate({'top': centerV,'left': centerH},300);
 			}
 			console.log("OFfadeIn",centerV,centerH);
-			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body")).show(function(){
-				_this.parent("#cMil_FrameCover").css({
-							'top': centerV,
-							'left': centerH
-				});
-			});
-			/*setTimeout(function(){
+			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body")).show();
+			setTimeout(function(){
 				_this.parent("#cMil_FrameCover").animate({
 							'top': centerV,
 							'left': centerH});
-			},100);*/
+			},100);
 		},
 
 
