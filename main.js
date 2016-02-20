@@ -101,7 +101,7 @@ bHelp = (function(){
 			if(_this.Storage.getItem('cBh_offName') != null) $('#cMil_FNname').val(_this.Storage.getItem('cBh_offName'));
 			if(_this.Storage.getItem('cBh_offContact') != null) $('#cMil_FNphone').val(_this.Storage.getItem('cBh_offContact'));
 			if(_this.Storage.getItem('cBh_session') != null) _this.session = _this.Storage.getItem('cBh_session');
-			$('#cMil_FormOn_TextArea textarea').on('keyup', function(){_this.updateSize();}).on('keydown', function(){_this.updateSize();}).on('change', function(){_this.updateSize();});
+			$('#cMil_FormOn_TextArea textarea').on('keyup', function(event){_this.updateSize(event);}).on('keydown', function(event){_this.updateSize(event);}).on('change', function(event){_this.updateSize(event);});
 			_this.TextArea = $('#cMil_FormOn_TextArea textarea').height();
 			_this.Cbbg = $('#cMil_Online_cbbg').height();
 			_this.Scroll = $('#cMil_scroll').height();
@@ -428,7 +428,8 @@ bHelp = (function(){
 		LastTextMsg:"",
 		lastScrollTop:0,
 		activator: 0,
-		updateSize: function () {
+		updateSize: function (event) {
+			console.log(event);
 			var _this = this;
 			_this.origHeight = 16;
 			$('#cMil_FormOn_SubTextArea textarea').val($('#cMil_FormOn_TextArea textarea').val());
@@ -535,8 +536,6 @@ bHelp = (function(){
 						}
 					}, 500);
 				}
-				//cBh_frame
-			console.log("ONfadeIn",centerV,centerH);
 			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body")).show();
 			setTimeout(function(){
 				_this.parent("#cMil_FrameCover").animate({
@@ -670,7 +669,6 @@ bHelp = (function(){
 				$('#cMil_Offline_Rel').show("drop",dr,300);
 				_this.parent("#cBh_frame").animate({'top': centerV,'left': centerH},300);
 			}
-			console.log("OFfadeIn",centerV,centerH);
 			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body")).show();
 			setTimeout(function(){
 				_this.parent("#cMil_FrameCover").animate({
