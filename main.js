@@ -100,7 +100,6 @@ bHelp = (function(){
 				else{
 					_this.sound = false;
 					$('#cMil_Online_headerSound').css('opacity',0.3);
-					$('#cMil_Offline_headerSound').css('opacity',0.3);
 				}
 			}
 			_this.initLine();
@@ -905,12 +904,10 @@ bHelp = (function(){
 					if(_this.sound){
 						_this.sound = false;
 						$('#cMil_Online_headerSound').css('opacity',0.3);
-						$('#cMil_Offline_headerSound').css('opacity',0.3);
 					}
 					else{
 						_this.sound = true;
 						$('#cMil_Online_headerSound').css('opacity',1);
-						$('#cMil_Offline_headerSound').css('opacity',1);
 					}
 				});
 			},100);
