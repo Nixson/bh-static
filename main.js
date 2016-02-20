@@ -977,7 +977,7 @@ bHelp = (function(){
 			var frame = this.parent("#cBh_frame").css('display');
 			if(frame=='block'){
 				$(idH).hide("drop",dr,300);
-				_this.parent("#cBh_frame").animate(animate,300);
+				_this.parent("#cBh_frame").animate(animate,300).hide();
 			}
 			$( '#cMil_Line:hidden', window.parent.document ).show("drop",300);
 		},
