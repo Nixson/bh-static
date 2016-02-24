@@ -747,12 +747,12 @@ bHelp = (function(){
 		sound: true,
 		echo: function () {
 			var _this = this;
-			console.log("sound",_this.sound);
 			if(_this.sound) {
 				_this.jmp3("#cBh_Sound");
 				console.log("sound ok");
 			}
 			setTimeout(function () {
+				console.log("sound by");
 //				$("#cBh_Sound").text('');
 			}, 1000);
 		},
