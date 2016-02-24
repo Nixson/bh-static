@@ -753,7 +753,7 @@ bHelp = (function(){
 				console.log("sound ok");
 			}
 			setTimeout(function () {
-				$("#cBh_Sound").text('');
+//				$("#cBh_Sound").text('');
 			}, 1000);
 		},
 		Title: window.parent.document.title,
