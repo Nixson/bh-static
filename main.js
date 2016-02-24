@@ -704,21 +704,10 @@ bHelp = (function(){
 			var cntMy = 0;
 			if(resp) {
 				$.each(resp, function (index, val) {
+					console.log("msg",index, val);
 					var muid = val.uid;
 					if(typeof _this.msgList[muid] == 'undefined'){
 						_this.msgList[muid] = val;
-					}
-					var LastId = _this.msgList.length;
-					var noUID = -1;
-					if(LastId > 0)
-						$.each(_this.msgList, function (id, content) {
-							if(content.uid == val.uid) noUID = id;
-						});
-					if(noUID < 0) {
-						_this.msgList[LastId] = {};
-						_this.msgList[LastId].uid = val.uid;
-						_this.msgList[LastId].who = val.who;
-						_this.msgList[LastId].text = val.text;
 						if(val.who == "0") {
 							cntMy++;
 							if(val.now == "1") {
@@ -732,9 +721,6 @@ bHelp = (function(){
 								respContent += '<dl class="cMil_u" id="cBh' + val.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + val.text.split('[nr]').join("\n") + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>';
 						}
 						cnt++;
-					} else {
-						_this.msgList[noUID].who = val.who;
-						_this.msgList[noUID].text = val.text;
 					}
 				});
 			}
