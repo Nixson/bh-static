@@ -443,7 +443,6 @@ bHelp = (function(){
 		origHeight: 16,
 		LastTextMsg:"",
 		lastScrollTop:0,
-		activator: 0,
 		updateSize: function (event) {
 			var _this = this;
 			if(event.type=="keyup" && event.ctrlKey && ((event.keyCode == 0xA)||(event.keyCode == 0xD))) {
