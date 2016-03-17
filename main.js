@@ -90,6 +90,10 @@ bHelp = (function(){
 			_this.managerList = _this.Storage.getItem('bhelp_managerList');
 			if(_this.managerList==null) _this.managerList = {};
 			else _this.managerList = JSON.parse(_this.managerList);
+
+			_this.activator = _this.Storage.getItem('cBh_Active');
+			if(_this.activator==null) _this.activator = false;
+
 			var sound = _this.Storage.getItem('bhelp_sound');
 			if(sound==null) {
 				_this.sound = true;
@@ -173,11 +177,11 @@ bHelp = (function(){
 				_this.listen();
 			},'json');
 
-			$('#cMil_SbuttonOk').on('click', function () { _this.activator = true; _this.Storage.setItem('cBh_ActiveOff', '1'); _this.Storage.setItem('cBh_noAction', '1');
+			$('#cMil_SbuttonOk').on('click', function () { _this.activator = true; _this.Storage.setItem('cBh_Active', '1'); _this.Storage.setItem('cBh_noAction', '1');
 				$('#cMil_stat').hide("drop",{direction:"down"},300,function(){_this.fadeIn();});
 			});
 			$('#cMil_SbuttonNo').on('click', function () {
-				_this.activator = false; _this.Storage.setItem('cBh_ActiveOff', '1'); _this.Storage.setItem('cBh_noAction', '1');
+				_this.activator = false; _this.Storage.setItem('cBh_Active', '1'); _this.Storage.setItem('cBh_noAction', '1');
 				$('#cMil_stat').hide("drop",{direction:"down"},300,function(){$( '#cMil_Line', window.parent.document ).show("drop",300);});
 			});
 			$('#cMil_FNsubmit').on('click', function () {
