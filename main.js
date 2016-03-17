@@ -256,7 +256,7 @@ bHelp = (function(){
 				_this.activeOnline();
 				_this.activeOffline();
 				_this.listen();
-				bhelpGr(_this.sid,_this.client,_this.online);
+				bhelpGr(rsp.aid,_this.client,_this.online);
 			},'json');
 
 			$('#cMil_SbuttonOk').on('click', function () { _this.activator = true; _this.Storage.setItem('cBh_Active', '1'); _this.Storage.setItem('cBh_noAction', '1');
