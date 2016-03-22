@@ -190,6 +190,7 @@ bHelp = (function(){
 			_this.initLine();
 			_this.uid = _this.client;
 			if(_this.Storage.getItem('cBh_triggers')) _this.tr = JSON.parse(_this.Storage.getItem('cBh_triggers')); // востанавливаем отработанные триггеры
+			console.log(_this.tr,typeof _this.tr);
 
 			_this.blank.offText = $('#cMil_FNtext').val();
 			_this.blank.offContact = $('#cMil_FNphone').val();
