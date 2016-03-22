@@ -444,6 +444,7 @@ bHelp = (function(){
 		},
 		strigger: function(info){
 			var _this = this;
+			console.log(typeof _this.tr);
 			for(var num in info){
 				_this.tr.push(info[num]);
 			}
