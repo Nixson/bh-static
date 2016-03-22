@@ -190,8 +190,8 @@ bHelp = (function(){
 			_this.initLine();
 			_this.uid = _this.client;
 			if(_this.Storage.getItem('cBh_triggers')) _this.tr = JSON.parse(_this.Storage.getItem('cBh_triggers')); // востанавливаем отработанные триггеры
-			console.log(_this.tr,typeof _this.tr);
-
+			if(_this.tr.length > 0)
+				_this.tr = _this.getUnique(_this.tr);
 			_this.blank.offText = $('#cMil_FNtext').val();
 			_this.blank.offContact = $('#cMil_FNphone').val();
 			_this.blank.offName = $('#cMil_FNname').val();
@@ -456,7 +456,6 @@ bHelp = (function(){
 		},
 		strigger: function(info){
 			var _this = this;
-			console.log(typeof _this.tr);
 			for(var num in info){
 				_this.tr.push(info[num]);
 			}
