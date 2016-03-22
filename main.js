@@ -275,6 +275,17 @@ bHelp = (function(){
 
 
 		},
+		getUnique: function(_this){
+			var u = {}, a = [];
+			for(var i = 0, l = _this.length; i < l; ++i){
+				if(u.hasOwnProperty(_this[i])) {
+					continue;
+				}
+				a.push(_this[i]);
+				u[_this[i]] = 1;
+			}
+			return a;
+		},
 		LastText: "",
 		blockSend: true,
 
@@ -449,6 +460,7 @@ bHelp = (function(){
 			for(var num in info){
 				_this.tr.push(info[num]);
 			}
+			_this.tr = _this.getUnique(_this.tr);
 			_this.Storage.setItem('cBh_triggers',JSON.stringify(_this.tr));
 		},
 		trigger: function(info){
