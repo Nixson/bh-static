@@ -821,6 +821,8 @@ bHelp = (function(){
 					if(typeof _this.msgList[muid] == 'undefined'){
 						_this.msgList[muid] = val;
 						if(val.who == "0") {
+							var lst = muid.substr(1);
+							console.log(lst, parseInt(lst),_this.lastCmsg);
 							cntMy++;
 							if(val.now == "1") {
 								if($('#cBh' + val.uid).text().length == 0) {
@@ -839,7 +841,7 @@ bHelp = (function(){
 			_this.lastScrollTop = 0;
 			if(cnt > 0 && _this.online) {
 				if(!_this.parent("#cBh_frame").is(':visible') && cntMy === 0) {
-					_this.ONfadeIn(1);
+					_this.ONfadeIn();
 					if($('#cMil_action').is(':visible')) $('#cMil_action').hide();
 				}
 				$('#cMil_content').fadeTo(0.2);
