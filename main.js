@@ -600,12 +600,12 @@ bHelp = (function(){
 			var winHeight = window.parent.innerHeight || window.parent.document.body.clientHeight;
 			var dr = {direction: "left"};
 			switch(_this.get.ps){
-				case 1: dr = {direction: "down"}; _this.parent("#cBh_frame").css({right:0,bottom:0,top: winHeight}); break;
+				case 1: dr = {direction: "down"}; _this.parent("#cBh_frame").css({left:winWidth,bottom:0,top: winHeight}); break;
 				case 2: dr = {direction: "down"}; _this.parent("#cBh_frame").css({left:0,bottom:0,top: winHeight}); break;
 				case 3: dr = {direction: "left"}; _this.parent("#cBh_frame").css({left:0,top:_this.parent("#cMil_Line").offset().top}); break;
 				case 4: dr = {direction: "up"}; _this.parent("#cBh_frame").css({left:0,top:0}); break;
-				case 5: dr = {direction: "up"}; _this.parent("#cBh_frame").css({right:0,top:0}); break;
-				case 6: dr = {direction: "right"}; _this.parent("#cBh_frame").css({right:0,top:_this.parent("#cMil_Line").offset().top}); break;
+				case 5: dr = {direction: "up"}; _this.parent("#cBh_frame").css({left:winWidth,top:0}); break;
+				case 6: dr = {direction: "right"}; _this.parent("#cBh_frame").css({left:winWidth,top:_this.parent("#cMil_Line").offset().top}); break;
 			}
 			var centerH = 10;
 			if(_this.get.ps == 1 || _this.get.ps == 5 || _this.get.ps == 6) {
@@ -756,12 +756,12 @@ bHelp = (function(){
 			var winHeight = window.parent.innerHeight || window.parent.document.body.clientHeight;
 			var dr = {direction: "left"};
 			switch(_this.get.ps){
-				case 1: dr = {direction: "down"}; _this.parent("#cBh_frame").css({right:0,bottom:0,top: winHeight}); break;
+				case 1: dr = {direction: "down"}; _this.parent("#cBh_frame").css({left:winWidth,bottom:0,top: winHeight}); break;
 				case 2: dr = {direction: "down"}; _this.parent("#cBh_frame").css({left:0,bottom:0,top: winHeight}); break;
 				case 3: dr = {direction: "left"}; _this.parent("#cBh_frame").css({left:0,top:_this.parent("#cMil_Line").offset().top}); break;
 				case 4: dr = {direction: "up"}; _this.parent("#cBh_frame").css({left:0,top:0}); break;
-				case 5: dr = {direction: "up"}; _this.parent("#cBh_frame").css({right:0,top:0}); break;
-				case 6: dr = {direction: "right"}; _this.parent("#cBh_frame").css({right:0,top:_this.parent("#cMil_Line").offset().top}); break;
+				case 5: dr = {direction: "up"}; _this.parent("#cBh_frame").css({left:winWidth,top:0}); break;
+				case 6: dr = {direction: "right"}; _this.parent("#cBh_frame").css({left:winWidth,top:_this.parent("#cMil_Line").offset().top}); break;
 			}
 			if(_this.parent("#cMil_Line").is(':visible')){
 				_this.parent("#cMil_Line").hide("drop",dr,300);
@@ -1070,12 +1070,12 @@ bHelp = (function(){
 			var winWidth = window.parent.innerWidth || window.parent.document.body.clientWidth;
 			var winHeight = window.parent.innerHeight || window.parent.document.body.clientHeight;
 			switch(_this.get.ps){
-				case 1: dr = {direction: "down"}; animate = {right:0, top: winHeight}; break;
+				case 1: dr = {direction: "down"}; animate = {left:winWidth, top: winHeight}; break;
 				case 2: dr = {direction: "down"}; animate = {left:0, top: winHeight}; break;
 				case 3: dr = {direction: "left"}; animate = {left:0, top:_this.parent("#cMil_Line").offset().top}; break;
 				case 4: dr = {direction: "up"}; animate = {left:0, top:0}; break;
-				case 5: dr = {direction: "up"}; animate = {right:0, top:0}; break;
-				case 6: dr = {direction: "right"}; animate = {right:0, top:_this.parent("#cMil_Line").offset().top}; break;
+				case 5: dr = {direction: "up"}; animate = {left:winWidth, top:0}; break;
+				case 6: dr = {direction: "right"}; animate = {left:winWidth, top:_this.parent("#cMil_Line").offset().top}; break;
 			}
 			var idH = "#cMil_Offline_Rel";
 			if(_this.online)
