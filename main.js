@@ -1016,16 +1016,13 @@ bHelp = (function(){
 					var left,top;
 					var chH = true, chG = true;
 					if(uiOf.top < oPos.top){
-						console.log('drag',uiOf.top,oPos.top);
 						top = oPos.top-$(window.parent).scrollTop();
 					}
 					else if(uiOf.top > oPos.top+ob.height()-95){
 						top = oPos.top+ob.height()-95-$(window.parent).scrollTop();
-						console.log('drag top',top);
 					}
 					else {
 						top = uiOf.top - $(window.parent).scrollTop();
-						console.log('drag top else',top);
 					}
 					var maxWidth = oPos.left+ob.width()-264;
 					if(uiOf.left < oPos.left){
@@ -1049,7 +1046,9 @@ bHelp = (function(){
 					else if(uiOf.top > oPos.top+ob.height()-95){
 						top = oPos.top+ob.height()-95-$(window.parent).scrollTop();
 					}
-					else top = uiOf.top;
+					else {
+						top = uiOf.top-$(window.parent).scrollTop();
+					}
 					var maxWidth = oPos.left+ob.width()-264;
 					if(uiOf.left < oPos.left){
 						left = oPos.left;
