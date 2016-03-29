@@ -250,7 +250,7 @@ bHelp = (function(){
 					};
 				}
 				var block = {};
-				if(typeof _this.managerList[_this.mid]!='undefined' && rsp.manager.version_block==_this.managerList[_this.mid].block.version){
+				if(typeof _this.managerList[_this.mid]!='undefined' && (rsp.manager.version_block==_this.managerList[_this.mid].block.version || typeof rsp.manager.block_img=='undefined') ){
 					block = _this.managerList[_this.mid].block;
 					console.log("old", block);
 				}else {
