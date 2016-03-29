@@ -611,7 +611,6 @@ bHelp = (function(){
 			if(_this.get.ps == 1 || _this.get.ps == 5 || _this.get.ps == 6) {
 				centerH = Math.round(winWidth - _this.parent("#cBh_frame").width()) - 10;
 			}
-			console.log(dr);
 			if(_this.parent("#cMil_Line").is(':visible')){
 				_this.parent("#cMil_Line").hide("drop",dr,300);
 			}
@@ -641,7 +640,6 @@ bHelp = (function(){
 					});
 				}
 				else {
-					console.log(_this.parent("#cBh_frame").css('top'),_this.parent("#cBh_frame").css('bottom'),_this.parent("#cBh_frame").css('left'));
 					$('#cMil_Online_Rel').show("drop",dr,400,function(){
 						_this.LineLock = false;
 						_this.reMessage();
@@ -810,7 +808,6 @@ bHelp = (function(){
 			var cntMy = 0;
 			if(resp) {
 				$.each(resp, function (index, val) {
-					console.log("msg",index, val);
 					var muid = val.uid;
 					if(typeof _this.msgList[muid] == 'undefined'){
 						_this.msgList[muid] = val;
@@ -1086,7 +1083,6 @@ bHelp = (function(){
 				_this.parent("#cBh_frame").animate(animate,300,function(){$(this).hide();});
 				_this.parent('#cMil_FrameCover').hide();
 			}
-			console.log('lineShow',dr);
 			$( '#cMil_Line:hidden', window.parent.document ).show("drop",dr,300);
 		},
 		insertLine: function(code) {var style = document.createElement('style');style.type = 'text/css'; if(style.styleSheet) {style.styleSheet.cssText = code;} else style.innerHTML = code; window.parent.document.getElementsByTagName('head')[0].appendChild( style );
