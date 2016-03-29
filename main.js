@@ -949,6 +949,7 @@ bHelp = (function(){
 		},
 		reLine: function(){
 			var _this = this;
+			console.log(_this.online,_this.lineStatus);
 			if(_this.online==_this.lineStatus)
 				return;
 			if(_this.online){
