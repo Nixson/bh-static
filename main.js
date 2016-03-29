@@ -544,7 +544,7 @@ bHelp = (function(){
 		lastScrollTop:0,
 		updateSize: function (event) {
 			var _this = this;
-			if(event.type=="keyup" && event.ctrlKey && ((event.keyCode == 0xA)||(event.keyCode == 0xD))) {
+			if(event.type=="keyup" && ((event.keyCode == 0xA)||(event.keyCode == 0xD))) {
 				_this.add();
 				return;
 			}
