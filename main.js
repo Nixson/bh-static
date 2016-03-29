@@ -600,8 +600,8 @@ bHelp = (function(){
 			var winHeight = window.parent.innerHeight || window.parent.document.body.clientHeight;
 			var dr = {direction: "left"};
 			switch(_this.get.ps){
-				case 1: dr = {direction: "down"}; _this.parent("#cBh_frame").css({right:0,bottom:0}); break;
-				case 2: dr = {direction: "down"}; _this.parent("#cBh_frame").css({left:0,bottom:0}); break;
+				case 1: dr = {direction: "down"}; _this.parent("#cBh_frame").css({right:0,bottom:0,top: winHeight}); break;
+				case 2: dr = {direction: "down"}; _this.parent("#cBh_frame").css({left:0,bottom:0,top: winHeight}); break;
 				case 3: dr = {direction: "left"}; _this.parent("#cBh_frame").css({left:0,top:_this.parent("#cMil_Line").offset().top}); break;
 				case 4: dr = {direction: "up"}; _this.parent("#cBh_frame").css({left:0,top:0}); break;
 				case 5: dr = {direction: "up"}; _this.parent("#cBh_frame").css({right:0,top:0}); break;
