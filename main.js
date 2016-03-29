@@ -592,9 +592,6 @@ bHelp = (function(){
 		ONfadeIn: function (fast) {
 			var _this = this;
 			if($('#cMil_Online_Rel').is(':visible')) return;
-			if($('#cMil_Line', window.parent.document).is(':visible')){
-				$('#cMil_Line', window.parent.document).hide("drop",300);
-			}
 			_this.Storage.setItem('cBh_StrLine', 1);
 			_this.Storage.setItem('cBh_noAction', 1);
 			_this.parent("#cBh_frame").css({height:351,top: "auto",left: "auto",bottom: "auto",right: "auto"}).show();
@@ -602,11 +599,20 @@ bHelp = (function(){
 			var winWidth = window.parent.innerWidth || window.parent.document.body.clientWidth;
 			var winHeight = window.parent.innerHeight || window.parent.document.body.clientHeight;
 			var dr = {direction: "left"};
-			if(_this.get.ps == 2 || _this.get.ps == 3 || _this.get.ps == 4) {
-				var centerH = 10;
-			} else{
-				dr = {direction: "right"};
-				var centerH = Math.round(winWidth - _this.parent("#cBh_frame").width()) - 10;
+			switch(_this.get.ps){
+				case 1: dr = {direction: "down"}; _this.parent("#cBh_frame").css({right:0,bottom:0}); break;
+				case 2: dr = {direction: "down"}; _this.parent("#cBh_frame").css({left:0,bottom:0}); break;
+				case 3: dr = {direction: "left"}; _this.parent("#cBh_frame").css({left:0,top:_this.parent("#cMil_Line").offset().top}); break;
+				case 4: dr = {direction: "up"}; _this.parent("#cBh_frame").css({left:0,top:0}); break;
+				case 5: dr = {direction: "up"}; _this.parent("#cBh_frame").css({right:0,top:0}); break;
+				case 6: dr = {direction: "right"}; _this.parent("#cBh_frame").css({right:0,top:_this.parent("#cMil_Line").offset().top}); break;
+			}
+			var centerH = 10;
+			if(_this.get.ps == 1 || _this.get.ps == 5 || _this.get.ps == 6) {
+				centerH = Math.round(winWidth - _this.parent("#cBh_frame").width()) - 10;
+			}
+			if(_this.parent("#cMil_Line").is(':visible')){
+				_this.parent("#cMil_Line").hide("drop",dr,300);
 			}
 			var centerV = Math.round(winHeight - _this.parent("#cBh_frame").height()) - 10;
 			if(_this.Storage.getItem('cBh_StrLinePtop') != null) {
@@ -740,9 +746,6 @@ bHelp = (function(){
 		OFfadeIn: function (fast) {
 			var _this = this;
 			if($('#cMil_Offline_Rel').is(':visible')) return;
-			if(_this.parent("#cMil_Line").is(':visible')){
-				_this.parent("#cMil_Line").hide("drop",300);
-			}
 			localStorage.setItem('cBh_StrLineOff', 1);
 			localStorage.setItem('cBh_noAction', 1);
 			_this.LineLock = true;
@@ -757,6 +760,9 @@ bHelp = (function(){
 				case 4: dr = {direction: "up"}; _this.parent("#cBh_frame").css({left:0,top:0}); break;
 				case 5: dr = {direction: "up"}; _this.parent("#cBh_frame").css({right:0,top:0}); break;
 				case 6: dr = {direction: "right"}; _this.parent("#cBh_frame").css({right:0,top:_this.parent("#cMil_Line").offset().top}); break;
+			}
+			if(_this.parent("#cMil_Line").is(':visible')){
+				_this.parent("#cMil_Line").hide("drop",dr,300);
 			}
 			if(_this.get.ps == 2 || _this.get.ps == 3 || _this.get.ps == 4) {
 				var centerH = 10;
