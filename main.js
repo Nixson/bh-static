@@ -671,9 +671,9 @@ bHelp = (function(){
 				}
 			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body")).show();
 			setTimeout(function(){
-				_this.parent("#cMil_FrameCover").css({
+				_this.parent("#cMil_FrameCover").animate({
 							'top': centerV,
-							'left': centerH});
+							'left': centerH},'fast');
 			},100);
 		},
 		getScreen: function (size) {
@@ -804,9 +804,9 @@ bHelp = (function(){
 			}
 			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body")).show();
 			setTimeout(function(){
-				_this.parent("#cMil_FrameCover").css({
+				_this.parent("#cMil_FrameCover").animate({
 							'top': centerV,
-							'left': centerH});
+							'left': centerH},'fast');
 			},100);
 		},
 
