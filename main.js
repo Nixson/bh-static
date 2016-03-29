@@ -949,9 +949,11 @@ bHelp = (function(){
 		},
 		reLine: function(){
 			var _this = this;
+			console.log("reLine");
 			if(_this.online || _this.lineStatus)
 				return;
 			if(_this.online){
+				console.log(_this.mid);
 				var lineImg;
 				if(_this.mid==0){$.each(_this.managerList,function(i,v){lineImg=v.block.content;});}
 				else lineImg = _this.managerList[_this.mid].block.content;
