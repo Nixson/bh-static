@@ -1023,7 +1023,10 @@ bHelp = (function(){
 						top = oPos.top+ob.height()-95-$(window.parent).scrollTop();
 						console.log('drag top',top);
 					}
-					else top = uiOf.top;
+					else {
+						top = uiOf.top;
+						console.log('drag top else',top);
+					}
 					var maxWidth = oPos.left+ob.width()-264;
 					if(uiOf.left < oPos.left){
 						left = oPos.left;
