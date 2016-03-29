@@ -817,6 +817,7 @@ bHelp = (function(){
 			if(resp) {
 				$.each(resp, function (index, val) {
 					var muid = val.uid;
+					console.log(muid,val);
 					if(typeof _this.msgList[muid] == 'undefined'){
 						_this.msgList[muid] = val;
 						if(val.who == "0") {
