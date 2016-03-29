@@ -671,7 +671,7 @@ bHelp = (function(){
 				}
 			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body")).show();
 			setTimeout(function(){
-				_this.parent("#cMil_FrameCover").animate({
+				_this.parent("#cMil_FrameCover").css({
 							'top': centerV,
 							'left': centerH});
 			},100);
@@ -804,7 +804,7 @@ bHelp = (function(){
 			}
 			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body")).show();
 			setTimeout(function(){
-				_this.parent("#cMil_FrameCover").animate({
+				_this.parent("#cMil_FrameCover").css({
 							'top': centerV,
 							'left': centerH});
 			},100);
