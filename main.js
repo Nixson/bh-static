@@ -821,10 +821,11 @@ bHelp = (function(){
 					if(typeof _this.msgList[muid] == 'undefined'){
 						_this.msgList[muid] = val;
 						if(val.who == "0") {
-							var lst = muid.substr(1);
-							console.log(lst, parseInt(lst),_this.lastCmsg);
+							var lst = parseInt(muid.substr(1));
+							if(lst > _this.lastCmsg)
+								_this.lastCmsg = lst;
 							cntMy++;
-							if(val.now == "1") {
+							if(val.bot == 0) {
 								if($('#cBh' + val.uid).text().length == 0) {
 									respContent += '<dl class="cMil_p" id="cBh' + val.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + val.text.split('[nr]').join("\n") + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>';
 								}
