@@ -1015,10 +1015,13 @@ bHelp = (function(){
 					var uiOf = ui.helper.offset();
 					var left,top;
 					var chH = true, chG = true;
-					if(uiOf.top < oPos.top)
+					if(uiOf.top < oPos.top){
+						console.log('drag',uiOf.top,oPos.top);
 						top = oPos.top-$(window.parent).scrollTop();
+					}
 					else if(uiOf.top > oPos.top+ob.height()-95){
 						top = oPos.top+ob.height()-95-$(window.parent).scrollTop();
+						console.log('drag top',top);
 					}
 					else top = uiOf.top;
 					var maxWidth = oPos.left+ob.width()-264;
