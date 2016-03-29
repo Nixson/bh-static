@@ -641,6 +641,7 @@ bHelp = (function(){
 					});
 				}
 				else {
+					console.log(_this.parent("#cBh_frame").css('top'),_this.parent("#cBh_frame").css('bottom'),_this.parent("#cBh_frame").css('left'));
 					$('#cMil_Online_Rel').show("drop",dr,400,function(){
 						_this.LineLock = false;
 						_this.reMessage();
