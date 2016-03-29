@@ -611,7 +611,7 @@ bHelp = (function(){
 			if(_this.get.ps == 1 || _this.get.ps == 5 || _this.get.ps == 6) {
 				centerH = Math.round(winWidth - _this.parent("#cBh_frame").width()) - 10;
 			}
-			console.log(dr);
+			console.log(dr,_this.parent("#cBh_frame").css());
 			if(_this.parent("#cMil_Line").is(':visible')){
 				_this.parent("#cMil_Line").hide("drop",dr,300);
 			}
