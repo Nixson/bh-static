@@ -756,8 +756,8 @@ bHelp = (function(){
 			var winHeight = window.parent.innerHeight || window.parent.document.body.clientHeight;
 			var dr = {direction: "left"};
 			switch(_this.get.ps){
-				case 1: dr = {direction: "down"}; _this.parent("#cBh_frame").css({right:0,bottom:0}); break;
-				case 2: dr = {direction: "down"}; _this.parent("#cBh_frame").css({left:0,bottom:0}); break;
+				case 1: dr = {direction: "down"}; _this.parent("#cBh_frame").css({right:0,bottom:0,top: winHeight}); break;
+				case 2: dr = {direction: "down"}; _this.parent("#cBh_frame").css({left:0,bottom:0,top: winHeight}); break;
 				case 3: dr = {direction: "left"}; _this.parent("#cBh_frame").css({left:0,top:_this.parent("#cMil_Line").offset().top}); break;
 				case 4: dr = {direction: "up"}; _this.parent("#cBh_frame").css({left:0,top:0}); break;
 				case 5: dr = {direction: "up"}; _this.parent("#cBh_frame").css({right:0,top:0}); break;
@@ -1067,9 +1067,11 @@ bHelp = (function(){
 			var isBottom = false;
 			var top = 0;
 			var animate = {};
+			var winWidth = window.parent.innerWidth || window.parent.document.body.clientWidth;
+			var winHeight = window.parent.innerHeight || window.parent.document.body.clientHeight;
 			switch(_this.get.ps){
-				case 1: dr = {direction: "down"}; animate = {right:0, bottom:0}; break;
-				case 2: dr = {direction: "down"}; animate = {left:0, bottom:0}; break;
+				case 1: dr = {direction: "down"}; animate = {right:0, top: winHeight}; break;
+				case 2: dr = {direction: "down"}; animate = {left:0, top: winHeight}; break;
 				case 3: dr = {direction: "left"}; animate = {left:0, top:_this.parent("#cMil_Line").offset().top}; break;
 				case 4: dr = {direction: "up"}; animate = {left:0, top:0}; break;
 				case 5: dr = {direction: "up"}; animate = {right:0, top:0}; break;
@@ -1084,7 +1086,7 @@ bHelp = (function(){
 				_this.parent("#cBh_frame").animate(animate,300,function(){$(this).hide();});
 				_this.parent('#cMil_FrameCover').hide();
 			}
-			$( '#cMil_Line:hidden', window.parent.document ).show("drop",300);
+			$( '#cMil_Line:hidden', window.parent.document ).show("drop",dr,300);
 		},
 		insertLine: function(code) {var style = document.createElement('style');style.type = 'text/css'; if(style.styleSheet) {style.styleSheet.cssText = code;} else style.innerHTML = code; window.parent.document.getElementsByTagName('head')[0].appendChild( style );
 		},
