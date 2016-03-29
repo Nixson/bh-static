@@ -1086,6 +1086,7 @@ bHelp = (function(){
 				_this.parent("#cBh_frame").animate(animate,300,function(){$(this).hide();});
 				_this.parent('#cMil_FrameCover').hide();
 			}
+			console.log('lineShow',dr);
 			$( '#cMil_Line:hidden', window.parent.document ).show("drop",dr,300);
 		},
 		insertLine: function(code) {var style = document.createElement('style');style.type = 'text/css'; if(style.styleSheet) {style.styleSheet.cssText = code;} else style.innerHTML = code; window.parent.document.getElementsByTagName('head')[0].appendChild( style );
