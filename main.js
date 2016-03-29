@@ -1024,7 +1024,7 @@ bHelp = (function(){
 						console.log('drag top',top);
 					}
 					else {
-						top = oPos.top;
+						top = oPos.top-$(window.parent).scrollTop();
 						console.log('drag top else',top);
 					}
 					var maxWidth = oPos.left+ob.width()-264;
