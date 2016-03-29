@@ -306,7 +306,6 @@ bHelp = (function(){
 			var msg = $('<div/>').text($('#cMil_FormOn_TextArea textarea').val()).html();
 			msg = $.trim(msg);
 			if(msg !== '' && _this.blockSend && msg!=_this.LastText) {
-				console.log("add",msg);
 				msg = msg.replace(/<[^>]+>/gi,'');
 				_this.blockSend = false;
 				_this.stop = 0;
