@@ -249,6 +249,7 @@ bHelp = (function(){
 						content: rsp.manager.img
 					};
 				}
+				_this.position = rsp.position;
 				var block = {};
 				if(typeof _this.managerList[_this.mid]!='undefined' && typeof rsp.manager.block_img=='undefined' ){
 					block = _this.managerList[_this.mid].block;
