@@ -138,6 +138,7 @@ bHelp = (function(){
 		msgVisibility: [],
 		lastCmsg: 0,
 		lastMmsg: 0,
+		position: 0,
 		parent: function(uid){
 			return $(uid,window.parent.document);
 		},
@@ -164,6 +165,8 @@ bHelp = (function(){
 			}
 			_this.client = _this.Storage.getItem('cBh_client');
 			if(_this.client==null)_this.client = 0;
+			_this.position = _this.Storage.getItem('bhelp_position');
+			if(_this.position==null) _this.position = 0;
 			_this.mid = _this.Storage.getItem('bhelp_mid');
 			if(_this.mid==null)_this.mid = 0;
 			_this.firstTime = _this.Storage.getItem('bhelp_firstTimes');
@@ -225,15 +228,18 @@ bHelp = (function(){
 				ref:window.parent.document.referrer,
 				locale:navigator.language,
 				protocol:window.parent.document.location.protocol,
-				mid:_this.mid,time:_this.firstTime,
+				mid:_this.mid,
+				time:_this.firstTime,
 				managers:JSON.stringify(manList),
-				triggers: JSON.stringify(_this.tr)
+				triggers: JSON.stringify(_this.tr),
+				position: _this.position
 			},function(rsp){
 				_this.client = rsp.uid;
 				_this.Storage.setItem('cBh_client',_this.client);
 				_this.loadUrl = bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname;
 				_this.online = rsp.online;
 				_this.mid = rsp.manager.id;
+				_this.Storage.setItem('bhelp_mid',_this.mid);
 				var img = {};
 				if(typeof _this.managerList[_this.mid]!='undefined' && rsp.manager.version_img==_this.managerList[_this.mid].img.version){
 					img = _this.managerList[_this.mid].img;
