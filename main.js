@@ -305,6 +305,7 @@ bHelp = (function(){
 			_this.signal({end:'Message'});
 			var msg = $('<div/>').text($('#cMil_FormOn_TextArea textarea').val()).html();
 			if(msg !== '' && _this.blockSend && msg!=_this.LastText) {
+				console.log("add",msg);
 				msg = msg.replace(/<[^>]+>/gi,'');
 				_this.blockSend = false;
 				_this.stop = 0;
@@ -825,7 +826,7 @@ bHelp = (function(){
 							if(lst > _this.lastCmsg)
 								_this.lastCmsg = lst;
 							cntMy++;
-							if(val.bot == 0) {
+							if( typeof val.bot=='undefined' || val.bot == 0) {
 								if($('#cBh' + val.uid).text().length == 0) {
 									respContent += '<dl class="cMil_p" id="cBh' + val.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + val.text.split('[nr]').join("\n") + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>';
 								}
@@ -893,7 +894,10 @@ bHelp = (function(){
 			if(Object.keys(_this.msgList).length > 0) {
 				$('#cMil_content').html('');
 				$.each(_this.msgList, function (id, content) {
-						if(content.who == '0') $('#cMil_content').append('<dl class="cMil_p" id="cBh' + content.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + content.text.split('[nr]').join("\n") + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>');
+						if(content.who == '0'){
+							if(typeof content.bot=='undefined' || content.bot == 0)
+							$('#cMil_content').append('<dl class="cMil_p" id="cBh' + content.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + content.text.split('[nr]').join("\n") + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>');
+						}
 						else $('#cMil_content').append('<dl class="cMil_u" id="cBh' + content.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + content.text.split('[nr]').join("\n") + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>');
 				});
 				_this.lastScrollTop = 0;
