@@ -252,11 +252,13 @@ bHelp = (function(){
 				var block = {};
 				if(typeof _this.managerList[_this.mid]!='undefined' && rsp.manager.version_block==_this.managerList[_this.mid].block.version){
 					block = _this.managerList[_this.mid].block;
+					console.log("old", block);
 				}else {
 					block = {
 						version: rsp.manager.version_block,
 						content: rsp.manager.block_img
 					};
+					console.log("new", block);
 				}
 				_this.managerInfo({id:rsp.manager.id,img:img,block:block,text:rsp.manager.text});
 				_this.reonline();
