@@ -949,8 +949,7 @@ bHelp = (function(){
 		},
 		reLine: function(){
 			var _this = this;
-			console.log("reLine",_this.online, _this.lineStatus, $.isEmptyObject(_this.managerList));
-			if(_this.online || _this.lineStatus)
+			if(!_this.online && !_this.lineStatus)
 				return;
 			if(_this.online){
 				console.log(_this.mid);
