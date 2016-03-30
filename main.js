@@ -565,7 +565,7 @@ bHelp = (function(){
 			if(scrollTop !== _this.lastScrollTop) {
 				if(_this.lastScrollTop == 0) {
 					$('#cMil_FormOn span').hide();
-					$('#cMil_FormOn_TextArea textarea, #cMil_FormOn_SubTextArea textarea').css('margin-left', '10px').width(190);
+					$('#cMil_FormOn_TextArea textarea, #cMil_FormOn_SubTextArea textarea').css('margin-left', '10px').width(185);
 				}
 				_this.lastScrollTop = scrollTop;
 				if(scrollTop <= 70) {
