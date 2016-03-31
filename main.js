@@ -140,16 +140,24 @@ bHelp = (function(){
 		lastCmsg: 0,
 		lastMmsg: 0,
 		position: 0,
+		direction: {},
 		parent: function(uid){
 			return $(uid,window.parent.document);
 		},
 		init: function(){
 			//здесь уже есть get
 			var _this = this;
-			console.log(_this.get);
 			_this.sid = window.parent["bhelpSrvId"];
 			_this.online = window.parent["bhelpOnline"];
 			_this.signalAddr = window.parent["bhelpSignalAddress"];
+			switch(_this.get.ps){
+				case 1: _this.direction = {direction: "down"};
+				case 2: _this.direction = {direction: "down"};
+				case 3: _this.direction = {direction: "left"};
+				case 4: _this.direction = {direction: "up"};
+				case 5: _this.direction = {direction: "up"};
+				case 6: _this.direction = {direction: "right"};
+			}
 			var msgList = _this.Storage.getItem('bhelp_msgList');
 			if( msgList==null) _this.msgList = {};
 			else {
@@ -276,7 +284,7 @@ bHelp = (function(){
 			});
 			$('#cMil_SbuttonNo').on('click', function () {
 				_this.activator = false; _this.Storage.setItem('cBh_Active', '1'); _this.Storage.setItem('cBh_noAction', '1');
-				$('#cMil_stat').hide("drop",{direction:"down"},300,function(){$( '#cMil_Line', window.parent.document ).show("drop",300);});
+				$('#cMil_stat').hide("drop",_this.direction,300,function(){$( '#cMil_Line', window.parent.document ).show("drop",_this.direction,300);});
 			});
 			$('#cMil_FNsubmit').on('click', function () {
 				_this.off();
@@ -499,7 +507,7 @@ bHelp = (function(){
 					var left = false;
 					if(_this.get.ps==2 || _this.get.ps==3 || _this.get.ps==4)
 						left = true;
-					$('#cMil_Line',window.parent.document).hide('drop',300,function(){
+					$('#cMil_Line',window.parent.document).hide('drop',_this.direction,300,function(){
 						if(left)
 							_this.parent("#cBh_frame").css({height:132,bottom:10,left:10,top:"auto"}).show();
 						else
@@ -974,9 +982,9 @@ bHelp = (function(){
 				var lineImg;
 				if(_this.mid==0){$.each(_this.managerList,function(i,v){lineImg=v.block.content;});}
 				else lineImg = _this.managerList[_this.mid].block.content;
-				_this.parent("#cMil_Line").attr('src','data:image/png;base64,'+lineImg).show("drop",300);
+				_this.parent("#cMil_Line").attr('src','data:image/png;base64,'+lineImg).show("drop",_this.direction,300);
 			}else {
-				_this.parent("#cMil_Line").attr('src','data:image/png;base64,'+_this.get.lineImg).show("drop",300);
+				_this.parent("#cMil_Line").attr('src','data:image/png;base64,'+_this.get.lineImg).show("drop",_this.direction,300);
 			}
 		},
 		initLine: function(){//инициализация кнопки вызова и блока для drag
@@ -992,7 +1000,7 @@ bHelp = (function(){
 				_this.lineStatus = true;
 			}
 			window.parent.document.body.appendChild(cBhBlock);
-			_this.parent("#cMil_Line").show("drop",300);
+			_this.parent("#cMil_Line").show("drop",_this.direction,300);
 			_this.parent("#cMil_Line").on('click',function(){_this.fadeIn();});
 			var div = document.createElement('div');div.id = 'cMil_body';
 			div.style.visibility='hidden'; div.style.display='none';
@@ -1077,7 +1085,7 @@ bHelp = (function(){
 			cov.css({position:"fixed",left:left,top:top});
 		},
 		lineHide: function(){
-			$( '#cMil_Line:visible', window.parent.document ).hide("drop",300);
+			$( '#cMil_Line:visible', window.parent.document ).hide("drop",_this.direction,300);
 		},
 		lineShow: function(){
 			var _this = this;
