@@ -151,12 +151,12 @@ bHelp = (function(){
 			_this.online = window.parent["bhelpOnline"];
 			_this.signalAddr = window.parent["bhelpSignalAddress"];
 			switch(_this.get.ps){
-				case 1: _this.direction = {direction: "down"};
-				case 2: _this.direction = {direction: "down"};
-				case 3: _this.direction = {direction: "left"};
-				case 4: _this.direction = {direction: "up"};
-				case 5: _this.direction = {direction: "up"};
-				case 6: _this.direction = {direction: "right"};
+				case 1: _this.direction = {direction: "down"}; break;
+				case 2: _this.direction = {direction: "down"}; break;
+				case 3: _this.direction = {direction: "left"}; break;
+				case 4: _this.direction = {direction: "up"}; break;
+				case 5: _this.direction = {direction: "up"}; break;
+				case 6: _this.direction = {direction: "right"}; break;
 			}
 			var msgList = _this.Storage.getItem('bhelp_msgList');
 			if( msgList==null) _this.msgList = {};
