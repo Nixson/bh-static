@@ -144,7 +144,9 @@ bHelp = (function(){
 			return $(uid,window.parent.document);
 		},
 		init: function(){
+			//здесь уже есть get
 			var _this = this;
+			console.log(_this.get);
 			_this.sid = window.parent["bhelpSrvId"];
 			_this.online = window.parent["bhelpOnline"];
 			_this.signalAddr = window.parent["bhelpSignalAddress"];
