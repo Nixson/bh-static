@@ -769,8 +769,8 @@ bHelp = (function(){
 		OFfadeIn: function (fast) {
 			var _this = this;
 			if($('#cMil_Offline_Rel').is(':visible')) return;
-			localStorage.setItem('cBh_StrLineOff', 1);
-			localStorage.setItem('cBh_noAction', 1);
+			_this.Storage.setItem('cBh_StrLineOff', 1);
+			_this.Storage.setItem('cBh_noAction', 1);
 			_this.LineLock = true;
 			_this.parent("#cBh_frame").css({height:351}).show();
 			var winWidth = window.parent.innerWidth || window.parent.document.body.clientWidth;
