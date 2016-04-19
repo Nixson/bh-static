@@ -186,7 +186,11 @@ bHelp = (function(){
 			if(_this.managerList==null) _this.managerList = {};
 			else _this.managerList = JSON.parse(_this.managerList);
 
-			_this.activator = (_this.Storage.getItem('cBh_Active')) ? true : false;
+			var sActiv = _this.Storage.getItem('cBh_Active');
+			if(sActiv==null)
+				sActiv = 0;
+
+			_this.activator = (sActiv==1) ? true : false;
 			console.log(_this.activator);
 //			if(_this.activator==null) _this.activator = false;
 
