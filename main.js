@@ -191,7 +191,6 @@ bHelp = (function(){
 				sActiv = 0;
 
 			_this.activator = (sActiv==1) ? true : false;
-			console.log(_this.activator);
 //			if(_this.activator==null) _this.activator = false;
 
 			var sound = _this.Storage.getItem('bhelp_sound');
