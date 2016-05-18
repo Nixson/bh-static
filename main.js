@@ -191,7 +191,6 @@ bHelp = (function(){
 				sActiv = 0;
 
 			_this.activator = (sActiv==1) ? true : false;
-//			if(_this.activator==null) _this.activator = false;
 
 			var sound = _this.Storage.getItem('bhelp_sound');
 			if(sound==null) {
@@ -247,7 +246,8 @@ bHelp = (function(){
 				time:_this.firstTime,
 				managers:JSON.stringify(manList),
 				triggers: JSON.stringify(_this.tr),
-				position: _this.position
+				position: _this.position,
+				activator: (_this.activator) ? 1 : 0
 			},function(rsp){
 				_this.client = rsp.uid;
 				_this.Storage.setItem('cBh_client',_this.client);
@@ -285,6 +285,7 @@ bHelp = (function(){
 
 			$('#cMil_SbuttonOk').on('click', function () { _this.activator = true; _this.Storage.setItem('cBh_Active', '1'); _this.Storage.setItem('cBh_noAction', '1');
 				$('#cMil_stat').hide("drop",_this.direction,300,function(){_this.fadeIn();});
+				_this.signal({activator:1});
 			});
 			$('#cMil_SbuttonNo').on('click', function () {
 				_this.activator = false; _this.Storage.setItem('cBh_Active', '0'); _this.Storage.setItem('cBh_noAction', '1');
@@ -959,6 +960,7 @@ bHelp = (function(){
 			if(respPhone != '') this.Storage.setItem('cBh_offContact', respPhone);
 		},
 		offMsg: function () {
+			var _this = this;
 			$('#cMil_FNtext').val('');
 			$('.cMil_Offline_Hide').hide("drop",_this.direction,150,function(){
 				$("#cMil_Offline_Ok").show("drop",_this.direction,300);
