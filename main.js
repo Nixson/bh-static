@@ -230,10 +230,6 @@ bHelp = (function(){
 			}
 			$('.cMil_FormOn_submit').on('click', function () {_this.add();return false;});
 			if(_this.client > 0) _this.loadUrl = bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname;
-			var manList = {};
-			$.each(_this.managerList,function(i,v){
-				manList[i] = {img:v.img.version,block:v.block.version};
-			});
 			_this.reCheck();
 
 			$('#cMil_SbuttonOk').on('click', function () { _this.activator = true; _this.Storage.setItem('cBh_Active', '1'); _this.Storage.setItem('cBh_noAction', '1');
@@ -255,6 +251,10 @@ bHelp = (function(){
 		reCheckFirst: true,
 		reCheck: function(){
 			var _this = this;
+			var manList = {};
+			$.each(_this.managerList,function(i,v){
+				manList[i] = {img:v.img.version,block:v.block.version};
+			});
 			$.post(bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{
 				agent:navigator.userAgent,
 				url:window.parent.document.location.pathname,
