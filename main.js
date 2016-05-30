@@ -480,6 +480,9 @@ bHelp = (function(){
 					case 'strigger':
 						_this.strigger(v);
 						break;
+					case 'reCheck':
+						_this.reCheck();
+						break;
 					case 'pull':
 						for( var line in v)
 							_this.req(v[line]);
