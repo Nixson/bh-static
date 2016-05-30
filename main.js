@@ -251,6 +251,8 @@ bHelp = (function(){
 		reCheckFirst: true,
 		reCheck: function(){
 			var _this = this;
+			console.log("reCheck");
+
 			var manList = {};
 			$.each(_this.managerList,function(i,v){
 				manList[i] = {img:v.img.version,block:v.block.version};
@@ -438,6 +440,7 @@ bHelp = (function(){
 		},
 		req: function(info){
 			var _this = this;
+			console.log("req",info);
 			$.each(info, function (index, v) {
 					switch(index) {
 					case 'msg':
