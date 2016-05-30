@@ -234,6 +234,27 @@ bHelp = (function(){
 			$.each(_this.managerList,function(i,v){
 				manList[i] = {img:v.img.version,block:v.block.version};
 			});
+			_this.reCheck();
+
+			$('#cMil_SbuttonOk').on('click', function () { _this.activator = true; _this.Storage.setItem('cBh_Active', '1'); _this.Storage.setItem('cBh_noAction', '1');
+				$('#cMil_stat').hide("drop",_this.direction,300,function(){_this.fadeIn();});
+				_this.signal({activator:1});
+			});
+			$('#cMil_SbuttonNo').on('click', function () {
+				_this.activator = false; _this.Storage.setItem('cBh_Active', '0'); _this.Storage.setItem('cBh_noAction', '1');
+				$('#cMil_stat').hide("drop",_this.direction,300,function(){$( '#cMil_Line', window.parent.document ).show("drop",_this.direction,300);});
+			});
+			$('#cMil_FNsubmit').on('click', function () {
+				_this.off();
+			});
+			$(window.parent).on("focusin focus mouseenter",function(){_this.onFocus();});
+			$(window.parent).on("focusout blur mouseleave",function(){_this.onBlur();});
+
+
+		},
+		reCheckFirst: true,
+		reCheck: function(){
+			var _this = this;
 			$.post(bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{
 				agent:navigator.userAgent,
 				url:window.parent.document.location.pathname,
@@ -279,25 +300,12 @@ bHelp = (function(){
 				_this.reonline();
 				_this.activeOnline();
 				_this.activeOffline();
-				_this.listen();
-				bhelpGr(rsp.aid,_this.client,_this.online);
+				if(_this.reCheckFirst){
+					_this.reCheckFirst = false;
+					_this.listen();
+					bhelpGr(rsp.aid,_this.client,_this.online);
+				}
 			},'json');
-
-			$('#cMil_SbuttonOk').on('click', function () { _this.activator = true; _this.Storage.setItem('cBh_Active', '1'); _this.Storage.setItem('cBh_noAction', '1');
-				$('#cMil_stat').hide("drop",_this.direction,300,function(){_this.fadeIn();});
-				_this.signal({activator:1});
-			});
-			$('#cMil_SbuttonNo').on('click', function () {
-				_this.activator = false; _this.Storage.setItem('cBh_Active', '0'); _this.Storage.setItem('cBh_noAction', '1');
-				$('#cMil_stat').hide("drop",_this.direction,300,function(){$( '#cMil_Line', window.parent.document ).show("drop",_this.direction,300);});
-			});
-			$('#cMil_FNsubmit').on('click', function () {
-				_this.off();
-			});
-			$(window.parent).on("focusin focus mouseenter",function(){_this.onFocus();});
-			$(window.parent).on("focusout blur mouseleave",function(){_this.onBlur();});
-
-
 		},
 		getUnique: function(_this){
 			var u = {}, a = [];
