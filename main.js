@@ -131,6 +131,7 @@ bHelp = (function(){
 		managerList: {},
 		lineStatus: false,
 		LineLock: false,
+		shownFrame: false,
 		activator: false,
 		cBh_frame: null,
 		vpd: window.parent.document,
@@ -535,6 +536,7 @@ bHelp = (function(){
 					}
 					_this.parent('#cMil_Line').hide('drop',_this.direction,300,function(){
 						_this.parent("#cBh_frame").css({ height: 132, left: left, top: _this.height() - 142 }).show();
+						_this.shownFrame = true;
 						$('#cMil_stat').show('drop',_this.direction,300,function(){_this.actionAnimate('cMil_stat');});
 					});
 				}
@@ -649,6 +651,7 @@ bHelp = (function(){
 				case 6: _this.parent("#cBh_frame").css({left:winWidth,top: top}); break;
 			}
 			_this.parent("#cBh_frame").css({height:351}).show();
+			_this.shownFrame = true;
 			var centerH = 10;
 			if(_this.get.ps == 1 || _this.get.ps == 5 || _this.get.ps == 6) {
 				centerH = Math.round(winWidth - _this.parent("#cBh_frame").width()) - 10;
@@ -792,6 +795,7 @@ bHelp = (function(){
 			_this.Storage.setItem('cBh_noAction', 1);
 			_this.LineLock = true;
 			_this.parent("#cBh_frame").css({height:351}).show();
+			_this.shownFrame = true;
 			var winWidth = window.parent.innerWidth || window.parent.document.body.clientWidth;
 			var winHeight = window.parent.innerHeight || window.parent.document.body.clientHeight;
 			switch(_this.get.ps){
@@ -828,6 +832,7 @@ bHelp = (function(){
 				});
 				_this.parent("#cBh_frame").show();
 				_this.parent("#cBh_frame").show(function(){_this.LineLock = false;});
+				_this.shownFrame = true;
 			}
 			else {
 				$('#cMil_Offline_Rel').show("drop",_this.direction,300);
@@ -992,9 +997,13 @@ bHelp = (function(){
 				var lineImg;
 				if(_this.mid==0){$.each(_this.managerList,function(i,v){lineImg=v.block.content;});}
 				else lineImg = _this.managerList[_this.mid].block.content;
-				_this.parent("#cMil_Line").attr('src','data:image/png;base64,'+lineImg).show("drop",_this.direction,300);
+				_this.parent("#cMil_Line").attr('src','data:image/png;base64,'+lineImg);
+				if(!_this.shownFrame)
+					_this.parent("#cMil_Line").show("drop",_this.direction,300);
 			}else {
-				_this.parent("#cMil_Line").attr('src','data:image/png;base64,'+_this.get.lineImg).show("drop",_this.direction,300);
+				_this.parent("#cMil_Line").attr('src','data:image/png;base64,'+_this.get.lineImg);
+				if(!_this.shownFrame)
+					_this.parent("#cMil_Line").show("drop",_this.direction,300);
 			}
 		},
 		initLine: function(){//инициализация кнопки вызова и блока для drag
@@ -1126,6 +1135,7 @@ bHelp = (function(){
 				_this.parent('#cMil_FrameCover').hide();
 			}
 			$( '#cMil_Line:hidden', window.parent.document ).show("drop",_this.direction,300);
+			_this.shownFrame = false;
 		},
 		insertLine: function(code) {var style = document.createElement('style');style.type = 'text/css'; if(style.styleSheet) {style.styleSheet.cssText = code;} else style.innerHTML = code; window.parent.document.getElementsByTagName('head')[0].appendChild( style );
 		},
