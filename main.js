@@ -308,7 +308,7 @@ bHelp = (function(){
 				if(_this.reCheckFirst){
 					_this.reCheckFirst = false;
 					_this.listen();
-					bhelpGr(rsp.aid,_this.client,_this.online);
+					//bhelpGr(rsp.aid,_this.client,_this.online);
 				}
 			},'json');
 		},
