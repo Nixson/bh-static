@@ -911,7 +911,7 @@ bHelp = (function(){
 			if(_this.notitle === 0) {
 				_this.notitle = 1;
 				if(_this.focus !== 1) {
-					window.parent.document.title = '******Вам сообщение******';
+					window.parent.document.title = '****** Message ******';
 					setTimeout(function () {
 						window.parent.document.title = _this.Title;
 						setTimeout(function () {
@@ -1168,7 +1168,7 @@ bHelp = (function(){
 }());
 
 
-
+window.parent.bhelp = bHelp;
 
 $(function(){
 });
