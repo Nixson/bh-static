@@ -271,7 +271,9 @@ bHelp = (function(){
 				managers:JSON.stringify(manList),
 				triggers: JSON.stringify(_this.tr),
 				position: _this.position,
-				activator: (_this.activator) ? 1 : 0
+				activator: (_this.activator) ? 1 : 0,
+				lastC: _this.lastCmsg,
+				lastM: _this.lastMmsg
 			},function(rsp){
 				_this.client = rsp.uid;
 				_this.Storage.setItem('cBh_client',_this.client);
