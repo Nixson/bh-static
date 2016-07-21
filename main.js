@@ -1156,10 +1156,24 @@ bHelp = (function(){
 		}
 
 	};
-	bhelpLoad(bhelpInfoAddress+"/info.js?get="+bhelpSrvId,"bhelp_get",bhelpSrvVersion,function(linfo){
+	bhelpLoad(bhelpInfoAddress+"/info.js?get="+bhelpSrvId+"&locale="+navigator.language,"bhelp_get",bhelpSrvVersion,function(linfo){
 		info.get = JSON.parse(linfo);
 		iframeContent = iframeContent.replace("{%BG%}",info.get.bg)
 									 .replace("{%DID%}",bhelpSrvId)
+									 /*.replace("{%LANG.OFF.YES%}",info.get.lang.off_yes)
+									 .replace("{%LANG.OFF.NO%}",info.get.lang.off_no)
+									 .replace("{%LANG.OFF.ATITLE%}",info.get.lang.off_atitle)
+									 .replace("{%LANG.OFF.TITLE%}",info.get.lang.off_title)
+									 .replace("{%LANG.OFF.PH.NAME%}",info.get.lang.off_name)
+									 .replace("{%LANG.OFF.PH.PHONE%}",info.get.lang.off_phone)
+									 .replace("{%LANG.OFF.PH.MESSAGE%}",info.get.lang.off_message)
+									 .replace("{%LANG.OFF.PH.BUTTON%}",info.get.lang.off_btn)
+
+									 .replace("{%LANG.ON.YES%}",info.get.lang.on_yes)
+									 .replace("{%LANG.ON.NO%}",info.get.lang.on_no)
+									 .replace("{%LANG.ON.ATITLE%}",info.get.lang.on_atitle)
+									 .replace("{%LANG.ON.TITLE%}",info.get.lang.on_title)*/
+
 									 .replace("{%OFF_INFO%}",info.get.off_info.replace("\\n","<br />"))
 									 .replace("{%ACTIVINFO%}",info.get.activinfo.replace("\\n","<br />"))
 									 .replace("{%ACTIVEOFF%}",info.get.activeoff.replace("\\n","<br />"));
