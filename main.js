@@ -230,7 +230,7 @@ bHelp = (function(){
 				_this.textPlaceholder('#cMil_FormOn_TextArea textarea');
 			}
 			$('.cMil_FormOn_submit').on('click', function () {_this.add();return false;});
-			if(_this.client > 0) _this.loadUrl = bhelpInfoAddress+"/"+_this.get.cid+"|"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname;
+			if(_this.client > 0) _this.loadUrl = bhelpInfoAddress+"/"+_this.get.cid+"i"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname;
 			_this.reCheck();
 
 			$('#cMil_SbuttonOk').on('click', function () { _this.activator = true; _this.Storage.setItem('cBh_Active', '1'); _this.Storage.setItem('cBh_noAction', '1');
@@ -258,7 +258,7 @@ bHelp = (function(){
 			$.each(_this.managerList,function(i,v){
 				manList[i] = {img:v.img.version,block:v.block.version};
 			});
-			$.post(bhelpInfoAddress+"/"+_this.get.cid+"|"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{
+			$.post(bhelpInfoAddress+"/"+_this.get.cid+"i"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{
 				agent:navigator.userAgent,
 				url:window.parent.document.location.pathname,
 				title:window.parent.document.title,
@@ -277,7 +277,7 @@ bHelp = (function(){
 			},function(rsp){
 				_this.client = rsp.uid;
 				_this.Storage.setItem('cBh_client',_this.client);
-				_this.loadUrl = bhelpInfoAddress+"/"+_this.get.cid+"|"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname;
+				_this.loadUrl = bhelpInfoAddress+"/"+_this.get.cid+"i"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname;
 				_this.online = rsp.online;
 				_this.mid = rsp.manager.id;
 				_this.Storage.setItem('bhelp_mid',_this.mid);
