@@ -264,7 +264,7 @@ bHelp = (function(){
 				title:window.parent.document.title,
 				os:navigator.platform,
 				ref:window.parent.document.referrer,
-				locale:navigator.language[0],
+				locale:navigator.languages[0],
 				protocol:window.parent.document.location.protocol,
 				mid:_this.mid,
 				time:_this.firstTime,
@@ -1156,7 +1156,7 @@ bHelp = (function(){
 		}
 
 	};
-	bhelpLoad(bhelpInfoAddress+"/info.js?get="+bhelpSrvId+"&locale="+navigator.language[0],"bhelp_get",bhelpSrvVersion,function(linfo){
+	bhelpLoad(bhelpInfoAddress+"/info.js?get="+bhelpSrvId+"&locale="+navigator.languages[0],"bhelp_get",bhelpSrvVersion,function(linfo){
 		info.get = JSON.parse(linfo);
 		iframeContent = iframeContent.replace("{%BG%}",info.get.bg)
 									 .replace("{%DID%}",bhelpSrvId)
