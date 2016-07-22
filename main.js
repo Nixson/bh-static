@@ -1171,6 +1171,7 @@ bHelp = (function(){
 									 .replace("{%LANG.OFF.OK%}",info.get.lang.off_ok)
 
 									 .replace("{%LANG.BHELP%}",info.get.lang.bhelp)
+									 .replace("{%LANG.BHELP%}",info.get.lang.bhelp)
 
 									 .replace("{%LANG.ON.YES%}",info.get.lang.on_yes)
 									 .replace("{%LANG.ON.NO%}",info.get.lang.on_no)
