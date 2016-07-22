@@ -230,7 +230,7 @@ bHelp = (function(){
 				_this.textPlaceholder('#cMil_FormOn_TextArea textarea');
 			}
 			$('.cMil_FormOn_submit').on('click', function () {_this.add();return false;});
-			if(_this.client > 0) _this.loadUrl = bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname;
+			if(_this.client > 0) _this.loadUrl = bhelpInfoAddress+"/"+_this.get.cid+"|"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname;
 			_this.reCheck();
 
 			$('#cMil_SbuttonOk').on('click', function () { _this.activator = true; _this.Storage.setItem('cBh_Active', '1'); _this.Storage.setItem('cBh_noAction', '1');
@@ -258,13 +258,13 @@ bHelp = (function(){
 			$.each(_this.managerList,function(i,v){
 				manList[i] = {img:v.img.version,block:v.block.version};
 			});
-			$.post(bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{
+			$.post(bhelpInfoAddress+"/"+_this.get.cid+"|"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{
 				agent:navigator.userAgent,
 				url:window.parent.document.location.pathname,
 				title:window.parent.document.title,
 				os:navigator.platform,
 				ref:window.parent.document.referrer,
-				locale:navigator.languages[0],
+				locale:navigator.language,
 				protocol:window.parent.document.location.protocol,
 				mid:_this.mid,
 				time:_this.firstTime,
@@ -277,7 +277,7 @@ bHelp = (function(){
 			},function(rsp){
 				_this.client = rsp.uid;
 				_this.Storage.setItem('cBh_client',_this.client);
-				_this.loadUrl = bhelpInfoAddress+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname;
+				_this.loadUrl = bhelpInfoAddress+"/"+_this.get.cid+"|"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname;
 				_this.online = rsp.online;
 				_this.mid = rsp.manager.id;
 				_this.Storage.setItem('bhelp_mid',_this.mid);
@@ -393,7 +393,7 @@ bHelp = (function(){
 			window.WebSocket = false;																									//!!!!!!!!!!!!!!!!
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			if (window.WebSocket){
-				this.loadUrl = window.parent["bhelpWsAddress"]+"/"+this.sid+"/"+this.client+"/"+window.parent.document.location.hostname;
+				this.loadUrl = window.parent["bhelpWsAddress"]+"/"+this.get.cid+"/"+this.client+"/"+window.parent.document.location.hostname;
 				this.listenWs();
 				setInterval(function(){
 					_this.ajax.send("PING");
@@ -629,7 +629,7 @@ bHelp = (function(){
 		TimeTextMsg: 0,
 		signal: function(msg){
 			var _this = this;
-			$.post(_this.signalAddr+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{client:JSON.stringify(msg)});
+			$.post(_this.signalAddr+"/"+_this.get.cid+"/"+_this.client+"/"+window.parent.document.location.hostname,{client:JSON.stringify(msg)});
 		},
 		wOpenBlock: true,
 		load: function (url,callback){if (window.XMLHttpRequest) xmlhttp=new XMLHttpRequest();else xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");xmlhttp.onreadystatechange=function(){if (xmlhttp.readyState==4 && xmlhttp.status==200){callback(xmlhttp.responseText);}}; xmlhttp.open("GET", url, true ); xmlhttp.send();},
@@ -727,8 +727,8 @@ bHelp = (function(){
 				onrendered: function (canvas) {
 					$(window.parent).scrollTop(scroolTo);
 					_this.canvas = canvas;
-					/*_this.signalAddr+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{client:JSON.stringify(msg)}*/
-					if(size=='full') $.post(_this.signalAddr+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{canvas: _this.canvas.toDataURL('image/jpeg')});
+					/*_this.signalAddr+"/"+_this.get.cid+"/"+_this.client+"/"+window.parent.document.location.hostname,{client:JSON.stringify(msg)}*/
+					if(size=='full') $.post(_this.signalAddr+"/"+_this.get.cid+"/"+_this.client+"/"+window.parent.document.location.hostname,{canvas: _this.canvas.toDataURL('image/jpeg')});
 					else if(size=='mini') {
 						var miniW = 300;
 						var miniH = miniW*clHeight/clWidth;
@@ -740,7 +740,7 @@ bHelp = (function(){
 						var dtData = _this.getBase64Image(cMin,0.95);
 						if(_this.jCanvas != dtData) {
 							_this.jCanvas = dtData;
-							$.post(_this.signalAddr+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{canvas: dtData});
+							$.post(_this.signalAddr+"/"+_this.get.cid+"/"+_this.client+"/"+window.parent.document.location.hostname,{canvas: dtData});
 						}
 					}
 					else {
@@ -752,7 +752,7 @@ bHelp = (function(){
 						var dtData = cMin.toDataURL('image/jpeg');
 						if(_this.jCanvas != dtData) {
 							_this.jCanvas = dtData;
-							$.post(_this.signalAddr+"/"+_this.sid+"/"+_this.client+"/"+window.parent.document.location.hostname,{canvas: dtData});
+							$.post(_this.signalAddr+"/"+_this.get.cid+"/"+_this.client+"/"+window.parent.document.location.hostname,{canvas: dtData});
 						}
 						//window.open(cMin.toDataURL('image/jpeg'));
 					}
@@ -1156,7 +1156,7 @@ bHelp = (function(){
 		}
 
 	};
-	bhelpLoad(bhelpInfoAddress+"/info.js?get="+bhelpSrvId+"&locale="+navigator.languages[0],"bhelp_get",bhelpSrvVersion,function(linfo){
+	bhelpLoad(bhelpInfoAddress+"/info.js?get="+bhelpSrvId+"&locale="+navigator.language,"bhelp_get",bhelpSrvVersion,function(linfo){
 		info.get = JSON.parse(linfo);
 		iframeContent = iframeContent.replace("{%BG%}",info.get.bg)
 									 .replace("{%DID%}",bhelpSrvId)
