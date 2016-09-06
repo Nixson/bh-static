@@ -837,7 +837,7 @@ bHelp = (function(){
 			if(centerV  < 0 )
 				centerV
 			console.log("OFfadeIn fast:",fast,centerV,centerH);
-			if(fast==1){
+			if(fast){
 				_this.parent("#cBh_frame").css({
 							'top': centerV,
 							'left': centerH
@@ -848,7 +848,7 @@ bHelp = (function(){
 			}
 			else {
 				$('#cMil_Offline_Rel').show("drop",_this.direction,300);
-				_this.parent("#cBh_frame").animate({'top': centerV,'left': centerH},300);
+				_this.parent("#cBh_frame").css({'top': centerV,'left': centerH});
 			}
 			console.log("OFfadeIn cMil_FrameCover show");
 			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body")).show();
