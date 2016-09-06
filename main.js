@@ -538,7 +538,9 @@ bHelp = (function(){
 					if(_this.get.ps==1 || _this.get.ps==5 || _this.get.ps==6){
 						left = _this.width() - 274;
 					}
+					console.log("activeOffline",left,_this.height() - 142);
 					_this.parent('#cMil_Line').hide('drop',_this.direction,300,function(){
+						console.log("activeOffline",left,_this.height() - 142);
 						_this.parent("#cBh_frame").css({ height: 132, left: left, top: _this.height() - 142 }).show();
 						_this.shownFrame = true;
 						$('#cMil_stat').show('drop',_this.direction,300,function(){_this.actionAnimate('cMil_stat');});
