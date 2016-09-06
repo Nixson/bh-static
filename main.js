@@ -239,7 +239,9 @@ bHelp = (function(){
 			});
 			$('#cMil_SbuttonNo').on('click', function () {
 				_this.activator = false; _this.Storage.setItem('cBh_Active', '0'); _this.Storage.setItem('cBh_noAction', '1');
-				$('#cMil_stat').hide("drop",_this.direction,300,function(){$( '#cMil_Line', window.parent.document ).show("drop",_this.direction,300);});
+				$('#cMil_stat').hide("drop",_this.direction,300,function(){
+					_this.sDrop('#cMil_Line');
+				});
 			});
 			$('#cMil_FNsubmit').on('click', function () {
 				_this.off();
@@ -984,12 +986,19 @@ bHelp = (function(){
 			var _this = this;
 			$('#cMil_FNtext').val('');
 			$('.cMil_Offline_Hide').hide("drop",_this.direction,150,function(){
-				$("#cMil_Offline_Ok").show("drop",_this.direction,300);
+				_this.sPDrop("#cMil_Offline_Ok");
 			});
 		},
 		fadeIn: function (status) {
 			if(this.online) this.ONfadeIn(status);
 			else this.OFfadeIn(status);
+		},
+		sPDrop: function(uid){
+			$(uid).show("drop",_this.direction,300);
+		},
+		sDrop: function(uid){
+			console.log("reLine online cMil_Line drop",this.direction,$.browser.mozilla);
+			this.parent(uid).show("drop",this.direction,300);
 		},
 		reLine: function(){
 			console.log("reLine");
@@ -1002,13 +1011,11 @@ bHelp = (function(){
 				else lineImg = _this.managerList[_this.mid].block.content;
 				_this.parent("#cMil_Line").attr('src','data:image/png;base64,'+lineImg);
 				if(!_this.shownFrame)
-					_this.parent("#cMil_Line").show("drop",_this.direction,300);
-				console.log("reLine online cMil_Line drop",_this.direction,$.browser);
+					_this.sDrop("#cMil_Line");
 			}else {
 				_this.parent("#cMil_Line").attr('src','data:image/png;base64,'+_this.get.lineImg);
 				if(!_this.shownFrame)
-					_this.parent("#cMil_Line").show("drop",_this.direction,300);
-				console.log("reLine offline cMil_Line drop");
+					_this.sDrop("#cMil_Line");
 			}
 		},
 		initLine: function(){//инициализация кнопки вызова и блока для drag
@@ -1024,7 +1031,7 @@ bHelp = (function(){
 				_this.lineStatus = true;
 			}
 			window.parent.document.body.appendChild(cBhBlock);
-			_this.parent("#cMil_Line").show("drop",_this.direction,300);
+			_this.sDrop("#cMil_Line");
 			_this.parent("#cMil_Line").on('click',function(){_this.fadeIn();});
 			var div = document.createElement('div');div.id = 'cMil_body';
 			div.style.visibility='hidden'; div.style.display='none';
@@ -1139,7 +1146,7 @@ bHelp = (function(){
 				_this.parent("#cBh_frame").animate(animate,300,function(){$(this).hide();});
 				_this.parent('#cMil_FrameCover').hide();
 			}
-			$( '#cMil_Line:hidden', window.parent.document ).show("drop",_this.direction,300);
+			_this.sDrop('#cMil_Line:hidden');
 			_this.shownFrame = false;
 		},
 		insertLine: function(code) {var style = document.createElement('style');style.type = 'text/css'; if(style.styleSheet) {style.styleSheet.cssText = code;} else style.innerHTML = code; window.parent.document.getElementsByTagName('head')[0].appendChild( style );
