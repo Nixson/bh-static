@@ -648,7 +648,7 @@ bHelp = (function(){
 			var top = _this.parent("#cMil_Line").offset().top;
 			var winWidth = window.parent.innerWidth || window.parent.document.body.clientWidth;
 			var winHeight = window.parent.innerHeight || window.parent.document.body.clientHeight;
-			console.log(winWidth,winHeight);
+			console.log("width",winWidth,winHeight);
 			switch(_this.get.ps){
 				case 1: _this.parent("#cBh_frame").css({left:winWidth,top: winHeight}); break;
 				case 2: _this.parent("#cBh_frame").css({left:0,top: winHeight}); break;
