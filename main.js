@@ -997,8 +997,9 @@ bHelp = (function(){
 			$(uid).show("drop",_this.direction,300);
 		},
 		sDrop: function(uid){
-			if($.browser.mozilla)
-				this.parent(uid).show(300);
+			if($.browser.mozilla){
+				this.parent(uid).css('display','block');
+			}
 			else
 			this.parent(uid).show("drop",this.direction,300);
 			console.log("reLine online cMil_Line drop",this.direction,$.browser.mozilla);
