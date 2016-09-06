@@ -795,6 +795,7 @@ bHelp = (function(){
 		trOpen: false,
 
 		OFfadeIn: function (fast) {
+			console.log("OFfadeIn");
 			var _this = this;
 			if($('#cMil_Offline_Rel').is(':visible')) return;
 			_this.Storage.setItem('cBh_StrLineOff', 1);
@@ -831,6 +832,7 @@ bHelp = (function(){
 				_this.trOpen = true;
 				_this.signal({trigger:'Open'});
 			}
+			console.log("OFfadeIn fast:",fast,centerV,centerH);
 			if(fast==1){
 				_this.parent("#cBh_frame").css({
 							'top': centerV,
@@ -844,6 +846,7 @@ bHelp = (function(){
 				$('#cMil_Offline_Rel').show("drop",_this.direction,300);
 				_this.parent("#cBh_frame").animate({'top': centerV,'left': centerH},300);
 			}
+			console.log("OFfadeIn cMil_FrameCover show");
 			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body")).show();
 			setTimeout(function(){
 				_this.parent("#cMil_FrameCover").animate({
