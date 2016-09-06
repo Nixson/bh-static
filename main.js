@@ -796,6 +796,8 @@ bHelp = (function(){
 		trOpen: false,
 
 		OFfadeIn: function (fast) {
+			if($.browser.mozilla)
+				fast = true;
 			console.log("OFfadeIn");
 			var _this = this;
 			if($('#cMil_Offline_Rel').is(':visible')) return;
@@ -835,8 +837,7 @@ bHelp = (function(){
 				_this.signal({trigger:'Open'});
 			}
 			if(centerV  < 0 )
-				centerV
-			console.log("OFfadeIn fast:",fast,centerV,centerH);
+				centerV = 0;
 			if(fast){
 				_this.parent("#cBh_frame").css({
 							'top': centerV,
@@ -848,7 +849,7 @@ bHelp = (function(){
 			}
 			else {
 				$('#cMil_Offline_Rel').show("drop",_this.direction,300);
-				_this.parent("#cBh_frame").css({'top': centerV,'left': centerH});
+				_this.parent("#cBh_frame").animate({'top': centerV,'left': centerH},300);
 			}
 			console.log("OFfadeIn cMil_FrameCover show");
 			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body")).show();
