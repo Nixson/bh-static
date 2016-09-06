@@ -997,8 +997,11 @@ bHelp = (function(){
 			$(uid).show("drop",_this.direction,300);
 		},
 		sDrop: function(uid){
-			console.log("reLine online cMil_Line drop",this.direction,$.browser.mozilla);
+			if($.browser.mozilla)
+				this.parent(uid).show(300);
+			else
 			this.parent(uid).show("drop",this.direction,300);
+			console.log("reLine online cMil_Line drop",this.direction,$.browser.mozilla);
 		},
 		reLine: function(){
 			console.log("reLine");
