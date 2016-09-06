@@ -992,6 +992,7 @@ bHelp = (function(){
 			else this.OFfadeIn(status);
 		},
 		reLine: function(){
+			console.log("reLine");
 			var _this = this;
 			if(!_this.online && !_this.lineStatus)
 				return;
@@ -1006,6 +1007,7 @@ bHelp = (function(){
 				_this.parent("#cMil_Line").attr('src','data:image/png;base64,'+_this.get.lineImg);
 				if(!_this.shownFrame)
 					_this.parent("#cMil_Line").show("drop",_this.direction,300);
+				console.log("reLine cMil_Line drop");
 			}
 		},
 		initLine: function(){//инициализация кнопки вызова и блока для drag
