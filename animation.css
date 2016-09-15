@@ -1,0 +1,141 @@
+@-webkit-keyframes directionBottomLineShow {
+	from	{ -webkit-transform: translateY(350px);}
+	to 		{ -webkit-transform: translateY(0);}
+}
+@-moz-keyframes directionBottomLineShow {
+	from	{ -moz-transform: translateY(350px);}
+	to 		{ -moz-transform: translateY(0);}
+}
+@keyframes directionBottomLineShow {
+	from	{ transform: translateY(350px);}
+	to 		{ transform: translateY(0);}
+}
+@-webkit-keyframes directionBottomLineHide {
+	from	{ -webkit-transform: translateY(0);}
+	to 		{ -webkit-transform: translateY(350px);}
+}
+@-moz-keyframes directionBottomLineHide {
+	from	{ -moz-transform: translateY(0);}
+	to 		{ -moz-transform: translateY(350px);}
+}
+@keyframes directionBottomLineHide {
+	from	{ transform: translateY(0);}
+	to		{ transform: translateY(350px);}
+}
+.directionBottomLineShow {
+	-webkit-animation: directionBottomLineShow 2s infinite step-end;
+	   -moz-animation: directionBottomLineShow 2s infinite step-end;
+			animation: directionBottomLineShow 2s infinite step-end;
+}
+.directionBottomLineHide {
+	-webkit-animation: directionBottomLineHide 2s infinite step-end;
+	   -moz-animation: directionBottomLineHide 2s infinite step-end;
+			animation: directionBottomLineHide 2s infinite step-end;
+}
+
+@-webkit-keyframes directionTopLineShow {
+	from	{ -webkit-transform: translateY(-350px);}
+	to 		{ -webkit-transform: translateY(0);}
+}
+@-moz-keyframes directionTopLineShow {
+	from	{ -moz-transform: translateY(-350px);}
+	to 		{ -moz-transform: translateY(0);}
+}
+@keyframes directionTopLineShow {
+	from	{ transform: translateY(-350px);}
+	to 		{ transform: translateY(0);}
+}
+@-webkit-keyframes directionTopLineHide {
+	from	{ -webkit-transform: translateY(0);}
+	to 		{ -webkit-transform: translateY(-350px);}
+}
+@-moz-keyframes directionTopLineHide {
+	from	{ -moz-transform: translateY(0);}
+	to 		{ -moz-transform: translateY(-350px);}
+}
+@keyframes directionTopLineHide {
+	from	{ transform: translateY(0);}
+	to		{ transform: translateY(-350px);}
+}
+.directionTopLineHide {
+	-webkit-animation: directionTopLineHide 2s infinite step-end;
+	   -moz-animation: directionTopLineHide 2s infinite step-end;
+			animation: directionTopLineHide 2s infinite step-end;
+}
+.directionTopLineShow {
+	-webkit-animation: directionTopLineShow 2s infinite step-end;
+	   -moz-animation: directionTopLineShow 2s infinite step-end;
+			animation: directionTopLineShow 2s infinite step-end;
+}
+
+
+
+@-webkit-keyframes directionLeftLineShow {
+	from	{ -webkit-transform: translateX(350px);}
+	to 		{ -webkit-transform: translateX(0);}
+}
+@-moz-keyframes directionBottomLineShow {
+	from	{ -moz-transform: translateY(350px);}
+	to 		{ -moz-transform: translateY(0);}
+}
+@keyframes directionBottomLineShow {
+	from	{ transform: translateY(350px);}
+	to 		{ transform: translateY(0);}
+}
+@-webkit-keyframes directionBottomLineHide {
+	from	{ -webkit-transform: translateY(0);}
+	to 		{ -webkit-transform: translateY(350px);}
+}
+@-moz-keyframes directionBottomLineHide {
+	from	{ -moz-transform: translateY(0);}
+	to 		{ -moz-transform: translateY(350px);}
+}
+@keyframes directionBottomLineHide {
+	from	{ transform: translateY(0);}
+	to		{ transform: translateY(350px);}
+}
+.directionBottomLineShow {
+	-webkit-animation: directionBottomLineShow 2s infinite step-end;
+	   -moz-animation: directionBottomLineShow 2s infinite step-end;
+			animation: directionBottomLineShow 2s infinite step-end;
+}
+.directionBottomLineHide {
+	-webkit-animation: directionBottomLineHide 2s infinite step-end;
+	   -moz-animation: directionBottomLineHide 2s infinite step-end;
+			animation: directionBottomLineHide 2s infinite step-end;
+}
+
+@-webkit-keyframes directionTopLineShow {
+	from	{ -webkit-transform: translateY(-350px);}
+	to 		{ -webkit-transform: translateY(0);}
+}
+@-moz-keyframes directionTopLineShow {
+	from	{ -moz-transform: translateY(-350px);}
+	to 		{ -moz-transform: translateY(0);}
+}
+@keyframes directionTopLineShow {
+	from	{ transform: translateY(-350px);}
+	to 		{ transform: translateY(0);}
+}
+@-webkit-keyframes directionTopLineHide {
+	from	{ -webkit-transform: translateY(0);}
+	to 		{ -webkit-transform: translateY(-350px);}
+}
+@-moz-keyframes directionTopLineHide {
+	from	{ -moz-transform: translateY(0);}
+	to 		{ -moz-transform: translateY(-350px);}
+}
+@keyframes directionTopLineHide {
+	from	{ transform: translateY(0);}
+	to		{ transform: translateY(-350px);}
+}
+.directionTopLineHide {
+	-webkit-animation: directionTopLineHide 2s infinite step-end;
+	   -moz-animation: directionTopLineHide 2s infinite step-end;
+			animation: directionTopLineHide 2s infinite step-end;
+}
+.directionTopLineShow {
+	-webkit-animation: directionTopLineShow 2s infinite step-end;
+	   -moz-animation: directionTopLineShow 2s infinite step-end;
+			animation: directionTopLineShow 2s infinite step-end;
+}
