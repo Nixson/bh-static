@@ -805,7 +805,7 @@ bHelp = (function(){
 			_this.Storage.setItem('cBh_StrLineOff', 1);
 			_this.Storage.setItem('cBh_noAction', 1);
 			_this.LineLock = true;
-			_this.parent("#cBh_frame").css({height:351}).show();
+			_this.parent("#cBh_frame").css({height:351,"display":"block"});
 			_this.shownFrame = true;
 			var winWidth = window.parent.innerWidth || window.parent.document.body.clientWidth;
 			var winHeight = window.parent.innerHeight || window.parent.document.body.clientHeight;
@@ -819,7 +819,7 @@ bHelp = (function(){
 				case 6: _this.parent("#cBh_frame").css({left:winWidth,top:_this.parent("#cMil_Line").offset().top}); break;
 			}
 			if(_this.parent("#cMil_Line").is(':visible')){
-				_this.parent("#cMil_Line").hide("drop",_this.direction,300);
+				_this.parent("#cMil_Line").css("drop",_this.direction,300);
 			}
 			if(_this.get.ps == 2 || _this.get.ps == 3 || _this.get.ps == 4) {
 				var centerH = 10;
