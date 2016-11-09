@@ -22,6 +22,8 @@ iframeContent+='<div id="cMil_Online_Rel"><div id="cMil_Online_header"><img id="
 var mainStyle='#cMil_body {display: block;position: fixed;top: 10px;left: 10px;margin: 0;padding: 0;width: 1px;height: 1px;z-index: -1;text-indent: 0;/*position: absolute;top: expression((document.getElementsByTagName( "body" )[0].scrollTop + 10) + "px");*/}#cBh_frame {margin: 0;padding: 0;border: 0;outline: 0;vertical-align: baseline;background: transparent;font-size: 100%;font-family: inherit;font-weight: inherit;font-style: inherit; }#cMil_FrameCover,#cBh_frame {zoom: 1;display: none;position: fixed;z-index: 999999999;width: 264px;height: 351px;margin: 0;padding: 0;left: 0;top: 0;text-indent: 0;}#cMil_FrameCover {background: rgba(255,255,255,0.01);height: 95px;cursor: move;}#cMil_FrameClose {display: block;position: absolute;z-index: 999999999;top: 10px;right: 14px;width: 20px;height: 20px;background: rgba(255,255,255,0.001);cursor: pointer;}#cMil_FrameSound {display: block;position: absolute;z-index: 999999999;top: 10px;right: 35px;width: 20px;height: 20px;background: rgba(255,255,255,0.001);cursor: pointer;}#cBh_frame {z-index: 999999998; transition: 300ms all;}#cBh_frame p {text-indent: 0;} #cMil_Line {transition: 300ms all;}';
 
 
+
+
 function bhelpGr(sid,uid,status){
 	var _paq = [];
 	_paq.push(['trackPageView']);
@@ -87,7 +89,109 @@ function bhelpGr(sid,uid,status){
 
 }
 
+var animate = function (doc, window) {
+	var self = {bhId:"bhStyle"};
+	if(doc.getElementById(self.bhId) == null) {
+		var style = doc.createElement('style');
+		style.type = 'text/css';
+		style.id = self.bhId;
+		doc.body.appendChild(style);
+	}
+	for(var el = 0; el < doc.styleSheets.length; el++){
+		var elNode = doc.styleSheets[el].ownerNode ? doc.styleSheets[el].ownerNode : doc.styleSheets[el].owningElement;
+		if(elNode.id && elNode.id == self.bhId) {
+			self.styleLinkRules = doc.styleSheets[el].cssRules ? doc.styleSheets[el].cssRules : doc.styleSheets[el].rules;
+			self.styleLink = doc.styleSheets[el];
+		}
+	}
+	self.rules = {};
+	self.length = 0;
+	self.addRule = function(hash,callback){
+		var content = 'transition: all 1s;';
+		self.styleLink.insertRule(hash+" {"+content+"}",self.styleLinkRules.length);
+		setTimeout(function(){
+			if(typeof callback == 'function')
+				callback();
+		},10);
+	};
+	self.rmRule = function(hash){
+		for( var num = 0; num < self.styleLinkRules.length; num++){
+			if(self.styleLinkRules[num].selectorText == hash) {
+				self.styleLink.deleteRule(num);
+				break;
+			}
+		}
+	}
+	self.history = {};
+	self.id = function(uid){return doc.getElementById(uid);};
+	self.hide = function(uid,direction,callback){
+		self.rmRule('#'+uid);
+		var id = self.id(uid);
+		if(id == null)
+			return;
+		var top = 0;
+		var left = 0;
+		id.style.position = 'fixed';
+		id.style.top = id.offsetTop+"px";
+		id.style.left = id.offsetLeft+"px";
+		id.style.opacity = 1;
+		self.history[uid] = {top:id.offsetTop, left: id.offsetLeft};
+		var windowSize = {width: window.innerWidth, height: window.innerHeight};
+		switch(direction){
+			case 'downLeft': top = windowSize.height+20; left = 20; break;
+			case 'downRight': top = windowSize.height+20; left = windowSize.width - id.clientWidth-20; break;
+			case 'left': top = (windowSize.height - id.clientHeight)/2; left = 0-id.clientWidth - 20; break;
+			case 'right': top = (windowSize.height - id.clientHeight)/2; left = windowSize.width + 20; break;
+			case 'upLeft': top = 0 - 20 - id.clientHeight; left = 10; break;
+			case 'upRight': top = 0 - 20 - id.clientHeight; left = windowSize.width - id.clientWidth-20; break;
+		}
+		self.addRule('#'+uid, function(){
+			id.style.top = top+"px";
+			id.style.left = left+"px";
+			id.style.opacity = 0;
+		});
+		setTimeout(function(){
+			self.rmRule('#'+uid);
+			id.style.opacity = 1;
+			if(typeof callback == 'function')
+				callback();
+		},1100);
+	};
+	self.show = function(uid,callback,position){
+		var id = self.id(uid);
+		if(id == null)
+			return;
+		self.rmRule('#'+uid);
+		id.style.opacity = 1;
+		if(self.history[uid]==undefined){
+			self.history[uid] = {top:id.offsetTop, left: id.offsetLeft};
+		}
+		if( position!= undefined && typeof position.top != 'undefined') {
+			self.history[uid].top = position.top;
+		}
+		if( position!= undefined && typeof position.left != 'undefined') {
+			self.history[uid].left = position.left;
+		}
+		var windowSize = {width: window.innerWidth, height: window.innerHeight};
+		if(windowSize.width < self.history[uid].left+id.clientWidth)
+			self.history[uid].left = windowSize.width - id.clientWidth - 20;
+		if(windowSize.height < self.history[uid].top+id.clientHeight)
+			self.history[uid].top = windowSize.height - id.clientHeight - 20;
+		self.addRule('#'+uid, function(){
+			id.style.top = self.history[uid].top+"px";
+			id.style.left = self.history[uid].left+"px";
+			id.style.opacity = 1;
+		});
+		setTimeout(function(){
+			self.rmRule('#'+uid);
+			if(typeof callback == 'function')
+				callback();
+		},1100);
 
+
+	};
+	return self;
+};
 /*
 var _paq = _paq || [];
   _paq.push(['trackPageView']);
@@ -141,6 +245,8 @@ bHelp = (function(){
 		lastCmsg: 0,
 		lastMmsg: 0,
 		position: 0,
+		animate: animate(document,window),
+		animateParent: animate(window.parent.document,window.parent),
 		direction: {},
 		parent: function(uid){
 			return $(uid,window.parent.document);
@@ -152,11 +258,11 @@ bHelp = (function(){
 			_this.online = window.parent["bhelpOnline"];
 			_this.signalAddr = window.parent["bhelpSignalAddress"];
 			switch(_this.get.ps){
-				case 1: _this.direction = {direction: "down"}; break;
-				case 2: _this.direction = {direction: "down"}; break;
+				case 1: _this.direction = {direction: "downRight"}; break;
+				case 2: _this.direction = {direction: "downLeft"}; break;
 				case 3: _this.direction = {direction: "left"}; break;
-				case 4: _this.direction = {direction: "up"}; break;
-				case 5: _this.direction = {direction: "up"}; break;
+				case 4: _this.direction = {direction: "upLeft"}; break;
+				case 5: _this.direction = {direction: "upRight"}; break;
 				case 6: _this.direction = {direction: "right"}; break;
 			}
 			var msgList = _this.Storage.getItem('bhelp_msgList');
@@ -234,13 +340,15 @@ bHelp = (function(){
 			_this.reCheck();
 
 			$('#cMil_SbuttonOk').on('click', function () { _this.activator = true; _this.Storage.setItem('cBh_Active', '1'); _this.Storage.setItem('cBh_noAction', '1');
-				$('#cMil_stat').hide("drop",_this.direction,300,function(){_this.fadeIn();});
+				_this.animate.hide('#cMil_stat',_this.direction.direction,function(){
+					_this.fadeIn();
+				});
 				_this.signal({activator:1});
 			});
 			$('#cMil_SbuttonNo').on('click', function () {
 				_this.activator = false; _this.Storage.setItem('cBh_Active', '0'); _this.Storage.setItem('cBh_noAction', '1');
-				$('#cMil_stat').hide("drop",_this.direction,300,function(){
-					_this.sDrop('#cMil_Line');
+				_this.animate.hide('#cMil_stat',_this.direction.direction,function(){
+					_this.animateParent.show('#cMil_Line');
 				});
 			});
 			$('#cMil_FNsubmit').on('click', function () {
@@ -539,11 +647,13 @@ bHelp = (function(){
 						left = _this.width() - 274;
 					}
 					console.log("activeOffline",left,_this.height() - 142);
-					_this.parent('#cMil_Line').hide('drop',_this.direction,300,function(){
-						console.log("activeOffline",left,_this.height() - 142);
-						_this.parent("#cBh_frame").css({ height: 132, left: left, top: _this.height() - 142 }).show();
+					_this.animateParent.hide('#cMil_Line',_this.direction.direction,function(){
+						_this.parent("#cBh_frame").css({ height: 132});
+						_this.animateParent.show('#cBh_frame',function(){},{left: left, top: _this.height()});
 						_this.shownFrame = true;
-						$('#cMil_stat').show('drop',_this.direction,300,function(){_this.actionAnimate('cMil_stat');});
+						_this.animate.show('#cMil_stat',function(){
+							_this.actionAnimate('cMil_stat');
+						});
 					});
 				}
 			}, _this.get.active_time_off * 1000);
@@ -664,7 +774,7 @@ bHelp = (function(){
 				centerH = Math.round(winWidth - _this.parent("#cBh_frame").width()) - 10;
 			}
 			if(_this.parent("#cMil_Line").is(':visible')){
-				_this.parent("#cMil_Line").hide("drop",_this.direction,300);
+				_this.animateParent.hide("#cMil_Line",_this.direction.direction);
 			}
 			var centerV = Math.round(winHeight - _this.parent("#cBh_frame").height()) - 10;
 			if(_this.Storage.getItem('cBh_StrLinePtop') != null) {
@@ -684,22 +794,10 @@ bHelp = (function(){
 				$('#cMil_content').text('');
 				var TmPscrollTop = parseInt(_this.Storage.getItem('cBh_TextScrollTop')) + 100;
 				$('#cMil_scroll').scrollTop(TmPscrollTop);
-				if(fast==1){
-					$('#cMil_Online_Rel').show(function(){_this.LineLock = false;_this.reMessage();});
-					_this.parent("#cBh_frame").css({
-							'display': "block",
-							'top': centerV,
-							'left': centerH
-					});
-				}
-				else {
-					$('#cMil_Online_Rel').show("drop",_this.direction,400,function(){
-						_this.LineLock = false;
-						_this.reMessage();
-					});
-					_this.parent("#cBh_frame").css({'display': "block",'top': centerV,'left': centerH});
-
-				}
+				_this.animate.show('#cMil_Online_Rel',function(){
+					_this.LineLock = false;_this.reMessage();
+				},{top:0, left:0});
+				_this.animateParent.show('#cBh_frame',null,{top:centerV,left:centerH});
 				if(_this.wOpenBlock){
 					_this.wOpenBlock = false;
 					_this.signal({trigger:'Open'});//wOpen (window open event)
@@ -712,12 +810,8 @@ bHelp = (function(){
 						}
 					}, 500);
 				}
-			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body")).show();
-			setTimeout(function(){
-				_this.parent("#cMil_FrameCover").animate({
-							'top': centerV,
-							'left': centerH},'fast');
-			},100);
+			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body"));
+			_this.animateParent('#cMil_FrameCover',null,{top:centerV, left: centerH});
 		},
 		getScreen: function (size) {
 			var _this = this;
@@ -839,26 +933,10 @@ bHelp = (function(){
 			}
 			if(centerV  < 0 )
 				centerV = 0;
-			if(fast){
-				_this.parent("#cBh_frame").css({
-							'display': "block",
-							'top': centerV,
-							'left': centerH
-				});
-				_this.LineLock = false;
-				_this.shownFrame = true;
-			}
-			else {
-				$('#cMil_Offline_Rel').show("drop",_this.direction,300);
-				_this.parent("#cBh_frame").css({'display': "block",'top': centerV,'left': centerH});
-			}
-			console.log("OFfadeIn cMil_FrameCover show");
-			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body")).show();
-			setTimeout(function(){
-				_this.parent("#cMil_FrameCover").animate({
-							'top': centerV,
-							'left': centerH},'fast');
-			},100);
+			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body"));
+			_this.animate.show('#cMil_Offline_Rel',function(){_this.LineLock = false; _this.shownFrame = true;},{top: 0, left: 0});
+			_this.animateParent.show('#cBh_frame',null,{top: centerV, left: centerH});
+			_this.animateParent.show('#cMil_FrameCover',null,{top: centerV, left: centerH});
 		},
 
 
@@ -896,7 +974,9 @@ bHelp = (function(){
 			if(cnt > 0 && _this.online) {
 				if(!_this.parent("#cBh_frame").is(':visible') && cntMy === 0) {
 					_this.ONfadeIn();
-					if($('#cMil_action').is(':visible')) $('#cMil_action').hide();
+					if($('#cMil_action').is(':visible')) {
+						_this.animate.hide('#cMil_action',_this.direction.direction);
+					}
 				}
 				$('#cMil_content').fadeTo(0.2);
 				$('#cMil_content').append(respContent);
@@ -955,7 +1035,8 @@ bHelp = (function(){
 				_this.lastScrollTop = 0;
 				if(!_this.parent("#cBh_frame").is(':visible')) {
 					_this.ONfadeIn(1);
-					if($('#cMil_action').is(':visible')) $('#cMil_action').hide();
+					if($('#cMil_action').is(':visible')) 
+						_this.animate.hide('#cMil_action',_this.direction.direction);
 				}
 				if(!_this.FormOn_TextArea) {
 					_this.FormOn_TextArea = true;
@@ -996,8 +1077,8 @@ bHelp = (function(){
 		offMsg: function () {
 			var _this = this;
 			$('#cMil_FNtext').val('');
-			$('.cMil_Offline_Hide').hide("drop",_this.direction,150,function(){
-				_this.sPDrop("#cMil_Offline_Ok");
+			_this.animate.hide('.cMil_Offline_Hide',_this.direction.direction,function(){
+				_this.animate.show('#cMil_Offline_Ok');
 			});
 		},
 		fadeIn: function (status) {
@@ -1026,11 +1107,11 @@ bHelp = (function(){
 				else lineImg = _this.managerList[_this.mid].block.content;
 				_this.parent("#cMil_Line").attr('src','data:image/png;base64,'+lineImg);
 				if(!_this.shownFrame)
-					_this.sDrop("#cMil_Line");
+					_this.animateParent.show("#cMil_Line");
 			}else {
 				_this.parent("#cMil_Line").attr('src','data:image/png;base64,'+_this.get.lineImg);
 				if(!_this.shownFrame)
-					_this.sDrop("#cMil_Line");
+					_this.animateParent.show("#cMil_Line");
 			}
 		},
 		initLine: function(){//инициализация кнопки вызова и блока для drag
@@ -1046,7 +1127,7 @@ bHelp = (function(){
 				_this.lineStatus = true;
 			}
 			window.parent.document.body.appendChild(cBhBlock);
-			_this.sDrop("#cMil_Line");
+			_this.animateParent.show("#cMil_Line");
 			_this.parent("#cMil_Line").on('click',function(){_this.fadeIn();});
 			var div = document.createElement('div');div.id = 'cMil_body';
 			div.style.visibility='hidden'; div.style.display='none';
@@ -1131,7 +1212,7 @@ bHelp = (function(){
 			cov.css({position:"fixed",left:left,top:top});
 		},
 		lineHide: function(){
-			$( '#cMil_Line:visible', window.parent.document ).hide("drop",_this.direction,300);
+			_this.animateParent.hide('#cMil_Line',_this.direction.direction);
 		},
 		lineShow: function(){
 			var _this = this;
@@ -1157,11 +1238,11 @@ bHelp = (function(){
 				idH = "#cMil_Online_Rel";
 			var frame = this.parent("#cBh_frame").css('display');
 			if(frame=='block'){
-				$(idH).hide("drop",_this.direction,300);
-				_this.parent("#cBh_frame").animate(animate,300,function(){$(this).hide();});
-				_this.parent('#cMil_FrameCover').hide();
+				_this.animate.hide(idH,_this.direction.direction);
+				_this.animateParent.hide('#cBh_frame',_this.direction.direction);
+				_this.animateParent.hide('#cMil_FrameCover',_this.direction.direction);
 			}
-			_this.sDrop('#cMil_Line:hidden');
+			_this.animateParent.show('#cMil_Line');
 			_this.shownFrame = false;
 		},
 		insertLine: function(code) {var style = document.createElement('style');style.type = 'text/css'; if(style.styleSheet) {style.styleSheet.cssText = code;} else style.innerHTML = code; window.parent.document.getElementsByTagName('head')[0].appendChild( style );
