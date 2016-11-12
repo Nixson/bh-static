@@ -649,7 +649,7 @@ bHelp = (function(){
 					console.log("activeOffline",left,_this.height() - 142);
 					_this.animateParent.hide('#cMil_Line',_this.direction.direction,function(){
 						_this.parent("#cBh_frame").css({ height: 132});
-						_this.animateParent.show('#cBh_frame',function(){},{left: left, top: _this.height()});
+						_this.animateParent.show('#cBh_frame',{left: left, top: _this.height()},function(){});
 						_this.shownFrame = true;
 						_this.animate.show('#cMil_stat',function(){
 							_this.actionAnimate('cMil_stat');
@@ -794,10 +794,10 @@ bHelp = (function(){
 				$('#cMil_content').text('');
 				var TmPscrollTop = parseInt(_this.Storage.getItem('cBh_TextScrollTop')) + 100;
 				$('#cMil_scroll').scrollTop(TmPscrollTop);
-				_this.animate.show('#cMil_Online_Rel',function(){
+				_this.animate.show('#cMil_Online_Rel',{top:0, left:0},function(){
 					_this.LineLock = false;_this.reMessage();
-				},{top:0, left:0});
-				_this.animateParent.show('#cBh_frame',null,{top:centerV,left:centerH});
+				});
+				_this.animateParent.show('#cBh_frame',{top:centerV,left:centerH});
 				if(_this.wOpenBlock){
 					_this.wOpenBlock = false;
 					_this.signal({trigger:'Open'});//wOpen (window open event)
@@ -934,9 +934,9 @@ bHelp = (function(){
 			if(centerV  < 0 )
 				centerV = 0;
 			_this.parent("#cMil_FrameCover").appendTo(_this.parent("body"));
-			_this.animate.show('#cMil_Offline_Rel',function(){_this.LineLock = false; _this.shownFrame = true;},{top: 0, left: 0});
-			_this.animateParent.show('#cBh_frame',null,{top: centerV, left: centerH});
-			_this.animateParent.show('#cMil_FrameCover',null,{top: centerV, left: centerH});
+			_this.animate.show('#cMil_Offline_Rel',{top: 0, left: 0},function(){_this.LineLock = false; _this.shownFrame = true;});
+			_this.animateParent.show('#cBh_frame',{top: centerV, left: centerH});
+			_this.animateParent.show('#cMil_FrameCover',{top: centerV, left: centerH});
 		},
 
 
@@ -1077,24 +1077,13 @@ bHelp = (function(){
 		offMsg: function () {
 			var _this = this;
 			$('#cMil_FNtext').val('');
-			_this.animate.hide('.cMil_Offline_Hide',_this.direction.direction,function(){
+			_this.animate.hide('.cMil_Offline_Hide',_this.direction,function(){
 				_this.animate.show('#cMil_Offline_Ok');
 			});
 		},
 		fadeIn: function (status) {
 			if(this.online) this.ONfadeIn(status);
 			else this.OFfadeIn(status);
-		},
-		sPDrop: function(uid){
-			$(uid).show("drop",_this.direction,300);
-		},
-		sDrop: function(uid){
-			if($.browser.mozilla){
-				this.parent(uid).css('display','block');
-			}
-			else
-			this.parent(uid).show("drop",this.direction,300);
-			console.log("reLine online cMil_Line drop",this.direction,$.browser.mozilla);
 		},
 		reLine: function(){
 			console.log("reLine");
@@ -1148,8 +1137,9 @@ bHelp = (function(){
 					}
 				});
 			},100);
-
-			$('#cMil_body',window.parent.document).width($(window.parent).width() - 20).height(window.parent.innerHeight - 282).show();$(window.parent).resize(function () {$('#cMil_body',window.parent.document).width($(window.parent).width() - 20).height(window.parent.innerHeight - 282);});
+			
+			$('#cMil_body',window.parent.document).width($(window.parent).width() - 20).height(window.parent.innerHeight - 282).show();
+			$(window.parent).resize(function () {$('#cMil_body',window.parent.document).width($(window.parent).width() - 20).height(window.parent.innerHeight - 282);});
 			$('#cMil_FrameCover',window.parent.document).draggable({
 				drag: function (event, ui) {
 					var ob = $('#cMil_body',window.parent.document);

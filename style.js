@@ -32,8 +32,45 @@ var animate = function (doc, window) {
 		}
 	}
 	self.history = {};
-	self.id = function(uid){return doc.getElementById(uid);};
-	self.hide = function(uid,direction,callback){
+	self.id = function(uid){
+		if(uid.substr(0,1)=='#')
+			return doc.getElementById(uid.substring(1));
+		else
+			return doc.querySelector(uid);
+	};
+	self.style = function(uid,styleName,style,sub){
+		var id = self.id(uid); if(id !== null) id.style[styleName] = style + ((sub) ? sub : "");
+	};
+	self.styles = function(uid,styles){
+		var id = self.id(uid); if(id !== null) {
+			for(var name in styles)
+				id.style[name] = styles[name];
+		}
+	};
+	self.width = function(uid,width){
+		self.style(uid,"width",width,"px");
+	};
+	self.height = function(uid,height){
+		self.style(uid,"height",height,"px");
+	};
+	self.opacity = function(uid,opacity){
+		self.style(uid,"opacity",opacity);
+	}
+	self.re = function(uid,style,callback){
+		self.rmRule(uid);
+		var id = self.id(uid);
+		if(id == null)
+			return;
+		self.addRule(uid, function(){
+			self.styles(uid,styles);
+		});
+		setTimeout(function(){
+			self.rmRule(uid);
+			if(typeof callback == 'function')
+				callback();
+		},1100);
+	};
+	self.hide = function(uid,style,callback){
 		self.rmRule(uid);
 		var id = self.id(uid);
 		if(id == null)
@@ -46,13 +83,14 @@ var animate = function (doc, window) {
 		id.style.opacity = 1;
 		self.history[uid] = {top:id.offsetTop, left: id.offsetLeft};
 		var windowSize = {width: window.innerWidth, height: window.innerHeight};
-		switch(direction){
+		switch(style.direction){
 			case 'downLeft': top = windowSize.height+20; left = 20; break;
 			case 'downRight': top = windowSize.height+20; left = windowSize.width - id.clientWidth-20; break;
-			case 'left': top = (windowSize.height - id.clientHeight)/2; left = 0-id.clientWidth - 20; break;
+			case 'left': top = (windowSize.height - id.clientHeight)/2; left =  0 - id.clientWidth - 20; break;
 			case 'right': top = (windowSize.height - id.clientHeight)/2; left = windowSize.width + 20; break;
 			case 'upLeft': top = 0 - 20 - id.clientHeight; left = 10; break;
 			case 'upRight': top = 0 - 20 - id.clientHeight; left = windowSize.width - id.clientWidth-20; break;
+			default: top = style.top; left = style.left; break;
 		}
 		self.addRule(uid, function(){
 			id.style.top = top+"px";
@@ -66,7 +104,7 @@ var animate = function (doc, window) {
 				callback();
 		},1100);
 	};
-	self.show = function(uid,callback,position){
+	self.show = function(uid,position,callback){
 		var id = self.id(uid);
 		if(id == null)
 			return;
@@ -75,11 +113,11 @@ var animate = function (doc, window) {
 		if(self.history[uid]==undefined){
 			self.history[uid] = {top:id.offsetTop, left: id.offsetLeft};
 		}
-		if( position!= undefined && typeof position.top != 'undefined') {
-			self.history[uid].top = position.top;
-		}
-		if( position!= undefined && typeof position.left != 'undefined') {
-			self.history[uid].left = position.left;
+		if(position!= undefined && position!= null){
+			if(typeof position.top != 'undefined')
+				self.history[uid].top = position.top;
+			if(typeof position.left != 'undefined')
+				self.history[uid].left = position.left;
 		}
 		var windowSize = {width: window.innerWidth, height: window.innerHeight};
 		if(windowSize.width < self.history[uid].left+id.clientWidth)
@@ -105,51 +143,51 @@ var animate = function (doc, window) {
 var animateTop = animate(document,window);
 
 setTimeout(function(){
-	animateTop.hide("cMil_Line","upLeft",function(){
+	animateTop.hide("#cMil_Line",{direction: "upLeft"},function(){
 		setTimeout(function(){
-			animateTop.show("cMil_Line");
+			animateTop.show("#cMil_Line");
 		});
 	});
 },1000);
 
 setTimeout(function(){
-	animateTop.hide("cMil_Line","upRight",function(){
+	animateTop.hide("#cMil_Line",{direction: "upRight"},function(){
 		setTimeout(function(){
-			animateTop.show("cMil_Line");
+			animateTop.show("#cMil_Line");
 		});
 	});
 },6000);
 
 
 setTimeout(function(){
-	animateTop.hide("cMil_Line","left",function(){
+	animateTop.hide("#cMil_Line",{direction: "left"},function(){
 		setTimeout(function(){
-			animateTop.show("cMil_Line");
+			animateTop.show("#cMil_Line");
 		});
 	});
 },12000);
 
 
 setTimeout(function(){
-	animateTop.hide("cMil_Line","right",function(){
+	animateTop.hide("#cMil_Line",{direction: "right"},function(){
 		setTimeout(function(){
-			animateTop.show("cMil_Line");
+			animateTop.show("#cMil_Line");
 		});
 	});
 },18000);
 
 setTimeout(function(){
-	animateTop.hide("cMil_Line","downLeft",function(){
+	animateTop.hide("#cMil_Line",{direction: "downLeft"},function(){
 		setTimeout(function(){
-			animateTop.show("cMil_Line");
+			animateTop.show("#cMil_Line");
 		});
 	});
 },24000);
 
 setTimeout(function(){
-	animateTop.hide("cMil_Line","downRight",function(){
+	animateTop.hide("#cMil_Line",{direction: "downRight"},function(){
 		setTimeout(function(){
-			animateTop.show("cMil_Line");
+			animateTop.show("#cMil_Line");
 		});
 	});
 },30000);
