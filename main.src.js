@@ -4,22 +4,182 @@ iframeContent+='#cMil_Offline_Rel .cMil_InputUl li.cMil_InputUl_LiCenter b,#cMil
 iframeContent+='#cMil_Online_Rel .cMil_p i {display: block;position: absolute;z-index: 10041;width: 11px;height: 22px;top: 1px;left:0;background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAWCAYAAAAW5GZjAAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QIUCSQO3k7B1wAAAN1JREFUKM/t0cFugkAUheF/EFEhlSaNLrpy6fu/iukTtCwaakgQygg4pwuQlmpMu+uidze539y5mWMkiR+Wf6t5rAuyIqGo3mhai7k22dYFWf5MafcsozXRPMb355c4L19J0h0P9xviaIVTjVOLkxuvYeuCJN3xuNoSTAOa0wFJYLr+aHKSPhFMZ4SLO5waQIDovPDO8N3mVMeMKIxRDyWB+gvwibPDC8tojVPdIYTp0bkGXFZ7FrOQ/k0k+P5NA25PFm8yGYDhMqsBY75Ouh6qNz7eTt7jF/WP/yD+AD1RdozxFGKvAAAAAElFTkSuQmCC) no-repeat;}#cMil_Online_Rel .cMil_u i {display: block;position: absolute;z-index: 10040;width: 21px;height: 22px;top: 0;left:0;background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAWCAYAAAAvg9c4AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QIUCg0QYkHdBgAAAb1JREFUOMutlEtz0lAYhp+TQ0gkpEXQoUrd6MLpjP7//9BFN+q4cEbaYluBcglI7snnokFQLDS078yZs3vmfb+bEhHhiVV5LCANZ4TjC+J5nyz2EclQ+zpNwxnB7XeSeR/78Aiz3kJXLJSh94NG3jWzy1OcF++wD9uQRUgag2SAlI+fhjNml6ccvP6IWTWRcAIiwMpbaade7wzTNLGfuUgWgeR3QOEP2CgDjP0p2WKIXWusgJJvOC0FDUZd7IM2kkYboHWVczofYFp1YD3yI6GSBihDrTl8AqcgKJGt0feAUkTfylzN6a+bL4TjLnmW7HS7lbicU390Qer1cNrvMXTlfogIuT/cGV+JiMRxzOj8jGo6wmkeY9r1ArI2g//+W2QAaK2ptU+Y5i3mgy7+9IbNRdsN21hTESGKIoaDn/j9r7x0FfXWG7Su3jVHpPh5WE3/Ohhpiud5jH98pmFMcRpHWE6zAOYPiv/fg5LnOUEQMLzuEozOedW0qbc6KGWs9r0sdFmOJEmYTCZ4V59oWQHO8w6mVSsalpeHLpVlGYvFgturb7hJj+bxyc4y7NworTWu69J5+wFBAFW8+/UbaN8gOD4QZU0AAAAASUVORK5CYII=) no-repeat;}#cMil_Online_Rel .cMil_p b {display: block;position: absolute;z-index: 10041;width: 21px;height: 22px;top: 1px;right: 0;background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAWCAYAAAAvg9c4AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QIUCSQpe0R0vAAAAeVJREFUOMutlG1v0mAUhq/TlkIpb92EEdmYTo0xJsb/v79h9lWcjmQbjLXjpYXS44dSBiYoHZ6PbXo9133OeSqqqvznsq56l4gY2JaD6xzjVToU7cpBUAkXvqJKHIdMQp9gcke5dMRR7YySXX0ZNJj9VBAMEQwpYIhNML1n8PiD18efqVfa+eNDAgiJQpIsEYmoODVs6yP9+28U7QqlnO0wUAVNUFUQRVHiZI5lFXjVOOfBv85taiiQjl9BNYWjqC5wyw2m0QPTMMhpulEKCBlUSXROzW0xevr1cmgG1pQOqjjFMpPZ8DAoa9v0AMM0iZfh4dBnZ1A0tT4UmrVAeR5jzj39y80Asl/DVe9yt5lh4VVPOfE+pN/5057uBCKICLZV/+Pddj+SZMnd6DtVp4VX6+w2zdZLFeaxv3qQHpJiU3AYTRj6N5haxfWa/46/dYRs26kq/vgWfzyEqMFJ+x2maeaBZuZpxXHE4PEGfxjR9N7TOm9TLBZXKfaGpnFFhPF0xCi4ZTF1eNP5Sr1ex7Ks/aa/OSgQNEkY+H0Gd0941VO63S6O42AYRs6VkhQfRhMegj6zwKTb/oLneRQKhXXcvaGaRQbuR9cYiyYXZxe4rrseSK7ll817tLJ52/2Ebds77TbrN7snxJE0vGhjAAAAAElFTkSuQmCC) no-repeat;}#cMil_Online_Rel .cMil_u b {display: block;position: absolute;z-index: 10040;width: 11px;height: 22px;top: 0;right: 0;background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAWCAYAAAAW5GZjAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QIUCg0FD5w57QAAAPZJREFUKM/dkMFOwkAURc/MlLZAacQQ2ZAYXbvzw/0RV67cEDcuTLVGFCilnXkuWguiwXbrTWbmZXLuzc1TIiK0lJfc3aCUwfgD/NGU8PQcL4x/hZXLUhFnseWGYvnKZvGEF50xmFzg9U++w2V6L6BAG5TxwQTki4Tly5zR7JpwPNvVQFw1WYvYAtSaYBijgyveH2/x+nFTSyOO6ghQzVJm9IxhOLlk9TxvkvWukVSG2iw2J4zG2FXCdv12CO+rMkqRE8ZTsvThCCxfl6MXRGw/kj+S61dpjZTZMXhvt7jGrOmgI7B0gal33xbulPzvYaXawurHzycr2mOsuyUCAAAAAABJRU5ErkJggg==) no-repeat;}#cMil_Online_Rel .cMil_p q,#cMil_Online_Rel .cMil_p rb {display: block;position: absolute;z-index: 10040;width: 11px;height: 11px;font-size: 0;bottom: 0;left:0;background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAYAAACprHcmAAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QIUCTkvbUu9lQAAANhJREFUGNN1kElOw0AQRV+1aVsBDCSwSBZwAO6/4x5sGYQYoiSWBXbTKuJi4UFYOH9Tv6RXo5iZAdw/3HGzusUwwMAajLHcYCTlZ69Il9vgJmCf5HzHCkTA2iCH4Hy25LPeYSaICCAYMioY4PP8Eg0JVSjatnRFvR+t4T3zs2uK8o0YAyLSIv0kcX8OdI6rxZJMVqx3j3xVBUiCONf1FaR/Xa8YI6/vz2zLJy4WKSfHc2bZKUdJ+h8GUFXKsuRj/UKtG3y2x2cyDQM0TYOqUtc1IQRU9TA8pV8JzWDAJKGxOwAAAABJRU5ErkJggg==) no-repeat;}#cMil_Online_Rel .cMil_p sub {display: block;position: absolute;z-index: 10040;width: 21px;height: 11px;bottom: 0;right: 0;background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAALCAYAAACQy8Z9AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QIaCQYIcEBV8QAAAPNJREFUKM+tkjFPwlAURs+9vlYfQRqRoWiUOLj4O/z/mwmj0QGmVtQW2kKvQy2JhsFHPNOXN5x878uVVfls/EIARLtk8Lqc83D3yF/RQ4/WaRFgt9uiGhOCHmopAlgXNnVBpMPjpbJvKYgIZsJHmXHu0zCp9BsiIJ2sz8U6p1mfMBqOA5uKgGgnM0G+W1ZVSb5acDG6IY7DNnX9ArLvrXyWGfn7klOZMhmnqGqYVESx1mh2FZu6oChz3rKay+SWq3RGFEWE4l4WT7St0dQt28oxiCbMptckSXKUEMANuEed4s4c3nu898RxHPzlH1dkZsY/8wXhg0cy4+LpLAAAAABJRU5ErkJggg==) no-repeat;}#cMil_Online_Rel .cMil_u q,#cMil_Online_Rel .cMil_u rb {display: block;position: absolute;z-index: 10040;width: 21px;height: 11px;bottom: 0;left:0;font-size: 0;background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAALCAYAAACQy8Z9AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QIUCgw0R1kIlgAAAN1JREFUKM+t0k1PAjEUheG3nXQQiGIQWBBWuvTP+1tcm2hcoJkQdMJ8lQtzXVAjJpJY4CRn0S6e3rQ1qqr8M9njAzeze6AFDf0jloioTdluBTBhx5yO0hmyaYqAmUNmHOoGM5piGYY055m0PxhTbFJ8+QHG7vX3AXGTOkd3dEf5OUea6gclwGEdhVpruR5NWfduWS2e8cUSTLLXHWpivtR3vPdk8xfK7InJlaHTH+K6lyRJunu/Y1AAESHPcxbvr2j5Ri9Zc+HCLRyLArRti4hQVRV1XSMiqOpp6KF8ARMiXtN09VQIAAAAAElFTkSuQmCC) no-repeat;}#cMil_Online_Rel .cMil_u sub {display: block;position: absolute;z-index: 10040;width: 11px;height: 11px;bottom: 0;right: 0;background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAYAAACprHcmAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QIUCg0b9ZMEjgAAAN9JREFUGNN9kd1Kw0AQRs+sm5Gt0BWMFf8urOCl4JP48gUfQBFRUoskMambrBdJoy3Rgdlh2DMz3+xKeFtExkxM5wjZ0wOz23sM4+QQmyYQ9/YB/oBlcwihykEP/4ERkK57lS9J/MUu3AMbrWKoi3fyoEymaQ8Pl9LV9nmoS4rVMy69RlUBsN3GPxoRoc4zytULa3fFLD3DGPMLjpEmrPmqcupiyetHy+T4hpPzOUmSDEJt9rigbaEK8NkocnDK0fwS7/0WCGDL6R3GGNRavHM451DVYfTWG8UYx39wxL4BpkRAe1DFQLUAAAAASUVORK5CYII=) no-repeat;}#cMil_FormOn {display: block;position: absolute;z-index: 10041;top: 270px;left:4px;width: 255px;}#cMil_FormOn *{margin: 0;padding: 0;line-height: 0;}#cMil_FormOn form {display: block;position: relative;}#cMil_FormOn_TextArea {display: block;position: absolute;top: 43px;left: 11px;font-size: 1pt;width: 234px;z-index: 10042;background: #ffffff;}#cMil_FormOn_SubTextArea {display: block;position: absolute;top: 45px;left: 11px;width: 234px;z-index: -100;}#cMil_FormOn_TextArea i, #cMil_FormOn_TextArea b, #cMil_FormOn_TextArea rb, #cMil_FormOn_TextArea q, #cMil_FormOn_TextArea sub, #cMil_FormOn_TextArea dl, #cMil_FormOn_TextArea dd{display: block;position: absolute;z-index: 10044;width: 7px;height: 7px;}#cMil_FormOn_TextArea i {top: 0px;left: 0px;}#cMil_FormOn_TextArea b {top: 0px;right: 0px;}#cMil_FormOn_TextArea q {bottom: 0px;left: 0px;font-size: 0;}#cMil_FormOn_TextArea rb {bottom: 0px;left: 0px;}#cMil_FormOn_TextArea sub {bottom: 0px;right: 0px;}#cMil_FormOn_TextArea dl {top: 0px;left: 7px;width: 220px;}#cMil_FormOn_TextArea dd {bottom: 0px;left: 7px;width: 220px;}#cMil_FormOn_TextArea dt {display: block;position: relative;margin: 7px 0;width: 234px;}#cMil_FormOn_TextArea label{clear: both;display: block;position: relative;width: 234px;}#cMil_FormOn_TextArea textarea {resize: none;height: 16px;width: 177px;border: none;margin-left: 22px;background: none;font-size: 14px;font-family: "Arial";line-height: 14px;color: #7d7f82;overflow: hidden;} #cMil_FormOn_SubTextArea textarea {resize: none;height: 3px;width: 177px;border: none;margin-left: 22px;background: none;font-size: 14px;font-family: "Arial";line-height: 14px;overflow: hidden;}#cMil_FormOn span {display: block;position: absolute;z-index: 10044;top: 49px;left: 14px;width: 20px;height: 20px;background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAgFJREFUeNrkVLtLQlEY/65eH4OmYImvEPGFOkkO/gNCQ7QUEkXkZq2t/RFNkUs41RgINlfiCwIJGhodHFR8K4pv+74DgUmaglsHLvee75z7u7/H+S43mUxgnUMAax5rB+RnC+PxGLrdLohEIhiNRkCWCAQCdpdIJHyr1brI5XKcSqUqqtXqWKfTyctksvmA84ZUKhWWy+X7eDzuz+fzgIDg8XguEfR6ZclisRhqtVo4kUj4OY4Dt9sN/X4fCoWCbJrdUoDIDKrVajiZTJ4Oh0PQ6/XMDqVSCcjuEC3aWhqQwIhZOp0OkK8Wi4V5WSqVwGaz0TyLdX5hKN+DWFQqlVAqlQoQM5PJBIPBAOr1Ons2m80PCH5CwS1kSB5Rqo1G4xZlBnu9HpMpFApJOmi1WrDb7Y84PyMw2v8nIB6Pm1gsdk4yXS4XA0O2YDQawel0PuG2I2Q3/E0ZN9t66FkQayFKMZPJgFwuZ4nqdDpwOBwEtk/Hld4jhvTR6aRnGW5ks9mrSCTCNnm9XsbMYDAQ2AsCHyPIeOnWw8277XZ7m2RHo1HGzOfzgdVqfcbnPVxvrtR6xWJxB9uKMSLfSI5Go3nFs3aAEtsr9zKGoacuQL/eFArFO5Y+EewOr+ayLfojFJRl5nl+E4/NB9Y7VKN1+mFQAHSnNiT280Lh/t8P9kuAAQDaUBHXV30R1QAAAABJRU5ErkJggg==) no-repeat;/top: 47px;}#cMil_FormOn .cMil_FormOn_submit {display: block;position: absolute;z-index: 10045;top: 47px;left: 207px;margin: 0;padding: 0;list-style: none;cursor: pointer;/top: 44px;}#cMil_FormOn .cMil_FormOn_submit li {display: block;margin: 0;padding: 0;list-style: none;width: 36px;font-size: 1px;zoom: 1;}#cMil_FormOn .cMil_FormOn_submit li.cMil_FormOn_submitLeft {height: 5px;background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAHCAYAAABgOO8AAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QMaCxkTCZtvXQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAA2klEQVQoz+2RQYoCMRBFf8f0CEY7u3YtQh9CvMCgMnoN5zQuPMcoKq4V8QwaEK9gcALaSbpm5SCOuMtu3qqqKKhHfeCf10QPPZsvlj0p5WetVm0xVhIhjhaFN+fz91ZrPe523mcAimd7bLXejHZ7RSetyXlPoXDe00lr2u0VrdabEQD250OT6ayfZdlXs9lAfnWwzoGIwsQSRYg5x1uZ43A4Qik16H/0Jrg3k0kyrKcpjLkgtzaYDAAQEXJrYcwF9TSFTJLhb0y3oiJEi/M4qMgzMc5jVIRo32Y/2KuzGwOW040AAAAASUVORK5CYII=) no-repeat bottom;}#cMil_FormOn .cMil_FormOn_submit li.cMil_FormOn_submitRight {height: 18px;background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAASCAYAAAAzI3woAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QMaDQA3qhVeJgAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAABkklEQVRIx9WVP07DMBjFX9wMBHXhHBUzQ4AjcI1WVrduPUAPAFWUczB3gsICTChqJWYqKqUMkSGDP9sM0JCk/5JUtOJJkRwn8fvlfV9iCz+6uR2aRuMYZWRZgG3b8DwPrVYLSulknjEGANBaw5j16wTBM87PTi0AYPNJpVRlmO9zK7nGGIPv+/B9PwFbp7S3PR/oEkB5GACo1WpLx2nQVdLLgMokxBjLwABAv99feq/ZVK+cd+WSFRHnHFrraiVTBR5MItYanPNMSu12O7OwMQZEhAIBZbwrJWQMQETgnGfekuj3UEoXgllZMl2yZHkoU9R9Q1Nv1UNzqGazWahXSvZQtaY2Zrt08t6pkmnsS2nvBIhIfhDRzmGUIhDJeAFICHE/m4U7BwrDEEKI4QJQFEXeeBRASrkzGCklxqMAURQlP7Rk0xkMBi+u6x69v89ODhwHjuMU2hiriIgwnb7h6fEBk8nrVafTuQRgACC/87Fer3dRr9e54zguY+zwT5pY6884ju+EEF63270GsL8v6t/pC/i18o61HsI0AAAAAElFTkSuQmCC) no-repeat;}#cMil_FormOn .cMil_FormOn_submit li.cMil_FOsubmit {height: 1px;}#cMil_FOsubmit {border: none;background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAABCAYAAAC2YQwdAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QMaCxoHOGzo4wAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAIklEQVQI12NkgILjJ07+V1PTYBgIcOvWDQZLC3NGBgYGBgAeIAcCYyNEwgAAAABJRU5ErkJggg==) repeat-y;font-size: 16px;text-decoration: none;width: 36px;height: 1px;text-align: center;cursor: pointer;}#cMil_scroll {height: 190px;overflow-y: auto;}.cMil_cSeparate {display: block; width: 100%; float: none; overflow: hidden; clear: both;}#cMil_FOtext {width: 250px;line-height: 24px;height: 27px;font-size: 14px;background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPoAAAAbCAYAAABV9JIaAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QEfCi0FCrngngAAAKZJREFUeNrt3EENgwAURMEtqQQMkCICMwQBpB5InRAQgwsMIKInDPTWnxkJm7zrJgDA/3u85/mVZE8ymANK6p9J9rZth3Ga0nWdSaCQz7Lkuq69SSJyKGqcpiQZmiQih6LuthtTQH1CB6EDQgeEDggdEDogdEDogNBB6IDQAaEDQgeEDggd+DX08zwtAQXdbTdJjm1dxQ4FbeuaJIcXWKivNwEAVPAFr5kde/ZwltUAAAAASUVORK5CYII=) no-repeat;color: #a0a0a0;border: none;}#cMil_ping {margin: 0 10px;}#cMil_ping span{float: right;}#cMil_ping strong {cursor: pointer;font-size: 11px;line-height: 14px;}#cMil_Sound {display: block;float: left;background: #ffffff;font-size: 1px;width: 1px;height: 1px;}';
 iframeContent+='#cMil_Offline_form form div#cMil_Offline_Ok {display: none; position: relative; padding: 2px 16px 14px 0;} #cMil_Offline_cbg, #cMil_Online_cbg, #cMil_action_cbg, #cMil_stat_cbg {background: url(data:image/jpeg;base64,{%BG%}) no-repeat center center;}input.error-input::-webkit-input-placeholder {color:#c0392b;}input.error-input::-moz-placeholder {color:#c0392b;}input.error-input:-moz-placeholder {color:#c0392b;}input.error-input:-ms-input-placeholder {color:#c0392b;}textarea.error-input::-webkit-input-placeholder {color:#c0392b;}textarea.error-input::-moz-placeholder {color:#c0392b;}textarea.error-input:-moz-placeholder {color:#c0392b;}textarea.error-input:-ms-input-placeholder {color:#c0392b;}</style>';
 iframeContent+='<div id="cMil_Online_Rel"><div id="cMil_Online_header"><img id="cMil_Online_headerClose" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAWRJREFUeNpi/P//PwM1ARMDlcGogYPQQBZ0gT+//7SysLJUfXj3flm4V3gpUOgtEP9EVrP1yLaZLCwsaWdOnI6qLqjeCRT6CMR/d57YhenCa5evrgbRAkKCUZPmTV4MZCoCMTu6YRfPXVwLNAykXwKImXF6uTSr9NbmdZtzQGx1LXWnCXMmzoAZCjPs/Jnzm8uySi+AXAXEX6A0GDCi5xR3CzdGICWSmJmUHBEf0Q4Se/LoyWU+Pt4PfAL8tkCXbQUadgIofB+ITwLxIyD+BVIH8jILlnAF2fBu/vR5C0A+ABraKiMnowuSOHXs5OHaotozQOYDEBfZMEKxDPLCa6Ch886ePDMfJLB/176bQMMuApn3oC57iG4YoWQDNrShrLH+8oXLmzrqOtYA+aBwO4HNZfjCEF0NKxDLAbEUEL+AGvYTm2G4whAd/AbFCxC/ghr0i6SEjQP8xOUqgl4e/oUDQIABALYOkW4rWHG0AAAAAElFTkSuQmCC" /><img id="cMil_Online_headerSound" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAddJREFUeNpi/P//PwM1ARMDlQHVDWQBEe4WbkPYy5sPbbHfcWznHSBTHIi5iPIyNrDzxC7GP7//lLGwsrRA1VkD8bmN+zfxsrCwVIR6hOR++/rtK1DsJ04Dtxza6v7r50+1379/M//88dOdnYPdA0naAIjvAA3hExQWDClvKH9YX1o/Dyj2AIj/YDWQlY11MxCzYnMxIxMjb2N3k0ekT8TMBWsXblbVUA0DCh8G4ndQjDUMWXEFgZe/t5KppWkjByeH/KMHj84ICAnKAoUlgViArFgWFRcR+vfvH+OfP3+0///7xwrMYX+BwhxAzIkzDIGK/jAyMmKNqAO79j8FuuoVMKJYFFWULD99+HSHYCyfPn4q5eWLV36fP36WNDQxkNXU1ZKByT249/D9hLb+vaX1ZeJiEmLua5etmQYU/g7E33AaWFtUuxlI3QZiicWzmXiKaorDnD2cPZmAACj2C4gfa2hrCD559HTT7MmzrwD5T4H4Pb50+BGILwLxdWB4sfY0dZ97/ODxuYCwgByo3PfksKRlIM8AsTAQ3wPiLyipAVR84cnLrNAcogPNJeeA+AkQcwMxMxDjT9hYwG8gfg51BTsQf4Ym4o8kZz0kAEoeH4ZPAQsQYAAIRaiza9UbXgAAAABJRU5ErkJggg==" /><img id="cMil_Online_headerManager" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABmJLR0QA/wD/AP+gvaeTAAAADUlEQVQI12NgYGBgAAAABQABXvMqOgAAAABJRU5ErkJggg==" /><strong>{%LANG.ON.TITLE%}</strong><p><span></span></p></div><div id="cMil_Online_cbbg"><p><a href="http://bhelp.com/?{%DID%}">{%LANG.BHELP%}</a> <a href="http://bhelp.com" target="_blank">bhelp.com</a><i id="cMil_Sound"></i></p><div id="cMil_scroll"><div id="cMil_content"></div></div></div><div id="cMil_FormOn"><form onchange="return false;" onsubmit="bHelp.add(); return false;"><span></span><div id="cMil_FormOn_TextArea"><i></i><b></b><q></q><rb></rb><sub></sub><dl></dl><dd></dd><dt><label><textarea placeholder=""></textarea></label></dt></div><div id="cMil_FormOn_SubTextArea"><textarea></textarea><div id="cBh_Sound"></div></div><ul class="cMil_FormOn_submit"><li class="cMil_FormOn_submitLeft"></li><li class="cMil_FOsubmit"><input type="submit" id="cMil_FOsubmit" value=" "/></li><li class="cMil_FormOn_submitRight"></li></form></div><div id="cMil_Online_cbg"></div><div id="cMil_Online_gbbg"></div><div id="cMil_Online_tbg"></div><div id="cMil_Online_bbg"></div><div id="cMil_Online_rlbg"></div></div><div id="cMil_Offline_Rel"><div id="cMil_Offline_header"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAWRJREFUeNpi/P//PwM1ARMDlcGogYPQQBZ0gT+//7SysLJUfXj3flm4V3gpUOgtEP9EVrP1yLaZLCwsaWdOnI6qLqjeCRT6CMR/d57YhenCa5evrgbRAkKCUZPmTV4MZCoCMTu6YRfPXVwLNAykXwKImXF6uTSr9NbmdZtzQGx1LXWnCXMmzoAZCjPs/Jnzm8uySi+AXAXEX6A0GDCi5xR3CzdGICWSmJmUHBEf0Q4Se/LoyWU+Pt4PfAL8tkCXbQUadgIofB+ITwLxIyD+BVIH8jILlnAF2fBu/vR5C0A+ABraKiMnowuSOHXs5OHaotozQOYDEBfZMEKxDPLCa6Ch886ePDMfJLB/176bQMMuApn3oC57iG4YoWQDNrShrLH+8oXLmzrqOtYA+aBwO4HNZfjCEF0NKxDLAbEUEL+AGvYTm2G4whAd/AbFCxC/ghr0i6SEjQP8xOUqgl4e/oUDQIABALYOkW4rWHG0AAAAAElFTkSuQmCC" /><strong>{%LANG.OFF.TITLE%}</strong><p><span>{%OFF_INFO%}</span></p></div><div id="cMil_Offline_form"><form onchange="return false;" onsubmit="bHelp.off(); return false;"><p>{%LANG.BHELP%} <a href="http://bhelp.com" target="_blank">bhelp.com</a></p><div id="cMil_Offline_Ok">{%LANG.OFF.OK%}</div><ul class="cMil_InputUl cMil_Offline_Hide"><li class="cMil_InputUl_LiTop"><i></i><strong></strong><b></b></li><li class="cMil_InputUl_LiCenter"><i></i><input  type="text" class="cMil_inputtext" id="cMil_FNname" value="" placeholder="{%LANG.OFF.PH.NAME%}" autocomplete="off"/><b></b></li><li class="cMil_InputUl_LiBottom"><i></i><strong></strong><b></b></li></ul><ul class="cMil_InputUl"><li class="cMil_InputUl_LiTop"><i></i><strong></strong><b></b></li><li class="cMil_InputUl_LiCenter"><i></i><input  type="text" class="cMil_inputtext" id="cMil_FNphone" value="" placeholder="{%LANG.OFF.PH.PHONE%}" autocomplete="off"/><b></b></li><li class="cMil_InputUl_LiBottom"><i></i><strong></strong><b></b></li></ul><ul class="cMil_InputUl"><li class="cMil_InputUl_LiTop"><i></i><strong></strong><b></b></li><li class="cMil_InputUl_LiCenter"><label></label><textarea id="cMil_FNtext" placeholder="{%LANG.OFF.PH.MESSAGE%}..."></textarea><dd></dd></li><li class="cMil_InputUl_LiBottom"><i></i><strong></strong><b></b></li></ul><div class="cMil_Submit" id="cMil_FNsubmit"><div><i></i><input type="submit" value=" "/><label>{%LANG.OFF.PH.BUTTON%}</label><b></b><span></span></div></div></form></div><div id="cMil_Offline_cbg"></div><div id="cMil_Offline_cbbg"></div><div id="cMil_Offline_gbbg"></div><div id="cMil_Offline_tbg"></div><div id="cMil_Offline_bbg"></div><div id="cMil_Offline_rlbg"></div></div><div id="cMil_action"><div id="cMil_action_Rel"><div id="cMil_action_Header">{%LANG.ON.ATITLE%}</div><div id="cMil_action_Content"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABmJLR0QA/wD/AP+gvaeTAAAADUlEQVQI12NgYGBgAAAABQABXvMqOgAAAABJRU5ErkJggg=="/> <p><span>{%ACTIVINFO%}</span></p></div> <ul id="cMil_AbuttonOk" class="cMil_Button"><li class="cMil_Button_left"></li><li>{%LANG.ON.YES%}</li><li class="cMil_Button_right"></li></ul> <ul id="cMil_AbuttonNo" class="cMil_Button"><li class="cMil_Button_left"></li><li>{%LANG.ON.NO%}</li><li class="cMil_Button_right"></li></ul><div id="cMil_action_cbg"></div><div id="cMil_action_tbg"></div><div id="cMil_action_bbg"></div><div id="cMil_action_rlbg"></div></div></div><div id="cMil_stat"><div id="cMil_stat_Rel"><div id="cMil_stat_Header">{%LANG.OFF.ATITLE%}</div><div id="cMil_stat_Content"> <p><span>{%ACTIVEOFF%}</span></p></div> <ul id="cMil_SbuttonOk" class="cMil_Button"><li class="cMil_Button_left"></li><li>{%LANG.OFF.YES%}</li><li class="cMil_Button_right"></li></ul> <ul id="cMil_SbuttonNo" class="cMil_Button"><li class="cMil_Button_left"></li><li>{%LANG.OFF.NO%}</li><li class="cMil_Button_right"></li></ul><div id="cMil_stat_cbg"></div><div id="cMil_stat_tbg"></div><div id="cMil_stat_bbg"></div><div id="cMil_stat_rlbg"></div></div></div>';
-var mainStyle='#cMil_body {display: block;position: fixed;top: 10px;left: 10px;margin: 0;padding: 0;width: 1px;height: 1px;z-index: -1;text-indent: 0;/*position: absolute;top: expression((document.getElementsByTagName( "body" )[0].scrollTop + 10) + "px");*/}#cBh_frame {margin: 0;padding: 0;border: 0;outline: 0;vertical-align: baseline;background: transparent;font-size: 100%;font-family: inherit;font-weight: inherit;font-style: inherit; }#cMil_FrameCover,#cBh_frame {zoom: 1;display: none;position: fixed;z-index: 999999999;width: 264px;height: 351px;margin: 0;padding: 0;left: 0;top: 0;text-indent: 0;}#cMil_FrameCover {background: rgba(255,255,255,0.01);height: 95px;cursor: move;}#cMil_FrameClose {display: block;position: absolute;z-index: 999999999;top: 10px;right: 14px;width: 20px;height: 20px;background: rgba(255,255,255,0.001);cursor: pointer;}#cMil_FrameSound {display: block;position: absolute;z-index: 999999999;top: 10px;right: 35px;width: 20px;height: 20px;background: rgba(255,255,255,0.001);cursor: pointer;}#cBh_frame {z-index: 999999998; transition: 300ms all;}#cBh_frame p {text-indent: 0;} #cMil_Line {transition: 300ms all;}';
+var mainStyle='#cMil_body {display: block;position: fixed;top: 10px;left: 10px;margin: 0;padding: 0;width: 1px;height: 1px;z-index: -1;text-indent: 0;/*position: absolute;top: expression((document.getElementsByTagName( "body" )[0].scrollTop + 10) + "px");*/}#cBh_frame {margin: 0;padding: 0;border: 0;outline: 0;vertical-align: baseline;background: transparent;font-size: 100%;font-family: inherit;font-weight: inherit;font-style: inherit; }#cMil_FrameCover,#cBh_frame {zoom: 1;display: none;position: fixed;z-index: 999999999;width: 264px;height: 351px;margin: 0;padding: 0;left: 0;top: 0;text-indent: 0;}#cMil_FrameCover {background: rgba(255,255,255,0.01);height: 95px;cursor: move;}#cMil_FrameClose {display: block;position: absolute;z-index: 999999999;top: 10px;right: 14px;width: 20px;height: 20px;background: rgba(255,255,255,0.001);cursor: pointer;}#cMil_FrameSound {display: block;position: absolute;z-index: 999999999;top: 10px;right: 35px;width: 20px;height: 20px;background: rgba(255,255,255,0.001);cursor: pointer;}#cBh_frame {z-index: 999999998;}#cBh_frame p {text-indent: 0;}';
 function bhelpLoad(url,name,version,callback){if(window["localStorage"] === null) return subLoad(url,name,callback); else{var gc = localStorage.getItem(name);if(gc==null) return subLoad(url,name,callback);else {var gcVersion = localStorage.getItem(name+"_v"); if(gcVersion==null || gcVersion!=version){ localStorage.setItem(name+"_v",version); return subLoad(url,name,callback);}else callback(gc);}}
 function subLoad(url,name,callback){if (window.XMLHttpRequest) xmlhttp=new XMLHttpRequest();else xmlhttp=new ActiveXObject("Microsoft.XMLHTTP"); xmlhttp.onreadystatechange=function(){if (xmlhttp.readyState==4 && xmlhttp.status==200){if(window["localStorage"] != null) {localStorage.setItem(name,xmlhttp.responseText);} callback(xmlhttp.responseText);}}; xmlhttp.open("GET", url, true ); xmlhttp.send();}}
 
+var animate = function (doc, win) {
+	var self = {bhId:"bhStyle"};
+	if(doc.getElementById(self.bhId) == null) {
+		var style = doc.createElement('style');
+		style.type = 'text/css';
+		style.id = self.bhId;
+		doc.body.appendChild(style);
+	}
+	for(var el = 0; el < doc.styleSheets.length; el++){
+		var elNode = doc.styleSheets[el].ownerNode ? doc.styleSheets[el].ownerNode : doc.styleSheets[el].owningElement;
+		if(elNode.id && elNode.id == self.bhId) {
+			self.styleLinkRules = doc.styleSheets[el].cssRules ? doc.styleSheets[el].cssRules : doc.styleSheets[el].rules;
+			self.styleLink = doc.styleSheets[el];
+		}
+	}
+	self.rules = {};
+	self.length = 0;
+	self.addRule = function(hash,callback){
+		var content = 'transition: all 1s;';
+		self.styleLink.insertRule(hash+" {"+content+"}",self.styleLinkRules.length);
+		setTimeout(function(){
+			if(typeof callback == 'function')
+				callback();
+		},10);
+	};
+	self.rmRule = function(hash){
+		for( var num = 0; num < self.styleLinkRules.length; num++){
+			if(self.styleLinkRules[num].selectorText == hash) {
+				self.styleLink.deleteRule(num);
+				break;
+			}
+		}
+	}
+	self.history = {};
+	self.id = function(uid){
+		if(uid.substr(0,1)=='#')
+			return doc.getElementById(uid.substring(1));
+		else
+			return doc.querySelector(uid);
+	};
+	self.style = function(uid,styleName,style,sub){
+		var id = self.id(uid); if(id !== null) id.style[styleName] = style + ((sub) ? sub : "");
+	};
+	self.styles = function(uid,styles){
+		var id = self.id(uid); if(id !== null) {
+			for(var name in styles)
+				id.style[name] = styles[name];
+		}
+	};
+	self.width = function(uid,width){
+		self.style(uid,"width",width,"px");
+	};
+	self.height = function(uid,height){
+		self.style(uid,"height",height,"px");
+	};
+	self.opacity = function(uid,opacity){
+		self.style(uid,"opacity",opacity);
+	}
+	self.re = function(uid,style,callback){
+		self.rmRule(uid);
+		var id = self.id(uid);
+		if(id == null)
+			return;
+		self.addRule(uid, function(){
+			self.styles(uid,styles);
+		});
+		setTimeout(function(){
+			self.rmRule(uid);
+			if(typeof callback == 'function')
+				callback();
+		},1100);
+	};
+	self.hide = function(uid,style,callback){
+		self.rmRule(uid);
+		var id = self.id(uid);
+		if(id == null)
+			return;
+		var top = 0;
+		var left = 0;
+		id.style.position = 'fixed';
+		id.style.top = id.offsetTop+"px";
+		id.style.left = id.offsetLeft+"px";
+		id.style.opacity = 1;
+		self.history[uid] = {top:id.offsetTop, left: id.offsetLeft};
+		var windowSize = {width: win.innerWidth, height: win.innerHeight};
+		switch(style.direction){
+			case 'downLeft': top = windowSize.height+20; left = 20; break;
+			case 'downRight': top = windowSize.height+20; left = windowSize.width - id.clientWidth-20; break;
+			case 'left': top = (windowSize.height - id.clientHeight)/2; left =  0 - id.clientWidth - 20; break;
+			case 'right': top = (windowSize.height - id.clientHeight)/2; left = windowSize.width + 20; break;
+			case 'upLeft': top = 0 - 20 - id.clientHeight; left = 10; break;
+			case 'upRight': top = 0 - 20 - id.clientHeight; left = windowSize.width - id.clientWidth-20; break;
+			default: top = style.top; left = style.left; break;
+		}
+		self.addRule(uid, function(){
+			id.style.top = top+"px";
+			id.style.left = left+"px";
+			id.style.opacity = 0;
+		});
+		setTimeout(function(){
+			self.rmRule(uid);
+			id.style.opacity = 1;
+			if(typeof callback == 'function')
+				callback();
+		},1100);
+	};
+	self.show = function(uid,position,callback){
+		var id = self.id(uid);
+		if(id == null)
+			return;
+		self.rmRule(uid);
+		id.style.opacity = 1;
+		if(self.history[uid]==undefined){
+			self.history[uid] = {top:id.offsetTop, left: id.offsetLeft};
+		}
+		if(position!= undefined && position!= null){
+			if(typeof position.top != 'undefined')
+				self.history[uid].top = position.top;
+			if(typeof position.left != 'undefined')
+				self.history[uid].left = position.left;
+		}
+		var windowSize = {width: win.innerWidth, height: win.innerHeight};
+		if(windowSize.width < self.history[uid].left+id.clientWidth)
+			self.history[uid].left = windowSize.width - id.clientWidth - 20;
+		if(windowSize.height < self.history[uid].top+id.clientHeight)
+			self.history[uid].top = windowSize.height - id.clientHeight - 20;
+		self.addRule(uid, function(){
+			id.style.top = self.history[uid].top+"px";
+			id.style.left = self.history[uid].left+"px";
+			id.style.opacity = 1;
+		});
+		setTimeout(function(){
+			self.rmRule(uid);
+			if(typeof callback == 'function')
+				callback();
+		},1100);
 
-var bHelp = (function(){
+
+	};
+	return self;
+};
+
+
+var bHelp = function(animate,win,doc){
 	var self = this;
 	self.debug = true;
+	self.FrameHeight = 351;
 	self.animate = animate(document,window);
-	self.animateParent = animate(window.parent.document,window.parent);
-	self.document = window.parent.document;
-	self.window = window.parent;
-	self.blank = {offText:"",offContact:"",offName:"",onText:""};
+	self.animateParent = animate(doc,win);
+	self.doc = doc;
+	console.log(doc,self.doc);
+	self.win = win;
+	self.blank = {
+		offText:"",
+		offContact:"",
+		offName:"",
+		onText:"",
+		get: function(type, insertObj){
+		switch(type){
+			case "client":
+						return '<dl class="cMil_p" id="cBh' + insertObj.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + insertObj.text + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>';
+						break;
+			case "manager":
+						return '<dl class="cMil_u" id="cBh' + insertObj.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + insertObj.text + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>';
+						break;
+		}
+		return '';
+		}
+	};
 	self.get = {};
 	self.Storage = {
-		get: function(element,default){ var el = localStorage.getItem(element); if(el==null) return default; return el;},
+		get: function(element,def){ var el = localStorage.getItem(element); if(el==null) return def; return el;},
 		set: function(element,value){}
 	};
 	self.id = function(uid){
@@ -29,12 +189,12 @@ var bHelp = (function(){
 		if(uid.substr(0,1)=='#' && uid.indexOf(' ')==-1) {
 			el = document.getElementById(uid.substring(1));
 			if(el == null)
-				el = self.document.getElementById(uid.substring(1));
+				el = self.doc.getElementById(uid.substring(1));
 		}
 		if(el == null)
 			el = document.querySelector(uid);
 		if(el == null)
-			el = self.document.querySelector(uid);
+			el = self.doc.querySelector(uid);
 		return el;
 	};
 	self.val = {
@@ -52,26 +212,33 @@ var bHelp = (function(){
 			el.attachEvent("on"+actions,callback);
 
 	};
-	self.on = function(element,actions, callback){
+	self.on = function(element, actionName, callback){
 		var el = null;
+		self.log("on");
 		if(typeof element == 'string') {
 			el = self.id(element);
+			self.log("on");
+			self.log(el);
 			if(el == null)
 				return;
 		}
 		else
 			el = element;
 		if(typeof el.addEventListener == 'undefined'){
-			self.onIE(el,actions, callback);
+			self.onIE(el,actionName, callback);
 			return;
 		}
-		if(actions.indexOf(' ') >= 0) {
-			var actionsSpl = actions.split(' ');
+		if(actionName.indexOf(' ') >= 0) {
+			var actionsSpl = actionName.split(' ');
 			for(var aNumber in actionsSpl){
-				el.addEventListener(actionsSpl[aNumber],callback);
+				el.addEventListener(actionsSpl[aNumber],function(event){callback(event);});
 			}
-		} else
-			el.addEventListener(actions,callback);
+		} else {
+			self.log("addEventListener",el,actionName);
+			el.addEventListener(actionName,function(event){
+				callback(event);
+			});
+		}
 	};
 
 	self.getUnique = function(element){
@@ -85,9 +252,9 @@ var bHelp = (function(){
 	};
 	self.last = {client: 0, manager: 0};
 	self.init = function(){
-		self.sid = window.parent["bhelpSrvId"];
-		self.online = window.parent["bhelpOnline"];
-		self.signalAddr = window.parent["bhelpSignalAddress"];
+		self.sid = win.parent["bhelpSrvId"];
+		self.online = win.parent["bhelpOnline"];
+		self.signalAddr = win.parent["bhelpSignalAddress"];
 		switch(self.get.ps){
 			case 1: self.direction = {direction: "downRight"}; break;
 			case 2: self.direction = {direction: "downLeft"}; break;
@@ -113,21 +280,24 @@ var bHelp = (function(){
 		}
 		self.toUrl = function(data){return Object.keys(data).map(function(k) {return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])}).join('&')};
 		self.post = function(uri,data,callback){
-			var xhr = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
+			var xhr = ("onload" in new XMLHttpRequest()) ? new XMLHttpRequest : new XDomainRequest;
 			xhr.open("POST", uri, true);
+			xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded; charset=UTF-8');
 			xhr.onreadystatechange = function(){
 				if (xhr.readyState != 4) return;
-				callback(responseText);
+				if(typeof callback == 'function')
+					callback(xhr.responseText);
 			};
 			xhr.send(self.toUrl(data));
 			return xhr;
 		};
 		self.uri = function(uri,callback){
-			var xhr = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
+			var xhr = ("onload" in new XMLHttpRequest()) ? new XMLHttpRequest : new XDomainRequest;
 			xhr.open("GET", uri, true);
 			xhr.onreadystatechange = function(){
 				if (xhr.readyState != 4) return;
-				callback(responseText);
+				if(typeof callback == 'function')
+					callback(xhr.responseText);
 			};
 			xhr.send();
 			return xhr;
@@ -137,18 +307,18 @@ var bHelp = (function(){
 			Загрузка данных о сессии (клиент, менеджер  и т.п.)
 		*/
 		self.reCheck = function(){
-			console.log("reCheck");
+			self.log("reCheck");
 			var manList = [];
 			for(var el in self.managerList)
 				manList.push({img:self.managerList[el].img.version,block:self.managerList[el].block.version});
-			self.post(bhelpInfoAddress+"/"+self.get.cid+"i"+self.sid+"/"+self.client+"/"+self.document.location.hostname,{
+			self.post(bhelpInfoAddress+"/"+self.get.cid+"i"+self.sid+"/"+self.client+"/"+self.doc.location.hostname,{
 				agent:navigator.userAgent,
-				url:self.document.location.pathname,
-				title:self.document.title,
+				url:self.doc.location.pathname,
+				title:self.doc.title,
 				os:navigator.platform,
-				ref:self.document.referrer,
+				ref:self.doc.referrer,
 				locale:navigator.language,
-				protocol:self.document.location.protocol,
+				protocol:self.doc.location.protocol,
 				mid:self.mid,
 				time:self.firstTime,
 				managers:JSON.stringify(manList),
@@ -159,33 +329,37 @@ var bHelp = (function(){
 				lastM: self.last.manager
 			},function(resp){
 				var rsp = JSON.parse(resp);
+				self.log("reCheck response");
+				self.log(rsp);
 				self.client = rsp.uid;
 				self.Storage.set('cBh_client',self.client);
-				self.loadUrl = bhelpInfoAddress+"/"+self.get.cid+"i"+self.sid+"/"+self.client+"/"+self.document.location.hostname;
+				self.loadUrl = bhelpInfoAddress+"/"+self.get.cid+"i"+self.sid+"/"+self.client+"/"+self.doc.location.hostname;
 				self.online = rsp.online;
-				self.mid = rsp.manager.id;
-				self.Storage.set('bhelp_mid',self.mid);
-				var img = {};
-				if(typeof self.managerList[self.mid]!='undefined' && rsp.manager.version_img==self.managerList[self.mid].img.version){
-					img = self.managerList[self.mid].img;
-				}else {
-					img = {
-						version: rsp.manager.version_img,
-						content: rsp.manager.img
-					};
+				if(rsp.manager!=undefined){
+					self.mid = rsp.manager.id;
+					self.Storage.set('bhelp_mid',self.mid);
+					var img = {};
+					if(typeof self.managerList[self.mid]!='undefined' && rsp.manager.version_img==self.managerList[self.mid].img.version){
+						img = self.managerList[self.mid].img;
+					}else {
+						img = {
+							version: rsp.manager.version_img,
+							content: rsp.manager.img
+						};
+					}
+					self.position = rsp.position;
+					self.Storage.set('bhelp_position',self.position);
+					var block = {};
+					if(typeof self.managerList[self.mid]!='undefined' && typeof rsp.manager.block_img=='undefined' ){
+						block = self.managerList[self.mid].block;
+					}else {
+						block = {
+							version: rsp.manager.version_block,
+							content: rsp.manager.block_img
+						};
+					}
+					self.managerInfo({id:rsp.manager.id,img:img,block:block,text:rsp.manager.text});
 				}
-				self.position = rsp.position;
-				self.Storage.set('bhelp_position',self.position);
-				var block = {};
-				if(typeof self.managerList[self.mid]!='undefined' && typeof rsp.manager.block_img=='undefined' ){
-					block = self.managerList[self.mid].block;
-				}else {
-					block = {
-						version: rsp.manager.version_block,
-						content: rsp.manager.block_img
-					};
-				}
-				self.managerInfo({id:rsp.manager.id,img:img,block:block,text:rsp.manager.text});
 				self.reLine();
 				self.activeOnline();
 				self.activeOffline();
@@ -195,6 +369,11 @@ var bHelp = (function(){
 				}
 			});
 		},
+		self.showLine = function(){
+			self.log("showLine");
+			self.animateParent.show('#cMil_Line');
+			self.LineLock = true;
+		};
 		self.client = self.Storage.get('cBh_client',0);
 		self.uid = self.client;
 		self.position = self.Storage.get('bhelp_position',0);
@@ -219,7 +398,7 @@ var bHelp = (function(){
 		self.on('#cMil_FormOn_TextArea textarea','keyup keydown change',function(event){self.updateSize(event);});
 		bhelpLoad(bhelpSrvAddress+"/pscreen.js","bhelp_pscreen",1,function(resp){eval(resp);});
 		self.on('.cMil_FormOn_submit','click',function(){self.add();});
-		if(self.client > 0) self.loadUrl = bhelpInfoAddress+"/"+self.get.cid+"i"+self.sid+"/"+self.client+"/"+self.document.location.hostname;
+		if(self.client > 0) self.loadUrl = bhelpInfoAddress+"/"+self.get.cid+"i"+self.sid+"/"+self.client+"/"+self.doc.location.hostname;
 		self.reCheck();
 		/*
 		Событие активатора: нажатие Ok
@@ -244,10 +423,10 @@ var bHelp = (function(){
 
 		self.LineLock = false;
 
-		self.showLine = function(){
-			self.animateParent.show('#cMil_Line');
-			self.LineLock = true;
-		};
+		self.hideLine = function(callback){
+			self.animateParent.hide('#cMil_Line',self.direction,callback);
+			self.LineLock = false;
+		}
 		/*
 		Событие: нажатие отправки offline сообщения
 		*/
@@ -269,11 +448,12 @@ var bHelp = (function(){
 		/*
 		Событие: выход из окна
 		*/
-		self.on(self.window,'focusin focus mouseenter',function(){self.onFocus();});
-		self.on(self.window,'focusout blur mouseleave',function(){self.onBlur();});
+		self.on(self.win,'focusin focus mouseenter',function(){self.onFocus();});
+		self.on(self.win,'focusout blur mouseleave',function(){self.onBlur();});
 	};
-	self.insertLine = function(code) {var style = document.createElement('style'); style.type = 'text/css'; if(style.styleSheet) {style.styleSheet.cssText = code;} else style.innerHTML = code; self.document.getElementsByTagName('head')[0].appendChild( style );};
+	self.insertLine = function(code) {var style = document.createElement('style'); style.type = 'text/css'; if(style.styleSheet) {style.styleSheet.cssText = code;} else style.innerHTML = code; self.doc.getElementsByTagName('head')[0].appendChild( style );};
 	self.initLine = function(){
+		self.log("initLine");
 		self.insertLine(self.get.lineStyle+mainStyle);
 		var cBhBlock = document.createElement('img'); cBhBlock.id = 'cMil_Line';
 		if(!self.online || Object.keys(self.managerList).length > 0){
@@ -288,7 +468,7 @@ var bHelp = (function(){
 			cBhBlock.setAttribute('src','data:image/png;base64,'+lineImg);
 			self.lineStatus = true;
 		}
-		self.document.body.appendChild(cBhBlock);
+		self.doc.body.appendChild(cBhBlock);
 		self.showLine();
 		self.on("#cMil_Line",'click',function(){self.fadeIn();});
 		self.draggable('#cBh_frame');
@@ -298,32 +478,48 @@ var bHelp = (function(){
 		#cMil_Offline_header, #cMil_Online_header, #cMil_action,#cMil_stat
 		*/
 		var dragOb = {};
-		self.on(self.document,'mousedown',function(e){
+		function mousedown(e){
 			if (e.which != 1) return;
 			var elem = e.target.closest('#cMil_Offline_header, #cMil_Online_header, #cMil_action,#cMil_stat');
 			if (!elem) return;
 			dragOb.elem = self.id(element);
-			dragOb.downX = e.pageX;
-			dragOb.downX = e.pageX;
-		});
-		self.on(self.document,'mousemove',function(e){
+			dragOb.lastX = e.clientX;
+			dragOb.lastY = e.clientY;
+			dragOb.realX = dragOb.elem.offsetLeft;
+			dragOb.realY = dragOb.elem.offsetTop;
+		}
+		self.on(self.doc,'mousedown',mousedown);
+		self.on(document,'mousedown',mousedown);
+		function mousemove(e){
+			dragOb = {};
+		}
+		self.on(self.doc,'mousemove',mousemove);
+		self.on(document,'mousemove',function(e){
 			if (!dragOb.elem) return;
 			if (!dragOb.avatar) {
 				// посчитать дистанцию, на которую переместился курсор мыши
-				var moveX = e.pageX - dragObject.downX;
-				var moveY = e.pageY - dragObject.downY;
+				var moveX = e.clientX - dragOb.realX;
+				var moveY = e.clientY - dragOb.realY;
 				if ( Math.abs(moveX) < 3 && Math.abs(moveY) < 3 ) {
 					return; // ничего не делать, мышь не передвинулась достаточно далеко
 				}
-				dragOb.avatar = elem;
-				dragOb.shiftX = dragOb.downX - dragOb.avatar.offsetLeft;
-				dragOb.shiftY = dragOb.downY - dragOb.avatar.offsetTop;
+				dragOb.avatar = dragOb.elem;
 			}
-			dragOb.avatar.style.left = e.pageX - dragOb.shiftX + 'px';
-			dragOb.avatar.style.top = e.pageY - dragOb.shiftY + 'px';
+			console.log("min",e.clientX,e.clientY,dragOb.lastX,dragOb.lastY);
+			dragOb.avatar.style.left = (dragOb.realX - (dragOb.lastX - e.clientX)) + 'px';
+			dragOb.avatar.style.top =  (dragOb.realY - (dragOb.lastY - e.clientY))+ 'px';
+			dragOb.lastX = e.clientX;
+			dragOb.lastY = e.clientY;
+			dragOb.realX = dragOb.avatar.offsetLeft;
+			dragOb.realY = dragOb.avatar.offsetTop;
 		});
-		self.on(self.document,'mouseup',function(e){
-			dragObject = {};
+		self.on(self.doc,'mouseup',function(e){
+			console.log("up");
+			dragOb = {};
+		});
+		self.on(document,'mouseup',function(e){
+			console.log("up");
+			dragOb = {};
 		});
 	};
 
@@ -344,8 +540,12 @@ var bHelp = (function(){
 		self.Storage.set('bhelp_managerList',JSON.stringify(self.managerList));
 	};
 	self.log = function(msg){
-		if(self.debug)
-			console.log(msg);
+		if(self.debug){
+			if(arguments.length == 1)
+				console.log(msg);
+			else
+				console.log(arguments);
+		}
 	};
 	self.error = function(msg){
 		if(self.debug)
@@ -371,17 +571,17 @@ var bHelp = (function(){
 	};
 
 	self.width = function(){
-		return self.window.innerWidth;
+		return self.win.innerWidth;
 	};
 	self.height = function(){
-		return self.window.innerHeight;
+		return self.win.innerHeight;
 	};
 
 	self.activeOnline = function(){
 		//Активатор онлайл
 	};
 
-	self.activeOffline= function(){
+	self.activeOffline = function(){
 		//Активатор оффлайн
 			if(self.online) return;	
 			if(self.get.activ_type_off!=1) return;
@@ -392,9 +592,9 @@ var bHelp = (function(){
 					if(self.get.ps==1 || self.get.ps==5 || self.get.ps==6){
 						left = self.width() - id.clientWidth - 20;
 					}
-					var top = self.height() - id.clientHeight-20;
+					var top = self.height() - id.clientHeight - 20;
 					self.log("activeOffline",left,top);
-					self.animateParent.hide('#cMil_Line',_this.direction,function(){
+					self.hideLine(function(){
 						self.animateParent.show('#cBh_frame',{left: left, top: top});
 						self.shownFrame = true;
 						self.animate.show('#cMil_stat',function(){
@@ -427,13 +627,13 @@ var bHelp = (function(){
 		window.WebSocket = false;								//!!!!!!!!!!!!!!
 		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		if (window.WebSocket){
-			self.loadUrl = self.window["bhelpWsAddress"]+"/"+self.get.cid+"/"+self.client+"/"+self.document.location.hostname;
+			self.loadUrl = self.win["bhelpWsAddress"]+"/"+self.get.cid+"/"+self.client+"/"+self.doc.location.hostname;
 			self.listenWs();
 			setInterval(function(){
 				self.ajax.send("PING");
 			},10000);
 		}
-		else this.listenComet();
+		else self.listenComet();
 	};
 	self.loadPid = false;
 	self.listenWs = function(){
@@ -456,7 +656,7 @@ var bHelp = (function(){
 	self.listenComet = function(){
 		if(self.loadPid) return;
 		self.loadPid = true;
-		self.ajax = self.uri(_this.loadUrl,function(data){
+		self.ajax = self.uri(self.loadUrl,function(data){
 			self.req(JSON.parse(data));
 			self.loadPid = false;
 			self.listenComet();
@@ -469,7 +669,7 @@ var bHelp = (function(){
 		self.log("req");
 		self.log(data);
 		for(var index in data){
-			var v = data[info];
+			var v = data[index];
 			switch(index) {
 					case 'msg':
 						self.msg([v]);
@@ -536,8 +736,358 @@ var bHelp = (function(){
 		}
 	};
 	self.signal = function(msg){
-		self.post(self.signalAddr+"/"+self.get.cid+"/"+self.client+"/"+self.document.location.hostname,{client:JSON.stringify(msg)});
+		self.post(self.signalAddr+"/"+self.get.cid+"/"+self.client+"/"+self.doc.location.hostname,{client:JSON.stringify(msg)});
 	};
+
+	self.msg = function(resp){
+		var respContent = '';
+		var cnt = 0;
+		var cntMy = 0;
+		if(resp){
+			for(var index in resp){
+				var val = resp[index];
+				var muid = val.uid;
+				if(self.msgList[muid] == undefined) {
+					msgList[muid] = val;
+					if(val.who == '0'){
+						var last = parseInt(muid.substr(1));
+						if(last > self.last.client)
+							self.last.client = last;
+						cntMy++;
+						if(val.bot == undefined || val.bot == 0) {
+							if(self.id('#cBh'+val.uid)==null){
+								respContent += self.blank.get("client",{"uid":val.uid,text:val.text.split('[nr]').join("\n")});
+							}
+						}
+					} else {
+						if(self.id('#cBh'+val.uid)==null){
+							respContent += self.blank.get("manager",{"uid":val.uid,text:val.text.split('[nr]').join("\n")});
+						}
+					}
+					cnt++;
+				}
+			}
+		}
+		if(cnt > 0 && self.online) {
+			if(!self.shownFrame && cntMy === 0) {
+				self.ONfadeIn();
+				self.animate.hide("#cMil_action",self.direction);
+			}
+			self.animate.opacity('#cMil_content',0.2);
+			self.id('#cMil_content').innerHTML += respContent;
+			self.animate.style('#cMil_scroll','scrollTop',self.id('#cMil_content').clientHeight,'px');
+			self.animate.opacity('#cMil_content',1);
+			if(self.shownFrame){
+				self.title();
+				self.echo();
+			}
+		}
+		self.save();
+	};
+
+
+	self.sound = true;
+	self.echo = function () {
+		if(self.sound) {
+			self.jmp3("#cBh_Sound");
+		}
+	};
+	self.Title = self.doc.title;
+	self.notitle = 0;
+	self.title = function () {
+		if(self.notitle === 0) {
+			self.notitle = 1;
+			if(self.focus !== 1) {
+				self.doc.title = '****** Message ******';
+				setTimeout(function () {
+					self.doc.title = self.Title;
+					setTimeout(function () {
+						self.notitle = 0;
+						self.title();
+					}, 500);
+				}, 500);
+			} else {
+				self.doc.title = self.Title;
+				self.notitle = 0;
+			}
+		}
+	};
+	self.reMessage = function () {
+		if(Object.keys(self.msgList).length > 0) {
+			self.id('#cMil_content').innerHTML = '';
+			var respContent = '';
+			for(var id in self.msgList){
+				var content = self.msgList[id];
+				if(content.who == '0'){
+					if(content.bot == undefined || content.bot == 0)
+						respContent += self.blank.get("client",{"uid":content.uid,text:content.text.split('[nr]').join("\n")});
+				}
+				else {
+					respContent += self.blank.get("manager",{"uid":content.uid,text:content.text.split('[nr]').join("\n")});
+				}
+			}
+			self.id('#cMil_content').innerHTML = respContent;
+			if(!self.shownFrame){
+				self.ONfadeIn(1);
+				self.animate.hide('#cMil_action',self.direction);
+			}
+			if(!self.FormOn_TextArea){
+				self.FormOn_TextArea = true;
+				self.id('#cMil_FormOn_TextArea textarea').setAttribute('placeholder','');
+			}
+			self.animate.style('#cMil_scroll','scrollTop',self.id('#cMil_content').clientHeight,'px');
+		}
+	};
+	self.wOpenBlock = true;
+	self.ONfadeIn = function (fast) {
+		if(self.shownFrame)
+			return;
+		self.shownFrame = true;
+		self.Storage.set('cBh_StrLine',1);
+		self.Storage.set('cBh_noAction',1);
+		self.hideLine();
+		var top = self.win.innerHeight - self.FrameHeight;
+		var left = 20;
+		var id = self.id('#cBh_frame');
+		var lineLeft = self.Storage.get('cBh_StrLinePleft',left);
+		switch(self.get.ps){
+			case 1:
+			case 5:
+			case 6:
+					left = self.win.innerWidth - id.clientWidth - 20;
+					if(lineLeft < left)
+						left = lineLeft;
+					break;
+			default:
+					if(lineLeft < (self.win.innerWidth - id.clientWidth - 20))
+						left = lineLeft;
+		}
+		var lineTop = self.Storage.get('cBh_StrLinePtop',top);
+		if(lineTop < top)
+			top = lineTop;
+		id.style.height = FrameHeight+"px";
+		var managerText,managerImg;
+		if(self.mid == 0) {
+			for(var i in self.managerList){
+				managerText = self.managerList[i].text;
+				managerImg = self.managerList[i].img.content;
+				break;
+			}
+		}
+		else {
+			managerText = self.managerList[self.mid].text;
+			managerImg = self.managerList[self.mid].img.content;
+		}
+		self.id('#cMil_Online_headerManager').setAttribute('src','data:image/png;base64,'+managerImg);
+		self.id('#cMil_Online_header p span').innerHTML = managerText;
+		self.id('#cMil_content').innerHTML = '';
+		self.animate.show('#cMil_Online_Rel',{top:0, left: 0},function(){
+			_this.reMessage();
+		});
+		self.animateParent.show('#cBh_frame',{top: top, left: left});
+		if(self.wOpenBlock){
+			self.wOpenBlock = false;
+			self.signal({trigger:'Open'});//wOpen (window open event)
+		}
+	};
+
+	self.off = function () {	// оффлайн сообещение
+		var cMilName = self.id('#cMil_FNname');
+		var cMilPhone = self.id('#cMil_FNphone');
+		var cMilText = self.id('#cMil_FNtext');
+		var val = {cMilName: cMilName.value, cMilPhone: cMilPhone.value, cMilText: cMilText.value};
+		if(cMilName.value == self.blank.offName) 		val.cMilName = '';
+		if(cMilPhone.value == self.blank.offContact) 	val.cMilPhone = '';
+		if(cMilText.value == self.blank.offText) 		val.cMilText = '';
+
+		if(val.cMilName.length == 0) {cMilName.value = self.blank.offName; self.addClass(cMilName,'error-input');}
+		else self.removeClass(cMilName,'error-input');
+		if(val.cMilPhone.length == 0) {cMilPhone.value = self.blank.offContact; self.addClass(cMilPhone,'error-input');}
+		else self.removeClass(cMilName,'error-input');
+		if(val.cMilText.length == 0) {cMilText.value = self.blank.offText; self.addClass(cMilText,'error-input');}
+		else self.removeClass(cMilName,'error-input');
+		
+		if(val.cMilName.length > 0 && val.cMilPhone.length > 0 && val.cMilText.length > 0) {
+			self.offMsg();
+			cMilText.value = '';
+			self.uInfo(val.cMilName,val.cMilPhone);
+			self.signal({offlineText:val.cMilText,offlineName:val.cMilName,offlinePhone:val.cMilPhone,offlineClient:self.client,offlineActivator:self.activator});
+		}
+		return false;
+	};
+	self.uInfo = function (respName, respPhone) {
+		self.id('#cMil_FNname').value  = respName;
+		self.id('#cMil_FNphone').value = respPhone;
+		if(respName != '')  self.Storage.set('cBh_offName',    respName);
+		if(respPhone != '') self.Storage.set('cBh_offContact', respPhone);
+	};
+	self.offMsg = function () {
+		self.animate.styles('#cMil_Offline_Ok',{'display': 'block'});
+		self.animate.styles('.cMil_Offline_Hide',{'display': 'node'});
+	};
+	self.fadeIn = function (status) {
+		self.log("fadeIn");
+		if(self.online) self.ONfadeIn(status);
+		else self.OFfadeIn(status);
+	};
+
+	self.OFfadeIn = function (fast) {
+		self.log("OFfadeIn");
+		if(self.shownFrame)
+			return;
+		self.shownFrame = true;
+		self.Storage.set('cBh_StrLineOff', 1);
+		self.Storage.set('cBh_noAction', 1);
+		self.hideLine();
+		var top = self.win.innerHeight - self.FrameHeight;
+		var left = 20;
+		var id = self.id('#cBh_frame');
+		var lineLeft = self.Storage.get('cBh_StrLinePleft',left);
+		switch(self.get.ps){
+			case 1:
+			case 5:
+			case 6:
+					left = self.win.innerWidth - id.clientWidth - 20;
+					if(lineLeft < left)
+						left = lineLeft;
+					break;
+			default:
+					if(lineLeft < (self.win.innerWidth - id.clientWidth - 20))
+						left = lineLeft;
+		}
+		var lineTop = self.Storage.get('cBh_StrLinePtop',top);
+		if(lineTop < top)
+			top = lineTop;
+		id.style.height = FrameHeight+"px";
+
+		if(!self.trOpen) {
+			self.trOpen = true;
+			self.signal({trigger:'Open'});
+		}
+		self.animate.show('#cMil_Offline_Rel',{top:0, left: 0});
+		self.animateParent.show('#cBh_frame',{top: top, left: left});
+	};
+
+	self.jmp3 = function(id){
+		var playerpath = bhelpSrvAddress;
+		var options = {"filepath": "/static/","backcolor": "ffffff","forecolor": "ffffff","width": "1","repeat": "no","volume": "100","autoplay": "true","showdownload": "false","showfilename": "true"};
+		var filename = bhelpSrvAddress+'/sng';var mp3html = '<audio autoplay="true"><source src="' + filename + '.ogg" type="audio/ogg" ><source src="' + filename + '.mp3" type="audio/mpeg" ><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="' + options.width + '" height="1" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab"><param name="movie" value="' + playerpath + 'singlemp3player.swf?showDownload=' + options.showdownload + '&file=' + filename + '.mp3&autoStart=' + options.autoplay;
+			mp3html += '&backColor=' + options.backcolor + '&frontColor=' + options.forecolor;
+			mp3html += '&repeatPlay=' + options.repeat + '&songVolume=' + options.volume + '" /><param name="wmode" value="transparent" /><embed wmode="transparent" width="' + options.width + '" height="1" src="' + playerpath + 'singlemp3player.swf?showDownload=' + options.showdownload + '&file=' + filename + '.mp3&autoStart=' + options.autoplay;
+			mp3html += '&backColor=' + options.backcolor + '&frontColor=' + options.forecolor;
+			mp3html += '&repeatPlay=' + options.repeat + '&songVolume=' + options.volume + '" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" /></object></audio>';
+		self.id(id).innerHTML = mp3html;
+	};
+	self.LoadTextMsg = 0;
+	self.StopTextMsg = 0;
+	self.TimeTextMsg = 0;
+
+	self.startTimeMsg = function(first){
+		if(self.StopTextMsg==1){
+			clearTimeout(self.TimeoutTextMsg);
+			self.LoadTextMsg = 0;
+			setTimeout(function(){self.StopTextMsg=0;},1000);
+			return false;
+		}
+		if(first==1) self.signal({'startMessage':self.LastTextMsg});
+		var time = parseInt(Number(new Date())/1000);
+		if(time < self.TimeTextMsg && self.LoadTextMsg == 0) {
+			self.LoadTextMsg = 1;
+			self.TimeoutTextMsg = setTimeout(function(){
+				self.LoadTextMsg = 0;
+				self.startTimeMsg(0);
+			},5000);
+		}else if (time >= self.TimeTextMsg){
+			self.signal({end:'Message'});
+		}
+	};
+
+	self.blockSend = true;
+	self.LastText = '';
+
+
+	self.add = function () {
+		self.lastScrollTop = 0;
+		self.StopTextMsg = 1;
+		self.startTimeMsg(0);
+		self.signal({end:'Message'});
+		var div = document.createElement("div");
+		div.innerHTML = self.id('#cMil_FormOn_TextArea').value;
+		var msg = div.textContent || div.innerText || "";
+		msg = msg.trim();
+		if(msg!='' && self.blockSend && msg != self.LastText) {
+			self.blockSend = false;
+			self.stop = 0;
+			var msgUid = ++self.last.client;
+			var mBlock = {
+				uid: "c"+msgUid,
+				text: msg,
+				data: parseInt(Number(new Date())/1000),
+				who: 0
+			};
+			self.msgList["c"+msgUid] = mBlock;
+			msg = msg.split("\n").join("<br />");
+			self.LastText = msg;
+			self.animate.opacity('#cMil_content',0.2);
+			self.id('#cMil_content').innerHTML += self.blank.get("client",{uid: msgUid,text:msg});
+			self.animate.style('#cMil_scroll','scrollTop',self.id('#cMil_content').clientHeight,'px');
+			self.animate.opacity('#cMil_content',1);
+			setTimeout(function () {
+				self.blockSend = true;
+			},500);
+			self.signal({msg: {uid: "c"+msgUid, value: mBlock}});
+			self.signal({trigger:'Send'});
+			if(msgUid == 1) {
+				setTimeout(function(){
+					self.signal({bot: 2});
+				},20000);
+			}
+		}
+	};
+
+	self.lastScrollTop = 0;
+
+
+	self.updateSize = function (event) {
+		if(event.type=="keyup" && ((event.keyCode == 0xA)||(event.keyCode == 0xD))) {
+			self.add();
+			return;
+		}
+		var sub  = self.id('#cMil_FormOn_SubTextArea textarea');
+		var main = self.id('#cMil_FormOn_TextArea textarea');
+		sub.value = main.value;
+		sub.style.scrollTop = 1000000;
+		var scrollTop = sub.style.scrollTop;
+		if(scrollTop !== self.lastScrollTop) {
+			if(self.lastScrollTop == 0) {
+				self.id('#cMil_FormOn span').style.display = 'none';
+				sub.style.marginLeft = 	'10px';
+				main.style.marginLeft = '10px';
+				sub.style.width = 		'185px';
+				main.style.width = 		'185px';
+			}
+			self.lastScrollTop = scrollTop;
+			if(scrollTop <= 70) {
+				main.style.overflow = 'hidden';
+				main.style.height = (18 + scrollTop) + 'px';
+				self.id('#cMil_FormOn').style.top = (270 - 6 - scrollTop) + 'px';
+				self.id('#cMil_Online_cbbg').style.height = (212 - 6 - scrollTop) + 'px';
+				self.id('#cMil_scroll').style.height = (191 - scrollTop) + 'px';
+				self.id('#cMil_FOsubmit').style.height = (3 + scrollTop) + 'px';
+				self.id('.cMil_FOsubmit').style.height = (3 + scrollTop) + 'px';
+			} else {
+				main.overflowY = 'auto';
+			}
+			sub.style.scrollTop = 1;
+			}
+		if(self.LastTextMsg!=sub.value){
+			self.LastTextMsg = sub.value;
+			self.TimeTextMsg = parseInt(Number(new Date())/1000)+5;
+			self.startTimeMsg(1);
+		}
+	};
+
+
 
 
 	bhelpLoad(bhelpInfoAddress+"/info.js?get="+bhelpSrvId+"&locale="+navigator.language,"bhelp_get",bhelpSrvVersion,function(linfo){
@@ -568,6 +1118,9 @@ var bHelp = (function(){
 		self.id('body').innerHTML = iframeContent;
 		self.init();
 	});
-	return info;
-}());
-window.parent.bhelp = bHelp;
+	return self;
+};
+var bh = bHelp(animate,window.parent,window.parent.document);
+//window.parent.bhelp = bh;
+console.log(bh.doc);
+//el.addEventListener("click",function(e){console.log("click",e);});
