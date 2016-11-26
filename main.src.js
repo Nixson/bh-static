@@ -102,15 +102,16 @@ var animate = function (doc, win) {
 		id.style.display = 'block';
 		self.history[uid] = {top:id.offsetTop, left: id.offsetLeft};
 		var windowSize = {width: win.innerWidth, height: win.innerHeight};
-		switch(style.direction){
-			case 'downLeft': top = windowSize.height+20; left = 20; break;
-			case 'downRight': top = windowSize.height+20; left = windowSize.width - id.clientWidth-20; break;
-			case 'left': top = (windowSize.height - id.clientHeight)/2; left =  0 - id.clientWidth - 20; break;
-			case 'right': top = (windowSize.height - id.clientHeight)/2; left = windowSize.width + 20; break;
-			case 'upLeft': top = 0 - 20 - id.clientHeight; left = 10; break;
-			case 'upRight': top = 0 - 20 - id.clientHeight; left = windowSize.width - id.clientWidth-20; break;
-			default: top = style.top; left = style.left; break;
-		}
+		if(style)
+			switch(style.direction){
+				case 'downLeft': top = windowSize.height+20; left = 20; break;
+				case 'downRight': top = windowSize.height+20; left = windowSize.width - id.clientWidth-20; break;
+				case 'left': top = (windowSize.height - id.clientHeight)/2; left =  0 - id.clientWidth - 20; break;
+				case 'right': top = (windowSize.height - id.clientHeight)/2; left = windowSize.width + 20; break;
+				case 'upLeft': top = 0 - 20 - id.clientHeight; left = 10; break;
+				case 'upRight': top = 0 - 20 - id.clientHeight; left = windowSize.width - id.clientWidth-20; break;
+				default: top = style.top; left = style.left; break;
+			}
 		self.addRule(uid, function(){
 			id.style.top = top+"px";
 			id.style.left = left+"px";
