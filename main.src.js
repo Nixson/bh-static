@@ -106,8 +106,8 @@ var animate = function (doc, win) {
 			switch(style.direction){
 				case 'downLeft': top = windowSize.height+20; left = 20; break;
 				case 'downRight': top = windowSize.height+20; left = windowSize.width - id.clientWidth-20; break;
-				case 'left': top = (windowSize.height - id.clientHeight)/2; left =  0 - id.clientWidth - 20; break;
-				case 'right': top = (windowSize.height - id.clientHeight)/2; left = windowSize.width + 20; break;
+				case 'left': top = windowSize.height - id.clientHeight/2; left =  0 - id.clientWidth - 20; break;
+				case 'right': top = windowSize.height - id.clientHeight/2; left = windowSize.width + 20; break;
 				case 'upLeft': top = 0 - 20 - id.clientHeight; left = 10; break;
 				case 'upRight': top = 0 - 20 - id.clientHeight; left = windowSize.width - id.clientWidth-20; break;
 				default: top = style.top; left = style.left; break;
@@ -390,7 +390,18 @@ var bHelp = function(animate,win,doc){
 		},
 		self.showLine = function(){
 			self.log("showLine");
-			self.animateParent.show('#cMil_Line');
+			var direction = {};
+			var windowSize = {width: self.win.innerWidth, height: self.win.innerHeight};
+			var id = self.id('#cMil_Line');
+			switch(self.get.ps){
+				case 1: direction = {direction: "downRight"}; break;
+				case 2: direction = {direction: "downLeft"}; break;
+				case 3: direction = {top: windowSize.height - id.clientHeight/2, left:  0}; break;
+				case 4: direction = {direction: "upLeft"}; break;
+				case 5: direction = {direction: "upRight"}; break;
+				case 6: direction = {top: windowSize.height - id.clientHeight/2, left:  windowSize.width - id.clientWidth}; break;
+			}
+			self.animateParent.show('#cMil_Line',{top: top, left: left});
 			self.LineLock = true;
 		};
 		self.client = self.Storage.get('cBh_client',0);
