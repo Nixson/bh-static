@@ -1146,6 +1146,3 @@ var bHelp = function(animate,win,doc){
 	return self;
 };
 var bh = bHelp(animate,window.parent,window.parent.document);
-//window.parent.bhelp = bh;
-console.log(bh.doc);
-//el.addEventListener("click",function(e){console.log("click",e);});
