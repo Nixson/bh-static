@@ -125,16 +125,19 @@ var animate = function (doc, win) {
 		if(self.history[uid]==undefined){
 			self.history[uid] = {top:id.offsetTop, left: id.offsetLeft};
 		}
+		var ignore = false;
 		if(position!= undefined && position!= null){
 			if(typeof position.top != 'undefined')
 				self.history[uid].top = position.top;
 			if(typeof position.left != 'undefined')
 				self.history[uid].left = position.left;
+			if(typeof position.ignore != 'undefined')
+				ignore = position.ignore;
 		}
 		self.history[uid].top = parseInt(self.history[uid].top);
 		self.history[uid].left = parseInt(self.history[uid].left);
 		var windowSize = {width: win.innerWidth, height: win.innerHeight};
-		if(!position.ignore){
+		if(!ignore){
 			if(windowSize.width < self.history[uid].left+id.clientWidth)
 				self.history[uid].left = windowSize.width - id.clientWidth - 20;
 			if(windowSize.height < self.history[uid].top+id.clientHeight)
