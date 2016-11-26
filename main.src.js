@@ -895,6 +895,21 @@ var bHelp = function(animate,win,doc){
 		}
 	};
 
+	self.removeClass = function(element,className){
+		var classList = element.className.split(' ');
+		var index = classList.indexOf(className);
+		if( index >= 0 ){
+			delete classList[index];
+			element.className = classList.join(' ');
+		}
+	};
+	self.addClass = function(element,className){
+		var classList = element.className.split(' ');
+		var index = classList.indexOf(className);
+		if(index == -1)
+			element.className = element.className + ' '+className;
+	};
+
 	self.off = function () {	// оффлайн сообещение
 		var cMilName = self.id('#cMil_FNname');
 		var cMilPhone = self.id('#cMil_FNphone');
