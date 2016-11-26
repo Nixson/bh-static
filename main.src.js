@@ -1086,7 +1086,7 @@ var bHelp = function(animate,win,doc){
 		self.startTimeMsg(0);
 		self.signal({end:'Message'});
 		var div = document.createElement("div");
-		div.innerHTML = self.id('#cMil_FormOn_TextArea').value;
+		div.innerHTML = self.id('#cMil_FormOn_TextArea textarea').value;
 		var msg = div.textContent || div.innerText || "";
 		msg = msg.trim();
 		if(msg!='' && self.blockSend && msg != self.LastText) {
