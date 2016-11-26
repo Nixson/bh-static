@@ -133,12 +133,13 @@ var animate = function (doc, win) {
 		}
 		self.history[uid].top = parseInt(self.history[uid].top);
 		self.history[uid].left = parseInt(self.history[uid].left);
+		console.log("show",self.history[uid].top,self.history[uid].left);
 		var windowSize = {width: win.innerWidth, height: win.innerHeight};
 		if(windowSize.width < self.history[uid].left+id.clientWidth)
 			self.history[uid].left = windowSize.width - id.clientWidth - 20;
 		if(windowSize.height < self.history[uid].top+id.clientHeight)
 			self.history[uid].top = windowSize.height - id.clientHeight - 20;
-		console.log("windowSize",windowSize);
+		console.log("windowSize",windowSize,id.clientWidth,id.clientHeight);
 		console.log("show",self.history[uid].top,self.history[uid].left);
 		self.addRule(uid, function(){
 			id.style.top = self.history[uid].top+"px";
