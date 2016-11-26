@@ -1089,6 +1089,7 @@ var bHelp = function(animate,win,doc){
 		div.innerHTML = self.id('#cMil_FormOn_TextArea textarea').value;
 		var msg = div.textContent || div.innerText || "";
 		msg = msg.trim();
+		self.id('#cMil_FormOn_TextArea textarea').value = "";
 		if(msg!='' && self.blockSend && msg != self.LastText) {
 			self.blockSend = false;
 			self.stop = 0;
@@ -1104,6 +1105,7 @@ var bHelp = function(animate,win,doc){
 			self.LastText = msg;
 			self.animate.opacity('#cMil_content',0.2);
 			self.id('#cMil_content').innerHTML += self.tpl("client",{uid: msgUid,text:msg});
+			console.log(self.id('#cMil_content').clientHeight);
 			self.animate.style('#cMil_scroll','scrollTop',self.id('#cMil_content').clientHeight,'px');
 			self.animate.opacity('#cMil_content',1);
 			setTimeout(function () {
