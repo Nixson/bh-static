@@ -90,7 +90,11 @@ var animate = function (doc, win) {
 		id.style.position = 'fixed';
 		id.style.top = id.offsetTop+"px";
 		id.style.left = id.offsetLeft+"px";
-		id.style.opacity = 1;
+		if(style.hidden) {
+			id.style.opacity = 0;
+		} else {
+			id.style.opacity = 1;
+		}
 		id.style.display = 'block';
 		self.history[uid] = {top:id.offsetTop, left: id.offsetLeft};
 		var windowSize = {width: win.innerWidth, height: win.innerHeight};
@@ -478,6 +482,7 @@ var bHelp = function(animate,win,doc){
 		self.doc.body.appendChild(cBh_Header);
 		self.showLine();
 		self.on("#cMil_Line",'click',function(){self.fadeIn();});
+		self.animateParent.hide('#cBh_frame',{direction: self.direction.direction,hidden: true});
 		self.draggable('#cBh_frame','#cBh_Header');
 	};
 	self.draggable = function(element,header){
