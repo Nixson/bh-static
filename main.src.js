@@ -138,6 +138,7 @@ var animate = function (doc, win) {
 			self.history[uid].left = windowSize.width - id.clientWidth - 20;
 		if(windowSize.height < self.history[uid].top+id.clientHeight)
 			self.history[uid].top = windowSize.height - id.clientHeight - 20;
+		console.log("windowSize",windowSize);
 		console.log("show",self.history[uid].top,self.history[uid].left);
 		self.addRule(uid, function(){
 			id.style.top = self.history[uid].top+"px";
