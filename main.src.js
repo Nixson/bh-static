@@ -502,9 +502,11 @@ var bHelp = function(animate,win,doc){
 		var clientHeight = id.clientHeight;
 		if(left + clientWidth + 10 > width){
 			self.id("#cBh_frame").style.left = (width - 10 - clientWidth) + 'px';
+			self.id("#cBh_Header").style.left = (width - 10 - clientWidth) + 'px';
 		}
 		if(top + clientHeight + 10 > height){
-			self.id("#cBh_frame").style.left = (height - 10 - clientHeight) + 'px';
+			self.id("#cBh_frame").style.top = (height - 10 - clientHeight) + 'px';
+			self.id("#cBh_Header").style.top = (height - 10 - clientHeight) + 'px';
 		}
 
 	};
