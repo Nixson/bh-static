@@ -489,11 +489,18 @@ var bHelp = function(animate,win,doc){
 		}
 		self.doc.body.appendChild(cBhBlock);
 		var cBh_Header = document.createElement('div'); cBh_Header.id = 'cBh_Header';
+		cBh_Header.innerHTML = '<div id="cMil_FrameClose" onclick="bhelp.lineShow();"></div><div id="cMil_FrameSound" onclick="bhelp.soundCheck();"></div>';
 		self.doc.body.appendChild(cBh_Header);
 		self.showLine();
 		self.on("#cMil_Line",'click',function(){self.fadeIn();});
 		self.animateParent.hide('#cBh_frame',{direction: self.direction.direction,hidden: true});
 		self.draggable('#cBh_frame','#cBh_Header');
+	};
+	self.lineShow = function(){
+		self.animateParent.hide('#cBh_frame',self.direction,function(){
+			self.shownFrame = false;
+			self.showLine();
+		});
 	};
 	self.draggable = function(element,header){
 		/*
@@ -1158,3 +1165,4 @@ var bHelp = function(animate,win,doc){
 	return self;
 };
 var bh = bHelp(animate,window.parent,window.parent.document);
+window.parent.bhelp = bh;
