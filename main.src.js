@@ -393,8 +393,9 @@ var bHelp = function(animate,win,doc){
 			var direction = {};
 			var windowSize = {width: self.win.innerWidth, height: self.win.innerHeight};
 			var id = self.id('#cMil_Line');
-			if(id.clientHeight == 0)
-				id.clientHeight = 264;
+			var height = parseInt(id.clientHeight);
+			if(height == 0)
+				height = 264;
 			switch(self.get.ps){
 				case 1: direction = {direction: "downRight"}; break;
 				case 2: direction = {direction: "downLeft"}; break;
