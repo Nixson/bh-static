@@ -541,6 +541,7 @@ var bHelp = function(animate,win,doc){
 			if(dragOb.avatar){
 				var top = parseInt(dragOb.avatar.style.top.split("px").join(''));
 				var left = parseInt(dragOb.avatar.style.left.split("px").join(''));
+				console.log("mouseup",top,left);
 				self.Storage.set("cBh_StrLinePtop",top);
 				self.Storage.set("cBh_StrLinePleft",left);
 			}
