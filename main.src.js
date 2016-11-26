@@ -203,7 +203,7 @@ var bHelp = function(animate,win,doc){
 	self.get = {};
 	self.Storage = {
 		get: function(element,def){ var el = localStorage.getItem(element); if(el==null) return def; return el;},
-		set: function(element,value){}
+		set: function(element,value){localStorage.setItem(element,value);}
 	};
 	self.id = function(uid){
 		if(typeof uid == 'object')
