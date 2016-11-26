@@ -402,10 +402,15 @@ var bHelp = function(animate,win,doc){
 			switch(self.get.ps){
 				case 1: direction = {direction: "downRight"}; break;
 				case 2: direction = {direction: "downLeft"}; break;
-				case 3: direction = {top: (windowSize.height - height)/2, left:  0, ignore: true}; break;
+				case 3: direction = {top: (windowSize.height - height)/2, left:  0, ignore: true};
+						self.animateParent.styles('#cMil_Line',{top: direction.top, left: direction.left});
+						break;
 				case 4: direction = {direction: "upLeft"}; break;
 				case 5: direction = {direction: "upRight"}; break;
-				case 6: direction = {top: (windowSize.height - height)/2, left:  (windowSize.width - width), ignore: true }; break;
+				case 6: 
+						direction = {top: (windowSize.height - height)/2, left:  (windowSize.width - width), ignore: true };
+						self.animateParent.styles('#cMil_Line',{top: direction.top, left: direction.left});
+					 	break;
 			}
 			console.log("showLine",direction,windowSize.height,height);
 			self.animateParent.show('#cMil_Line',direction);
