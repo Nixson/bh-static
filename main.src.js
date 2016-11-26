@@ -559,14 +559,18 @@ var bHelp = function(animate,win,doc){
 			}
 			var top = (e.clientY - dragOb.dragY);
 			var left = (e.clientX - dragOb.dragX);
-			if(top > 10 && top < (self.height() - dragOb.avatar.clientHeight) - 10) {
-				dragOb.avatar.style.top =  top + 'px';
-				dragOb.elemHeader.style.top = top + "px";
-			}
-			if(left > 10 && left < (self.width() - dragOb.avatar.clientWidth) - 10) {
-				dragOb.avatar.style.left = left + 'px';
-				dragOb.elemHeader.style.left = left + "px";
-			}
+			if(top < 10)
+				top = 10;
+			if(left < 10)
+				left = 10;
+			if(top > (self.height() - dragOb.avatar.clientHeight) - 10)
+				top = (self.height() - dragOb.avatar.clientHeight) - 10;
+			if(left > (self.width() - dragOb.avatar.clientWidth) - 10)
+				left = (self.width() - dragOb.avatar.clientWidth) - 10;
+			dragOb.avatar.style.top =  top + 'px';
+			dragOb.elemHeader.style.top = top + "px";
+			dragOb.avatar.style.left = left + 'px';
+			dragOb.elemHeader.style.left = left + "px";
 		});
 		self.on(self.doc,'mouseup',function(e){
 			if(dragOb.elemHeader)
