@@ -190,6 +190,7 @@ var bHelp = function(animate,win,doc){
 		onText:""
 	};
 	self.tpl = function(type, insertObj){
+		console.log(insertObj);
 		switch(type){
 			case "client":
 						return '<dl class="cMil_p" id="cBh' + insertObj.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + insertObj.text + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>';
@@ -799,6 +800,7 @@ var bHelp = function(animate,win,doc){
 		if(resp){
 			for(var index in resp){
 				var val = resp[index];
+				self.log(resp,index,val);
 				var muid = val.uid;
 				if(self.msgList[muid] == undefined) {
 					msgList[muid] = val;
@@ -809,12 +811,12 @@ var bHelp = function(animate,win,doc){
 						cntMy++;
 						if(val.bot == undefined || val.bot == 0) {
 							if(self.id('#cBh'+val.uid)==null){
-								respContent += self.tpl("client",{"uid":val.uid,text:val.text.split('[nr]').join("\n")});
+								respContent += self.tpl("client",{uid:val.uid,text:val.text.split('[nr]').join("\n")});
 							}
 						}
 					} else {
 						if(self.id('#cBh'+val.uid)==null){
-							respContent += self.tpl("manager",{"uid":val.uid,text:val.text.split('[nr]').join("\n")});
+							respContent += self.tpl("manager",{uid:val.uid,text:val.text.split('[nr]').join("\n")});
 						}
 					}
 					cnt++;
@@ -871,12 +873,13 @@ var bHelp = function(animate,win,doc){
 			var respContent = '';
 			for(var id in self.msgList){
 				var content = self.msgList[id];
+				self.log("reMessage",content);
 				if(content.who == '0'){
 					if(content.bot == undefined || content.bot == 0)
-						respContent += self.tpl("client",{"uid":content.uid,text:content.text.split('[nr]').join("\n")});
+						respContent += self.tpl("client",{uid:content.uid,text:content.text.split('[nr]').join("\n")});
 				}
 				else {
-					respContent += self.tpl("manager",{"uid":content.uid,text:content.text.split('[nr]').join("\n")});
+					respContent += self.tpl("manager",{uid:content.uid,text:content.text.split('[nr]').join("\n")});
 				}
 			}
 			self.id('#cMil_content').innerHTML = respContent;
