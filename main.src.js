@@ -394,17 +394,20 @@ var bHelp = function(animate,win,doc){
 			var windowSize = {width: self.win.innerWidth, height: self.win.innerHeight};
 			var id = self.id('#cMil_Line');
 			var height = parseInt(id.clientHeight);
+			var width = parseInt(id.clientWidth);
 			if(height == 0)
 				height = 264;
+			if(width == 0)
+				width = 43;
 			switch(self.get.ps){
 				case 1: direction = {direction: "downRight"}; break;
 				case 2: direction = {direction: "downLeft"}; break;
-				case 3: direction = {top: (windowSize.height - id.clientHeight)/2, left:  0, ignore: true}; break;
+				case 3: direction = {top: (windowSize.height - height)/2, left:  0, ignore: true}; break;
 				case 4: direction = {direction: "upLeft"}; break;
 				case 5: direction = {direction: "upRight"}; break;
-				case 6: direction = {top: (windowSize.height - id.clientHeight)/2, left:  (windowSize.width - id.clientWidth), ignore: true }; break;
+				case 6: direction = {top: (windowSize.height - height)/2, left:  (windowSize.width - width), ignore: true }; break;
 			}
-			console.log("showLine",direction,windowSize.height,id.clientHeight);
+			console.log("showLine",direction,windowSize.height,height);
 			self.animateParent.show('#cMil_Line',direction);
 			self.LineLock = true;
 		};
