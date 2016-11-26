@@ -531,6 +531,12 @@ var bHelp = function(animate,win,doc){
 		self.on(self.doc,'mouseup',function(e){
 			if(dragOb.elemHeader)
 				dragOb.elemHeader.style.height = '95px';
+			if(dragOb.avatar){
+				var top = parseInt(dragOb.avatar.style.top.split("px").join(''));
+				var left = parseInt(dragOb.avatar.style.left.split("px").join(''));
+				self.Storage.set("cBh_StrLinePtop",top);
+				self.Storage.set("cBh_StrLinePleft",left);
+			}
 			dragOb = {};
 		});
 	};
@@ -595,7 +601,7 @@ var bHelp = function(animate,win,doc){
 
 	self.activeOffline = function(){
 		//Активатор оффлайн
-			if(self.online) return;	
+			if(self.online || self.shownFrame) return;
 			if(self.get.activ_type_off!=1) return;
 			setTimeout(function () {
 				if( !self.LineLock && !self.Storage.get('cBh_noAction',false)) {
