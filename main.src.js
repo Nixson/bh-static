@@ -424,8 +424,9 @@ var bHelp = function(animate,win,doc){
 		self.firstTime = self.Storage.get('bhelp_firstTimes',0);
 		self.managerList = JSON.parse(self.Storage.get('bhelp_managerList','{}'));
 		self.activator = (self.Storage.get('cBh_Active',0) == 1) ? true : false;
-		self.sound = (self.Storage.get('cBh_sound',1) == 1) ? true : false;
-		self.animate.style('#cMil_Online_headerSound','opacity',0.3);
+		self.sound = (self.Storage.get('cBh_sound','1') == '1') ? true : false;
+		if(!self.sound)
+			self.animate.style('#cMil_Online_headerSound','opacity',0.3);
 		self.initLine();
 		self.tr = JSON.parse(self.Storage.get('cBh_triggers','[]'));
 		if(self.tr.length > 0)
@@ -546,9 +547,11 @@ var bHelp = function(animate,win,doc){
 		if(self.sound){
 			self.animate.style('#cMil_Online_headerSound','opacity',0.3);
 			self.sound = false;
+			self.Storage.set('cBh_sound','0');
 		} else {
 			self.animate.style('#cMil_Online_headerSound','opacity',1);
 			self.sound = true;
+			self.Storage.set('cBh_sound','1');
 		}
 	};
 	self.draggable = function(element,header){
