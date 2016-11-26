@@ -487,6 +487,26 @@ var bHelp = function(animate,win,doc){
 		*/
 		self.on(self.win,'focusin focus mouseenter',function(){self.onFocus();});
 		self.on(self.win,'focusout blur mouseleave',function(){self.onBlur();});
+		self.on(self.win,'resize',function(){
+			self.reposition();
+		});
+	};
+	self.reposition = function(){
+		if(!self.shownFrame) return;
+		var width = self.width();
+		var height = self.height();
+		var id = self.id("#cBh_frame");
+		var top = parseInt(id.style.top);
+		var left = parseInt(id.style.left);
+		var clientWidth = id.clientWidth;
+		var clientHeight = id.clientHeight;
+		if(left + clientWidth + 10 > width){
+			self.id("#cBh_frame").style.left = (width - 10 - clientWidth) + 'px';
+		}
+		if(top + clientHeight + 10 > height){
+			self.id("#cBh_frame").style.left = (height - 10 - clientHeight) + 'px';
+		}
+
 	};
 	self.insertLine = function(code) {var style = document.createElement('style'); style.type = 'text/css'; if(style.styleSheet) {style.styleSheet.cssText = code;} else style.innerHTML = code; self.doc.getElementsByTagName('head')[0].appendChild( style );};
 	self.initLine = function(){
