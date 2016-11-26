@@ -391,7 +391,7 @@ var bHelp = function(animate,win,doc){
 		self.showLine = function(){
 			self.log("showLine");
 			var direction = {};
-			var windowSize = {width: self.win.innerWidth, height: self.win.innerHeight};
+			var windowSize = {width: self.width(), height: self.height()};
 			var id = self.id('#cMil_Line');
 			var height = parseInt(id.clientHeight);
 			var width = parseInt(id.clientWidth);
@@ -618,10 +618,10 @@ var bHelp = function(animate,win,doc){
 	};
 
 	self.width = function(){
-		return self.win.innerWidth;
+		return self.win.document.body.clientWidth || self.win.innerWidth;
 	};
 	self.height = function(){
-		return self.win.innerHeight;
+		return self.win.document.body.clientHeight || self.win.innerHeight;
 	};
 
 	self.activeOnline = function(){
