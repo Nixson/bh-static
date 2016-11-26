@@ -401,6 +401,7 @@ var bHelp = function(animate,win,doc){
 				case 5: direction = {direction: "upRight"}; break;
 				case 6: direction = {top: (windowSize.height - id.clientHeight)/2, left:  (windowSize.width - id.clientWidth), ignore: true }; break;
 			}
+			console.log(direction);
 			self.animateParent.show('#cMil_Line',direction);
 			self.LineLock = true;
 		};
