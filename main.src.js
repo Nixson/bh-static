@@ -133,13 +133,13 @@ var animate = function (doc, win) {
 		}
 		self.history[uid].top = parseInt(self.history[uid].top);
 		self.history[uid].left = parseInt(self.history[uid].left);
-		console.log("show",self.history[uid].top,self.history[uid].left);
 		var windowSize = {width: win.innerWidth, height: win.innerHeight};
-		if(windowSize.width < self.history[uid].left+id.clientWidth)
-			self.history[uid].left = windowSize.width - id.clientWidth - 20;
-		if(windowSize.height < self.history[uid].top+id.clientHeight)
-			self.history[uid].top = windowSize.height - id.clientHeight - 20;
-		console.log("windowSize",windowSize,id.clientWidth,id.clientHeight);
+		if(!position.ignore){
+			if(windowSize.width < self.history[uid].left+id.clientWidth)
+				self.history[uid].left = windowSize.width - id.clientWidth - 20;
+			if(windowSize.height < self.history[uid].top+id.clientHeight)
+				self.history[uid].top = windowSize.height - id.clientHeight - 20;
+		}
 		console.log("show",self.history[uid].top,self.history[uid].left);
 		self.addRule(uid, function(){
 			id.style.top = self.history[uid].top+"px";
@@ -956,7 +956,7 @@ var bHelp = function(animate,win,doc){
 			self.trOpen = true;
 			self.signal({trigger:'Open'});
 		}
-		self.animate.show('#cMil_Offline_Rel',{top:0, left: 0});
+		self.animate.show('#cMil_Offline_Rel',{top:0, left: 0, ignore: true});
 		self.animateParent.show('#cBh_frame',{top: top, left: left});
 		self.animateParent.show('#cBh_Header',{top: top, left: left});
 		self.log("OFfadeIn",top,left);
