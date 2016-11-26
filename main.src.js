@@ -952,7 +952,7 @@ var bHelp = function(animate,win,doc){
 	};
 	self.offMsg = function () {
 		self.animate.styles('#cMil_Offline_Ok',{'display': 'block'});
-		self.animate.hide('#cMil_Offline_Hide',{hidden:true,top: -100; left: -100});
+		self.animate.hide('#cMil_Offline_Hide',{hidden:true,top: -100, left: -100});
 	};
 	self.fadeIn = function (status) {
 		self.log("fadeIn");
