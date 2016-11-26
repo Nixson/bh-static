@@ -557,10 +557,16 @@ var bHelp = function(animate,win,doc){
 				}
 				dragOb.avatar = dragOb.elem;
 			}
-			dragOb.avatar.style.left = (e.clientX - dragOb.dragX) + 'px';
-			dragOb.avatar.style.top =  (e.clientY - dragOb.dragY) + 'px';
-			dragOb.elemHeader.style.left = (e.clientX - dragOb.dragX) + "px";
-			dragOb.elemHeader.style.top = (e.clientY - dragOb.dragY) + "px";
+			var top = (e.clientY - dragOb.dragY);
+			var left = (e.clientX - dragOb.dragX);
+			if(top > 20 && top < (self.height() - dragOb.avatar.clientHeight) - 20) {
+				dragOb.avatar.style.top =  top + 'px';
+				dragOb.elemHeader.style.top = top + "px";
+			}
+			if(left > 20 && left < (self.width() - dragOb.avatar.clientWidth) - 20) {
+				dragOb.avatar.style.left = left + 'px';
+				dragOb.elemHeader.style.left = left + "px";
+			}
 		});
 		self.on(self.doc,'mouseup',function(e){
 			if(dragOb.elemHeader)
