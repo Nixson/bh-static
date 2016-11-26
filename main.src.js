@@ -294,16 +294,17 @@ var bHelp = function(animate,win,doc){
 		}
 		self.toUrl = function(data){return Object.keys(data).map(function(k) {return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])}).join('&')};
 		self.post = function(uri,data,callback){
+			self.log("post",uri);
 			var xhr = ("onload" in new XMLHttpRequest()) ? new XMLHttpRequest : new XDomainRequest;
 			xhr.open("POST", uri, true);
 			xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded; charset=UTF-8');
 			xhr.onreadystatechange = function(){
+				console.log("post",xhr.readyState);
 				if (xhr.readyState != 4) return;
 				if(typeof callback == 'function')
 					callback(xhr.responseText);
 			};
 			xhr.send(self.toUrl(data));
-			return xhr;
 		};
 		self.uri = function(uri,callback){
 			var xhr = ("onload" in new XMLHttpRequest()) ? new XMLHttpRequest : new XDomainRequest;
