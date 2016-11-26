@@ -53,6 +53,7 @@ var animate = function (doc, win) {
 	};
 	self.styles = function(uid,styles){
 		var id = self.id(uid);
+		console.log("styles",id,id.style);
 		if(id !== null) {
 			for(var name in styles) {
 				id.style[name] = styles[name];
