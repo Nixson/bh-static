@@ -119,7 +119,12 @@ var animate = function (doc, win) {
 		});
 		setTimeout(function(){
 			self.rmRule(uid);
-			id.style.opacity = 1;
+			if(style && style.hidden) {
+				id.style.opacity = 0;
+			}
+			else {
+				id.style.opacity = 1;
+			}
 			if(typeof callback == 'function')
 				callback();
 		},1100);
@@ -299,7 +304,6 @@ var bHelp = function(animate,win,doc){
 			xhr.open("POST", uri, true);
 			xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded; charset=UTF-8');
 			xhr.onreadystatechange = function(){
-				console.log("post",xhr.readyState);
 				if (xhr.readyState != 4) return;
 				if(typeof callback == 'function')
 					callback(xhr.responseText);
@@ -948,7 +952,7 @@ var bHelp = function(animate,win,doc){
 	};
 	self.offMsg = function () {
 		self.animate.styles('#cMil_Offline_Ok',{'display': 'block'});
-		self.animate.hide('#cMil_Offline_Hide');
+		self.animate.hide('#cMil_Offline_Hide',{hidden:true,top: -100; left: -100});
 	};
 	self.fadeIn = function (status) {
 		self.log("fadeIn");
