@@ -456,13 +456,7 @@ var bHelp = function(animate,win,doc){
 			Включение/отключение звука
 		*/
 		self.on('#cMil_Online_headerSound','click',function(){
-			if(self.sound){
-				self.animate.style('#cMil_Online_headerSound','opacity',0.3);
-				self.sound = false;
-			} else {
-				self.animate.style('#cMil_Online_headerSound','opacity',1);
-				self.sound = true;
-			}
+			self.soundCheck();
 		});
 		/*
 		Событие: выход из окна
@@ -501,6 +495,15 @@ var bHelp = function(animate,win,doc){
 			self.shownFrame = false;
 			self.showLine();
 		});
+	};
+	self.soundCheck = function(){
+		if(self.sound){
+			self.animate.style('#cMil_Online_headerSound','opacity',0.3);
+			self.sound = false;
+		} else {
+			self.animate.style('#cMil_Online_headerSound','opacity',1);
+			self.sound = true;
+		}
 	};
 	self.draggable = function(element,header){
 		/*
