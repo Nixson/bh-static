@@ -94,7 +94,7 @@ var animate = function (doc, win) {
 		id.style.position = 'fixed';
 		id.style.top = id.offsetTop+"px";
 		id.style.left = id.offsetLeft+"px";
-		if(style.hidden) {
+		if(style && style.hidden) {
 			id.style.opacity = 0;
 		} else {
 			id.style.opacity = 1;
@@ -946,7 +946,7 @@ var bHelp = function(animate,win,doc){
 	};
 	self.offMsg = function () {
 		self.animate.styles('#cMil_Offline_Ok',{'display': 'block'});
-		self.animate.styles('#cMil_Offline_Hide',{'display': 'node'});
+		self.animate.hide('#cMil_Offline_Hide');
 	};
 	self.fadeIn = function (status) {
 		self.log("fadeIn");
