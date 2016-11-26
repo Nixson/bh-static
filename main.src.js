@@ -396,10 +396,10 @@ var bHelp = function(animate,win,doc){
 			switch(self.get.ps){
 				case 1: direction = {direction: "downRight"}; break;
 				case 2: direction = {direction: "downLeft"}; break;
-				case 3: direction = {top: windowSize.height - id.clientHeight/2, left:  0}; break;
+				case 3: direction = {top: (windowSize.height - id.clientHeight)/2, left:  0}; break;
 				case 4: direction = {direction: "upLeft"}; break;
 				case 5: direction = {direction: "upRight"}; break;
-				case 6: direction = {top: windowSize.height - id.clientHeight/2, left:  windowSize.width - id.clientWidth}; break;
+				case 6: direction = {top: (windowSize.height - id.clientHeight)/2, left:  windowSize.width - id.clientWidth}; break;
 			}
 			self.animateParent.show('#cMil_Line',direction);
 			self.LineLock = true;
