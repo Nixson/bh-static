@@ -830,7 +830,7 @@ var bHelp = function(animate,win,doc){
 			}
 			self.animate.opacity('#cMil_content',0.2);
 			self.id('#cMil_content').innerHTML += respContent;
-			self.animate.style('#cMil_scroll','scrollTop',self.id('#cMil_content').clientHeight,'px');
+			self.id('#cMil_scroll').scrollTop = self.id('#cMil_content').clientHeight;
 			self.animate.opacity('#cMil_content',1);
 			if(self.shownFrame){
 				self.title();
@@ -891,7 +891,7 @@ var bHelp = function(animate,win,doc){
 				self.FormOn_TextArea = true;
 				self.id('#cMil_FormOn_TextArea textarea').setAttribute('placeholder','');
 			}
-			self.animate.style('#cMil_scroll','scrollTop',self.id('#cMil_content').clientHeight,'px');
+			self.id('#cMil_scroll').scrollTop = self.id('#cMil_content').clientHeight;
 		}
 	};
 	self.wOpenBlock = true;
@@ -1105,8 +1105,7 @@ var bHelp = function(animate,win,doc){
 			self.LastText = msg;
 			self.animate.opacity('#cMil_content',0.2);
 			self.id('#cMil_content').innerHTML += self.tpl("client",{uid: msgUid,text:msg});
-			console.log(self.id('#cMil_content').clientHeight);
-			self.animate.style('#cMil_scroll','scrollTop',self.id('#cMil_content').clientHeight,'px');
+			self.id('#cMil_scroll').scrollTop = self.id('#cMil_content').clientHeight;
 			self.animate.opacity('#cMil_content',1);
 			setTimeout(function () {
 				self.blockSend = true;
