@@ -52,7 +52,9 @@ var animate = function (doc, win) {
 		var id = self.id(uid); if(id !== null) id.style[styleName] = style + ((sub) ? sub : "");
 	};
 	self.styles = function(uid,styles){
-		var id = self.id(uid); if(id !== null) {
+		var id = self.id(uid);
+		console.log("styles",id);
+		if(id !== null) {
 			for(var name in styles)
 				id.style[name] = styles[name];
 		}
