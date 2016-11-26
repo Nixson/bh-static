@@ -183,26 +183,23 @@ var bHelp = function(animate,win,doc){
 	self.animateParent = animate(doc,win);
 	self.doc = doc;
 	self.win = win;
-	var blank = function(){
-		return {
-			offText:"",
-			offContact:"",
-			offName:"",
-			onText:"",
-			get: function(type, insertObj){
-				switch(type){
-					case "client":
-								return '<dl class="cMil_p" id="cBh' + insertObj.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + insertObj.text + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>';
-								break;
-					case "manager":
-								return '<dl class="cMil_u" id="cBh' + insertObj.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + insertObj.text + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>';
-								break;
-				}
-				return '';
-			}
-		}
+	self.blank = {
+		offText:"",
+		offContact:"",
+		offName:"",
+		onText:""
 	};
-	self.blank = blank;
+	self.blank.get = function(type, insertObj){
+		switch(type){
+			case "client":
+						return '<dl class="cMil_p" id="cBh' + insertObj.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + insertObj.text + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>';
+						break;
+			case "manager":
+						return '<dl class="cMil_u" id="cBh' + insertObj.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + insertObj.text + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>';
+						break;
+		}
+		return '';
+	};
 	self.get = {};
 	self.Storage = {
 		get: function(element,def){ var el = localStorage.getItem(element); if(el==null) return def; return el;},
