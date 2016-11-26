@@ -559,11 +559,11 @@ var bHelp = function(animate,win,doc){
 			}
 			var top = (e.clientY - dragOb.dragY);
 			var left = (e.clientX - dragOb.dragX);
-			if(top > 20 && top < (self.height() - dragOb.avatar.clientHeight) - 20) {
+			if(top > 10 && top < (self.height() - dragOb.avatar.clientHeight) - 10) {
 				dragOb.avatar.style.top =  top + 'px';
 				dragOb.elemHeader.style.top = top + "px";
 			}
-			if(left > 20 && left < (self.width() - dragOb.avatar.clientWidth) - 20) {
+			if(left > 10 && left < (self.width() - dragOb.avatar.clientWidth) - 10) {
 				dragOb.avatar.style.left = left + 'px';
 				dragOb.elemHeader.style.left = left + "px";
 			}
