@@ -189,7 +189,7 @@ var bHelp = function(animate,win,doc){
 		offName:"",
 		onText:""
 	};
-	self.blank.get = function(type, insertObj){
+	self.blank.tpl = function(type, insertObj){
 		switch(type){
 			case "client":
 						return '<dl class="cMil_p" id="cBh' + insertObj.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + insertObj.text + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>';
@@ -809,12 +809,12 @@ var bHelp = function(animate,win,doc){
 						cntMy++;
 						if(val.bot == undefined || val.bot == 0) {
 							if(self.id('#cBh'+val.uid)==null){
-								respContent += self.blank.get("client",{"uid":val.uid,text:val.text.split('[nr]').join("\n")});
+								respContent += self.blank.tpl("client",{"uid":val.uid,text:val.text.split('[nr]').join("\n")});
 							}
 						}
 					} else {
 						if(self.id('#cBh'+val.uid)==null){
-							respContent += self.blank.get("manager",{"uid":val.uid,text:val.text.split('[nr]').join("\n")});
+							respContent += self.blank.tpl("manager",{"uid":val.uid,text:val.text.split('[nr]').join("\n")});
 						}
 					}
 					cnt++;
@@ -873,10 +873,10 @@ var bHelp = function(animate,win,doc){
 				var content = self.msgList[id];
 				if(content.who == '0'){
 					if(content.bot == undefined || content.bot == 0)
-						respContent += self.blank.get("client",{"uid":content.uid,text:content.text.split('[nr]').join("\n")});
+						respContent += self.blank.tpl("client",{"uid":content.uid,text:content.text.split('[nr]').join("\n")});
 				}
 				else {
-					respContent += self.blank.get("manager",{"uid":content.uid,text:content.text.split('[nr]').join("\n")});
+					respContent += self.blank.tpl("manager",{"uid":content.uid,text:content.text.split('[nr]').join("\n")});
 				}
 			}
 			self.id('#cMil_content').innerHTML = respContent;
@@ -1100,7 +1100,7 @@ var bHelp = function(animate,win,doc){
 			msg = msg.split("\n").join("<br />");
 			self.LastText = msg;
 			self.animate.opacity('#cMil_content',0.2);
-			self.id('#cMil_content').innerHTML += self.blank.get("client",{uid: msgUid,text:msg});
+			self.id('#cMil_content').innerHTML += self.blank.tpl("client",{uid: msgUid,text:msg});
 			self.animate.style('#cMil_scroll','scrollTop',self.id('#cMil_content').clientHeight,'px');
 			self.animate.opacity('#cMil_content',1);
 			setTimeout(function () {
