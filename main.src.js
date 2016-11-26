@@ -183,23 +183,26 @@ var bHelp = function(animate,win,doc){
 	self.animateParent = animate(doc,win);
 	self.doc = doc;
 	self.win = win;
-	self.blank = {
-		offText:"",
-		offContact:"",
-		offName:"",
-		onText:"",
-		get: function(type, insertObj){
-		switch(type){
-			case "client":
-						return '<dl class="cMil_p" id="cBh' + insertObj.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + insertObj.text + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>';
-						break;
-			case "manager":
-						return '<dl class="cMil_u" id="cBh' + insertObj.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + insertObj.text + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>';
-						break;
-		}
-		return '';
+	var blank = function(){
+		return {
+			offText:"",
+			offContact:"",
+			offName:"",
+			onText:"",
+			get: function(type, insertObj){
+				switch(type){
+					case "client":
+								return '<dl class="cMil_p" id="cBh' + insertObj.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + insertObj.text + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>';
+								break;
+					case "manager":
+								return '<dl class="cMil_u" id="cBh' + insertObj.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + insertObj.text + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>';
+								break;
+				}
+				return '';
+			}
 		}
 	};
+	self.blank = blank;
 	self.get = {};
 	self.Storage = {
 		get: function(element,def){ var el = localStorage.getItem(element); if(el==null) return def; return el;},
@@ -935,7 +938,7 @@ var bHelp = function(animate,win,doc){
 		self.id('#cMil_Online_header p span').innerHTML = managerText;
 		self.id('#cMil_content').innerHTML = '';
 		self.animate.show('#cMil_Online_Rel',{top:0, left: 0},function(){
-			_this.reMessage();
+			self.reMessage();
 		});
 		self.animateParent.show('#cBh_frame',{top: top, left: left});
 		self.animateParent.show('#cBh_Header',{top: top, left: left});
