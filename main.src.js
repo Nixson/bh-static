@@ -514,7 +514,8 @@ var bHelp = function(animate,win,doc){
 			dragOb.elemHeader.style.top = (e.clientY - dragOb.dragY) + "px";
 		});
 		self.on(self.doc,'mouseup',function(e){
-			dragOb.elemHeader.style.height = '95px';
+			if(dragOb.elemHeader)
+				dragOb.elemHeader.style.height = '95px';
 			dragOb = {};
 		});
 	};
