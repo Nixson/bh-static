@@ -700,7 +700,7 @@ var bHelp = function(animate,win,doc){
 			self.log("activeOnline",true);
 			setTimeout(function () {
 			    self.log("activeOnline",!self.LineLock,!self.Storage.get('cBh_noAction',false));
-				if( !self.LineLock && !self.Storage.get('cBh_noAction',false)) {
+				if( self.LineLock && !self.Storage.get('cBh_noAction',false)) {
 					if(self.get.activ_type == 1){
 						var left = 10;
 						var id = self.id('#cBh_frame');
@@ -731,7 +731,7 @@ var bHelp = function(animate,win,doc){
 			if(self.online || (self.shownFrame!=undefined || self.shownFrame)) return;
 			if(self.get.activ_type_off!=1) return;
 			setTimeout(function () {
-				if( !self.LineLock && !self.Storage.get('cBh_noAction',false)) {
+				if( self.LineLock && !self.Storage.get('cBh_noAction',false)) {
 					var left = 10;
 					var id = self.id('#cBh_frame');
 					id.style.height = self.ActiveHeight+"px";
