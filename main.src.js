@@ -694,6 +694,7 @@ var bHelp = function(animate,win,doc){
 
 	self.activeOnline = function(){
 		//Активатор онлайл
+			self.log("activeOnline",self.online, self.shownFrame);
 			if(!self.online || self.shownFrame) return;
 			if(self.get.activ_type < 1) return;
 			setTimeout(function () {
