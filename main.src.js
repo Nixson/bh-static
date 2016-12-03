@@ -694,28 +694,33 @@ var bHelp = function(animate,win,doc){
 
 	self.activeOnline = function(){
 		//Активатор онлайл
-			if(self.online || self.shownFrame) return;
-			if(self.get.activ_type_off!=1) return;
+			if(!self.online || self.shownFrame) return;
+			if(self.get.activ_type < 1) return;
 			setTimeout(function () {
 				if( !self.LineLock && !self.Storage.get('cBh_noAction',false)) {
-					var left = 10;
-					var id = self.id('#cBh_frame');
-					id.style.height = self.ActiveHeight+"px";
-					if(self.get.ps==1 || self.get.ps==5 || self.get.ps==6){
-						left = self.width() - id.clientWidth - 10;
-					}
-					var top = self.height() - self.ActiveHeight - 10;
-					self.log("activeOnline",left,top);
-					self.hideLine(function(){
-						self.animateParent.show('#cBh_frame',{left: left, top: top});
-						self.animateParent.show('#cBh_Header',{left: left, top: top});
-						self.shownFrame = true;
-						self.animate.show('#cMil_action',function(){
-							self.actionAnimate('#cMil_action');
+					if(self.get.activ_type == 1){
+						var left = 10;
+						var id = self.id('#cBh_frame');
+						id.style.height = self.ActiveHeight+"px";
+						if(self.get.ps==1 || self.get.ps==5 || self.get.ps==6){
+							left = self.width() - id.clientWidth - 10;
+						}
+						var top = self.height() - self.ActiveHeight - 10;
+						self.log("activeOnline",left,top);
+						self.hideLine(function(){
+							self.animateParent.show('#cBh_frame',{left: left, top: top});
+							self.animateParent.show('#cBh_Header',{left: left, top: top});
+							self.shownFrame = true;
+							self.animate.show('#cMil_action',function(){
+								self.actionAnimate('#cMil_action');
+							});
 						});
-					});
+					}
+					else {
+						self.fadeIn();
+					}
 				}
-			}, self.get.active_time_off * 1000);
+			}, self.get.active_time_t1 * 1000);
 	};
 
 	self.activeOffline = function(){
