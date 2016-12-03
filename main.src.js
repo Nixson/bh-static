@@ -179,6 +179,7 @@ var bHelp = function(animate,win,doc){
 	var self = this;
 	self.debug = true;
 	self.FrameHeight = 351;
+	self.ActiveHeight = 132;
 	self.animate = animate(document,window);
 	self.animateParent = animate(doc,win);
 	self.doc = doc;
@@ -677,10 +678,11 @@ var bHelp = function(animate,win,doc){
 				if( !self.LineLock && !self.Storage.get('cBh_noAction',false)) {
 					var left = 20;
 					var id = self.id('#cBh_frame');
+					id.style.height = self.ActiveHeight+"px";
 					if(self.get.ps==1 || self.get.ps==5 || self.get.ps==6){
 						left = self.width() - id.clientWidth - 20;
 					}
-					var top = self.height() - id.clientHeight - 20;
+					var top = self.height() - self.ActiveHeight - 20;
 					self.log("activeOffline",left,top);
 					self.hideLine(function(){
 						self.animateParent.show('#cBh_frame',{left: left, top: top});
@@ -956,7 +958,7 @@ var bHelp = function(animate,win,doc){
 		var lineTop = self.Storage.get('cBh_StrLinePtop',top);
 		if(lineTop < top)
 			top = lineTop;
-		id.style.height = FrameHeight+"px";
+		id.style.height = self.FrameHeight+"px";
 		var managerText,managerImg;
 		if(self.mid == 0) {
 			for(var i in self.managerList){
@@ -1065,7 +1067,7 @@ var bHelp = function(animate,win,doc){
 		var lineTop = self.Storage.get('cBh_StrLinePtop',top);
 		if(lineTop < top)
 			top = lineTop;
-		id.style.height = FrameHeight+"px";
+		id.style.height = self.FrameHeight+"px";
 
 		if(!self.trOpen) {
 			self.trOpen = true;
