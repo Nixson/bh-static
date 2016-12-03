@@ -53,11 +53,9 @@ var animate = function (doc, win) {
 	};
 	self.styles = function(uid,styles){
 		var id = self.id(uid);
-		console.log("styles",id,id.style);
 		if(id !== null) {
 			for(var name in styles) {
 				id.style[name] = styles[name];
-				console.log("styles",id.style[name],name,styles[name]);
 			}
 		}
 	};
@@ -157,7 +155,6 @@ var animate = function (doc, win) {
 			if(windowSize.height < self.history[uid].top+id.clientHeight)
 				self.history[uid].top = windowSize.height - id.clientHeight - 20;
 		}
-		console.log("show",self.history[uid].top,self.history[uid].left);
 		self.addRule(uid, function(){
 			id.style.top = self.history[uid].top+"px";
 			id.style.left = self.history[uid].left+"px";
@@ -191,7 +188,7 @@ var bHelp = function(animate,win,doc){
 		onText:""
 	};
 	self.tpl = function(type, insertObj){
-		console.log(insertObj);
+		self.log(insertObj);
 		switch(type){
 			case "client":
 						return '<dl class="cMil_p" id="cBh' + insertObj.uid + '"><i></i><b></b><q></q><rb></rb><sub></sub><dd><dl><dt><small><span>' + insertObj.text + '</span></small></dt></dl></dd></dl><span class="cMil_cSeparate"></span>';
@@ -415,7 +412,7 @@ var bHelp = function(animate,win,doc){
 						self.animateParent.styles('#cMil_Line',{top: direction.top, left: direction.left});
 					 	break;
 			}
-			console.log("showLine",direction,windowSize.height,height);
+			self.log("showLine",direction,windowSize.height,height);
 			self.animateParent.show('#cMil_Line',direction);
 			self.LineLock = true;
 		};
@@ -631,7 +628,7 @@ var bHelp = function(animate,win,doc){
 			if(dragOb.avatar){
 				var top = parseInt(dragOb.avatar.style.top.split("px").join(''));
 				var left = parseInt(dragOb.avatar.style.left.split("px").join(''));
-				console.log("mouseup",top,left);
+				self.log("mouseup",top,left);
 				self.Storage.set("cBh_StrLinePtop",top);
 				self.Storage.set("cBh_StrLinePleft",left);
 			}
@@ -732,7 +729,7 @@ var bHelp = function(animate,win,doc){
 			if(self.online || (self.shownFrame!=undefined || self.shownFrame)) return;
 			if(self.get.activ_type_off!=1) return;
 			setTimeout(function () {
-				console.log("activeOffline",self.LineLock);
+				self.log("activeOffline",self.LineLock);
 				if( self.LineLock && !self.Storage.get('cBh_noAction',false)) {
 					var left = 10;
 					var id = self.id('#cBh_frame');
