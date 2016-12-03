@@ -699,6 +699,7 @@ var bHelp = function(animate,win,doc){
 			if(self.get.activ_type < 1) return;
 			self.log("activeOnline",true);
 			setTimeout(function () {
+			    self.log("activeOnline",!self.LineLock,!self.Storage.get('cBh_noAction',false));
 				if( !self.LineLock && !self.Storage.get('cBh_noAction',false)) {
 					if(self.get.activ_type == 1){
 						var left = 10;
