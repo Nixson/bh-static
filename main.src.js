@@ -676,13 +676,13 @@ var bHelp = function(animate,win,doc){
 			if(self.get.activ_type_off!=1) return;
 			setTimeout(function () {
 				if( !self.LineLock && !self.Storage.get('cBh_noAction',false)) {
-					var left = 20;
+					var left = 10;
 					var id = self.id('#cBh_frame');
 					id.style.height = self.ActiveHeight+"px";
 					if(self.get.ps==1 || self.get.ps==5 || self.get.ps==6){
-						left = self.width() - id.clientWidth - 20;
+						left = self.width() - id.clientWidth - 10;
 					}
-					var top = self.height() - self.ActiveHeight - 20;
+					var top = self.height() - self.ActiveHeight - 10;
 					self.log("activeOffline",left,top);
 					self.hideLine(function(){
 						self.animateParent.show('#cBh_frame',{left: left, top: top});
