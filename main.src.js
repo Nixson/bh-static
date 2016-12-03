@@ -151,10 +151,14 @@ var animate = function (doc, win) {
 		var windowSize = {width: win.innerWidth, height: win.innerHeight};
 		if(!ignore){
 			if(windowSize.width < self.history[uid].left+id.clientWidth)
-				self.history[uid].left = windowSize.width - id.clientWidth - 20;
+				self.history[uid].left = windowSize.width - id.clientWidth - 10;
 			if(windowSize.height < self.history[uid].top+id.clientHeight)
-				self.history[uid].top = windowSize.height - id.clientHeight - 20;
+				self.history[uid].top = windowSize.height - id.clientHeight - 10;
 		}
+		if(self.history[uid].left < 0)
+			self.history[uid].left = 0;
+		if(self.history[uid].top < 0)
+			self.history[uid].top = 0;
 		self.addRule(uid, function(){
 			id.style.top = self.history[uid].top+"px";
 			id.style.left = self.history[uid].left+"px";
