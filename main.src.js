@@ -697,6 +697,7 @@ var bHelp = function(animate,win,doc){
 			self.log("activeOnline",self.online, self.shownFrame);
 			if(!self.online || (self.shownFrame!=undefined || self.shownFrame)) return;
 			if(self.get.activ_type < 1) return;
+			self.log("activeOnline",true);
 			setTimeout(function () {
 				if( !self.LineLock && !self.Storage.get('cBh_noAction',false)) {
 					if(self.get.activ_type == 1){
