@@ -390,6 +390,7 @@ var bHelp = function(animate,win,doc){
 				}
 			});
 		},
+		self.LineLock = false;
 		self.showLine = function(){
 			self.log("showLine");
 			var direction = {};
@@ -492,9 +493,9 @@ var bHelp = function(animate,win,doc){
 		});
 
 
-		self.LineLock = false;
 
 		self.hideLine = function(callback){
+			self.log("hideLine");
 			self.animateParent.hide('#cMil_Line',self.direction,callback);
 			self.LineLock = false;
 		}
