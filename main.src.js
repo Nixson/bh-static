@@ -995,20 +995,20 @@ var bHelp = function(animate,win,doc){
 		self.Storage.set('cBh_StrLine',1);
 		self.Storage.set('cBh_noAction',1);
 		self.hideLine();
-		var top = self.win.innerHeight - self.FrameHeight;
-		var left = 20;
+		var top = self.height() - self.FrameHeight;
+		var left = 10;
 		var id = self.id('#cBh_frame');
 		var lineLeft = self.Storage.get('cBh_StrLinePleft',left);
 		switch(self.get.ps){
 			case 1:
 			case 5:
 			case 6:
-					left = self.win.innerWidth - id.clientWidth - 20;
+					left = self.width() - id.clientWidth - 10;
 					if(lineLeft < left)
 						left = lineLeft;
 					break;
 			default:
-					if(lineLeft < (self.win.innerWidth - id.clientWidth - 20))
+					if(lineLeft < (self.width()- id.clientWidth - 10))
 						left = lineLeft;
 		}
 		var lineTop = self.Storage.get('cBh_StrLinePtop',top);
