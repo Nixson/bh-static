@@ -726,7 +726,7 @@ var bHelp = function(animate,win,doc){
 
 	self.activeOffline = function(){
 		//Активатор оффлайн
-			if(self.online || self.shownFrame) return;
+			if(self.online || self.shownFrame==undefined || self.shownFrame) return;
 			if(self.get.activ_type_off!=1) return;
 			setTimeout(function () {
 				if( !self.LineLock && !self.Storage.get('cBh_noAction',false)) {
