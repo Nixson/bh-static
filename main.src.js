@@ -465,8 +465,32 @@ var bHelp = function(animate,win,doc){
 			self.Storage.set('cBh_Active','0');
 			self.Storage.set('cBh_noAction', '1');
 			self.animate.hide('#cMil_stat',self.direction,function(){ self.showLine();});
+			self.signal({activator:0});
+		});
+
+		/*
+		Событие активатора: нажатие Ok
+		*/
+		self.on('#cMil_AbuttonOk','click',function(){
+			self.activator = true;
+			self.Storage.set('cBh_Active','1');
+			self.Storage.set('cBh_noAction', '1');
+			self.animate.hide('#cMil_action',self.direction);
+			self.animateParent.hide("#cBh_Header",self.direction);
+			self.animateParent.hide('#cBh_frame',self.direction,function(){self.shownFrame = false; self.fadeIn();});
 			self.signal({activator:1});
 		});
+		/*
+		Событие активатора: нажатие нет
+		*/
+		self.on('#cMil_AbuttonNo','click',function(){
+			self.activator = false;
+			self.Storage.set('cBh_Active','0');
+			self.Storage.set('cBh_noAction', '1');
+			self.animate.hide('#cMil_action',self.direction,function(){ self.showLine();});
+			self.signal({activator:0});
+		});
+
 
 		self.LineLock = false;
 
@@ -670,6 +694,28 @@ var bHelp = function(animate,win,doc){
 
 	self.activeOnline = function(){
 		//Активатор онлайл
+			if(self.online || self.shownFrame) return;
+			if(self.get.activ_type_off!=1) return;
+			setTimeout(function () {
+				if( !self.LineLock && !self.Storage.get('cBh_noAction',false)) {
+					var left = 10;
+					var id = self.id('#cBh_frame');
+					id.style.height = self.ActiveHeight+"px";
+					if(self.get.ps==1 || self.get.ps==5 || self.get.ps==6){
+						left = self.width() - id.clientWidth - 10;
+					}
+					var top = self.height() - self.ActiveHeight - 10;
+					self.log("activeOnline",left,top);
+					self.hideLine(function(){
+						self.animateParent.show('#cBh_frame',{left: left, top: top});
+						self.animateParent.show('#cBh_Header',{left: left, top: top});
+						self.shownFrame = true;
+						self.animate.show('#cMil_action',function(){
+							self.actionAnimate('#cMil_action');
+						});
+					});
+				}
+			}, self.get.active_time_off * 1000);
 	};
 
 	self.activeOffline = function(){
@@ -864,8 +910,8 @@ var bHelp = function(animate,win,doc){
 		}
 		if(cnt > 0 && self.online) {
 			if(!self.shownFrame && cntMy === 0) {
-				self.ONfadeIn();
 				self.animate.hide("#cMil_action",self.direction);
+				self.ONfadeIn();
 			}
 			self.animate.opacity('#cMil_content',0.2);
 			self.id('#cMil_content').innerHTML += respContent;
@@ -923,8 +969,8 @@ var bHelp = function(animate,win,doc){
 			}
 			self.id('#cMil_content').innerHTML = respContent;
 			if(!self.shownFrame){
-				self.ONfadeIn(1);
 				self.animate.hide('#cMil_action',self.direction);
+				self.ONfadeIn(1);
 			}
 			if(!self.FormOn_TextArea){
 				self.FormOn_TextArea = true;
