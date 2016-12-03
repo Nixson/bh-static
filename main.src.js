@@ -452,7 +452,8 @@ var bHelp = function(animate,win,doc){
 			self.activator = true;
 			self.Storage.set('cBh_Active','1');
 			self.Storage.set('cBh_noAction', '1');
-			self.animate.hide('#cMil_stat',self.direction,function(){ self.fadeIn();});
+			self.animate.hide('#cMil_stat',self.direction);
+			self.animateParent.hide('#cBh_frame',self.direction,function(){self.shownFrame = false; self.fadeIn();});
 			self.signal({activator:1});
 		});
 		/*
