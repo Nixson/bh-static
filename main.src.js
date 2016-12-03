@@ -466,7 +466,9 @@ var bHelp = function(animate,win,doc){
 			self.activator = false;
 			self.Storage.set('cBh_Active','0');
 			self.Storage.set('cBh_noAction', '1');
-			self.animate.hide('#cMil_stat',self.direction,function(){ self.showLine();});
+			self.animate.hide('#cMil_stat',self.direction);
+			self.animateParent.hide("#cBh_Header",self.direction);
+			self.animateParent.hide('#cBh_frame',self.direction,function(){self.shownFrame = false; self.showLine();});
 			self.signal({activator:0});
 		});
 
@@ -489,7 +491,9 @@ var bHelp = function(animate,win,doc){
 			self.activator = false;
 			self.Storage.set('cBh_Active','0');
 			self.Storage.set('cBh_noAction', '1');
-			self.animate.hide('#cMil_action',self.direction,function(){ self.showLine();});
+			self.animate.hide('#cMil_action',self.direction);
+			self.animateParent.hide("#cBh_Header",self.direction);
+			self.animateParent.hide('#cBh_frame',self.direction,function(){self.shownFrame = false; self.showLine();});
 			self.signal({activator:0});
 		});
 
