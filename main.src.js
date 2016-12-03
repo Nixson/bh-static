@@ -731,6 +731,7 @@ var bHelp = function(animate,win,doc){
 			if(self.online || (self.shownFrame!=undefined || self.shownFrame)) return;
 			if(self.get.activ_type_off!=1) return;
 			setTimeout(function () {
+				console.log("activeOffline",self.LineLock);
 				if( self.LineLock && !self.Storage.get('cBh_noAction',false)) {
 					var left = 10;
 					var id = self.id('#cBh_frame');
