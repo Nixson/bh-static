@@ -621,6 +621,7 @@ var bHelp = function(animate,win,doc){
 			self.repositionLine();
 			return;
 		}
+		self.isHideReposition();
 		var width = self.width();
 		var height = self.height();
 		var id = self.id("#cBh_frame");
