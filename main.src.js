@@ -82,6 +82,28 @@ var animate = function (doc, win) {
 				callback();
 		},1100);
 	};
+	self.win = win;
+	self.cWidth = function(){
+		var cw = 0;
+		if(self.win.document.body.clientWidth)
+			cw = self.win.document.body.clientWidth;
+		if(self.win.document.documentElement.clientWidth && cw > 0)
+			cw = Math.min(self.win.document.documentElement.clientWidth,cw);
+		if(self.win.innerWidth && cw > 0)
+			cw = Math.min(self.win.innerWidth,cw);
+		return cw;
+	};
+	self.cHeight = function(){
+		var cw = 0;
+		if(self.win.document.body.clientHeight)
+			cw = self.win.document.body.clientHeight;
+		if(self.win.document.documentElement.clientHeight && cw > 0)
+			cw = Math.min(self.win.document.documentElement.clientHeight,cw);
+		if(self.win.innerHeight && cw > 0)
+			cw = Math.min(self.win.innerHeight,cw);
+		return cw;
+	};
+
 	self.hide = function(uid,style,callback){
 		self.rmRule(uid);
 		var id = self.id(uid);
@@ -99,7 +121,7 @@ var animate = function (doc, win) {
 		}
 		id.style.display = 'block';
 		self.history[uid] = {top:id.offsetTop, left: id.offsetLeft};
-		var windowSize = {width: win.innerWidth, height: win.innerHeight};
+		var windowSize = {width: self.cWidth(), height: self.cHeight()};
 		if(style)
 			switch(style.direction){
 				case 'downLeft': top = windowSize.height+20; left = 20; break;
@@ -148,7 +170,7 @@ var animate = function (doc, win) {
 		}
 		self.history[uid].top = parseInt(self.history[uid].top);
 		self.history[uid].left = parseInt(self.history[uid].left);
-		var windowSize = {width: win.innerWidth, height: win.innerHeight};
+		var windowSize = {width: self.cWidth(), height: self.cHeight()};
 		if(!ignore){
 			if(windowSize.width < self.history[uid].left+id.clientWidth)
 				self.history[uid].left = windowSize.width - id.clientWidth - 10;
