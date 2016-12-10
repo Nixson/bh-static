@@ -181,7 +181,6 @@ var animate = function (doc, win) {
 			self.history[uid].left = 0;
 		if(self.history[uid].top < 0)
 			self.history[uid].top = 0;
-		console.log("show",self.history[uid].top,id.clientHeight,windowSize.height);
 		self.addRule(uid, function(){
 			id.style.top = self.history[uid].top+"px";
 			id.style.left = self.history[uid].left+"px";
@@ -427,16 +426,16 @@ var bHelp = function(animate,win,doc){
 			if(width == 0)
 				width = 43;
 			switch(self.get.ps){
-				case 1: direction = {direction: "downRight"}; break;
-				case 2: direction = {direction: "downLeft"}; break;
+				case 1: direction = {direction: "downRight",ignore: true}; break;
+				case 2: direction = {direction: "downLeft",ignore: true}; break;
 				case 3: direction = {top: (windowSize.height - height)/2, left:  0, ignore: true};
-						self.animateParent.styles('#cMil_Line',{top: direction.top, left: direction.left});
+						self.animateParent.styles('#cMil_Line',{top: direction.top, left: direction.left,ignore: true});
 						break;
-				case 4: direction = {direction: "upLeft"}; break;
-				case 5: direction = {direction: "upRight"}; break;
+				case 4: direction = {direction: "upLeft",ignore: true}; break;
+				case 5: direction = {direction: "upRight",ignore: true}; break;
 				case 6: 
 						direction = {top: (windowSize.height - height)/2, left:  (windowSize.width - width), ignore: true };
-						self.animateParent.styles('#cMil_Line',{top: direction.top, left: direction.left});
+						self.animateParent.styles('#cMil_Line',{top: direction.top, left: direction.left,ignore: true});
 					 	break;
 			}
 			self.log("showLine",direction,windowSize.height,height);
