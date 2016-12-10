@@ -548,6 +548,8 @@ var bHelp = function(animate,win,doc){
 		});
 	};
 	self.repositionLine = function(){
+		if(!self.LineLock)
+			return;
 		var width = self.width();
 		var height = self.height();
 		var id = self.id("#cMil_Line");
@@ -573,7 +575,6 @@ var bHelp = function(animate,win,doc){
 			id.style.top = (height - clientHeight) + 'px';
 		}
 		else {
-			console.log(height - clientHeight);
 			switch(self.direction.direction) {
 				case 'downLeft':
 				case 'downRight':
