@@ -171,12 +171,13 @@ var animate = function (doc, win) {
 		self.history[uid].top = parseInt(self.history[uid].top);
 		self.history[uid].left = parseInt(self.history[uid].left);
 		var windowSize = {width: self.cWidth(), height: self.cHeight()};
-		if(!ignore){
-			if(windowSize.width < self.history[uid].left+id.clientWidth+10)
-				self.history[uid].left = windowSize.width - id.clientWidth - 10;
-			if(windowSize.height < self.history[uid].top+id.clientHeight+10)
-				self.history[uid].top = windowSize.height - id.clientHeight - 10;
-		}
+		var cTd = 10;
+		if(ignore)
+			cTd = 0;
+		if(windowSize.width < self.history[uid].left+id.clientWidth+cTd)
+			self.history[uid].left = windowSize.width - id.clientWidth - cTd;
+		if(windowSize.height < self.history[uid].top+id.clientHeight+cTd)
+			self.history[uid].top = windowSize.height - id.clientHeight - cTd;
 		if(self.history[uid].left < 0)
 			self.history[uid].left = 0;
 		if(self.history[uid].top < 0)
@@ -429,13 +430,13 @@ var bHelp = function(animate,win,doc){
 				case 1: direction = {direction: "downRight",ignore: true}; break;
 				case 2: direction = {direction: "downLeft",ignore: true}; break;
 				case 3: direction = {top: (windowSize.height - height)/2, left:  0, ignore: true};
-						self.animateParent.styles('#cMil_Line',{top: direction.top, left: direction.left,ignore: true});
+						self.animateParent.styles('#cMil_Line',{top: direction.top, left: direction.left});
 						break;
 				case 4: direction = {direction: "upLeft",ignore: true}; break;
 				case 5: direction = {direction: "upRight",ignore: true}; break;
 				case 6: 
 						direction = {top: (windowSize.height - height)/2, left:  (windowSize.width - width), ignore: true };
-						self.animateParent.styles('#cMil_Line',{top: direction.top, left: direction.left,ignore: true});
+						self.animateParent.styles('#cMil_Line',{top: direction.top, left: direction.left});
 					 	break;
 			}
 			self.animateParent.show('#cMil_Line',direction);
