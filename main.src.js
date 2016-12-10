@@ -548,7 +548,6 @@ var bHelp = function(animate,win,doc){
 		});
 	};
 	self.isHideReposition = function(){
-		console.log("isHideReposition");
 		var width = self.width();
 		var height = self.height();
 		var id = self.id("#cMil_Line");
@@ -572,7 +571,6 @@ var bHelp = function(animate,win,doc){
 
 	};
 	self.repositionLine = function(){
-		console.log("repositionLine",self.LineLock);
 		if(!self.LineLock) {
 			self.isHideReposition();
 			return;
