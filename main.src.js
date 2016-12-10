@@ -692,10 +692,24 @@ var bHelp = function(animate,win,doc){
 	};
 
 	self.width = function(){
-		return self.win.document.body.clientWidth || self.win.innerWidth;
+		var cw = 0;
+		if(self.win.document.body.clientWidth)
+			cw = self.win.document.body.clientWidth;
+		if(self.win.document.documentElement.clientWidth && cw > 0)
+			cw = Math.min(self.win.document.documentElement.clientWidth,cw);
+		if(self.win.innerWidth && cw > 0)
+			cw = Math.min(self.win.innerWidth,cw);
+		return cw;
 	};
 	self.height = function(){
-		return self.win.document.body.clientHeight || self.win.innerHeight;
+		var cw = 0;
+		if(self.win.document.body.clientHeight)
+			cw = self.win.document.body.clientHeight;
+		if(self.win.document.documentElement.clientHeight && cw > 0)
+			cw = Math.min(self.win.document.documentElement.clientHeight,cw);
+		if(self.win.innerHeight && cw > 0)
+			cw = Math.min(self.win.innerHeight,cw);
+		return cw;
 	};
 
 	self.activeOnline = function(){
