@@ -547,9 +547,7 @@ var bHelp = function(animate,win,doc){
 			self.reposition();
 		});
 	};
-	self.repositionLine = function(){
-		if(!self.LineLock)
-			return;
+	self.isHideReposition = function(){
 		var width = self.width();
 		var height = self.height();
 		var id = self.id("#cMil_Line");
@@ -557,6 +555,34 @@ var bHelp = function(animate,win,doc){
 		var left = parseInt(id.style.left);
 		var clientWidth = id.clientWidth;
 		var clientHeight = id.clientHeight;
+			switch(self.direction.direction) {
+				case 'downLeft':
+				case 'downRight':
+							if(height > top) {
+								id.style.top = (height + clientHeight) + 'px';
+							}
+							break;
+				case 'right':
+							if(width > left)
+								id.style.left = (width + clientWidth) + 'px';
+							break;
+			}
+
+
+	};
+	self.repositionLine = function(){
+		if(!self.LineLock) {
+			self.isHideReposition();
+			return;
+		}
+		var width = self.width();
+		var height = self.height();
+		var id = self.id("#cMil_Line");
+		var top = parseInt(id.style.top);
+		var left = parseInt(id.style.left);
+		var clientWidth = id.clientWidth;
+		var clientHeight = id.clientHeight;
+
 		if(left + clientWidth > width){
 			id.style.left = (width - clientWidth) + 'px';
 		}
