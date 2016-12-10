@@ -172,10 +172,9 @@ var animate = function (doc, win) {
 		self.history[uid].left = parseInt(self.history[uid].left);
 		var windowSize = {width: self.cWidth(), height: self.cHeight()};
 		if(!ignore){
-			console.log("show",ignore,self.history[uid].top,id.clientHeight,windowSize.height);
-			if(windowSize.width < self.history[uid].left+id.clientWidth)
+			if(windowSize.width < self.history[uid].left+id.clientWidth+10)
 				self.history[uid].left = windowSize.width - id.clientWidth - 10;
-			if(windowSize.height < self.history[uid].top+id.clientHeight)
+			if(windowSize.height < self.history[uid].top+id.clientHeight+10)
 				self.history[uid].top = windowSize.height - id.clientHeight - 10;
 		}
 		if(self.history[uid].left < 0)
