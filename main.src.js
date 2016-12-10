@@ -181,6 +181,7 @@ var animate = function (doc, win) {
 			self.history[uid].left = 0;
 		if(self.history[uid].top < 0)
 			self.history[uid].top = 0;
+		console.log("show",self.history[uid].top,self.history[uid].left);
 		self.addRule(uid, function(){
 			id.style.top = self.history[uid].top+"px";
 			id.style.left = self.history[uid].left+"px";
