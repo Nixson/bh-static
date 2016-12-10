@@ -567,9 +567,7 @@ var bHelp = function(animate,win,doc){
 				case 'right':
 							id.style.left = (width - clientWidth) + 'px';
 							break;
-				case ''
 			}
-			;
 		}
 		if(top + clientHeight > height){
 			id.style.top = (height - clientHeight) + 'px';
