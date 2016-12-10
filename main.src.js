@@ -572,6 +572,7 @@ var bHelp = function(animate,win,doc){
 
 	};
 	self.repositionLine = function(){
+		console.log("repositionLine",self.LineLock);
 		if(!self.LineLock) {
 			self.isHideReposition();
 			return;
