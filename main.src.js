@@ -171,6 +171,7 @@ var animate = function (doc, win) {
 		self.history[uid].top = parseInt(self.history[uid].top);
 		self.history[uid].left = parseInt(self.history[uid].left);
 		var windowSize = {width: self.cWidth(), height: self.cHeight()};
+		console.log("show",ignore,self.history[uid].top,id.clientHeight,windowSize.height);
 		if(!ignore){
 			if(windowSize.width < self.history[uid].left+id.clientWidth)
 				self.history[uid].left = windowSize.width - id.clientWidth - 10;
