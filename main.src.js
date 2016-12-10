@@ -438,7 +438,6 @@ var bHelp = function(animate,win,doc){
 						self.animateParent.styles('#cMil_Line',{top: direction.top, left: direction.left,ignore: true});
 					 	break;
 			}
-			self.log("showLine",direction,windowSize.height,height);
 			self.animateParent.show('#cMil_Line',direction);
 			self.LineLock = true;
 		};
@@ -547,8 +546,27 @@ var bHelp = function(animate,win,doc){
 			self.reposition();
 		});
 	};
+	self.repositionLine = function(){
+		var width = self.width();
+		var height = self.height();
+		var id = self.id("#cMil_Line");
+		var top = parseInt(id.style.top);
+		var left = parseInt(id.style.left);
+		var clientWidth = id.clientWidth;
+		var clientHeight = id.clientHeight;
+		if(left + clientWidth > width){
+			id.style.left = (width - clientWidth) + 'px';
+		}
+		if(top + clientHeight > height){
+			id.style.top = (height - clientHeight) + 'px';
+		}
+
+	};
 	self.reposition = function(){
-		if(!self.shownFrame) return;
+		if(!self.shownFrame) {
+			self.repositionLine();
+			return;
+		}
 		var width = self.width();
 		var height = self.height();
 		var id = self.id("#cBh_frame");
@@ -557,11 +575,11 @@ var bHelp = function(animate,win,doc){
 		var clientWidth = id.clientWidth;
 		var clientHeight = id.clientHeight;
 		if(left + clientWidth + 10 > width){
-			self.id("#cBh_frame").style.left = (width - 10 - clientWidth) + 'px';
+			id.style.left = (width - 10 - clientWidth) + 'px';
 			self.id("#cBh_Header").style.left = (width - 10 - clientWidth) + 'px';
 		}
 		if(top + clientHeight + 10 > height){
-			self.id("#cBh_frame").style.top = (height - 10 - clientHeight) + 'px';
+			id.style.top = (height - 10 - clientHeight) + 'px';
 			self.id("#cBh_Header").style.top = (height - 10 - clientHeight) + 'px';
 		}
 
