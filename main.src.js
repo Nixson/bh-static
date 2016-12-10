@@ -558,6 +558,19 @@ var bHelp = function(animate,win,doc){
 		if(left + clientWidth > width){
 			id.style.left = (width - clientWidth) + 'px';
 		}
+		else {
+			switch(self.direction.direction) {
+				case 'downRight':
+				case 'upRight':
+							id.style.left = (width - clientWidth - 10) + 'px';
+							break;
+				case 'right':
+							id.style.left = (width - clientWidth) + 'px';
+							break;
+				case ''
+			}
+			;
+		}
 		if(top + clientHeight > height){
 			id.style.top = (height - clientHeight) + 'px';
 		}
