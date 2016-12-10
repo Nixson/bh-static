@@ -572,6 +572,28 @@ var bHelp = function(animate,win,doc){
 		if(top + clientHeight > height){
 			id.style.top = (height - clientHeight) + 'px';
 		}
+		else {
+/*
+				case 'downLeft': top = windowSize.height+10; left = 10; break;
+				case 'downRight': top = windowSize.height+10; left = windowSize.width - id.clientWidth-10; break;
+				case 'left': top = (windowSize.height - id.clientHeight)/2; left =  0 - id.clientWidth - 10; break;
+				case 'right': top = (windowSize.height - id.clientHeight)/2; left = windowSize.width + 10; break;
+				case 'upLeft': top = 0 - 10 - id.clientHeight; left = 10; break;
+				case 'upRight': top = 0 - 10 - id.clientHeight; left = windowSize.width - id.clientWidth-10; break;
+
+
+*/
+			switch(self.direction.direction) {
+				case 'downLeft':
+				case 'downRight':
+							id.style.top = (height - clientHeight) + 'px';
+							break;
+				case 'right':
+				case 'left':
+							id.style.top = ((height - clientHeight)/2) + 'px';
+							break;
+			}
+		}
 
 	};
 	self.reposition = function(){
