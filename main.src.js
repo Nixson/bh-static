@@ -827,6 +827,8 @@ var bHelp = function(animate,win,doc){
 							self.animateParent.show('#cBh_frame',{left: left, top: top});
 							self.animateParent.show('#cBh_Header',{left: left, top: top});
 							self.shownFrame = true;
+							var manager = self.getManagerInfo();
+							self.id('#cMil_action_Content_Img').setAttribute('src','data:image/png;base64,'+manager.img);
 							self.animate.show('#cMil_action',function(){
 								self.actionAnimate('#cMil_action');
 							});
@@ -1102,6 +1104,21 @@ var bHelp = function(animate,win,doc){
 		}
 	};
 	self.wOpenBlock = true;
+	self.getManagerInfo = function(callback){
+		var managerText,managerImg;
+		if(self.mid == 0) {
+			for(var i in self.managerList){
+				managerText = self.managerList[i].text;
+				managerImg = self.managerList[i].img.content;
+				break;
+			}
+		}
+		else {
+			managerText = self.managerList[self.mid].text;
+			managerImg = self.managerList[self.mid].img.content;
+		}
+		return {"text": managerText,"img",managerImg};
+	};
 	self.ONfadeIn = function (fast) {
 		if(self.shownFrame)
 			return;
@@ -1129,22 +1146,9 @@ var bHelp = function(animate,win,doc){
 		if(lineTop < top)
 			top = lineTop;
 		id.style.height = self.FrameHeight+"px";
-		var managerText,managerImg;
-		if(self.mid == 0) {
-			for(var i in self.managerList){
-				managerText = self.managerList[i].text;
-				managerImg = self.managerList[i].img.content;
-				break;
-			}
-		}
-		else {
-			managerText = self.managerList[self.mid].text;
-			managerImg = self.managerList[self.mid].img.content;
-		}
-		self.log("cMil_action_Content_Img",managerText);
-		self.id('#cMil_Online_headerManager').setAttribute('src','data:image/png;base64,'+managerImg);
-		self.id('#cMil_action_Content_Img').setAttribute('src','data:image/png;base64,'+managerImg);
-		self.id('#cMil_Online_header p span').innerHTML = managerText;
+		var manager = self.getManagerInfo();
+		self.id('#cMil_Online_headerManager').setAttribute('src','data:image/png;base64,'+manager.img);
+		self.id('#cMil_Online_header p span').innerHTML = manager.text;
 		self.id('#cMil_content').innerHTML = '';
 		self.animate.show('#cMil_Online_Rel',{top:0, left: 0},function(){
 			self.reMessage();
