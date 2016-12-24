@@ -1142,6 +1142,7 @@ var bHelp = function(animate,win,doc){
 			managerImg = self.managerList[self.mid].img.content;
 		}
 		self.id('#cMil_Online_headerManager').setAttribute('src','data:image/png;base64,'+managerImg);
+		self.id('#cMil_action_Content img').setAttribute('src','data:image/png;base64,'+managerImg);
 		self.id('#cMil_Online_header p span').innerHTML = managerText;
 		self.id('#cMil_content').innerHTML = '';
 		self.animate.show('#cMil_Online_Rel',{top:0, left: 0},function(){
