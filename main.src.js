@@ -1117,7 +1117,7 @@ var bHelp = function(animate,win,doc){
 			managerText = self.managerList[self.mid].text;
 			managerImg = self.managerList[self.mid].img.content;
 		}
-		return {"text": managerText,"img",managerImg};
+		return {"text": managerText,"img":managerImg};
 	};
 	self.ONfadeIn = function (fast) {
 		if(self.shownFrame)
