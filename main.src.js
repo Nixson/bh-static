@@ -1141,6 +1141,7 @@ var bHelp = function(animate,win,doc){
 			managerText = self.managerList[self.mid].text;
 			managerImg = self.managerList[self.mid].img.content;
 		}
+		self.log("cMil_action_Content_Img",managerText);
 		self.id('#cMil_Online_headerManager').setAttribute('src','data:image/png;base64,'+managerImg);
 		self.id('#cMil_action_Content_Img').setAttribute('src','data:image/png;base64,'+managerImg);
 		self.id('#cMil_Online_header p span').innerHTML = managerText;
